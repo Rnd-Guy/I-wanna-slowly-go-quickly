@@ -1,0 +1,240 @@
+[gd_scene load_steps=21 format=3 uid="uid://cja6216x82d8e"]
+
+[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_fytnh"]
+[ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_1mn8w"]
+[ext_resource type="AudioStream" uid="uid://cbtxeavsqivpn" path="res://Audio/Music/musLevel01.ogg" id="3_g8ebc"]
+[ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_se3ve"]
+[ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_nf663"]
+[ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_xra7u"]
+[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_qjnvk"]
+[ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_51pts"]
+[ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_21evy"]
+[ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_vol26"]
+[ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="10_81l3j"]
+[ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_ymjvb"]
+[ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_r7w4j"]
+[ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="13_7wiix"]
+[ext_resource type="Texture2D" uid="uid://ce764rqb8dydy" path="res://Graphics/Tiles/tilAllTiles.png" id="14_s816f"]
+[ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="16_4i4qp"]
+
+[sub_resource type="GDScript" id="GDScript_yrdkg"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# makes it so pausing also pauses music
+	$objRhythmPreviewer.play_sample()
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_jkg0g"]
+script/source = "extends Node2D
+
+var bpm: float = 98
+var seconds_per_beat: float = 60.0 / bpm # seconds per beat - 98bpm
+var speed = 300
+const block = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmBlock.tscn\")
+const block2 = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmBlock2.tscn\")
+
+var debug_metronome = preload(\"res://Audio/Sounds/sndCoin.wav\")
+
+enum {UP, DOWN}
+
+var notes = [
+	#[0, DOWN, 100],
+	#[1, UP, 100],
+	[2, DOWN, 100],
+	[3, DOWN, 100],
+	[4, DOWN, 100],
+	[5, UP, 100],
+	[9, DOWN, 600]
+]
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	for note in notes:
+		create_note2(note)
+		pass
+	
+	for i in range(100):
+		#create_note2([i,UP,100])
+		pass
+		
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func create_note(note):
+	#for i in range(3):
+		var note_block = block.instantiate()
+		add_child(note_block)
+		
+		var time_to_reach_middle = note[0] * seconds_per_beat
+		var distance = time_to_reach_middle * speed
+		var y
+		if note[1] == UP:
+			y = 300 + distance 
+			note_block.speed = -speed
+		elif note[1] == DOWN:
+			y = 300 - distance 
+			note_block.speed = speed
+		else:
+			print(\"error\")
+		
+		note_block.set_global_position(Vector2(note[2],y))
+
+func create_note2(note):
+	var note_block = block2.instantiate()
+	note_block.speed = speed
+	note_block.bpm = bpm
+	note_block.beat = note[0]
+	note_block.direction = \"up\"
+	note_block.x = note[2]
+	add_child(note_block)
+
+
+func _on_timer_timeout():
+	#print(\"beat\")
+	GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndCoin)
+	pass # Replace with function body.
+"
+
+[sub_resource type="GDScript" id="GDScript_ttpxu"]
+resource_name = "test"
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#sync_to_physics = false
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	global_translate(Vector2(500*delta,0))
+	pass
+
+
+var prev = 0
+
+func _on_timer_timeout():
+	#print(position.x - prev)
+	prev = position.x
+	pass # Replace with function body.
+
+
+# 500 speed ~ 105 pixels per second
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uiqn"]
+size = Vector2(32, 32)
+
+[node name="rTemplate" type="Node2D"]
+script = SubResource("GDScript_yrdkg")
+metadata/_edit_lock_ = true
+
+[node name="RhythmManager" type="Node2D" parent="."]
+script = SubResource("GDScript_jkg0g")
+
+[node name="Environment" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="til32x32" parent="Environment" instance=ExtResource("1_fytnh")]
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
+metadata/_edit_lock_ = true
+
+[node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_1mn8w")]
+position = Vector2(-16, 16)
+song_id = ExtResource("3_g8ebc")
+
+[node name="Room_related" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("3_se3ve")]
+position = Vector2(16, 16)
+anchor_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="objWarp" parent="Room_related" instance=ExtResource("4_nf663")]
+position = Vector2(736, 549)
+
+[node name="objPlayer" parent="Room_related" instance=ExtResource("5_xra7u")]
+position = Vector2(400, 295)
+
+[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_qjnvk")]
+position = Vector2(240, 144)
+
+[node name="Gimmicks" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Hazards" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="tilSpikes" parent="Hazards" instance=ExtResource("7_51pts")]
+metadata/_edit_lock_ = true
+
+[node name="Trigger_related" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="objSpeedMultiplier" parent="." instance=ExtResource("8_21evy")]
+position = Vector2(-96, 176)
+
+[node name="SpeedDamageBlock" parent="." instance=ExtResource("9_vol26")]
+position = Vector2(-144, 224)
+
+[node name="objSpeedSetter" parent="." instance=ExtResource("10_81l3j")]
+position = Vector2(400, 300)
+scale = Vector2(22.84, 1)
+speed = 2000.0
+one_use = true
+
+[node name="objSpeedAdder" parent="." instance=ExtResource("11_ymjvb")]
+position = Vector2(-144, 176)
+
+[node name="objSpeedLock" parent="." instance=ExtResource("12_r7w4j")]
+position = Vector2(-96, 224)
+
+[node name="objFallingSpeed" parent="." instance=ExtResource("13_7wiix")]
+position = Vector2(-48, 224)
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+position = Vector2(8, 664)
+collision_layer = 2
+collision_mask = 0
+script = SubResource("GDScript_ttpxu")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("14_s816f")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_5uiqn")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="RigidBody2D"]
+autostart = true
+
+[node name="objFallingSpeed2" parent="." instance=ExtResource("13_7wiix")]
+position = Vector2(400, 300)
+scale = Vector2(22.92, 1)
+speed = 0.0
+multiply = true
+one_use = true
+
+[node name="objRhythmPreviewer" parent="." instance=ExtResource("16_4i4qp")]
+position = Vector2(-32, 88)
+
+[connection signal="timeout" from="RigidBody2D/Timer" to="RigidBody2D" method="_on_timer_timeout"]

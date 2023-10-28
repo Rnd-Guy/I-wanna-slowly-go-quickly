@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://t6tusg0bvi1t"]
+
+[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_lyaqh"]
+[ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_tr6h3"]
+[ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_4pngn"]
+[ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="4_0yu33"]
+[ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_pvova"]
+[ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="5_juxow"]
+[ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_m5xaj"]
+[ext_resource type="PackedScene" uid="uid://b31w5fm4w5857" path="res://Objects/Room_objects/objSavePoint.tscn" id="6_2n8sn"]
+[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="9_fgjot"]
+
+[node name="rTemplate" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="til32x32" parent="Environment" instance=ExtResource("1_lyaqh")]
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 196609, 65536, 0, 196610, 65536, 0, 196611, 65536, 0, 262147, 65536, 0, 327683, 65536, 0, 393219, 65536, 0, 458755, 65536, 0, 524291, 65536, 0, 589827, 65536, 0, 196613, 65536, 0, 262149, 65536, 0, 327685, 65536, 0, 393221, 65536, 0, 458757, 65536, 0, 524293, 65536, 0, 589829, 65536, 0, 196615, 65536, 0, 262151, 65536, 0, 327687, 65536, 0, 393223, 65536, 0, 458759, 65536, 0, 524295, 65536, 0, 589831, 65536, 0, 196617, 65536, 0, 262153, 65536, 0, 327689, 65536, 0, 393225, 65536, 0, 458761, 65536, 0, 524297, 65536, 0, 720905, 65536, 0, 720904, 65536, 0, 720903, 65536, 0, 720902, 65536, 0, 720901, 65536, 0, 720900, 65536, 0, 720899, 65536, 0, 720898, 65536, 0, 65547, 65536, 0, 131083, 65536, 0, 196619, 65536, 0, 262155, 65536, 0, 327691, 65536, 0, 393227, 65536, 0, 458763, 65536, 0, 524299, 65536, 0, 589835, 65536, 0, 655371, 65536, 0, 720907, 65536, 0, 720906, 65536, 0, 589833, 65536, 0, 786434, 65536, 0, 851970, 65536, 0, 917506, 65536, 0, 983042, 65536, 0, 1048578, 65536, 0, 983061, 65536, 0, 917524, 65536, 0, 851987, 65536, 0, 786450, 65536, 0, 720913, 65536, 0, 720912, 65536, 0, 720911, 65536, 0, 720910, 65536, 0, 720909, 65536, 0, 720908, 65536, 0, 458767, 65536, 0, 458768, 65536, 0, 458769, 65536, 0, 458770, 65536, 0, 458771, 65536, 0, 458772, 65536, 0, 458773, 65536, 0, 458774, 65536, 0, 458775, 65536, 0, 196629, 65536, 0, 196628, 65536, 0, 196627, 65536, 0, 196626, 65536, 0, 196625, 65536, 0, 196624, 65536, 0, 196623, 65536, 0, 196622, 65536, 0, 196621, 65536, 0, 196620, 65536, 0, 196630, 65536, 0)
+
+[node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_tr6h3")]
+position = Vector2(-16, 16)
+
+[node name="Room_related" type="Node2D" parent="."]
+
+[node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("3_4pngn")]
+position = Vector2(48, 565)
+anchor_mode = 1
+
+[node name="objWarp" parent="Room_related" instance=ExtResource("4_pvova")]
+position = Vector2(400, 80)
+
+[node name="Gimmicks" type="Node2D" parent="."]
+
+[node name="objSpeedAdder" parent="Gimmicks" instance=ExtResource("5_juxow")]
+position = Vector2(144, 176)
+speed = 9.0
+one_use = true
+
+[node name="objSpeedAdder2" parent="Gimmicks" instance=ExtResource("5_juxow")]
+position = Vector2(208, 176)
+speed = 3.0
+one_use = true
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="tilSpikes" parent="Hazards" instance=ExtResource("4_0yu33")]
+layer_0/tile_data = PackedInt32Array(1114117, 65536, 0, 1114122, 65536, 0, 1114128, 65536, 0, 1048589, 0, 0, 983053, 65536, 0, 917517, 0, 0, 1048597, 0, 0, 786451, 65536, 0, 655372, 65536, 1, 589836, 65536, 1, 524300, 65536, 1, 393239, 0, 1, 917507, 65536, 1, 983048, 65536, 1, 983047, 0, 1, 1114131, 65536, 0, 131089, 65536, 0, 262165, 0, 0, 393233, 65536, 0, 655381, 0, 1, 655382, 65536, 1)
+
+[node name="Trigger_related" type="Node2D" parent="."]
+
+[node name="objPlayer" parent="." instance=ExtResource("5_m5xaj")]
+position = Vector2(64, 80)
+
+[node name="objSavePoint" parent="." instance=ExtResource("6_2n8sn")]
+position = Vector2(-48, 80)
+
+[node name="obTouchSavePoint" parent="objSavePoint" instance=ExtResource("9_fgjot")]
+position = Vector2(128, 0)
+scale = Vector2(3.08947, 0.625865)
+
+[node name="objSpeedAdder" parent="." instance=ExtResource("5_juxow")]
+position = Vector2(272, 176)
+one_use = true

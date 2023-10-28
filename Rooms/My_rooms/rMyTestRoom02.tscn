@@ -1,0 +1,205 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0f7xme0gh8vw"]
+
+[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_iqrv2"]
+[ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_f0782"]
+[ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_4g2yx"]
+[ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_65hrq"]
+[ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_0bfj7"]
+[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_nj2wj"]
+[ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_7np5n"]
+[ext_resource type="PackedScene" uid="uid://3hxvrced2kkw" path="res://Objects/My_Stuff/Movement/objOneWay.tscn" id="8_s5fdo"]
+[ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_1qnog"]
+[ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="10_nvxcu"]
+[ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="11_c8ldi"]
+[ext_resource type="PackedScene" uid="uid://c363rig7brl0p" path="res://Objects/Gimmicks/objMovingPlatform.tscn" id="12_unf7h"]
+[ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="13_hp38k"]
+
+[node name="rTemplate" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="til32x32" parent="Environment" instance=ExtResource("1_iqrv2")]
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
+
+[node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_f0782")]
+position = Vector2(-16, 16)
+
+[node name="Room_related" type="Node2D" parent="."]
+
+[node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("3_4g2yx")]
+position = Vector2(163, 153)
+anchor_mode = 1
+
+[node name="objWarp" parent="Room_related" instance=ExtResource("4_65hrq")]
+position = Vector2(736, 549)
+
+[node name="objPlayer" parent="Room_related" instance=ExtResource("5_0bfj7")]
+position = Vector2(128, 559)
+
+[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_nj2wj")]
+position = Vector2(160, 559)
+
+[node name="Gimmicks" type="Node2D" parent="."]
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="tilSpikes" parent="Hazards" instance=ExtResource("7_7np5n")]
+
+[node name="Trigger_related" type="Node2D" parent="."]
+
+[node name="objOneWay" parent="." instance=ExtResource("8_s5fdo")]
+position = Vector2(272, 512)
+
+[node name="objOneWay2" parent="." instance=ExtResource("8_s5fdo")]
+position = Vector2(336, 512)
+rotation = 1.57079
+
+[node name="objOneWay3" parent="." instance=ExtResource("8_s5fdo")]
+position = Vector2(400, 512)
+rotation = 3.14159
+
+[node name="objOneWay4" parent="." instance=ExtResource("8_s5fdo")]
+position = Vector2(464, 512)
+rotation = -1.57079
+
+[node name="SpeedDamageBlock" parent="." instance=ExtResource("9_1qnog")]
+position = Vector2(181, 502)
+
+[node name="objSpeedAdder" parent="." instance=ExtResource("10_nvxcu")]
+position = Vector2(107, 510)
+fade_instant = true
+
+[node name="objSpeedLock2" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(628, 265)
+above = false
+
+[node name="objSpeedLock3" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(626, 300)
+above = false
+below = true
+equal = false
+
+[node name="objSpeedLock4" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(624, 337)
+above = false
+below = true
+
+[node name="objSpeedLock5" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(622, 376)
+equal = false
+
+[node name="objSpeedLock6" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(620, 416)
+
+[node name="objSpeedLock7" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(618, 454)
+below = true
+equal = false
+
+[node name="objMovingPlatform" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(563, 492)
+
+[node name="objMovingPlatform2" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(568, 452)
+
+[node name="objMovingPlatform3" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(569, 403)
+
+[node name="objMovingPlatform4" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(574, 335)
+
+[node name="objMovingPlatform5" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(574, 268)
+
+[node name="objSpeedAdder2" parent="." instance=ExtResource("10_nvxcu")]
+position = Vector2(689, 488)
+speed = -1.0
+fade_instant = true
+
+[node name="objSpeedAdder3" parent="." instance=ExtResource("10_nvxcu")]
+position = Vector2(516, 498)
+fade_instant = true
+
+[node name="objSpeedSetter" parent="." instance=ExtResource("13_hp38k")]
+position = Vector2(624, 518)
+
+[node name="objSpeedLock8" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(666, 266)
+above = false
+one_use = true
+
+[node name="objSpeedLock9" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(664, 301)
+above = false
+below = true
+equal = false
+one_use = true
+
+[node name="objSpeedLock10" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(662, 338)
+above = false
+below = true
+one_use = true
+
+[node name="objSpeedLock11" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(660, 377)
+equal = false
+one_use = true
+
+[node name="objSpeedLock12" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(658, 417)
+one_use = true
+
+[node name="objSpeedLock13" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(656, 455)
+below = true
+equal = false
+one_use = true
+
+[node name="objSpeedLock14" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(703, 264)
+above = false
+perma_lock = true
+
+[node name="objSpeedLock15" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(701, 299)
+above = false
+below = true
+equal = false
+perma_lock = true
+
+[node name="objSpeedLock16" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(699, 336)
+above = false
+below = true
+perma_lock = true
+
+[node name="objSpeedLock17" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(697, 375)
+equal = false
+perma_lock = true
+
+[node name="objSpeedLock18" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(695, 415)
+perma_lock = true
+
+[node name="objSpeedLock19" parent="." instance=ExtResource("11_c8ldi")]
+position = Vector2(693, 453)
+below = true
+equal = false
+perma_lock = true
+
+[node name="objMovingPlatform6" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(733, 479)
+
+[node name="objMovingPlatform7" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(738, 439)
+
+[node name="objMovingPlatform8" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(739, 390)
+
+[node name="objMovingPlatform9" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(744, 322)
+
+[node name="objMovingPlatform10" parent="." instance=ExtResource("12_unf7h")]
+position = Vector2(744, 255)

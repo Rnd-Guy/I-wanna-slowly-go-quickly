@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3v5su3t4jrq8"]
+
+[ext_resource type="Script" path="res://Scripts/Room_objects/scrCameraFixedNoSmoothing.gd" id="1_2pgbd"]
+[ext_resource type="Texture2D" uid="uid://b6wjn6wemp8tk" path="res://Graphics/Sprites/Room_objects/sprCamera.png" id="2_y75lq"]
+
+[node name="objCameraFixedNoSmoothing" type="Camera2D"]
+anchor_mode = 0
+script = ExtResource("1_2pgbd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y75lq")

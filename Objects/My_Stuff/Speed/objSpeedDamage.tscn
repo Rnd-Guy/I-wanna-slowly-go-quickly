@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://6nhia7wgwbde"]
+
+[ext_resource type="Script" path="res://Objects/My_Stuff/Speed/objSpeedDamage.gd" id="1_1nv7e"]
+[ext_resource type="Texture2D" uid="uid://c62be7etxhycc" path="res://Graphics/Sprites/Room_objects/sprSpeedDamage.png" id="1_4gau2"]
+[ext_resource type="Script" path="res://Objects/My_Stuff/Speed/SpeedDamageRigid.gd" id="3_qw8va"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6i4xh"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5alt5"]
+size = Vector2(32, 32)
+
+[node name="SpeedDamageBlock" type="Node2D"]
+script = ExtResource("1_1nv7e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4gau2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -12.0
+offset_right = 16.0
+offset_bottom = 11.0
+label_settings = SubResource("LabelSettings_6i4xh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpeedDamageRigid" type="RigidBody2D" parent="."]
+collision_layer = 19
+max_contacts_reported = 1
+contact_monitor = true
+lock_rotation = true
+freeze = true
+script = ExtResource("3_qw8va")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedDamageRigid"]
+shape = SubResource("RectangleShape2D_5alt5")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5alt5")
+
+[connection signal="body_entered" from="SpeedDamageRigid" to="." method="_on_rigid_body_2d_body_entered"]
+[connection signal="player_collision" from="SpeedDamageRigid" to="." method="_on_speed_damage_rigid_player_collision"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgv13e2ju8rrb"]
+
+[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_mu25a"]
+[ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_ikoe6"]
+[ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_axoe3"]
+[ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="4_binwp"]
+[ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_dpq0j"]
+[ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="4_wvfv3"]
+[ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_bvkoh"]
+[ext_resource type="PackedScene" uid="uid://b31w5fm4w5857" path="res://Objects/Room_objects/objSavePoint.tscn" id="6_xu1xx"]
+[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="9_0t1qh"]
+
+[node name="rTemplate" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="til32x32" parent="Environment" instance=ExtResource("1_mu25a")]
+position = Vector2(-1, 0)
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 1114117, 65536, 0, 1048581, 65536, 0, 1114118, 65536, 0, 1048582, 65536, 0, 983046, 65536, 0, 917510, 65536, 0, 851974, 65536, 0, 851975, 65536, 0, 917511, 65536, 0, 983047, 65536, 0, 1048583, 65536, 0, 1114119, 65536, 0, 1048584, 65536, 0, 1114120, 65536, 0, 1114128, 65536, 0, 1048592, 65536, 0, 983056, 65536, 0, 917520, 65536, 0, 851984, 65536, 0, 851985, 65536, 0, 917521, 65536, 0, 983057, 65536, 0, 1048593, 65536, 0, 1114129, 65536, 0)
+
+[node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_ikoe6")]
+position = Vector2(-16, 16)
+
+[node name="Room_related" type="Node2D" parent="."]
+
+[node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("3_axoe3")]
+position = Vector2(163, 153)
+anchor_mode = 1
+
+[node name="objWarp" parent="Room_related" instance=ExtResource("4_dpq0j")]
+position = Vector2(736, 544)
+
+[node name="Gimmicks" type="Node2D" parent="."]
+
+[node name="objSpeedAdder" parent="Gimmicks" instance=ExtResource("4_binwp")]
+position = Vector2(480, 544)
+speed = 3.0
+one_use = true
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="tilSpikes" parent="Hazards" instance=ExtResource("4_wvfv3")]
+
+[node name="Trigger_related" type="Node2D" parent="."]
+
+[node name="objPlayer" parent="." instance=ExtResource("5_bvkoh")]
+position = Vector2(64, 560)
+
+[node name="objSavePoint" parent="." instance=ExtResource("6_xu1xx")]
+position = Vector2(-96, 512)
+
+[node name="obTouchSavePoint" parent="." instance=ExtResource("9_0t1qh")]
+position = Vector2(96, 560)
+scale = Vector2(4.22078, 0.69042)
