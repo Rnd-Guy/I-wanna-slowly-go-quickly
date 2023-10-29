@@ -6,13 +6,6 @@ extends Node2D
 func _ready():
 	$Label.set_text(str(hp))
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#print($RigidBody2D.get_contact_count())
-	#print($RigidBody2D.get_colliding_bodies())
-	pass
-
 func _on_speed_damage_rigid_player_collision(player, collision):
 	#print("angle: " + str(collision.get_angle()))
 	#print("normal: " + str(collision.get_normal().x) + ", " + str(collision.get_normal().y))

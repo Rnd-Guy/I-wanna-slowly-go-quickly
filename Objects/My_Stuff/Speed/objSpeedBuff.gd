@@ -23,7 +23,7 @@ var contact_body
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if in_contact && !disabled:
 		buff()
 
@@ -46,7 +46,7 @@ func _on_area_2d_body_entered(body):
 	contact_body = body
 			
 
-func _on_area_2d_body_exited(body):
+func _on_area_2d_body_exited(_body):
 	in_contact = false
 	if fade_instant:
 		enable_buff()

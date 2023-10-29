@@ -26,8 +26,8 @@ const block = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmBlock.tscn\")
 const block2 = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmBlock2.tscn\")
 const slider = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmSlider.tscn\")
 var blockSize = 2
-var sliderSize = 0.5
-var sliderSkew = 16
+var sliderSize = 2
+var slider_skew = 0.6
 
 var debug_metronome = preload(\"res://Audio/Sounds/sndCoin.wav\")
 
@@ -37,6 +37,7 @@ var song_finished = false
 
 var notes = [
 # first note
+
 [2, 460],
 [3, 500],
 [4, 540],
@@ -65,17 +66,17 @@ var notes = [
 [29, 400, 29.5],
 [30, 300, 30.5],
 [31, 500, 31.5],
-[32.5, 200, 33],
+[32.5, 150, 33],
 
 # triplets
-[34, 400, 34.66],
-[35, 500, 35.66],
+[34, 200, 34.66],
+[35, 400, 35.66],
 [36, 600, 36.66],
-[37, 700],
-[38, 400, 38.66],
-[39, 300, 39.66],
+[37, 750],
+[38, 600, 38.66],
+[39, 400, 39.66],
 [40, 200, 40.66],
-[41, 100],
+[41, 50],
 [42, 400, 42.66],
 [43, 300, 43.66],
 [44, 600, 44.66],
@@ -87,13 +88,13 @@ var notes = [
 [49.5, 280],
 
 [50, 240, 50.75],
-[51.5, 660],
+[51.5, 400],
 [54, 180, 54.75],
 [55.5, 560],
-[56.5, 620],
-[57, 660],
-[57.5,700],
-[58,740, 58.75],
+[56.5, 200],
+[57, 350],
+[57.5,500],
+[58,580, 58.75],
 [59.5, 200],
 [60.5, 550],
 [61,650],
@@ -101,6 +102,28 @@ var notes = [
 [62,640, 66]
 ]
 
+
+var debug_slider_starts_right_consistent = [
+	[1,500,2],
+	[2.5,0],
+	[3,500,5],
+	[5.5,0],
+	[6,500,10],
+]
+
+var debug_slider_starts_left_consistent = [
+	[1,300,2],
+	[2.5,700],
+	[3,300,5],
+	[5.5,700],
+	[6,300,10],
+]
+
+var debug_slider_end_is_prev_x = [
+	[1, 500, 2],
+	[3, 550, 4],
+	[5, 500, 6]
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -117,9 +140,10 @@ func _ready():
 		if note.size() == 2:
 			var n = [note[0], DOWN, note[1]]
 			create_note2(n, prev_x)
+			prev_x = note[1]
 		elif note.size() == 3:
-			create_slider(note, prev_x)
-		prev_x = note[1]
+			prev_x = create_slider(note, prev_x)
+		
 	
 	for i in range(100):
 		#create_note2([i,UP,100])
@@ -169,15 +193,24 @@ func create_note2(note, prev_x):
 	add_child(note_block)
 
 func create_slider(note, prev_x):
+	# this is to make the prev_x based off the end of the slider rather than the start
+	var end_offset = (note[2]-note[0]) * speed * seconds_per_beat * slider_skew
+	
 	var note_block = slider.instantiate()
 	note_block.speed = speed
 	note_block.bpm = bpm
 	note_block.beat = note[0]
 	note_block.direction = \"up\"
 	note_block.x = note[1] # using raw data instead
+	note_block.end_beat = note[2]
+	note_block.slider_skew = slider_skew
+	note_block.size = sliderSize
 	if note_block.x > prev_x:
 		note_block.flip = true
+		end_offset *= -1
 	add_child(note_block)
+	
+	return note[1] - end_offset
 	
 func on_music_end():
 	$Room_related/objPlayer.v_speed = 400

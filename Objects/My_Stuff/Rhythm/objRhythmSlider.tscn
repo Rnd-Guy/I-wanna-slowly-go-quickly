@@ -9,14 +9,16 @@ script/source = "extends Node2D
 var speed = 300
 var bpm = 98
 var beat = 1# which beat this note should reach the middle
+var end_beat = 2 # which beat the end of the slider should reach the middle
 var x = 100
 var direction = \"up\" # up, down
-var x_offset = 0 # handle the skew
-var y_offset = 0 # force top of slider to be in the original position
 var global_offset = 0
 var size = 2 # this is specifically for the buffer for the start and end
 var flip = false
 var slider_skew = 0.8
+
+var x_offset # after handling skews
+var y_offset # after handling skews
 
 var flipped_shader = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmSliderFlipped.tres\")
 
@@ -27,11 +29,13 @@ var music_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	handle_shape()
 
 	# set initial position here
 	seconds_per_beat = 60.0/bpm
 	time_to_reach_middle = beat * seconds_per_beat
+	
+	
+	handle_shape()
 	
 	resync_rhythm_position()
 	pass # Replace with function body.
@@ -59,9 +63,9 @@ func resync_rhythm_position():
 	#var distance = time_to_reach_middle * speed
 	var distance = (time_to_reach_middle - music_time) * speed
 	if direction == \"up\":
-		set_global_position(Vector2(x,320 + global_offset + distance))
+		set_global_position(Vector2(x-x_offset,320 + global_offset + y_offset + distance))
 	elif direction == \"down\":
-		set_global_position(Vector2(x,320 + global_offset - distance))
+		set_global_position(Vector2(x-x_offset,320 + global_offset + y_offset - distance))
 
 func _on_timer_timeout():
 	resync_rhythm_position()
@@ -85,7 +89,10 @@ func on_time():
 
 func on_player_collision(player, collision):
 	#print(\"test\")
-	$Sprite2D.set_region_rect(Rect2(32,0,32,size*32))
+	var rect = $Sprite2D.get_region_rect()
+	rect.position.x = 32 # position is basically the top left corner of rect2
+	#$Sprite2D.set_region_rect(Rect2(32,0,32,size*32))
+	$Sprite2D.set_region_rect(rect)
 
 func delete_when_finished():
 	if direction  == \"up\" && position.y < -100:
@@ -94,29 +101,60 @@ func delete_when_finished():
 		queue_free()
 		
 func handle_shape():
-	var dist = size * 16 # distance to top and bottom from middle
-	if size != 1:
-		#$RigidBody2D/CollisionShape2D.shape.set_size(Vector2(32,size*32))
-		$Sprite2D.set_region_rect(Rect2(0,0,32,size*32))
+	var dist = size * 16 # distance of buffer from top of slider to very top, and same for bottom
+	var start_beat_to_finish_beat = (end_beat - beat) * seconds_per_beat * speed # distance from start beat to end beat (not including buffers)
+	y_offset = start_beat_to_finish_beat/2 # how much to move slider up to make the top the designated position
+	x_offset = y_offset * slider_skew # how much to move the slider sideways to make the top the designated position
+	var total_size = start_beat_to_finish_beat + dist + dist # actual pixels from very top to very bottom
+	var half_size = total_size/2
+	
+	
+	
+	
+	# old code
+#	if size != 1:
+#		$Sprite2D.set_region_rect(Rect2(0,0,32,size*32))
+	# new code
+	$Sprite2D.set_region_rect(Rect2(0,0,32,total_size))
 	
 	if flip:
 		slider_skew *= -1
 		$Sprite2D.flip_h = true
 		$Sprite2D.set_material(flipped_shader) 
+		x_offset *= -1
 	
-	var edge_skew = dist * slider_skew # how much the skew moves the slider left or right
 	$Sprite2D.material.set_shader_parameter(\"skew\", abs(slider_skew))
+
+	# old code	
+#	var edge_skew = dist * slider_skew # how much the skew moves the slider left or right
+#	$RigidBody2D/CollisionPolygon2D.set_polygon(
+#		PackedVector2Array([
+#			Vector2(-16+edge_skew,-dist), #top left
+#			Vector2(16+edge_skew,-dist), # top right
+#			Vector2(16-edge_skew,dist), # bottom right
+#			Vector2(-16-edge_skew,dist), # bottom left
+#		])
+#	)
+
+	# relative to start beat
+	var topLeft = Vector2(-16 + dist*slider_skew, -dist)
+	var topRight = Vector2(16 + dist*slider_skew, -dist)
+	var bottomRight = Vector2(16+(dist+start_beat_to_finish_beat)*slider_skew, dist)
+	var bottomLeft = Vector2(-16+(dist+start_beat_to_finish_beat)*slider_skew, dist)
+	
+	# relative to middle
+	var topLeft2 = Vector2(-16 + half_size*slider_skew, -half_size)
+	var topRight2 = Vector2(16 + half_size*slider_skew, -half_size)
+	var bottomRight2 = Vector2(16 - half_size*slider_skew, half_size)
+	var bottomLeft2 = Vector2(-16 - half_size*slider_skew, half_size)
+	
 	$RigidBody2D/CollisionPolygon2D.set_polygon(
-		PackedVector2Array([
-			Vector2(-16+edge_skew,-dist), #top left
-			Vector2(16+edge_skew,-dist), # top right
-			Vector2(16-edge_skew,dist), # bottom right
-			Vector2(-16-edge_skew,dist), # bottom left
-		])
+		PackedVector2Array([topLeft2, topRight2, bottomRight2, bottomLeft2])
 	)
 	
 	# makes the top of the slider the position that is set
-	global_translate(Vector2(-edge_skew, 0))
+	#global_translate(Vector2(-edge_skew, 0))
+	#global_translate(Vector2(-x_offset, y_offset))
 "
 
 [sub_resource type="GDScript" id="GDScript_nf7oe"]

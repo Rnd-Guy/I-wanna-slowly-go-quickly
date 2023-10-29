@@ -49,11 +49,6 @@ func _ready():
 	on_player_speed_change(GLOBAL_INSTANCES.objPlayerID.h_speed)
 	is_locked = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func on_player_speed_change(newSpeed):
 	print("made it: " + str(newSpeed))
 	var current_value = $StaticBody2D.get_collision_layer_value(2)
