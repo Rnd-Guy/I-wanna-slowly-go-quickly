@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://coq2wsy6hrinb"]
+
+[sub_resource type="Shader" id="Shader_arlr8"]
+code = "shader_type canvas_item;
+
+uniform float skew = 0.8;
+
+void fragment() {
+	// Place fragment code here.
+}
+
+void vertex() {
+	VERTEX.x += VERTEX.y * skew;
+}"
+
+[resource]
+shader = SubResource("Shader_arlr8")
+shader_parameter/skew = 0.8

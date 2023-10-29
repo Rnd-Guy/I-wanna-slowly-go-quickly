@@ -25,6 +25,15 @@ var create_bullet := preload("res://Objects/Player/objBullet.tscn")
 var jump_particle := preload("res://Objects/Player/objJumpParticle.tscn")
 @onready var animated_sprite = $playerSprites
 
+#############
+# rnd's custom variables
+################
+# use move_and_slide if true or move_and_collide if false
+# collide is mostly used in situations where we don't want to slide up ramps with obscene speed
+# however collide has issues with touching the floor
+var slide = true
+var wall_death = false
+
 func _ready():
 	
 	# If a savefile exists (we've saved at least once), we move the player to
@@ -79,10 +88,15 @@ func _physics_process(delta):
 	# Call it before "_handle_animations()". Doing so will properly check for
 	# "is_on_floor()", which requires collision data. This prevents a 1 frame
 	# animation bug when resetting.
-	var collided: bool = move_and_slide()
-	if collided:
-		handle_collision()
+	
+	# normal
+	#var collided: bool = move_and_slide()
+	#if collided:
+#		handle_collision()
 		
+	handle_actual_movement(delta)
+	#move_and_collide(velocity*delta)
+	
 	handle_animations()
 	
 	# Resets the horizontal velocity to 0. Good for things like cutscenes,
@@ -439,7 +453,8 @@ func _on_water_area_exited(_area):
 # -> Checks if the player is inside of walls, calling "on_death" if true.
 #    It has a smaller collision shape
 func _on_is_crushed_body_entered(_body):
-	on_death()
+	if wall_death:
+		on_death()
 
 
 # Vines
@@ -451,12 +466,25 @@ func _on_vines_body_exited(_body):
 	can_walljump = false
 
 # let collision objects determine behaviour of collisions if necessary
-func handle_collision():
+func handle_slide_collision():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		#print(collision.get_collider().get("name"))
-		if collision.get_collider().has_method("on_player_collision"):
-			collision.get_collider().on_player_collision(self, collision)
+		handle_collision(collision)
+
+func handle_collision(collision):
+	if collision.get_collider().has_method("on_player_collision"):
+		collision.get_collider().on_player_collision(self, collision)
+
+func handle_actual_movement(delta):
+	if slide:
+		var collided: bool = move_and_slide()
+		if collided:
+			handle_slide_collision()
+	else:
+		var collision = move_and_collide(velocity * delta)
+		if collision != null:
+			handle_collision(collision)
 
 func debug_command():
 	pass

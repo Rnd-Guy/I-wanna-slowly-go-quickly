@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://clphk7fk1ft5w"]
+[gd_scene load_steps=5 format=3 uid="uid://217w6xn3mimm"]
 
-[ext_resource type="Texture2D" uid="uid://dv1vehww44biv" path="res://Graphics/Sprites/My Stuff/sprRhythmBlock.png" id="1_30u6s"]
+[ext_resource type="Material" uid="uid://buampn6w1fimd" path="res://Objects/My_Stuff/Rhythm/objRhythmSlider.tres" id="1_7xjoe"]
+[ext_resource type="Texture2D" uid="uid://dv1vehww44biv" path="res://Graphics/Sprites/My Stuff/sprRhythmBlock.png" id="1_72wtr"]
 
 [sub_resource type="GDScript" id="GDScript_lmu2u"]
 script/source = "extends Node2D
@@ -13,6 +14,9 @@ var direction = \"up\" # up, down
 var offset = 0
 var size = 2
 var flip = false
+var slider_skew = 0.8
+
+var flipped_shader = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmSliderFlipped.tres\")
 
 # calculations
 var seconds_per_beat # 60 / bpm
@@ -21,10 +25,8 @@ var music_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	handle_size()
-	
-	if flip:
-		$Sprite2D.flip_h = true
+	handle_shape()
+
 	# set initial position here
 	seconds_per_beat = 60.0/bpm
 	time_to_reach_middle = beat * seconds_per_beat
@@ -89,11 +91,30 @@ func delete_when_finished():
 	elif direction == \"down\" &&  position.y > 700:
 		queue_free()
 		
-func handle_size():
+func handle_shape():
+	var dist = size * 16 # distance to top and bottom from middle
 	if size != 1:
-		var dist = size * 16
-		$RigidBody2D/CollisionShape2D.shape.set_size(Vector2(32,size*32))
+		#$RigidBody2D/CollisionShape2D.shape.set_size(Vector2(32,size*32))
 		$Sprite2D.set_region_rect(Rect2(0,0,32,size*32))
+	
+	if flip:
+		slider_skew *= -1
+		$Sprite2D.flip_h = true
+		$Sprite2D.set_material(flipped_shader) 
+	
+	var edge_skew = dist * slider_skew # how much the skew moves the slider left or right
+	$Sprite2D.material.set_shader_parameter(\"skew\", abs(slider_skew))
+	$RigidBody2D/CollisionPolygon2D.set_polygon(
+		PackedVector2Array([
+			Vector2(-16+edge_skew,-dist), #top left
+			Vector2(16+edge_skew,-dist), # top right
+			Vector2(16-edge_skew,dist), # bottom right
+			Vector2(-16-edge_skew,dist), # bottom left
+		])
+	)
+	
+	# makes the top of the slider the position that is set
+	global_translate(Vector2(-edge_skew, 0))
 "
 
 [sub_resource type="GDScript" id="GDScript_nf7oe"]
@@ -116,10 +137,7 @@ func on_player_collision(player, collision):
 		get_parent().on_player_collision(player, collision)
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jigms"]
-size = Vector2(32, 32)
-
-[node name="objRhythmBlock" type="Node2D"]
+[node name="objRhythmSlider" type="Node2D"]
 script = SubResource("GDScript_lmu2u")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
@@ -127,12 +145,13 @@ collision_layer = 2
 collision_mask = 0
 script = SubResource("GDScript_nf7oe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_jigms")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
-texture = ExtResource("1_30u6s")
+material = ExtResource("1_7xjoe")
+texture = ExtResource("1_72wtr")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 

@@ -4,7 +4,10 @@ extends SpeedBuff
 
 func _ready():
 	var prefix = "="
-	$Label.set_text(prefix + str(speed))
+	var speed_label = str(speed)
+	if speed > 1000:
+		speed_label = "c"
+	$Label.set_text(prefix + speed_label)
 
 func buff_effect():
 	if contact_body is Player:
