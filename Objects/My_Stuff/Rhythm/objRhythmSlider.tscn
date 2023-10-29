@@ -11,8 +11,10 @@ var bpm = 98
 var beat = 1# which beat this note should reach the middle
 var x = 100
 var direction = \"up\" # up, down
-var offset = 0
-var size = 2
+var x_offset = 0 # handle the skew
+var y_offset = 0 # force top of slider to be in the original position
+var global_offset = 0
+var size = 2 # this is specifically for the buffer for the start and end
 var flip = false
 var slider_skew = 0.8
 
@@ -57,9 +59,9 @@ func resync_rhythm_position():
 	#var distance = time_to_reach_middle * speed
 	var distance = (time_to_reach_middle - music_time) * speed
 	if direction == \"up\":
-		set_global_position(Vector2(x,320 + offset + distance))
+		set_global_position(Vector2(x,320 + global_offset + distance))
 	elif direction == \"down\":
-		set_global_position(Vector2(x,320 + offset - distance))
+		set_global_position(Vector2(x,320 + global_offset - distance))
 
 func _on_timer_timeout():
 	resync_rhythm_position()
