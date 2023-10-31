@@ -21,11 +21,6 @@ var x_offset # after handling skews
 var y_offset # after handling skews
 var has_collided = false
 var collision_point
-var local_collision_point
-var slider_position_at_collision
-var touch_position_at_collision
-var max_touch_length
-var half_size
 
 var flipped_shader = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmSliderFlipped.tres\")
 
@@ -58,12 +53,16 @@ func _physics_process(delta):
 	music_time += delta
 	
 	on_the_beat()
+	#on_time()
 	delete_when_finished()
 
 
 func resync_rhythm_position():
+	#seconds_per_beat = 60.0/beat
 	time_to_reach_middle = beat * seconds_per_beat
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
+	#var music_time = GLOBAL_MUSIC.get_memoized_position()
+	#var distance = time_to_reach_middle * speed
 	var distance = (time_to_reach_middle - music_time) * speed
 	if direction == \"up\":
 		set_global_position(Vector2(x-x_offset,320 + global_offset + y_offset + distance))
@@ -72,6 +71,7 @@ func resync_rhythm_position():
 
 func _on_timer_timeout():
 	resync_rhythm_position()
+	pass # Replace with function body.
 
 func on_the_beat():
 	if fmod(music_time, seconds_per_beat) < 0.2:
@@ -89,43 +89,37 @@ func on_time():
 	else:
 		scale = Vector2(1,1)
 
-func on_player_collision(_player, collision):
-	# only consider collisions on the side with the strip
+func on_player_collision(player, collision):
 	if (collision.get_normal().x > 0 && !flip) || (collision.get_normal().x < 0 && flip):
+		#var rect = $Sprite2D.get_region_rect()
+		#rect.position.x = 32 # position is basically the top left corner of rect2
+		#$Sprite2D.set_region_rect(rect)
 		
-		# this part is a mess, i don't remember what this was for
-		var position_thingy = -35 - (20*slider_skew)
-		if flip:
-			position_thingy = 35 + (20*slider_skew)
-			
-		# make a mark where the first collision was made and set up initial values
+		# make a mark where the first collision was made
+		collision_point = collision.get_position()
+		collision_point.y += 10 # counters how collision is usually made at top of head
 		if !has_collided:
-			collision_point = collision.get_position()
-			collision_point.y += 10 # counters how collision is usually made at top of head
 			has_collided = true
-
+			var position_thingy = -35 - (20*slider_skew)
+			if flip:
+				position_thingy = 35 + (20*slider_skew)
 			$SliderTouch.global_position = Vector2(collision_point.x + position_thingy, collision_point.y)
-			slider_position_at_collision = global_position
-			touch_position_at_collision = $SliderTouch.position
-			max_touch_length = (global_position.y+half_size)-collision_point.y
-		
-		# extend the collision slider
+			print($SliderTouch.global_position)
+			#rect.global_position.y = player.global_position.y
 		else:
 			var touchRect = $SliderTouch.get_region_rect()
-			var new_size = slider_position_at_collision.y - global_position.y
-			touchRect.size = Vector2(32, min(new_size, max_touch_length))
+			print(touchRect)
+			touchRect.size = Vector2(32, 2*(collision_point.y - $SliderTouch.global_position.y))
 			$SliderTouch.set_region_rect(touchRect)
-
-			# size increases up and down, so need to reposition slider by half the size increase
-			# 0.1 seems needed for some reason
-			if touchRect.size.y < max_touch_length-0.1:
-				$SliderTouch.position.x = touch_position_at_collision.x + (slider_position_at_collision.y - global_position.y)*-slider_skew/2
-				$SliderTouch.position.y = touch_position_at_collision.y + (slider_position_at_collision.y - global_position.y)/2
 			
-				# would take too long to find actual value that uses skew, this likely needs to change if skew changes
-				if !flip:
-					$SliderTouch.position.x += 24
-
+			#var end = $SliderTouch.get_region_rect().end
+			#end.y = contact_point.y - $SliderTouch.global_position.y
+			#var rect = Rect2($SliderTouch.get_region_rect().position, end)
+			#$SliderTouch.set_region_rect(rect)
+			
+			#$SliderTouch.get_region_rect().end.y = 1000
+			#$SliderTouch.get_region_rect().size.y = 1000
+			#$SliderTouch.get_region_rect().size = Vector2(20,1000)
 
 func delete_when_finished():
 	if direction  == \"up\" && position.y < -100:
@@ -139,7 +133,7 @@ func handle_shape():
 	y_offset = start_beat_to_finish_beat/2 # how much to move slider up to make the top the designated position
 	x_offset = y_offset * slider_skew # how much to move the slider sideways to make the top the designated position
 	var total_size = start_beat_to_finish_beat + dist + dist # actual pixels from very top to very bottom
-	half_size = total_size/2
+	var half_size = total_size/2
 
 	$Sprite2D.set_region_rect(Rect2(0,0,32,total_size))
 	
@@ -152,15 +146,21 @@ func handle_shape():
 		x_offset *= -1
 	
 	$Sprite2D.material.set_shader_parameter(\"skew\", abs(slider_skew))
+
+	# relative to start beat
+	var topLeft = Vector2(-16 + dist*slider_skew, -dist)
+	var topRight = Vector2(16 + dist*slider_skew, -dist)
+	var bottomRight = Vector2(16+(dist+start_beat_to_finish_beat)*slider_skew, dist)
+	var bottomLeft = Vector2(-16+(dist+start_beat_to_finish_beat)*slider_skew, dist)
 	
 	# relative to middle
-	var topLeft = Vector2(-16 + half_size*slider_skew, -half_size)
-	var topRight = Vector2(16 + half_size*slider_skew, -half_size)
-	var bottomRight = Vector2(16 - half_size*slider_skew, half_size)
-	var bottomLeft = Vector2(-16 - half_size*slider_skew, half_size)
+	var topLeft2 = Vector2(-16 + half_size*slider_skew, -half_size)
+	var topRight2 = Vector2(16 + half_size*slider_skew, -half_size)
+	var bottomRight2 = Vector2(16 - half_size*slider_skew, half_size)
+	var bottomLeft2 = Vector2(-16 - half_size*slider_skew, half_size)
 	
 	$RigidBody2D/CollisionPolygon2D.set_polygon(
-		PackedVector2Array([topLeft, topRight, bottomRight, bottomLeft])
+		PackedVector2Array([topLeft2, topRight2, bottomRight2, bottomLeft2])
 	)
 "
 

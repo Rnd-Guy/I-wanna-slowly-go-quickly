@@ -22,7 +22,6 @@ script/source = "extends Node2D
 var bpm: float = 98
 var seconds_per_beat: float = 60.0 / bpm # seconds per beat - 98bpm
 var speed = 300
-const block = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmBlock.tscn\")
 const block2 = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmBlock2.tscn\")
 const slider = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmSlider.tscn\")
 var blockSize = 2
@@ -130,56 +129,22 @@ func _ready():
 	
 	$objRhythmPreviewer.play_sample()
 	GLOBAL_MUSIC.finished.connect(on_music_end)
-	#$Room_related/objPlayer.wall_min_slide_angle = 1
-	#$Room_related/objPlayer.max_slides = 0
 	$Room_related/objPlayer.slide = false
 	
 	var prev_x = 400
 	for note in notes:
-		#create_note2(note)
 		if note.size() == 2:
 			var n = [note[0], DOWN, note[1]]
 			create_note2(n, prev_x)
 			prev_x = note[1]
 		elif note.size() == 3:
 			prev_x = create_slider(note, prev_x)
-		
-	
-	for i in range(100):
-		#create_note2([i,UP,100])
-		pass
-		
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !song_finished && $Room_related/objPlayer.global_position.y != 295:
 		var pos = $Room_related/objPlayer.global_position
 		pos.y = 303
 		$Room_related/objPlayer.set_global_position(pos)
-
-func create_note(note, prev_x):
-	#for i in range(3):
-		var note_block = block.instantiate()
-		add_child(note_block)
-		
-		var time_to_reach_middle = note[0] * seconds_per_beat
-		var distance = time_to_reach_middle * speed
-		var y
-		if note[1] == UP:
-			y = 300 + distance 
-			note_block.speed = -speed
-		elif note[1] == DOWN:
-			y = 300 - distance 
-			note_block.speed = speed
-		else:
-			print(\"error\")
-		
-		note_block.set_global_position(Vector2(note[2],y))
 
 func create_note2(note, prev_x):
 	var note_block = block2.instantiate()
@@ -214,6 +179,7 @@ func create_slider(note, prev_x):
 	
 func on_music_end():
 	$Room_related/objPlayer.v_speed = 400
+	$Room_related/objPlayer.h_speed = 3
 	$Room_related/objPlayer.slide = true
 	song_finished = true
 "

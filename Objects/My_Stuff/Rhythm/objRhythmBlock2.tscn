@@ -5,6 +5,8 @@
 [sub_resource type="GDScript" id="GDScript_lmu2u"]
 script/source = "extends Node2D
 
+signal collided
+
 var speed = 300
 var bpm = 98
 var beat = 1# which beat this note should reach the middle
@@ -81,7 +83,9 @@ func on_time():
 
 func on_player_collision(player, collision):
 	#print(\"test\")
-	$Sprite2D.set_region_rect(Rect2(32,0,32,size*32))
+	if (collision.get_normal().x == 1 && !flip) || (collision.get_normal().x == -1 && flip):
+		$Sprite2D.set_region_rect(Rect2(32,0,32,size*32))
+		collided.emit(\"note\")
 
 func delete_when_finished():
 	if direction  == \"up\" && position.y < -100:
