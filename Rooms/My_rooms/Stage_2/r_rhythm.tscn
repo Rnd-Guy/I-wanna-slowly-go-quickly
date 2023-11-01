@@ -33,6 +33,7 @@ var debug_metronome = preload(\"res://Audio/Sounds/sndCoin.wav\")
 enum {UP, DOWN}
 var end_beat = 70
 var song_finished = false
+var score = 0
 
 var notes = [
 # first note
@@ -130,9 +131,12 @@ func _ready():
 	$objRhythmPreviewer.play_sample()
 	GLOBAL_MUSIC.finished.connect(on_music_end)
 	$Room_related/objPlayer.slide = false
+	$Room_related/objPlayer.show_speed = false
 	
 	var prev_x = 400
 	for note in notes:
+	#for note in debug_slider_starts_right_consistent:
+	#for note in debug_slider_starts_left_consistent:
 		if note.size() == 2:
 			var n = [note[0], DOWN, note[1]]
 			create_note2(n, prev_x)
@@ -141,6 +145,7 @@ func _ready():
 			prev_x = create_slider(note, prev_x)
 
 func _physics_process(_delta):
+	$Label.set_text(\"Score: \" + str(score))
 	if !song_finished && $Room_related/objPlayer.global_position.y != 295:
 		var pos = $Room_related/objPlayer.global_position
 		pos.y = 303
@@ -155,6 +160,7 @@ func create_note2(note, prev_x):
 	note_block.x = note[2]
 	if note_block.x > prev_x:
 		note_block.flip = true
+	note_block.collided.connect(score_points)
 	add_child(note_block)
 
 func create_slider(note, prev_x):
@@ -173,6 +179,7 @@ func create_slider(note, prev_x):
 	if note_block.x > prev_x:
 		note_block.flip = true
 		end_offset *= -1
+	note_block.collided.connect(score_points)
 	add_child(note_block)
 	
 	return note[1] - end_offset
@@ -182,6 +189,14 @@ func on_music_end():
 	$Room_related/objPlayer.h_speed = 3
 	$Room_related/objPlayer.slide = true
 	song_finished = true
+
+func score_points(event):
+	if event == \"note\":
+		score += 100
+	elif event == \"sliderTop\" || event == \"sliderBottom\":
+		score += 50
+	elif event == \"sliderBody\":
+		score += 1
 "
 
 [node name="rRhythm" type="Node2D"]
@@ -258,3 +273,10 @@ one_use = true
 
 [node name="objRhythmPreviewer" parent="." instance=ExtResource("16_4i4qp")]
 position = Vector2(-32, 88)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 101.0
+offset_bottom = 66.0
+text = "Score: 0"

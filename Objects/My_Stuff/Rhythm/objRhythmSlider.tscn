@@ -6,6 +6,8 @@
 [sub_resource type="GDScript" id="GDScript_lmu2u"]
 script/source = "extends Node2D
 
+signal collided
+
 var speed = 300
 var bpm = 98
 var beat = 1# which beat this note should reach the middle
@@ -26,6 +28,7 @@ var slider_position_at_collision
 var touch_position_at_collision
 var max_touch_length
 var half_size
+var sliderBottomTouched = false # prevent scoring multiple times
 
 var flipped_shader = preload(\"res://Objects/My_Stuff/Rhythm/objRhythmSliderFlipped.tres\")
 
@@ -77,8 +80,14 @@ func on_the_beat():
 	if fmod(music_time, seconds_per_beat) < 0.2:
 		var mod = 1.5 - (fmod(music_time, seconds_per_beat) * 2.5)
 		$Sprite2D.modulate = Color(mod, mod, mod)
+		$SliderTouch.modulate = Color(mod, mod, mod)
+		$SliderTop.modulate = Color(mod, mod, mod)
+		$SliderBottom.modulate = Color(mod, mod, mod)
 	else:
 		$Sprite2D.modulate = Color(1,1,1)
+		$SliderTouch.modulate = Color(1,1,1)
+		$SliderTop.modulate = Color(1,1,1)
+		$SliderBottom.modulate = Color(1,1,1)
 
 func on_time():
 	var distance_to_middle = music_time - time_to_reach_middle
@@ -109,6 +118,10 @@ func on_player_collision(_player, collision):
 			touch_position_at_collision = $SliderTouch.position
 			max_touch_length = (global_position.y+half_size)-collision_point.y
 		
+			# if first touch is in the top slider, make it blue
+			if collision_point.y < (global_position.y - half_size) + size*32:
+				$SliderTop.set_region_rect(Rect2(32,0,32,size*32))
+				collided.emit(\"sliderTop\")
 		# extend the collision slider
 		else:
 			var touchRect = $SliderTouch.get_region_rect()
@@ -125,10 +138,21 @@ func on_player_collision(_player, collision):
 				# would take too long to find actual value that uses skew, this likely needs to change if skew changes
 				if !flip:
 					$SliderTouch.position.x += 24
+				else:
+					$SliderTouch.position.x -= 1
+			
+			# if colliding with the bottom of slider, turn sliderbottom blue
+			if collision_point.y > (global_position.y + half_size) - size*32 && !sliderBottomTouched:
+				$SliderBottom.set_region_rect(Rect2(32,0,32,size*32))
+				collided.emit(\"sliderBottom\")
+				sliderBottomTouched = true
+			# otherwise score 1 point for every frame touching the non-top or bottom
+			elif collision_point.y > (global_position.y - half_size) + size*32 && !sliderBottomTouched:
+				collided.emit(\"sliderBody\")
 
 
 func delete_when_finished():
-	if direction  == \"up\" && position.y < -100:
+	if direction  == \"up\" && position.y < -1000:
 		queue_free()
 	elif direction == \"down\" &&  position.y > 700:
 		queue_free()
@@ -141,7 +165,7 @@ func handle_shape():
 	var total_size = start_beat_to_finish_beat + dist + dist # actual pixels from very top to very bottom
 	half_size = total_size/2
 
-	$Sprite2D.set_region_rect(Rect2(0,0,32,total_size))
+	$Sprite2D.set_region_rect(Rect2(96,0,32,total_size))
 	
 	if flip:
 		slider_skew *= -1
@@ -149,6 +173,10 @@ func handle_shape():
 		$Sprite2D.set_material(flipped_shader) 
 		$SliderTouch.flip_h = true
 		$SliderTouch.set_material(flipped_shader) 
+		$SliderTop.flip_h = true
+		$SliderTop.set_material(flipped_shader) 
+		$SliderBottom.flip_h = true
+		$SliderBottom.set_material(flipped_shader) 
 		x_offset *= -1
 	
 	$Sprite2D.material.set_shader_parameter(\"skew\", abs(slider_skew))
@@ -162,6 +190,14 @@ func handle_shape():
 	$RigidBody2D/CollisionPolygon2D.set_polygon(
 		PackedVector2Array([topLeft, topRight, bottomRight, bottomLeft])
 	)
+	
+	# set the top and bottom
+	$SliderTop.set_region_rect(Rect2(0,0,32,size*32))
+	$SliderBottom.set_region_rect(Rect2(0,0,32,size*32))
+	$SliderTop.translate(Vector2(x_offset, -y_offset))
+	$SliderBottom.translate(Vector2(-x_offset, y_offset))
+	
+	
 "
 
 [sub_resource type="GDScript" id="GDScript_nf7oe"]
@@ -200,15 +236,31 @@ texture_repeat = 2
 material = ExtResource("1_7xjoe")
 texture = ExtResource("1_72wtr")
 region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
+region_rect = Rect2(96, 0, 32, 32)
 
 [node name="SliderTouch" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_repeat = 2
 material = ExtResource("1_7xjoe")
 texture = ExtResource("1_72wtr")
 region_enabled = true
 region_rect = Rect2(32, 0, 32, 0)
+
+[node name="SliderTop" type="Sprite2D" parent="."]
+z_index = 1
+texture_repeat = 2
+material = ExtResource("1_7xjoe")
+texture = ExtResource("1_72wtr")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="SliderBottom" type="Sprite2D" parent="."]
+z_index = 1
+texture_repeat = 2
+material = ExtResource("1_7xjoe")
+texture = ExtResource("1_72wtr")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

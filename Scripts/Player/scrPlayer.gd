@@ -33,6 +33,7 @@ var jump_particle := preload("res://Objects/Player/objJumpParticle.tscn")
 # however collide has issues with touching the floor
 var slide = true
 var wall_death = false
+var show_speed = true
 
 func _ready():
 	
@@ -50,8 +51,9 @@ func _ready():
 	# player does in fact exist and assigns it with its "id"
 	GLOBAL_INSTANCES.objPlayerID = self
 	
+
 	$currentSpeed.top_level = true
-	$currentSpeed.position = Vector2(10,10)
+	$currentSpeed.position = Vector2(40,40)
 
 
 """
@@ -103,10 +105,13 @@ func _physics_process(delta):
 	# or as a fallback to avoid moving constantly when not needed
 	velocity.x = 0
 	
-	var speed_string = str(h_speed)
-	if h_speed >= 1000:
-		speed_string = "c"
-	$currentSpeed.set_text("Speed: " + speed_string)
+	if show_speed:
+		var speed_string = str(h_speed)
+		if h_speed >= 1000:
+			speed_string = "c"
+		$currentSpeed.set_text("Speed: " + speed_string)
+	else:
+		$currentSpeed.visible = false
 	
 	if Input.is_action_just_pressed("button_debug_command"):
 		debug_command()
