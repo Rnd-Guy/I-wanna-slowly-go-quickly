@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://wci4yejtx846"]
+[gd_scene load_steps=8 format=3 uid="uid://wci4yejtx846"]
 
 [ext_resource type="Script" path="res://Scripts/Player/scrBullet.gd" id="1_uc8l6"]
 [ext_resource type="Texture2D" uid="uid://bteupcijpek7k" path="res://Graphics/Sprites/Player/sprBullet.png" id="2_e32hu"]
+[ext_resource type="Texture2D" uid="uid://cikxmkd3je67u" path="res://Graphics/Sprites/Room_objects/sprPlayMusic.png" id="2_k6m0j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ngfdn"]
 atlas = ExtResource("2_e32hu")
@@ -13,6 +14,14 @@ region = Rect2(4, 0, 4, 4)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f2nkx"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k6m0j")
+}],
+"loop": true,
+"name": &"boss_bullet",
+"speed": 0.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ngfdn")
@@ -37,8 +46,8 @@ script = ExtResource("1_uc8l6")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f2nkx")
+animation = &"boss_bullet"
 autoplay = "default"
-frame_progress = 0.887801
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -9,6 +9,8 @@ var is_moving: bool = true
 var attack_type: int = GlobalClass.weapon_type.BULLET
 var attack_damage: int = GLOBAL_GAME.player_bullet_damage
 
+var boss_bullet = false
+var boss_texture = preload("res://Graphics/Sprites/Room_objects/sprPlayMusic.png")
 
 # The direction the bullet should be moving towards. This is assigned from
 # objPlayer, on _handle_shooting(). Once we get the direction we want, we add
@@ -18,6 +20,9 @@ func _ready():
 		bullet_direction.x = bullet_speed 
 	elif (looking_at == -1):
 		bullet_direction.x = -bullet_speed
+	
+	if boss_bullet:
+		$Sprite2D.set_animation("boss_bullet")
 
 func _physics_process(_delta):
 	

@@ -20,6 +20,8 @@ var triggered_events: Array = []
 # For moving the player to a specific position after warping to a different room
 var warp_to_point: Vector2 = Vector2.ZERO
 
+var boss_beat = 0
+var shot_beat = 0
 
 """
 Public readonly variables, meant to be accessed but not modified outside of this script

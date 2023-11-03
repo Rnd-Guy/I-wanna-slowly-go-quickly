@@ -35,6 +35,9 @@ var slide = true
 var wall_death = false
 var show_speed = true
 
+# boss related
+var is_boss = false
+
 func _ready():
 	
 	# If a savefile exists (we've saved at least once), we move the player to
@@ -322,6 +325,14 @@ func handle_shooting():
 			#	-The bullet spacing, relative to where we are looking at 
 			create_bullet_id.global_position = Vector2(global_position.x, global_position.y + 5)
 			GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndShoot)
+			
+			# CUSTOM
+			# if boss mode and is close to beat, change sprite
+			if is_boss:
+				if fmod(GLOBAL_GAME.boss_beat,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat,1) > 0.9:
+					#create_bullet_id.set_texture("res://Graphics/Sprites/Room_objects/sprPlayMusic.png")
+					create_bullet_id.boss_bullet = true
+				GLOBAL_GAME.shot_beat = GLOBAL_GAME.boss_beat
 			
 			# After everything is set and done, creates the bullet
 			get_parent().add_child(create_bullet_id)
