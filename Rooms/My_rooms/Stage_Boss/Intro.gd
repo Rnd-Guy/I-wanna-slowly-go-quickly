@@ -60,11 +60,23 @@ func _physics_process(delta):
 		lerp_rotation($NextRedBeam3, 9, 13, -90, -20)
 		lerp_rotation($NextRedBeam4, 9, 13, 0, -70)
 		lerp_rotation($NextRedBeam5, 9, 13, -60, 10)
-		
-		#reset()
-		#disable($InitialRedBeam)
-		pass
-	pass
+	elif t(13,17):
+		sole_enable([	$NextGreenBeam2,
+	$NextGreenBeam3,
+	$NextGreenBeam4,
+	$NextGreenBeam5,
+	$NextRedBeam2,
+	$NextRedBeam3,
+	$NextRedBeam4,
+	$NextRedBeam5,])
+		lerp_rotation($NextGreenBeam2, 9, 13, -20, 980)
+		lerp_rotation($NextGreenBeam3, 9, 13, -70, -1070)
+		lerp_rotation($NextGreenBeam4, 9, 13, 0, 1000)
+		lerp_rotation($NextGreenBeam5, 9, 13, -60, -1060)
+		lerp_rotation($NextRedBeam2, 9, 13, -100, -1100)
+		lerp_rotation($NextRedBeam3, 9, 13, -20, 980)
+		lerp_rotation($NextRedBeam4, 9, 13, -70, -1070)
+		lerp_rotation($NextRedBeam5, 9, 13, 10, 1010)
 	
 	for i in range(0,in_green):
 		GLOBAL_INSTANCES.objPlayerID.h_speed += delta * 0.3
