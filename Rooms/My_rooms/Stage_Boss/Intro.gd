@@ -5,6 +5,25 @@ extends Node2D
 var in_green = 0
 var in_red = 0
 
+@onready var list = [
+	$InitialGreenBeam,
+	$InitialRedBeam,
+	$NextGreenBeam2,
+	$NextGreenBeam3,
+	$NextGreenBeam4,
+	$NextGreenBeam5,
+	$NextRedBeam2,
+	$NextRedBeam3,
+	$NextRedBeam4,
+	$NextRedBeam5,
+]
+
+
+# NOTE cannot set process mode to disabled and then enabled on the same frame
+# it breaks the area2d collision detection and there's no fix yet
+# therefore only set it once per frame
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,18 +33,35 @@ func reset():
 	disable($InitialRedBeam)
 
 func _physics_process(delta):
-	reset()
 	if t(1, 5):
-		enable($InitialGreenBeam)
+		sole_enable($InitialGreenBeam)
 		var weight = w(1,5,b())
 		var angle = lerp(0, -70, weight)
 		$InitialGreenBeam.set_rotation(d(angle))
 	elif t(5,9):
-		enable($InitialRedBeam)
+		sole_enable($InitialRedBeam)
 		var weight = w(5,9,b())
 		var angle = lerp(-90, -20, weight)
 		$InitialRedBeam.set_rotation(d(angle))
-	elif t(9,100):
+	elif t(9,13):
+		sole_enable([	$NextGreenBeam2,
+	$NextGreenBeam3,
+	$NextGreenBeam4,
+	$NextGreenBeam5,
+	$NextRedBeam2,
+	$NextRedBeam3,
+	$NextRedBeam4,
+	$NextRedBeam5,])
+		lerp_rotation($NextGreenBeam2, 9, 13, -90, -20)
+		lerp_rotation($NextGreenBeam3, 9, 13, 0, -70)
+		lerp_rotation($NextGreenBeam4, 9, 13, -70, 0)
+		lerp_rotation($NextGreenBeam5, 9, 13, 10, -60)
+		lerp_rotation($NextRedBeam2, 9, 13, -30, -100)
+		lerp_rotation($NextRedBeam3, 9, 13, -90, -20)
+		lerp_rotation($NextRedBeam4, 9, 13, 0, -70)
+		lerp_rotation($NextRedBeam5, 9, 13, -60, 10)
+		
+		#reset()
 		#disable($InitialRedBeam)
 		pass
 	pass
@@ -34,7 +70,8 @@ func _physics_process(delta):
 		GLOBAL_INSTANCES.objPlayerID.h_speed += delta * 0.3
 	for i in range(0,in_red):
 		GLOBAL_INSTANCES.objPlayerID.h_speed -= delta * 0.3
-
+	
+	#print($InitialGreenBeam.get_overlapping_bodies())
 
 # shortcut
 func b():
@@ -54,37 +91,54 @@ func d(degrees):
 
 
 func disable(node):
-	if node.visible:
-		node.set_process_mode(PROCESS_MODE_DISABLED)
-		node.set_visible(false)
+	node.set_process_mode(PROCESS_MODE_DISABLED)
+	node.set_visible(false)
+	if node is Area2D:
+		node.set_disable_mode(Area2D.DISABLE_MODE_REMOVE)
 func enable(node):
-	if !node.visible:
-		node.set_process_mode(PROCESS_MODE_PAUSABLE)
-		node.set_process(true)
-		node.set_visible(true)
+	node.set_process_mode(PROCESS_MODE_PAUSABLE)
+	#node.set_process(true)
+	node.set_visible(true)
+	if node is Area2D:
+		node.set_disable_mode(Area2D.DISABLE_MODE_MAKE_STATIC)
 
+func sole_enable(nodes):
+	if typeof(nodes) != TYPE_ARRAY:
+		nodes = [nodes]
 
+	for node in list:
+		if node in nodes:
+			enable(node)
+		else:
+			disable(node)
+#	for node in nodes:
+#		if node in list:
+#			enable(node)
+#		else:
+#			disable(node)
 
+func lerp_rotation(node, start_time, end_time, start_angle, end_angle):
+	var weight = w(start_time, end_time, b())
+	var angle = lerp(start_angle, end_angle, weight)
+	node.set_rotation(d(angle))
 
-func _on_initial_green_beam_body_entered(_body):
-	#print(body)
+func _on_green_beam_body_entered(_body):
 	in_green += 1
 	pass # Replace with function body.
 
 
-func _on_initial_green_beam_body_exited(_body):
-	print(_body)
+func _on_green_beam_body_exited(_body):
 	in_green -= 1
 	pass # Replace with function body.
 
 
 
 
-func _on_initial_red_beam_body_entered(_body):
+func _on_red_beam_body_entered(_body):
 	in_red += 1
 	pass # Replace with function body.
 
 
-func _on_initial_red_beam_body_exited(_body):
+func _on_red_beam_body_exited(_body):
 	in_red -= 1
 	pass # Replace with function body.

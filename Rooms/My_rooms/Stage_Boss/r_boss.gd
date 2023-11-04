@@ -49,7 +49,7 @@ func _process(delta):
 	beat = (music_time + offset)/seconds_per_beat + beat_offset
 	GLOBAL_GAME.boss_beat = beat
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if frames_before_resync > 0:
 		frames_before_resync -= 1
 	else:
@@ -75,9 +75,9 @@ func on_the_beat():
 
 func debug_inputs():
 	if Input.is_action_just_pressed("button_debug_left"):
-		if music_time > 5:
-			GLOBAL_MUSIC.seek(music_time-5)
+		if music_time > 1:
+			GLOBAL_MUSIC.seek(music_time-1)
 		else:
 			GLOBAL_MUSIC.seek(0)
 	if Input.is_action_just_pressed("button_debug_right"):
-		GLOBAL_MUSIC.seek(music_time+5)
+		GLOBAL_MUSIC.seek(music_time+1)
