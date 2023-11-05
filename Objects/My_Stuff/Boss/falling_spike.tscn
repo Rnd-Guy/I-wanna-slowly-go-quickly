@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://w6w4iv17qcbs"]
+
+[ext_resource type="Script" path="res://Objects/My_Stuff/Boss/falling_spike.gd" id="1_ai761"]
+
+[node name="FallingSpike" type="Area2D"]
+position = Vector2(1872, 688)
+script = ExtResource("1_ai761")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -16, -16, 16, 16, 16)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -16, -16, 16, 16, 16)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Warning" type="Polygon2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(200, 400)
+color = Color(1, 0.239216, 0.239216, 1)
+polygon = PackedVector2Array(-4, -47, -4, -37, -7, -37, -2, -32, 2, -37, -1, -37, -1, -47)

@@ -38,6 +38,7 @@ var show_speed = true
 # boss related
 var is_boss = false
 var reverse_controls = false
+var vertical_shots = false
 
 func _ready():
 	
@@ -321,6 +322,8 @@ func handle_shooting():
 			# (the actual game)
 			var create_bullet_id: AnimatableBody2D = create_bullet.instantiate()
 			create_bullet_id.looking_at = xscale
+			if vertical_shots:
+				create_bullet_id.vertical = true
 			
 			# Bullet's x coordinate:
 			#	-Takes into account the global x

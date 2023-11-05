@@ -4,6 +4,7 @@ var looking_at: int
 var bullet_direction: Vector2 = Vector2.ZERO
 var bullet_speed: int = 12
 var is_moving: bool = true
+var vertical = false
 
 # Check scrGlobalClass, inside of res://Scripts/Globals
 var attack_type: int = GlobalClass.weapon_type.BULLET
@@ -16,7 +17,9 @@ var boss_texture = preload("res://Graphics/Sprites/Room_objects/sprPlayMusic.png
 # objPlayer, on _handle_shooting(). Once we get the direction we want, we add
 # the proper speed to bullet_direction's x
 func _ready():
-	if (looking_at == 1):
+	if vertical:
+		bullet_direction.y = -bullet_speed
+	elif (looking_at == 1):
 		bullet_direction.x = bullet_speed 
 	elif (looking_at == -1):
 		bullet_direction.x = -bullet_speed
