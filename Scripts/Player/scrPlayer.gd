@@ -37,6 +37,7 @@ var show_speed = true
 
 # boss related
 var is_boss = false
+var reverse_controls = false
 
 func _ready():
 	
@@ -55,8 +56,8 @@ func _ready():
 	GLOBAL_INSTANCES.objPlayerID = self
 	
 
-	$currentSpeed.top_level = true
-	$currentSpeed.position = Vector2(40,40)
+	$CanvasLayer/currentSpeed.top_level = true
+	$CanvasLayer/currentSpeed.position = Vector2(40,40)
 
 
 """
@@ -109,12 +110,12 @@ func _physics_process(delta):
 	velocity.x = 0
 	
 	if show_speed:
-		var speed_string = str(h_speed)
+		var speed_string = str(snapped(h_speed,0.01))
 		if h_speed >= 1000:
 			speed_string = "c"
-		$currentSpeed.set_text("Speed: " + speed_string)
+		$CanvasLayer/currentSpeed.set_text("Speed: " + speed_string)
 	else:
-		$currentSpeed.visible = false
+		$CanvasLayer/currentSpeed.visible = false
 	
 	if Input.is_action_just_pressed("button_debug_command"):
 		debug_command()
@@ -189,12 +190,13 @@ func handle_movement() -> void:
 	# Get the input direction and handle the movement
 	var main_direction = Input.get_axis("button_left", "button_right")
 	velocity.x = main_direction * h_speed * 50
-	
+	if reverse_controls:
+		velocity.x *= -1
 	# Set where the player is looking at (for things like flipping the sprite
 	# or setting the direction bullets should fire towards)
 	if velocity.x != 0:
 		xscale = main_direction
-
+	
 
 # Jumping logic
 func handle_jumping() -> void:
@@ -312,7 +314,7 @@ func handle_shooting():
 		# An equivalent to gamemaker's "instance_number() < 4"
 		# It checks how many nodes belonging to the "Bullet" group
 		# exist in the current scene
-		if get_tree().get_nodes_in_group("Bullet").size() < 4:
+		#if get_tree().get_nodes_in_group("Bullet").size() < 4:
 			
 			# Loads the bullet scene, instances it, assigns the shooting direction
 			# and global position, makes a sound and then adds it to the main scene 

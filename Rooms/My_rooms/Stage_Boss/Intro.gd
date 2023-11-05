@@ -29,10 +29,13 @@ func _ready():
 	pass # Replace with function body.
 
 func reset():
-	disable($InitialGreenBeam)
-	disable($InitialRedBeam)
+	$tiles.set_layer_enabled(0,false)
+func setup():
+	$tiles.set_layer_enabled(0, true)
+
 
 func _physics_process(delta):
+	#setup()
 	if t(1, 5):
 		sole_enable($InitialGreenBeam)
 		var weight = w(1,5,b())

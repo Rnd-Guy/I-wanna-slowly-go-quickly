@@ -1,0 +1,162 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3efh8db63dm5"]
+
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Intro.gd" id="1_cotnt"]
+[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="2_mum75"]
+
+[node name="Intro-Intro" type="Node2D"]
+script = ExtResource("1_cotnt")
+
+[node name="InitialGreenBeam" type="Area2D" parent="."]
+visible = false
+position = Vector2(416, 192)
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="InitialGreenBeam"]
+color = Color(0.423529, 0.811765, 0.34902, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InitialGreenBeam"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="InitialRedBeam" type="Area2D" parent="."]
+visible = false
+position = Vector2(416, 192)
+rotation = -1.5708
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="InitialRedBeam"]
+color = Color(0.811765, 0.235294, 0.235294, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InitialRedBeam"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="NextGreenBeam2" type="Area2D" parent="."]
+position = Vector2(192, 192)
+rotation = -1.5708
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="NextGreenBeam2"]
+color = Color(0.423529, 0.811765, 0.34902, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextGreenBeam2"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="NextGreenBeam3" type="Area2D" parent="."]
+position = Vector2(344, 192)
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="NextGreenBeam3"]
+color = Color(0.423529, 0.811765, 0.34902, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextGreenBeam3"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="NextGreenBeam4" type="Area2D" parent="."]
+position = Vector2(528, 192)
+rotation = -1.22173
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="NextGreenBeam4"]
+color = Color(0.423529, 0.811765, 0.34902, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextGreenBeam4"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="NextGreenBeam5" type="Area2D" parent="."]
+position = Vector2(648, 192)
+rotation = 0.174533
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="NextGreenBeam5"]
+color = Color(0.423529, 0.811765, 0.34902, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextGreenBeam5"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="NextRedBeam2" type="Area2D" parent="."]
+position = Vector2(192, 192)
+rotation = -0.523599
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="NextRedBeam2"]
+color = Color(0.811765, 0.235294, 0.235294, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextRedBeam2"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="NextRedBeam3" type="Area2D" parent="."]
+position = Vector2(344, 192)
+rotation = -1.5708
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="NextRedBeam3"]
+color = Color(0.811765, 0.235294, 0.235294, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextRedBeam3"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="NextRedBeam4" type="Area2D" parent="."]
+position = Vector2(528, 192)
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="NextRedBeam4"]
+color = Color(0.811765, 0.235294, 0.235294, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextRedBeam4"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="NextRedBeam5" type="Area2D" parent="."]
+position = Vector2(648, 192)
+rotation = -1.0472
+disable_mode = 1
+collision_layer = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="NextRedBeam5"]
+color = Color(0.811765, 0.235294, 0.235294, 0.654902)
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextRedBeam5"]
+polygon = PackedVector2Array(0, 0, -592, 480, -488, 560)
+
+[node name="tiles" parent="." instance=ExtResource("2_mum75")]
+layer_0/enabled = false
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="InitialGreenBeam" to="." method="_on_green_beam_body_entered"]
+[connection signal="body_exited" from="InitialGreenBeam" to="." method="_on_green_beam_body_exited"]
+[connection signal="body_entered" from="InitialRedBeam" to="." method="_on_red_beam_body_entered"]
+[connection signal="body_exited" from="InitialRedBeam" to="." method="_on_red_beam_body_exited"]
+[connection signal="body_entered" from="NextGreenBeam2" to="." method="_on_green_beam_body_entered"]
+[connection signal="body_exited" from="NextGreenBeam2" to="." method="_on_green_beam_body_exited"]
+[connection signal="body_entered" from="NextGreenBeam3" to="." method="_on_green_beam_body_entered"]
+[connection signal="body_exited" from="NextGreenBeam3" to="." method="_on_green_beam_body_exited"]
+[connection signal="body_entered" from="NextGreenBeam4" to="." method="_on_green_beam_body_entered"]
+[connection signal="body_exited" from="NextGreenBeam4" to="." method="_on_green_beam_body_exited"]
+[connection signal="body_entered" from="NextGreenBeam5" to="." method="_on_green_beam_body_entered"]
+[connection signal="body_exited" from="NextGreenBeam5" to="." method="_on_green_beam_body_exited"]
+[connection signal="body_entered" from="NextRedBeam2" to="." method="_on_red_beam_body_entered"]
+[connection signal="body_exited" from="NextRedBeam2" to="." method="_on_red_beam_body_exited"]
+[connection signal="body_entered" from="NextRedBeam3" to="." method="_on_red_beam_body_entered"]
+[connection signal="body_exited" from="NextRedBeam3" to="." method="_on_red_beam_body_exited"]
+[connection signal="body_entered" from="NextRedBeam4" to="." method="_on_red_beam_body_entered"]
+[connection signal="body_exited" from="NextRedBeam4" to="." method="_on_red_beam_body_exited"]
+[connection signal="body_entered" from="NextRedBeam5" to="." method="_on_red_beam_body_entered"]
+[connection signal="body_exited" from="NextRedBeam5" to="." method="_on_red_beam_body_exited"]

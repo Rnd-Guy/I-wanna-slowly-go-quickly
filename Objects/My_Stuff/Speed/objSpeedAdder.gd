@@ -7,7 +7,7 @@ func _ready():
 	var prefix = "+"
 	if speed <= 0:
 		prefix = ""
-	var speed_string = str(speed)
+	var speed_string = str(snapped(speed,0.01))
 	if speed >= 1000:
 		speed_string = "c"
 	$Label.set_text(prefix + speed_string)

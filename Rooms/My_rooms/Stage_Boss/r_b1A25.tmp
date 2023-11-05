@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=28 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -32,9 +32,6 @@ size = Vector2(64, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwi6y"]
 size = Vector2(114, 154)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1napu"]
-size = Vector2(2936, 20)
-
 [node name="rBoss" type="Node2D"]
 script = ExtResource("1_4nee7")
 metadata/_edit_lock_ = true
@@ -46,6 +43,7 @@ visible = false
 script = ExtResource("2_p4ai6")
 
 [node name="tiles" parent="Phases/BeforeIntro" instance=ExtResource("1_b2h4h")]
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
 
@@ -423,9 +421,6 @@ metadata/_edit_lock_ = true
 [node name="Minigame1" type="Node2D" parent="Phases"]
 script = ExtResource("4_7agvo")
 
-[node name="Start" type="Node2D" parent="Phases/Minigame1"]
-position = Vector2(96, 304)
-
 [node name="objCameraDynamic" parent="Phases/Minigame1" node_paths=PackedStringArray("target_node") instance=ExtResource("7_ildvd")]
 target_node = NodePath("../../../Room_related/objPlayer")
 camera_zoom = Vector2(1, 1)
@@ -433,6 +428,8 @@ stop_left_at = 0
 stop_up_at = 0
 stop_right_at = 2000
 stop_down_at = 608
+
+[node name="Start" type="Polygon2D" parent="Phases/Minigame1"]
 
 [node name="tiles" parent="Phases/Minigame1" instance=ExtResource("1_b2h4h")]
 
@@ -478,189 +475,11 @@ position = Vector2(48, 168)
 position = Vector2(47, 67)
 shape = SubResource("RectangleShape2D_cwi6y")
 
-[node name="FallCheck" type="Area2D" parent="Phases/Minigame1"]
-position = Vector2(16, 632)
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/FallCheck"]
-position = Vector2(1132, 0)
-shape = SubResource("RectangleShape2D_1napu")
-
 [node name="Minigame2" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("9_tag34")
 
-[node name="start" type="Node2D" parent="Phases/Minigame2"]
-position = Vector2(432, 240)
-
-[node name="tiles" parent="Phases/Minigame2" instance=ExtResource("1_b2h4h")]
-layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0, 131079, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 262152, 65536, 0, 327688, 65536, 0, 393222, 65536, 0, 458758, 65536, 0, 524294, 65536, 0, 589830, 65536, 0, 393221, 65536, 0, 393220, 65536, 0, 393219, 65536, 0, 393218, 65536, 0, 458754, 65536, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 65536, 0, 655362, 65536, 0, 655363, 65536, 0, 655364, 65536, 0, 655365, 65536, 0, 655366, 65536, 0, 655367, 65536, 0, 655368, 65536, 0, 655369, 65536, 0, 655370, 65536, 0, 589832, 65536, 0, 524296, 65536, 0, 458760, 65536, 0, 589834, 65536, 0, 524298, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 262154, 65536, 0, 196618, 65536, 0, 131082, 65536, 0, 131083, 65536, 0, 131084, 65536, 0, 131085, 65536, 0, 65551, 65536, 0, 131087, 65536, 0, 196623, 65536, 0, 262159, 65536, 0, 262158, 65536, 0, 262157, 65536, 0, 262156, 65536, 0, 458762, 65536, 0, 393228, 65536, 0, 458764, 65536, 0, 524300, 65536, 0, 589836, 65536, 0, 655372, 65536, 0, 720908, 65536, 0, 786444, 65536, 0, 786443, 65536, 0, 786442, 65536, 0, 786441, 65536, 0, 786438, 65536, 0, 786437, 65536, 0, 786434, 65536, 0, 851970, 65536, 0, 917506, 65536, 0, 983042, 65536, 0, 1048578, 65536, 0, 1048579, 65536, 0, 1048580, 65536, 0, 1048581, 65536, 0, 1114119, 65536, 0, 1048583, 65536, 0, 983047, 65536, 0, 917511, 65536, 0, 917508, 65536, 0, 917509, 65536, 0, 786436, 65536, 0, 851973, 65536, 0, 786439, 65536, 0, 851977, 65536, 0, 917513, 65536, 0, 983049, 65536, 0, 1048585, 65536, 0, 393229, 65536, 0, 393230, 65536, 0, 458766, 65536, 0, 524302, 65536, 0, 589838, 65536, 0, 720909, 65536, 0, 720910, 65536, 0, 720911, 65536, 0, 720912, 65536, 0, 786446, 65536, 0, 851982, 65536, 0, 917518, 65536, 0, 917517, 65536, 0, 917516, 65536, 0, 917515, 65536, 0, 1048586, 65536, 0, 1048587, 65536, 0, 1114125, 65536, 0, 983053, 65536, 0, 1048591, 65536, 0, 1048592, 65536, 0, 1048594, 65536, 0, 1048595, 65536, 0, 983056, 65536, 0, 917520, 65536, 0, 851984, 65536, 0, 851986, 65536, 0, 917522, 65536, 0, 983058, 65536, 0, 589840, 65536, 0, 524304, 65536, 0, 393232, 65536, 0, 393233, 65536, 0, 327697, 65536, 0, 196625, 65536, 0, 131089, 65536, 0, 196626, 65536, 0, 196627, 65536, 0, 131091, 65536, 0, 65557, 65536, 0, 131093, 65536, 0, 196629, 65536, 0, 131094, 65536, 0, 262165, 65536, 0, 262166, 65536, 0, 327701, 65536, 0, 327700, 65536, 0, 327699, 65536, 0, 524305, 65536, 0, 458771, 65536, 0, 458772, 65536, 0, 458773, 65536, 0, 458774, 65536, 0, 393239, 65536, 0, 458775, 65536, 0, 524307, 65536, 0, 589843, 65536, 0, 655379, 65536, 0, 655378, 65536, 0, 786450, 65536, 0, 917523, 65536, 0, 917524, 65536, 0, 851988, 65536, 0, 786452, 65536, 0, 786453, 65536, 0, 720917, 65536, 0, 655381, 65536, 0, 589845, 65536, 0, 589846, 65536, 0, 720919, 65536, 0, 917525, 65536, 0, 983061, 65536, 0, 1048597, 65536, 0, 1048598, 65536, 0, 917527, 65536, 0, 786455, 65536, 0, 131073, 65536, 0, 131075, 65536, 0, 65540, 65536, 0)
-metadata/_edit_lock_ = true
-
-[node name="BlackBar" type="Polygon2D" parent="Phases/Minigame2"]
-position = Vector2(400, 592)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-168, -8, 168, -8, 168, 8, -168, 8)
-
-[node name="WhiteBar" type="Polygon2D" parent="Phases/Minigame2"]
-position = Vector2(400, 592)
-polygon = PackedVector2Array(-168, -8, 168, -8, 168, 8, -168, 8)
-
-[node name="buffs" type="Node2D" parent="Phases/Minigame2"]
-
-[node name="randomAdder" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(112, 112)
-fade_timer = 100.0
-
-[node name="randomAdder2" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(464, 48)
-fade_timer = 100.0
-
-[node name="randomAdder3" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(48, 112)
-fade_timer = 100.0
-
-[node name="randomAdder4" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(240, 176)
-fade_timer = 100.0
-
-[node name="randomAdder5" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(112, 240)
-fade_timer = 100.0
-
-[node name="randomAdder6" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(304, 144)
-fade_timer = 100.0
-
-[node name="randomAdder7" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(240, 304)
-fade_timer = 100.0
-
-[node name="randomAdder8" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(304, 304)
-fade_timer = 100.0
-
-[node name="randomAdder9" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(144, 432)
-fade_timer = 100.0
-
-[node name="randomAdder10" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(48, 560)
-fade_timer = 100.0
-
-[node name="randomAdder11" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(432, 400)
-fade_timer = 100.0
-
-[node name="randomAdder12" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(752, 560)
-fade_timer = 100.0
-
-[node name="randomAdder13" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(592, 80)
-fade_timer = 100.0
-
-[node name="randomAdder14" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(528, 176)
-fade_timer = 100.0
-
-[node name="randomAdder15" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(720, 48)
-fade_timer = 100.0
-
-[node name="randomAdder16" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(720, 208)
-fade_timer = 100.0
-
-[node name="randomAdder17" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(752, 272)
-fade_timer = 100.0
-
-[node name="randomAdder18" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(752, 432)
-fade_timer = 100.0
-
-[node name="randomAdder19" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(624, 432)
-fade_timer = 100.0
-
-[node name="randomAdder20" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(496, 400)
-fade_timer = 100.0
-
-[node name="randomAdder21" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(560, 560)
-fade_timer = 100.0
-
-[node name="randomAdder22" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(624, 496)
-fade_timer = 100.0
-
-[node name="randomAdder23" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(400, 560)
-fade_timer = 100.0
-
-[node name="randomAdder24" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(208, 432)
-fade_timer = 100.0
-
-[node name="randomAdder25" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(368, 368)
-fade_timer = 100.0
-
-[node name="randomAdder26" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(528, 336)
-fade_timer = 100.0
-
-[node name="randomAdder27" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(272, 560)
-fade_timer = 100.0
-
-[node name="randomAdder28" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(176, 48)
-fade_timer = 100.0
-
-[node name="randomAdder29" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(368, 176)
-fade_timer = 100.0
-
-[node name="randomAdder30" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(592, 240)
-fade_timer = 100.0
-
-[node name="Transition1" type="Node2D" parent="Phases"]
-visible = false
-script = ExtResource("2_p4ai6")
-
-[node name="tiles" parent="Phases/Transition1" instance=ExtResource("1_b2h4h")]
-layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
-metadata/_edit_lock_ = true
-
-[node name="Chorus1" type="Node2D" parent="Phases"]
-
-[node name="PostChorus1" type="Node2D" parent="Phases"]
-
-[node name="Transition2" type="Node2D" parent="Phases"]
-
-[node name="Minigame3" type="Node2D" parent="Phases"]
-
-[node name="Minigame4" type="Node2D" parent="Phases"]
-
-[node name="Minigame5" type="Node2D" parent="Phases"]
-
-[node name="Transition3" type="Node2D" parent="Phases"]
-
-[node name="Chorus2" type="Node2D" parent="Phases"]
-
-[node name="Chorus2_part2" type="Node2D" parent="Phases"]
-
-[node name="PostChorus2" type="Node2D" parent="Phases"]
-
-[node name="Final" type="Node2D" parent="Phases"]
-
-[node name="End" type="Node2D" parent="Phases"]
-
 [node name="Fake-end" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("4_upcyl")
 
 [node name="Debug" type="Control" parent="."]
@@ -691,7 +510,6 @@ offset_right = 88.0
 offset_bottom = 232.0
 
 [node name="tiles" parent="Debug" instance=ExtResource("1_b2h4h")]
-visible = false
 layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
@@ -810,4 +628,3 @@ song_id = ExtResource("3_vslpb")
 [connection signal="body_exited" from="Phases/Beep-boop-1/Floor/Red/RFP13" to="Phases/Beep-boop-1" method="_on_rfp_body_exited"]
 [connection signal="body_entered" from="Phases/Minigame1/PositionCheck" to="Phases/Minigame1" method="_on_position_check_body_entered"]
 [connection signal="body_exited" from="Phases/Minigame1/PositionCheck" to="Phases/Minigame1" method="_on_position_check_body_exited"]
-[connection signal="body_entered" from="Phases/Minigame1/FallCheck" to="Phases/Minigame1" method="_on_fall_check_body_entered"]

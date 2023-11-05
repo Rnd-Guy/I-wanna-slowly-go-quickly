@@ -236,7 +236,9 @@ position = Vector2(7.5, 6)
 shape = SubResource("RectangleShape2D_x6gqu")
 debug_color = Color(0, 1, 0.0156863, 0.419608)
 
-[node name="currentSpeed" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="currentSpeed" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
 
