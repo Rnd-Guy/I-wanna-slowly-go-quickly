@@ -15,6 +15,7 @@ var direction = \"up\" # up, down
 var offset = 0
 var size = 2
 var flip = false
+var time_offset = 0
 
 # calculations
 var seconds_per_beat # 60 / bpm
@@ -29,7 +30,7 @@ func _ready():
 		$Sprite2D.flip_h = true
 	# set initial position here
 	seconds_per_beat = 60.0/bpm
-	time_to_reach_middle = beat * seconds_per_beat
+	time_to_reach_middle = (beat * seconds_per_beat) + time_offset
 	
 	resync_rhythm_position()
 	pass # Replace with function body.
@@ -51,7 +52,7 @@ func _physics_process(delta):
 
 func resync_rhythm_position():
 	#seconds_per_beat = 60.0/beat
-	time_to_reach_middle = beat * seconds_per_beat
+	time_to_reach_middle = (beat * seconds_per_beat) + time_offset
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
 	#var music_time = GLOBAL_MUSIC.get_memoized_position()
 	#var distance = time_to_reach_middle * speed
@@ -88,10 +89,11 @@ func on_player_collision(player, collision):
 		collided.emit(\"note\")
 
 func delete_when_finished():
-	if direction  == \"up\" && position.y < -100:
-		queue_free()
-	elif direction == \"down\" &&  position.y > 700:
-		queue_free()
+#	if direction  == \"up\" && position.y < -100:
+#		queue_free()
+#	elif direction == \"down\" &&  position.y > 700:
+#		queue_free()
+	pass
 		
 func handle_size():
 	if size != 1:

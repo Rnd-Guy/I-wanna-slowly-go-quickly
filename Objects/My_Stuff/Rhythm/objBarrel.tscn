@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdrw8nt4xakwn"]
+
+[ext_resource type="Texture2D" uid="uid://bju1ygrm2amg5" path="res://Graphics/Sprites/My Stuff/sprBarrel.png" id="3_k1jrv"]
+[ext_resource type="Texture2D" uid="uid://boc18ngim4vdg" path="res://Graphics/Sprites/My Stuff/sprUpArrow.png" id="4_j377q"]
+
+[sub_resource type="GDScript" id="GDScript_1tjc6"]
+script/source = "extends Node2D
+
+const barrel_voice = preload(\"res://Audio/My Stuff/barrel.wav\")
+
+@export var dialog_scene: PackedScene = null
+var is_inside = false
+var is_playing = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	if is_inside && Input.is_action_just_pressed(\"button_up\"):
+		if !is_playing:
+			play_sample()
+		else:
+			on_sample_finish()
+	
+	if is_inside:
+		$UpArrow.visible = true
+	else:
+		$UpArrow.visible = false
+	
+func play_sample():
+	if get_tree().get_nodes_in_group(\"Dialog\").size() < 1:
+		var dialog_box_id = dialog_scene.instantiate()
+		get_parent().add_child(dialog_box_id)
+		GLOBAL_SOUNDS.play_sound(barrel_voice)
+
+func on_sample_finish():
+	pass
+	
+
+func _on_area_2d_body_entered(_body):
+	is_inside = true
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(_body):
+	is_inside = false
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m5uk"]
+size = Vector2(32, 40)
+
+[node name="objBarrel" type="Node2D"]
+script = SubResource("GDScript_1tjc6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_0m5uk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_k1jrv")
+
+[node name="UpArrow" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_j377q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

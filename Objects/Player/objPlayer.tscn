@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bp5rqk4l7tesk"]
+[gd_scene load_steps=35 format=3 uid="uid://bp5rqk4l7tesk"]
 
 [ext_resource type="Script" path="res://Scripts/Player/scrPlayer.gd" id="1_qesj7"]
 [ext_resource type="Texture2D" uid="uid://burygy08cq204" path="res://Graphics/Sprites/Player/sprPlayerFall.png" id="2_vhr1p"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dbu5de27ltlgx" path="res://Graphics/Sprites/Player/sprPlayerJump.png" id="4_m4r65"]
 [ext_resource type="Texture2D" uid="uid://nc32sed5ti8l" path="res://Graphics/Sprites/Player/sprPlayerRunning.png" id="5_e7ay4"]
 [ext_resource type="Texture2D" uid="uid://iek6jj5sm1cc" path="res://Graphics/Sprites/Player/sprPlayerSliding.png" id="5_ps24y"]
+[ext_resource type="Texture2D" uid="uid://dw47yqicspaxe" path="res://Graphics/Sprites/My Stuff/boss/shmup.png" id="7_0ol8j"]
+[ext_resource type="Texture2D" uid="uid://bw7jwxmuvetrj" path="res://Graphics/Sprites/My Stuff/boss/shmup-star.png" id="8_cc7fo"]
+[ext_resource type="Texture2D" uid="uid://b6mga71dt1kml" path="res://Graphics/Sprites/My Stuff/boss/noisz.png" id="9_5rgr3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b5dja"]
 atlas = ExtResource("2_vhr1p")
@@ -162,6 +165,45 @@ size = Vector2(10, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6gqu"]
 size = Vector2(1, 20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oi7fq"]
+radius = 4.0
+
+[sub_resource type="GDScript" id="GDScript_mhaq7"]
+resource_name = "star"
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _physics_process(delta):
+	rotation_degrees += 1000*delta
+"
+
+[sub_resource type="GDScript" id="GDScript_hcsb4"]
+resource_name = "noisz"
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _physics_process(delta):
+	rotation_degrees += 60*delta
+"
+
 [node name="objPlayer" type="CharacterBody2D" groups=["Player"]]
 z_index = 2
 collision_mask = 6
@@ -242,6 +284,38 @@ debug_color = Color(0, 1, 0.0156863, 0.419608)
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="shmupMask" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_oi7fq")
+
+[node name="BossRelated" type="Node2D" parent="."]
+visible = false
+
+[node name="shmup" type="Sprite2D" parent="BossRelated"]
+position = Vector2(3, 0)
+texture = ExtResource("7_0ol8j")
+
+[node name="shmup_area" type="Area2D" parent="BossRelated"]
+process_mode = 4
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossRelated/shmup_area"]
+shape = SubResource("CircleShape2D_oi7fq")
+
+[node name="star" type="Sprite2D" parent="BossRelated"]
+visible = false
+position = Vector2(-1, -21)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_cc7fo")
+script = SubResource("GDScript_mhaq7")
+
+[node name="noisz" type="Sprite2D" parent="BossRelated"]
+visible = false
+texture = ExtResource("9_5rgr3")
+offset = Vector2(-2, 0)
+script = SubResource("GDScript_hcsb4")
+
 [connection signal="body_entered" from="extraCollisions/Platforms" to="." method="_on_platforms_body_entered"]
 [connection signal="body_exited" from="extraCollisions/Platforms" to="." method="_on_platforms_body_exited"]
 [connection signal="body_entered" from="extraCollisions/Killers" to="." method="_on_killers_body_entered"]
@@ -250,3 +324,4 @@ offset_bottom = 23.0
 [connection signal="body_entered" from="extraCollisions/IsCrushed" to="." method="_on_is_crushed_body_entered"]
 [connection signal="body_entered" from="extraCollisions/Vines" to="." method="_on_vines_body_entered"]
 [connection signal="body_exited" from="extraCollisions/Vines" to="." method="_on_vines_body_exited"]
+[connection signal="body_entered" from="BossRelated/shmup_area" to="." method="_on_killers_body_entered"]

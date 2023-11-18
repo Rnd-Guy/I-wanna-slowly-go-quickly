@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6tbd7egju8x0"
+path="res://.godot/imported/barrel.ogg-6afa6ec0016d06e2fc7b65d64983f261.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/My Stuff/barrel.ogg"
+dest_files=["res://.godot/imported/barrel.ogg-6afa6ec0016d06e2fc7b65d64983f261.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

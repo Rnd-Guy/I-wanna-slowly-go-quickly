@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sywoh"]
 shader = ExtResource("2_33tsx")
-shader_parameter/hit_opacity = 0.0
+shader_parameter/hit_opacity = 1.0
 shader_parameter/hit_color = Color(1, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8rg0"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=70 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -7,16 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_ro6vu"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Beep-boop-1.gd" id="3_lr0jd"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_sbg1e"]
-[ext_resource type="AudioStream" uid="uid://dfril5dm2066f" path="res://Audio/Music/boss.ogg" id="3_vslpb"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame1.gd" id="4_7agvo"]
 [ext_resource type="AudioStream" uid="uid://cbtxeavsqivpn" path="res://Audio/Music/musLevel01.ogg" id="4_27w03"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_btmy2"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Fake-end.gd" id="4_upcyl"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_pfun0"]
+[ext_resource type="Texture2D" uid="uid://blbt5tce2v06o" path="res://Graphics/Sprites/My Stuff/boss/boss1.png" id="6_4cb84"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Boss1.gd" id="6_b7u5l"]
 [ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_m0pi3"]
 [ext_resource type="PackedScene" uid="uid://dflfahb0echkd" path="res://Objects/My_Stuff/Boss/generic_block.tscn" id="6_s8piw"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_i72w6"]
 [ext_resource type="PackedScene" uid="uid://cdx3h81o7hqb4" path="res://Objects/Room_objects/objCameraDynamic.tscn" id="7_ildvd"]
+[ext_resource type="Texture2D" uid="uid://3rm23075l70q" path="res://Graphics/Sprites/My Stuff/boss/boss1-hit.png" id="7_juk3v"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_i554i"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame2.gd" id="9_tag34"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_v3p7b"]
@@ -28,10 +30,52 @@
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/PostChorus1.gd" id="12_mlexc"]
 [ext_resource type="PackedScene" uid="uid://w6w4iv17qcbs" path="res://Objects/My_Stuff/Boss/falling_spike.tscn" id="13_6jr5t"]
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="13_ig2yi"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Transition2.gd" id="14_tanqx"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame3.gd" id="15_xo8nr"]
+[ext_resource type="Texture2D" uid="uid://bm5gd7fkg2p6l" path="res://Graphics/Sprites/My Stuff/boss/boss2.png" id="15_yvg50"]
 [ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="16_0uul7"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Chorus2.gd" id="17_55lui"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame4.gd" id="17_ecwox"]
+[ext_resource type="Texture2D" uid="uid://b10imwv5qksm3" path="res://Graphics/Sprites/My Stuff/boss/boss2falling.png" id="18_pddg4"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Chorus2_part2.gd" id="19_tb3y5"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/PostChorus2.gd" id="20_b5xfr"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Final.gd" id="21_n2q38"]
+[ext_resource type="Texture2D" uid="uid://geevuntqe112" path="res://Graphics/Sprites/My Stuff/boss/boss3.png" id="24_yd4ll"]
+[ext_resource type="AudioStream" uid="uid://dfril5dm2066f" path="res://Audio/Music/boss.ogg" id="31_tjblq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syc1c"]
 size = Vector2(64, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eihmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_4cb84")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_juk3v")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_e481s"]
+resource_name = "reactToHit"
+script/source = "extends AnimatableBody2D
+
+# this only exists because bullets act on the collision object
+func react_to_hit(attack_type, attack_damage):
+	$\"../../Boss1\".react_to_hit(attack_type, attack_damage)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7peh1"]
+radius = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwi6y"]
 size = Vector2(114, 154)
@@ -39,8 +83,237 @@ size = Vector2(114, 154)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1napu"]
 size = Vector2(2936, 20)
 
+[sub_resource type="GDScript" id="GDScript_d51nq"]
+script/source = "extends Node2D
+
+var iframe = false
+var speed = Vector2(120,0)
+
+func _physics_process(delta):
+	if iframe:
+		modulate.a = 0.5
+	#global_translate(delta * speed)
+
+func react_to_hit(attack_type, attack_damage):
+	if !iframe:
+		$\"/root/rBoss\".take_damage(attack_type, attack_damage)
+		iframe = true
+		$Timer.start($/root/rBoss.seconds_per_beat * 0.75)
+
+func on_timeout():
+	iframe = false
+	modulate.a = 1
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g61c8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_yvg50")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_nqv6k"]
+script/source = "extends AnimatableBody2D
+
+# this only exists because bullets act on the collision object
+func react_to_hit(attack_type, attack_damage):
+	$\"../../Boss2\".react_to_hit(attack_type, attack_damage)
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0jvw"]
-size = Vector2(864, 608)
+size = Vector2(864, 1304)
+
+[sub_resource type="GDScript" id="GDScript_3xb7m"]
+script/source = "extends Node2D
+
+var iframe = false
+var speed = Vector2(120,0)
+
+func _physics_process(delta):
+	if iframe:
+		modulate.a = floori(GLOBAL_GAME.boss_beat/0.25) % 2
+	rotation_degrees = pow(GLOBAL_GAME.boss_beat-149,2.5)*3
+	#global_translate(delta * speed)
+
+func react_to_hit(attack_type, attack_damage):
+	if !iframe:
+		$\"/root/rBoss\".take_damage(attack_type, attack_damage)
+		iframe = true
+		$Timer.start($/root/rBoss.seconds_per_beat * 0.75)
+
+func on_timeout():
+	iframe = false
+	modulate.a = 1
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05fu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_pddg4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_d8xoi"]
+script/source = "extends AnimatableBody2D
+
+# this only exists because bullets act on the collision object
+func react_to_hit(attack_type, attack_damage):
+	$\"../../Boss2Falling\".react_to_hit(attack_type, attack_damage)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcvmd"]
+size = Vector2(736, 20)
+
+[sub_resource type="GDScript" id="GDScript_npkfy"]
+script/source = "extends Node2D
+
+var iframe = false
+var speed = Vector2(120,0)
+
+func _physics_process(delta):
+	if iframe:
+		modulate.a = 0.5
+
+func react_to_hit(attack_type, attack_damage):
+	if !iframe:
+		$\"/root/rBoss\".take_damage(attack_type, attack_damage)
+		iframe = true
+		$Timer.start($/root/rBoss.seconds_per_beat * 0.75)
+
+func on_timeout():
+	iframe = false
+	modulate.a = 1
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t53pd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_yd4ll")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_6s27k"]
+script/source = "extends AnimatableBody2D
+
+# this only exists because bullets act on the collision object
+func react_to_hit(attack_type, attack_damage):
+	$\"../../Boss3a\".react_to_hit(attack_type, attack_damage)
+"
+
+[sub_resource type="GDScript" id="GDScript_dh85b"]
+script/source = "extends Node2D
+
+var iframe = false
+var speed = Vector2(120,0)
+
+func _physics_process(delta):
+	if iframe:
+		modulate.a = 0.5
+
+func react_to_hit(attack_type, attack_damage):
+	if !iframe:
+		$\"/root/rBoss\".take_damage(attack_type, attack_damage)
+		iframe = true
+		$Timer.start($/root/rBoss.seconds_per_beat * 0.75)
+
+func on_timeout():
+	iframe = false
+	modulate.a = 1
+"
+
+[sub_resource type="GDScript" id="GDScript_pe1si"]
+script/source = "extends AnimatableBody2D
+
+# this only exists because bullets act on the collision object
+func react_to_hit(attack_type, attack_damage):
+	$\"../../Boss3b\".react_to_hit(attack_type, attack_damage)
+"
+
+[sub_resource type="GDScript" id="GDScript_y77sn"]
+script/source = "extends Node2D
+
+var iframe = false
+var speed = Vector2(120,0)
+
+func _physics_process(delta):
+	if iframe:
+		modulate.a = 0.5
+
+func react_to_hit(attack_type, attack_damage):
+	if !iframe:
+		$\"/root/rBoss\".take_damage(attack_type, attack_damage)
+		iframe = true
+		$Timer.start($/root/rBoss.seconds_per_beat * 0.75)
+
+func on_timeout():
+	iframe = false
+	modulate.a = 1
+"
+
+[sub_resource type="GDScript" id="GDScript_kitva"]
+script/source = "extends AnimatableBody2D
+
+# this only exists because bullets act on the collision object
+func react_to_hit(attack_type, attack_damage):
+	$\"../../Boss3c\".react_to_hit(attack_type, attack_damage)
+"
+
+[sub_resource type="GDScript" id="GDScript_8hsnu"]
+script/source = "extends Node2D
+
+var iframe = false
+var speed = Vector2(120,0)
+
+func _physics_process(delta):
+	if iframe:
+		modulate.a = 0.5
+
+func react_to_hit(attack_type, attack_damage):
+	if !iframe:
+		$\"/root/rBoss\".take_damage(attack_type, attack_damage)
+		iframe = true
+		$Timer.start($/root/rBoss.seconds_per_beat * 0.75)
+
+func on_timeout():
+	iframe = false
+	modulate.a = 1
+"
+
+[sub_resource type="GDScript" id="GDScript_isneq"]
+script/source = "extends AnimatableBody2D
+
+# this only exists because bullets act on the collision object
+func react_to_hit(attack_type, attack_damage):
+	$\"../../Boss3d\".react_to_hit(attack_type, attack_damage)
+"
+
+[sub_resource type="Gradient" id="Gradient_m4yvc"]
+offsets = PackedFloat32Array(0.977401, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m5jed"]
+gradient = SubResource("Gradient_m4yvc")
+width = 600
+
+[sub_resource type="Gradient" id="Gradient_edcgx"]
+offsets = PackedFloat32Array(0, 0.988701, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.0960452, 0.0960452, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8073o"]
+gradient = SubResource("Gradient_edcgx")
+width = 600
 
 [node name="rBoss" type="Node2D"]
 script = ExtResource("1_4nee7")
@@ -427,6 +700,24 @@ layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
 
+[node name="Boss1" type="Node2D" parent="Phases/Beep-boop-1"]
+position = Vector2(688, 544)
+script = ExtResource("6_b7u5l")
+
+[node name="bossSprite" type="AnimatedSprite2D" parent="Phases/Beep-boop-1/Boss1"]
+sprite_frames = SubResource("SpriteFrames_eihmo")
+
+[node name="collision" type="AnimatableBody2D" parent="Phases/Beep-boop-1/Boss1"]
+collision_layer = 32
+collision_mask = 17
+script = SubResource("GDScript_e481s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Beep-boop-1/Boss1/collision"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_7peh1")
+
+[node name="Timer" type="Timer" parent="Phases/Beep-boop-1/Boss1"]
+
 [node name="Minigame1" type="Node2D" parent="Phases"]
 visible = false
 script = ExtResource("4_7agvo")
@@ -645,7 +936,6 @@ layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0
 metadata/_edit_lock_ = true
 
 [node name="Chorus1" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("11_0jdnv")
 
 [node name="tiles" parent="Phases/Chorus1" instance=ExtResource("1_b2h4h")]
@@ -660,6 +950,26 @@ stop_left_at = 0
 stop_up_at = 0
 stop_right_at = 2500
 stop_down_at = 608
+
+[node name="Boss2" type="Node2D" parent="Phases/Chorus1"]
+position = Vector2(88, 544)
+script = SubResource("GDScript_d51nq")
+
+[node name="bossSprite2" type="AnimatedSprite2D" parent="Phases/Chorus1/Boss2"]
+position = Vector2(0, -72)
+sprite_frames = SubResource("SpriteFrames_g61c8")
+
+[node name="collision" type="AnimatableBody2D" parent="Phases/Chorus1/Boss2"]
+collision_layer = 32
+collision_mask = 17
+sync_to_physics = false
+script = SubResource("GDScript_nqv6k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Phases/Chorus1/Boss2/collision"]
+position = Vector2(616, 0)
+polygon = PackedVector2Array(-592, 32, -560, 32, -552, 16, -560, 0, -552, 0, -552, -32, -568, -64, -600, -64, -616, -88, -648, -88, -656, -48, -664, -24, -680, -24, -680, 8, -664, 32, -632, 32, -624, 8, -608, 8)
+
+[node name="Timer" type="Timer" parent="Phases/Chorus1/Boss2"]
 
 [node name="PostChorus1" type="Node2D" parent="Phases"]
 script = ExtResource("12_mlexc")
@@ -869,23 +1179,603 @@ position = Vector2(1840, 3984)
 [node name="FallingSpike60" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
 position = Vector2(2160, 3984)
 
+[node name="FallingSpike61" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1712, 4176)
+
+[node name="FallingSpike62" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1744, 4208)
+
+[node name="FallingSpike63" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1776, 4240)
+
+[node name="FallingSpike64" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1808, 4272)
+
+[node name="FallingSpike65" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1840, 4304)
+
+[node name="FallingSpike67" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1680, 4176)
+
+[node name="FallingSpike68" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1648, 4176)
+
+[node name="FallingSpike69" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2288, 4176)
+
+[node name="FallingSpike70" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2256, 4208)
+
+[node name="FallingSpike71" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2224, 4240)
+
+[node name="FallingSpike72" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2192, 4272)
+
+[node name="FallingSpike73" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2160, 4304)
+
+[node name="FallingSpike75" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2352, 4176)
+
+[node name="FallingSpike76" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2320, 4176)
+
+[node name="FallingSpike66" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1776, 4528)
+
+[node name="FallingSpike74" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1808, 4560)
+
+[node name="FallingSpike77" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1840, 4592)
+
+[node name="FallingSpike78" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1872, 4624)
+
+[node name="FallingSpike79" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1904, 4656)
+
+[node name="FallingSpike80" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2224, 4528)
+
+[node name="FallingSpike81" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2192, 4560)
+
+[node name="FallingSpike82" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2160, 4592)
+
+[node name="FallingSpike83" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2128, 4624)
+
+[node name="FallingSpike84" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2096, 4656)
+
+[node name="FallingSpike85" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2096, 4944)
+
+[node name="FallingSpike86" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2048, 4848)
+
+[node name="FallingSpike87" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2064, 4880)
+
+[node name="FallingSpike88" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2080, 4912)
+
+[node name="FallingSpike89" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2112, 4976)
+
+[node name="FallingSpike90" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1952, 4848)
+
+[node name="FallingSpike91" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1936, 4880)
+
+[node name="FallingSpike92" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1920, 4912)
+
+[node name="FallingSpike93" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1904, 4944)
+
+[node name="FallingSpike94" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1888, 4976)
+
+[node name="FallingSpike95" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1968, 4816)
+
+[node name="FallingSpike96" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2032, 4816)
+
+[node name="FallingSpike97" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1648, 5168)
+
+[node name="FallingSpike98" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1808, 5200)
+
+[node name="FallingSpike99" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1968, 5232)
+
+[node name="FallingSpike100" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2128, 5264)
+
+[node name="FallingSpike101" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2288, 5296)
+
+[node name="FallingSpike102" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1680, 5328)
+
+[node name="FallingSpike103" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1840, 5360)
+
+[node name="FallingSpike104" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2000, 5392)
+
+[node name="FallingSpike105" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2160, 5424)
+
+[node name="FallingSpike106" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2320, 5456)
+
+[node name="FallingSpike107" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1712, 5488)
+
+[node name="FallingSpike108" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1872, 5520)
+
+[node name="FallingSpike109" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2032, 5552)
+
+[node name="FallingSpike110" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2192, 5584)
+
+[node name="FallingSpike111" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2352, 5616)
+
+[node name="FallingSpike112" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1744, 5648)
+
+[node name="FallingSpike113" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1904, 5680)
+
+[node name="FallingSpike114" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2064, 5712)
+
+[node name="FallingSpike115" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2224, 5744)
+
+[node name="FallingSpike116" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2384, 5776)
+
+[node name="FallingSpike117" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1616, 5744)
+
+[node name="FallingSpike118" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1776, 5776)
+
+[node name="FallingSpike119" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1936, 5808)
+
+[node name="FallingSpike120" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2096, 5840)
+
+[node name="FallingSpike121" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2256, 5872)
+
+[node name="FallingSpike122" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1680, 5872)
+
+[node name="FallingSpike123" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1840, 5904)
+
+[node name="FallingSpike124" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2000, 5936)
+
+[node name="FallingSpike125" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2160, 5968)
+
+[node name="FallingSpike126" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2320, 6000)
+
+[node name="FallingSpike127" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1744, 6008)
+
+[node name="FallingSpike128" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1904, 6040)
+
+[node name="FallingSpike129" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2064, 6064)
+
+[node name="FallingSpike130" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2224, 6096)
+
+[node name="FallingSpike131" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2384, 6128)
+
+[node name="FallingSpike132" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1808, 6128)
+
+[node name="FallingSpike133" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1968, 6160)
+
+[node name="FallingSpike134" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2128, 6192)
+
+[node name="FallingSpike135" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2288, 6224)
+
+[node name="FallingSpike136" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2448, 6256)
+
+[node name="FallingSpike137" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1648, 6096)
+
+[node name="FallingSpike138" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1872, 6192)
+
+[node name="FallingSpike139" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2032, 6224)
+
+[node name="FallingSpike140" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2192, 6256)
+
+[node name="FallingSpike141" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2352, 6288)
+
+[node name="FallingSpike142" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2512, 6320)
+
+[node name="FallingSpike143" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1712, 6160)
+
+[node name="FallingSpike144" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1784, 6224)
+
+[node name="FallingSpike145" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1944, 6256)
+
+[node name="FallingSpike146" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2104, 6288)
+
+[node name="FallingSpike147" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2264, 6320)
+
+[node name="FallingSpike148" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2424, 6352)
+
+[node name="FallingSpike149" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1624, 6192)
+
+[node name="FallingSpike150" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1840, 6288)
+
+[node name="FallingSpike151" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2000, 6320)
+
+[node name="FallingSpike152" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2160, 6352)
+
+[node name="FallingSpike153" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2320, 6384)
+
+[node name="FallingSpike154" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2480, 6416)
+
+[node name="FallingSpike155" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1680, 6256)
+
+[node name="FallingSpike156" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1904, 6352)
+
+[node name="FallingSpike157" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2064, 6384)
+
+[node name="FallingSpike158" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2224, 6416)
+
+[node name="FallingSpike159" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2384, 6448)
+
+[node name="FallingSpike160" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2544, 6480)
+
+[node name="FallingSpike161" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1744, 6320)
+
+[node name="FallingSpike162" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1808, 6384)
+
+[node name="FallingSpike163" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1968, 6416)
+
+[node name="FallingSpike164" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2128, 6448)
+
+[node name="FallingSpike165" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2288, 6480)
+
+[node name="FallingSpike166" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(2448, 6512)
+
+[node name="FallingSpike167" parent="Phases/PostChorus1/Obstacles" instance=ExtResource("13_6jr5t")]
+position = Vector2(1648, 6352)
+
+[node name="Boss2Falling" type="Node2D" parent="Phases/PostChorus1"]
+position = Vector2(1976, 264)
+script = SubResource("GDScript_3xb7m")
+
+[node name="bossSprite2" type="AnimatedSprite2D" parent="Phases/PostChorus1/Boss2Falling"]
+sprite_frames = SubResource("SpriteFrames_05fu7")
+offset = Vector2(0, -40)
+
+[node name="collision" type="AnimatableBody2D" parent="Phases/PostChorus1/Boss2Falling"]
+position = Vector2(0, 32)
+collision_layer = 32
+collision_mask = 17
+sync_to_physics = false
+script = SubResource("GDScript_d8xoi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Phases/PostChorus1/Boss2Falling/collision"]
+position = Vector2(616, 0)
+polygon = PackedVector2Array(-592, 32, -560, 32, -552, 16, -560, 0, -552, 0, -552, -32, -568, -64, -600, -64, -616, -88, -648, -88, -656, -48, -664, -24, -680, -24, -680, 8, -664, 32, -632, 32, -624, 8, -608, 8)
+
+[node name="Timer" type="Timer" parent="Phases/PostChorus1/Boss2Falling"]
+
 [node name="Transition2" type="Node2D" parent="Phases"]
+visible = false
+script = ExtResource("14_tanqx")
+
+[node name="objCameraDynamic" parent="Phases/Transition2" node_paths=PackedStringArray("target_node") instance=ExtResource("7_ildvd")]
+position = Vector2(2000, 6712)
+target_node = NodePath("../../../Room_related/objPlayer")
+camera_zoom = Vector2(1, 1)
+stop_left_at = 1600
+stop_up_at = 0
+stop_right_at = 2400
+stop_down_at = 20000
+
+[node name="Start" type="Node2D" parent="Phases/Transition2"]
+position = Vector2(1992, 6792)
+
+[node name="StartRegion" type="Area2D" parent="Phases/Transition2"]
+position = Vector2(1976, 6696)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Transition2/StartRegion"]
+position = Vector2(8, 348)
+shape = SubResource("RectangleShape2D_f0jvw")
+
+[node name="tiles" parent="Phases/Transition2" instance=ExtResource("1_b2h4h")]
+layer_0/tile_data = PackedInt32Array(12779570, 65536, 0, 12845106, 65536, 0, 12910642, 65536, 0, 12976178, 65536, 0, 13041714, 65536, 0, 13107250, 65536, 0, 13172786, 65536, 0, 13238322, 65536, 0, 13303858, 65536, 0, 13369394, 65536, 0, 13434930, 65536, 0, 13500466, 65536, 0, 13566002, 65536, 0, 13631538, 65536, 0, 13697074, 65536, 0, 13762610, 65536, 0, 13828146, 65536, 0, 13893682, 65536, 0, 13959218, 65536, 0, 14024754, 65536, 0, 14090290, 65536, 0, 14155826, 65536, 0, 14221362, 65536, 0, 14286898, 65536, 0, 14352434, 65536, 0, 14417970, 65536, 0, 14483506, 65536, 0, 14549042, 65536, 0, 14614578, 65536, 0, 14680114, 65536, 0, 14745650, 65536, 0, 14811186, 65536, 0, 13107274, 65536, 0, 13172810, 65536, 0, 13238346, 65536, 0, 13303882, 65536, 0, 13369418, 65536, 0, 13434954, 65536, 0, 13500490, 65536, 0, 13566026, 65536, 0, 13631562, 65536, 0, 13697098, 65536, 0, 13762634, 65536, 0, 13828170, 65536, 0, 13893706, 65536, 0, 13959242, 65536, 0, 14024778, 65536, 0, 14090314, 65536, 0, 14155850, 65536, 0, 14221386, 65536, 0, 14286922, 65536, 0, 14352458, 65536, 0, 14417994, 65536, 0, 14483530, 65536, 0, 14549066, 65536, 0, 14614602, 65536, 0, 14680138, 65536, 0, 14745674, 65536, 0, 14811210, 65536, 0, 14876722, 65536, 0, 15138866, 65536, 0, 14942258, 65536, 0, 15007794, 65536, 0, 15073330, 65536, 0, 15204402, 65536, 0, 15269938, 65536, 0, 15335474, 65536, 0, 15401010, 65536, 0, 15466546, 65536, 0, 15532082, 65536, 0, 15597618, 65536, 0, 15663154, 65536, 0, 15728690, 65536, 0, 15794226, 65536, 0, 15859762, 65536, 0, 15925298, 65536, 0, 15990834, 65536, 0, 16056370, 65536, 0, 16121906, 65536, 0, 16187442, 65536, 0, 16252978, 65536, 0, 16318514, 65536, 0, 14876746, 65536, 0, 14942282, 65536, 0, 15007818, 65536, 0, 15073354, 65536, 0, 15138890, 65536, 0, 15335498, 65536, 0, 15663178, 65536, 0, 15728714, 65536, 0, 15204426, 65536, 0, 15269962, 65536, 0, 15401034, 65536, 0, 15466570, 65536, 0, 15532106, 65536, 0, 15597642, 65536, 0, 15794250, 65536, 0, 15859786, 65536, 0, 15925322, 65536, 0, 16056394, 65536, 0, 16121930, 65536, 0, 15990858, 65536, 0, 16187466, 65536, 0, 16253002, 65536, 0, 16318538, 65536, 0, 16384074, 65536, 0, 16449610, 65536, 0, 16515146, 65536, 0, 16580682, 65536, 0, 16646218, 65536, 0, 16711754, 65536, 0, 16384050, 65536, 0, 16449586, 65536, 0, 16515122, 65536, 0, 16580658, 65536, 0, 16646194, 65536, 0, 16711730, 65536, 0, 16777266, 65536, 0, 16777290, 65536, 0, 65486, 65536, 0, 131022, 65536, 0, 196558, 65536, 0, 262094, 65536, 0, 327630, 65536, 0, 393166, 65536, 0, 458702, 65536, 0, 524238, 65536, 0, 589774, 65536, 0, 655310, 65536, 0, 720846, 65536, 0, 786382, 65536, 0, 851918, 65536, 0, 917454, 65536, 0, 982990, 65536, 0, 1048526, 65536, 0, 1114062, 65536, 0, 1179598, 65536, 0, 1245134, 65536, 0, 1245158, 65536, 0, 1179622, 65536, 0, 1114086, 65536, 0, 1048550, 65536, 0, 983014, 65536, 0, 917478, 65536, 0, 851942, 65536, 0, 786406, 65536, 0, 720870, 65536, 0, 655334, 65536, 0, 589798, 65536, 0, 524262, 65536, 0, 458726, 65536, 0, 393190, 65536, 0, 327654, 65536, 0, 262118, 65536, 0, 196582, 65536, 0, 131046, 65536, 0, 65510, 65536, 0)
+metadata/_edit_lock_ = true
+
+[node name="InstantSpeed" type="Area2D" parent="Phases/Transition2"]
+position = Vector2(1984, 7112)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Transition2/InstantSpeed"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_kcvmd")
+
+[node name="Polygon2D" type="Polygon2D" parent="Phases/Transition2/InstantSpeed"]
+polygon = PackedVector2Array(-352, -8, 384, -8, 384, 8, -352, 8)
+
+[node name="objCameraFixedNoSmoothing" parent="Phases/Transition2" instance=ExtResource("3_sbg1e")]
+position = Vector2(-1200, 304)
+anchor_mode = 1
+scrolling_speed = 100
 
 [node name="Minigame3" type="Node2D" parent="Phases"]
+visible = false
+script = ExtResource("15_xo8nr")
+
+[node name="StartRegion" type="Area2D" parent="Phases/Minigame3"]
+position = Vector2(-1200, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame3/StartRegion"]
+position = Vector2(8, 348)
+shape = SubResource("RectangleShape2D_f0jvw")
+
+[node name="tiles" parent="Phases/Minigame3" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 524288, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1179672, 65536, 0, 1114136, 65536, 0, 1048600, 65536, 0, 983064, 65536, 0, 917528, 65536, 0, 851992, 65536, 0, 786456, 65536, 0, 720920, 65536, 0, 655384, 65536, 0, 589848, 65536, 0, 524312, 65536, 0, 458776, 65536, 0, 393240, 65536, 0, 327704, 65536, 0, 262168, 65536, 0, 196632, 65536, 0, 131096, 65536, 0, 65560, 65536, 0, 24, 65536, 0)
+
+[node name="objCameraFixedNoSmoothing" parent="Phases/Minigame3" instance=ExtResource("3_sbg1e")]
+position = Vector2(-1200, 304)
+anchor_mode = 1
+scrolling_speed = 100
+
+[node name="Start" type="Node2D" parent="Phases/Minigame3"]
+position = Vector2(-1200, 301)
+
+[node name="Notes" type="Node2D" parent="Phases/Minigame3"]
 
 [node name="Minigame4" type="Node2D" parent="Phases"]
+visible = false
+script = ExtResource("17_ecwox")
 
 [node name="Minigame5" type="Node2D" parent="Phases"]
+visible = false
 
 [node name="Transition3" type="Node2D" parent="Phases"]
+visible = false
 
 [node name="Chorus2" type="Node2D" parent="Phases"]
+script = ExtResource("17_55lui")
+
+[node name="tiles" parent="Phases/Chorus2" instance=ExtResource("1_b2h4h")]
+visible = false
+position = Vector2(0, -608)
+layer_0/tile_data = PackedInt32Array(1245208, 65536, 0, 1245207, 65536, 0, 1245206, 65536, 0, 1245205, 65536, 0, 1245204, 65536, 0, 1245203, 65536, 0, 1245202, 65536, 0, 1245201, 65536, 0, 1245200, 65536, 0, 1245199, 65536, 0, 1245198, 65536, 0, 1245197, 65536, 0, 1245196, 65536, 0, 1245195, 65536, 0, 1245194, 65536, 0, 1245193, 65536, 0, 1245192, 65536, 0, 1245191, 65536, 0, 1245190, 65536, 0, 1245189, 65536, 0, 1245188, 65536, 0, 1245187, 65536, 0, 1245186, 65536, 0, 1245185, 65536, 0, 1245184, 65536, 0, 1310719, 65536, 0, 1245183, 65536, 0, 1179647, 65536, 0, 1114111, 65536, 0, 1048575, 65536, 0, 983039, 65536, 0, 917503, 65536, 0, 851967, 65536, 0, 786431, 65536, 0, 720895, 65536, 0, 655359, 65536, 0, 589823, 65536, 0, 524287, 65536, 0, 458751, 65536, 0, 393215, 65536, 0, 327679, 65536, 0, 262143, 65536, 0, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, -65523, 65536, 0, -65522, 65536, 0, -65521, 65536, 0, -65520, 65536, 0, -65519, 65536, 0, -65518, 65536, 0, -65517, 65536, 0, -65516, 65536, 0, -65515, 65536, 0, -65514, 65536, 0, -65513, 65536, 0, -65512, 65536, 0, -65511, 65536, 0, 25, 65536, 0, 65561, 65536, 0, 131097, 65536, 0, 196633, 65536, 0, 262169, 65536, 0, 327705, 65536, 0, 393241, 65536, 0, 458777, 65536, 0, 524313, 65536, 0, 1245209, 65536, 0, 1179673, 65536, 0, 1114137, 65536, 0, 1048601, 65536, 0, 983065, 65536, 0, 589849, 65536, 0, 655385, 65536, 0, 720921, 65536, 0, 786457, 65536, 0, 851993, 65536, 0, 917529, 65536, 0)
+
+[node name="fixedCamera" parent="Phases/Chorus2" node_paths=PackedStringArray("target_node") instance=ExtResource("3_sbg1e")]
+position = Vector2(400, -304)
+anchor_mode = 1
+target_node = NodePath("../../../Room_related/objPlayer")
+scrolling_speed = 100
+
+[node name="StartRegion" type="Area2D" parent="Phases/Chorus2"]
+position = Vector2(392, -520)
+scale = Vector2(1, 0.519999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Chorus2/StartRegion"]
+position = Vector2(8, 348)
+shape = SubResource("RectangleShape2D_f0jvw")
+
+[node name="Start" type="Node2D" parent="Phases/Chorus2"]
+position = Vector2(408, -104)
+
+[node name="Boss3a" type="Node2D" parent="Phases/Chorus2"]
+position = Vector2(400, -512)
+script = SubResource("GDScript_npkfy")
+
+[node name="bossSprite2" type="AnimatedSprite2D" parent="Phases/Chorus2/Boss3a"]
+sprite_frames = SubResource("SpriteFrames_t53pd")
+offset = Vector2(0, 20)
+
+[node name="collision" type="AnimatableBody2D" parent="Phases/Chorus2/Boss3a"]
+collision_layer = 32
+collision_mask = 17
+sync_to_physics = false
+script = SubResource("GDScript_6s27k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Phases/Chorus2/Boss3a/collision"]
+polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -184, -32)
+
+[node name="Timer" type="Timer" parent="Phases/Chorus2/Boss3a"]
 
 [node name="Chorus2_part2" type="Node2D" parent="Phases"]
+visible = false
+script = ExtResource("19_tb3y5")
+
+[node name="tiles" parent="Phases/Chorus2_part2" instance=ExtResource("1_b2h4h")]
+visible = false
+position = Vector2(0, -608)
+layer_0/tile_data = PackedInt32Array(1245208, 65536, 0, 1245207, 65536, 0, 1245206, 65536, 0, 1245205, 65536, 0, 1245204, 65536, 0, 1245203, 65536, 0, 1245202, 65536, 0, 1245201, 65536, 0, 1245200, 65536, 0, 1245199, 65536, 0, 1245198, 65536, 0, 1245197, 65536, 0, 1245196, 65536, 0, 1245195, 65536, 0, 1245194, 65536, 0, 1245193, 65536, 0, 1245192, 65536, 0, 1245191, 65536, 0, 1245190, 65536, 0, 1245189, 65536, 0, 1245188, 65536, 0, 1245187, 65536, 0, 1245186, 65536, 0, 1245185, 65536, 0, 1245184, 65536, 0, 1310719, 65536, 0, 1245183, 65536, 0, 1179647, 65536, 0, 1114111, 65536, 0, 1048575, 65536, 0, 983039, 65536, 0, 917503, 65536, 0, 851967, 65536, 0, 786431, 65536, 0, 720895, 65536, 0, 655359, 65536, 0, 589823, 65536, 0, 524287, 65536, 0, 458751, 65536, 0, 393215, 65536, 0, 327679, 65536, 0, 262143, 65536, 0, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, -65523, 65536, 0, -65522, 65536, 0, -65521, 65536, 0, -65520, 65536, 0, -65519, 65536, 0, -65518, 65536, 0, -65517, 65536, 0, -65516, 65536, 0, -65515, 65536, 0, -65514, 65536, 0, -65513, 65536, 0, -65512, 65536, 0, -65511, 65536, 0, 25, 65536, 0, 65561, 65536, 0, 131097, 65536, 0, 196633, 65536, 0, 262169, 65536, 0, 327705, 65536, 0, 393241, 65536, 0, 458777, 65536, 0, 524313, 65536, 0, 1245209, 65536, 0, 1179673, 65536, 0, 1114137, 65536, 0, 1048601, 65536, 0, 983065, 65536, 0, 589849, 65536, 0, 655385, 65536, 0, 720921, 65536, 0, 786457, 65536, 0, 851993, 65536, 0, 917529, 65536, 0)
+
+[node name="fixedCamera" parent="Phases/Chorus2_part2" node_paths=PackedStringArray("target_node") instance=ExtResource("3_sbg1e")]
+position = Vector2(400, -304)
+anchor_mode = 1
+target_node = NodePath("../../../Room_related/objPlayer")
+scrolling_speed = 100
+
+[node name="StartRegion" type="Area2D" parent="Phases/Chorus2_part2"]
+position = Vector2(392, -520)
+scale = Vector2(1, 0.519999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Chorus2_part2/StartRegion"]
+position = Vector2(8, 348)
+shape = SubResource("RectangleShape2D_f0jvw")
+
+[node name="Start" type="Node2D" parent="Phases/Chorus2_part2"]
+position = Vector2(408, -104)
+
+[node name="Boss3b" type="Node2D" parent="Phases/Chorus2_part2"]
+position = Vector2(400, -512)
+script = SubResource("GDScript_dh85b")
+
+[node name="bossSprite2" type="AnimatedSprite2D" parent="Phases/Chorus2_part2/Boss3b"]
+sprite_frames = SubResource("SpriteFrames_t53pd")
+offset = Vector2(0, 20)
+
+[node name="collision" type="AnimatableBody2D" parent="Phases/Chorus2_part2/Boss3b"]
+collision_layer = 32
+collision_mask = 17
+sync_to_physics = false
+script = SubResource("GDScript_pe1si")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Phases/Chorus2_part2/Boss3b/collision"]
+polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -184, -32)
+
+[node name="Timer" type="Timer" parent="Phases/Chorus2_part2/Boss3b"]
 
 [node name="PostChorus2" type="Node2D" parent="Phases"]
+visible = false
+script = ExtResource("20_b5xfr")
+
+[node name="tiles" parent="Phases/PostChorus2" instance=ExtResource("1_b2h4h")]
+visible = false
+position = Vector2(0, -608)
+layer_0/tile_data = PackedInt32Array(1245208, 65536, 0, 1245207, 65536, 0, 1245206, 65536, 0, 1245205, 65536, 0, 1245204, 65536, 0, 1245203, 65536, 0, 1245202, 65536, 0, 1245201, 65536, 0, 1245200, 65536, 0, 1245199, 65536, 0, 1245198, 65536, 0, 1245197, 65536, 0, 1245196, 65536, 0, 1245195, 65536, 0, 1245194, 65536, 0, 1245193, 65536, 0, 1245192, 65536, 0, 1245191, 65536, 0, 1245190, 65536, 0, 1245189, 65536, 0, 1245188, 65536, 0, 1245187, 65536, 0, 1245186, 65536, 0, 1245185, 65536, 0, 1245184, 65536, 0, 1310719, 65536, 0, 1245183, 65536, 0, 1179647, 65536, 0, 1114111, 65536, 0, 1048575, 65536, 0, 983039, 65536, 0, 917503, 65536, 0, 851967, 65536, 0, 786431, 65536, 0, 720895, 65536, 0, 655359, 65536, 0, 589823, 65536, 0, 524287, 65536, 0, 458751, 65536, 0, 393215, 65536, 0, 327679, 65536, 0, 262143, 65536, 0, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, -65523, 65536, 0, -65522, 65536, 0, -65521, 65536, 0, -65520, 65536, 0, -65519, 65536, 0, -65518, 65536, 0, -65517, 65536, 0, -65516, 65536, 0, -65515, 65536, 0, -65514, 65536, 0, -65513, 65536, 0, -65512, 65536, 0, -65511, 65536, 0, 25, 65536, 0, 65561, 65536, 0, 131097, 65536, 0, 196633, 65536, 0, 262169, 65536, 0, 327705, 65536, 0, 393241, 65536, 0, 458777, 65536, 0, 524313, 65536, 0, 1245209, 65536, 0, 1179673, 65536, 0, 1114137, 65536, 0, 1048601, 65536, 0, 983065, 65536, 0, 589849, 65536, 0, 655385, 65536, 0, 720921, 65536, 0, 786457, 65536, 0, 851993, 65536, 0, 917529, 65536, 0)
+
+[node name="fixedCamera" parent="Phases/PostChorus2" node_paths=PackedStringArray("target_node") instance=ExtResource("3_sbg1e")]
+position = Vector2(400, -304)
+anchor_mode = 1
+target_node = NodePath("../../../Room_related/objPlayer")
+scrolling_speed = 100
+
+[node name="StartRegion" type="Area2D" parent="Phases/PostChorus2"]
+position = Vector2(392, -520)
+scale = Vector2(1, 0.519999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/PostChorus2/StartRegion"]
+position = Vector2(8, 348)
+shape = SubResource("RectangleShape2D_f0jvw")
+
+[node name="Start" type="Node2D" parent="Phases/PostChorus2"]
+position = Vector2(408, -104)
+
+[node name="Boss3c" type="Node2D" parent="Phases/PostChorus2"]
+position = Vector2(400, -512)
+script = SubResource("GDScript_y77sn")
+
+[node name="bossSprite2" type="AnimatedSprite2D" parent="Phases/PostChorus2/Boss3c"]
+sprite_frames = SubResource("SpriteFrames_t53pd")
+offset = Vector2(0, 20)
+
+[node name="collision" type="AnimatableBody2D" parent="Phases/PostChorus2/Boss3c"]
+collision_layer = 32
+collision_mask = 17
+sync_to_physics = false
+script = SubResource("GDScript_kitva")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Phases/PostChorus2/Boss3c/collision"]
+polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -184, -32)
+
+[node name="Timer" type="Timer" parent="Phases/PostChorus2/Boss3c"]
 
 [node name="Final" type="Node2D" parent="Phases"]
+visible = false
+script = ExtResource("21_n2q38")
+
+[node name="tiles" parent="Phases/Final" instance=ExtResource("1_b2h4h")]
+visible = false
+position = Vector2(0, -608)
+layer_0/tile_data = PackedInt32Array(1245208, 65536, 0, 1245207, 65536, 0, 1245206, 65536, 0, 1245205, 65536, 0, 1245204, 65536, 0, 1245203, 65536, 0, 1245202, 65536, 0, 1245201, 65536, 0, 1245200, 65536, 0, 1245199, 65536, 0, 1245198, 65536, 0, 1245197, 65536, 0, 1245196, 65536, 0, 1245195, 65536, 0, 1245194, 65536, 0, 1245193, 65536, 0, 1245192, 65536, 0, 1245191, 65536, 0, 1245190, 65536, 0, 1245189, 65536, 0, 1245188, 65536, 0, 1245187, 65536, 0, 1245186, 65536, 0, 1245185, 65536, 0, 1245184, 65536, 0, 1310719, 65536, 0, 1245183, 65536, 0, 1179647, 65536, 0, 1114111, 65536, 0, 1048575, 65536, 0, 983039, 65536, 0, 917503, 65536, 0, 851967, 65536, 0, 786431, 65536, 0, 720895, 65536, 0, 655359, 65536, 0, 589823, 65536, 0, 524287, 65536, 0, 458751, 65536, 0, 393215, 65536, 0, 327679, 65536, 0, 262143, 65536, 0, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, -65523, 65536, 0, -65522, 65536, 0, -65521, 65536, 0, -65520, 65536, 0, -65519, 65536, 0, -65518, 65536, 0, -65517, 65536, 0, -65516, 65536, 0, -65515, 65536, 0, -65514, 65536, 0, -65513, 65536, 0, -65512, 65536, 0, -65511, 65536, 0, 25, 65536, 0, 65561, 65536, 0, 131097, 65536, 0, 196633, 65536, 0, 262169, 65536, 0, 327705, 65536, 0, 393241, 65536, 0, 458777, 65536, 0, 524313, 65536, 0, 1245209, 65536, 0, 1179673, 65536, 0, 1114137, 65536, 0, 1048601, 65536, 0, 983065, 65536, 0, 589849, 65536, 0, 655385, 65536, 0, 720921, 65536, 0, 786457, 65536, 0, 851993, 65536, 0, 917529, 65536, 0)
+
+[node name="fixedCamera" parent="Phases/Final" node_paths=PackedStringArray("target_node") instance=ExtResource("3_sbg1e")]
+position = Vector2(400, -304)
+anchor_mode = 1
+target_node = NodePath("../../../Room_related/objPlayer")
+scrolling_speed = 100
+
+[node name="StartRegion" type="Area2D" parent="Phases/Final"]
+position = Vector2(392, -520)
+scale = Vector2(1, 0.519999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Final/StartRegion"]
+position = Vector2(8, 348)
+shape = SubResource("RectangleShape2D_f0jvw")
+
+[node name="Start" type="Node2D" parent="Phases/Final"]
+position = Vector2(408, -104)
+
+[node name="Boss3d" type="Node2D" parent="Phases/Final"]
+position = Vector2(400, -512)
+script = SubResource("GDScript_8hsnu")
+
+[node name="bossSprite2" type="AnimatedSprite2D" parent="Phases/Final/Boss3d"]
+sprite_frames = SubResource("SpriteFrames_t53pd")
+offset = Vector2(0, 20)
+
+[node name="collision" type="AnimatableBody2D" parent="Phases/Final/Boss3d"]
+collision_layer = 32
+collision_mask = 17
+sync_to_physics = false
+script = SubResource("GDScript_isneq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Phases/Final/Boss3d/collision"]
+polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -184, -32)
+
+[node name="Timer" type="Timer" parent="Phases/Final/Boss3d"]
 
 [node name="End" type="Node2D" parent="Phases"]
 script = ExtResource("11_trd68")
@@ -899,32 +1789,53 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ms" type="Label" parent="Debug"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 80.0
-offset_right = 80.0
-offset_bottom = 120.0
-
-[node name="beat" type="Label" parent="Debug"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 128.0
-offset_right = 80.0
-offset_bottom = 168.0
-
-[node name="shotbeat" type="Label" parent="Debug"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 192.0
-offset_right = 88.0
-offset_bottom = 232.0
-
 [node name="tiles" parent="Debug" instance=ExtResource("1_b2h4h")]
 visible = false
 layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Debug"]
+
+[node name="ms" type="Label" parent="Debug/CanvasLayer"]
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 120.0
+
+[node name="beat" type="Label" parent="Debug/CanvasLayer"]
+offset_left = 40.0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+
+[node name="shotbeat" type="Label" parent="Debug/CanvasLayer"]
+offset_left = 48.0
+offset_top = 192.0
+offset_right = 88.0
+offset_bottom = 232.0
+
+[node name="bossHp" type="TextureProgressBar" parent="Debug/CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 112.0
+offset_top = 16.0
+offset_right = 712.0
+offset_bottom = 32.0
+step = 0.1
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_m5jed")
+texture_progress = SubResource("GradientTexture1D_8073o")
+
+[node name="bossHpLabel" type="Label" parent="Debug/CanvasLayer/bossHp"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 280.0
+offset_top = -5.0
+offset_right = 338.0
+offset_bottom = 21.0
+text = "Hp: 100"
+horizontal_alignment = 1
 
 [node name="Environment" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -943,7 +1854,7 @@ scrolling_speed = 100
 metadata/_edit_lock_ = true
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("4_btmy2")]
-position = Vector2(736, 549)
+position = Vector2(752, 640)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_pfun0")]
 unique_name_in_owner = true
@@ -985,7 +1896,7 @@ metadata/_edit_lock_ = true
 
 [node name="objRhythmPreviewer" parent="." instance=ExtResource("16_0uul7")]
 position = Vector2(-32, 88)
-song_id = ExtResource("3_vslpb")
+song_id = ExtResource("31_tjblq")
 
 [connection signal="body_entered" from="Phases/Beep-boop-1/Floor/Green/GFP" to="Phases/Beep-boop-1" method="_on_gfp_body_entered"]
 [connection signal="body_exited" from="Phases/Beep-boop-1/Floor/Green/GFP" to="Phases/Beep-boop-1" method="_on_gfp_body_exited"]
@@ -1039,9 +1950,11 @@ song_id = ExtResource("3_vslpb")
 [connection signal="body_exited" from="Phases/Beep-boop-1/Floor/Red/RFP12" to="Phases/Beep-boop-1" method="_on_rfp_body_exited"]
 [connection signal="body_entered" from="Phases/Beep-boop-1/Floor/Red/RFP13" to="Phases/Beep-boop-1" method="_on_rfp_body_entered"]
 [connection signal="body_exited" from="Phases/Beep-boop-1/Floor/Red/RFP13" to="Phases/Beep-boop-1" method="_on_rfp_body_exited"]
+[connection signal="timeout" from="Phases/Beep-boop-1/Boss1/Timer" to="Phases/Beep-boop-1/Boss1" method="on_timeout"]
 [connection signal="body_entered" from="Phases/Minigame1/PositionCheck" to="Phases/Minigame1" method="_on_position_check_body_entered"]
 [connection signal="body_exited" from="Phases/Minigame1/PositionCheck" to="Phases/Minigame1" method="_on_position_check_body_exited"]
 [connection signal="body_entered" from="Phases/Minigame1/FallCheck" to="Phases/Minigame1" method="_on_fall_check_body_entered"]
+[connection signal="timeout" from="Phases/Chorus1/Boss2/Timer" to="Phases/Chorus1/Boss2" method="on_timeout"]
 [connection signal="body_entered" from="Phases/PostChorus1/StartRegion" to="Phases/PostChorus1" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/PostChorus1/StartRegion" to="Phases/PostChorus1" method="_on_start_region_body_exited"]
 [connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
@@ -1104,3 +2017,128 @@ song_id = ExtResource("3_vslpb")
 [connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike58" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
 [connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike59" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
 [connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike60" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike61" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike62" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike63" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike64" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike65" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike67" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike68" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike69" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike70" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike71" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike72" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike73" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike75" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike76" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike66" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike74" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike77" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike78" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike79" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike80" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike81" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike82" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike83" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike84" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike85" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike86" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike87" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike88" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike89" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike90" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike91" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike92" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike93" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike94" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike95" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike96" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike97" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike98" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike99" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike100" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike101" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike102" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike103" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike104" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike105" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike106" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike107" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike108" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike109" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike110" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike111" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike112" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike113" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike114" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike115" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike116" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike117" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike118" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike119" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike120" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike121" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike122" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike123" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike124" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike125" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike126" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike127" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike128" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike129" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike130" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike131" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike132" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike133" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike134" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike135" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike136" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike137" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike138" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike139" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike140" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike141" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike142" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike143" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike144" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike145" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike146" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike147" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike148" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike149" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike150" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike151" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike152" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike153" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike154" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike155" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike156" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike157" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike158" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike159" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike160" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike161" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike162" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike163" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike164" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike165" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike166" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike167" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
+[connection signal="timeout" from="Phases/PostChorus1/Boss2Falling/Timer" to="Phases/PostChorus1/Boss2Falling" method="on_timeout"]
+[connection signal="body_entered" from="Phases/Transition2/StartRegion" to="Phases/Transition2" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/Transition2/StartRegion" to="Phases/Transition2" method="_on_start_region_body_exited"]
+[connection signal="body_entered" from="Phases/Transition2/InstantSpeed" to="Phases/Transition2" method="_on_instant_speed_body_entered"]
+[connection signal="body_entered" from="Phases/Minigame3/StartRegion" to="Phases/Transition2" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/Minigame3/StartRegion" to="Phases/Transition2" method="_on_start_region_body_exited"]
+[connection signal="body_entered" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_exited"]
+[connection signal="timeout" from="Phases/Chorus2/Boss3a/Timer" to="Phases/Chorus2/Boss3a" method="on_timeout"]
+[connection signal="body_entered" from="Phases/Chorus2_part2/StartRegion" to="Phases/Chorus2_part2" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/Chorus2_part2/StartRegion" to="Phases/Chorus2_part2" method="_on_start_region_body_exited"]
+[connection signal="timeout" from="Phases/Chorus2_part2/Boss3b/Timer" to="Phases/Chorus2_part2/Boss3b" method="on_timeout"]
+[connection signal="body_entered" from="Phases/PostChorus2/StartRegion" to="Phases/PostChorus2" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/PostChorus2/StartRegion" to="Phases/PostChorus2" method="_on_start_region_body_exited"]
+[connection signal="timeout" from="Phases/PostChorus2/Boss3c/Timer" to="Phases/PostChorus2/Boss3c" method="on_timeout"]
+[connection signal="body_entered" from="Phases/Final/StartRegion" to="Phases/Final" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/Final/StartRegion" to="Phases/Final" method="_on_start_region_body_exited"]
+[connection signal="timeout" from="Phases/Final/Boss3d/Timer" to="Phases/Final/Boss3d" method="on_timeout"]

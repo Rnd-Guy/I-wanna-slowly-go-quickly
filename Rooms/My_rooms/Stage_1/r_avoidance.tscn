@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cv4iskfcou505"]
+[gd_scene load_steps=18 format=3 uid="uid://cv4iskfcou505"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_uiv5p"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_yb18b"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_n0qga"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_8j6or"]
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="13_h85cc"]
+[ext_resource type="PackedScene" uid="uid://cdrw8nt4xakwn" path="res://Objects/My_Stuff/Rhythm/objBarrel.tscn" id="14_0ijwo"]
+[ext_resource type="PackedScene" uid="uid://drkfa3gvtb27u" path="res://Objects/My_Stuff/Rhythm/dialogBarrel.tscn" id="15_dsccl"]
 
 [sub_resource type="GDScript" id="GDScript_i6uh3"]
 resource_name = "AvoidanceManager"
@@ -113,5 +115,9 @@ scale = Vector2(1, 1.96)
 speed = 6.0
 above = false
 below = true
+
+[node name="objBarrel" parent="." instance=ExtResource("14_0ijwo")]
+position = Vector2(408, 552)
+dialog_scene = ExtResource("15_dsccl")
 
 [connection signal="body_entered" from="Trigger_related/avoidanceBegin" to="AvoidanceManager" method="_on_avoidance_begin_body_entered"]

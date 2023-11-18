@@ -18,6 +18,7 @@ var global_offset = 0
 var size = 2 # this is specifically for the buffer for the start and end
 var flip = false
 var slider_skew = 0.8
+var time_offset = 0
 
 var x_offset # after handling skews
 var y_offset # after handling skews
@@ -42,7 +43,7 @@ func _ready():
 
 	# set initial position here
 	seconds_per_beat = 60.0/bpm
-	time_to_reach_middle = beat * seconds_per_beat
+	time_to_reach_middle = (beat * seconds_per_beat) + time_offset
 	
 	
 	handle_shape()
@@ -65,7 +66,7 @@ func _physics_process(delta):
 
 
 func resync_rhythm_position():
-	time_to_reach_middle = beat * seconds_per_beat
+	time_to_reach_middle = (beat * seconds_per_beat) + time_offset
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
 	var distance = (time_to_reach_middle - music_time) * speed
 	if direction == \"up\":
@@ -152,10 +153,11 @@ func on_player_collision(_player, collision):
 
 
 func delete_when_finished():
-	if direction  == \"up\" && position.y < -1000:
-		queue_free()
-	elif direction == \"down\" &&  position.y > 700:
-		queue_free()
+	#if direction  == \"up\" && position.y < -1000:
+	#	queue_free()
+	#elif direction == \"down\" &&  position.y > 700:
+	#	queue_free()
+	pass
 		
 func handle_shape():
 	var dist = size * 16 # distance of buffer from top of slider to very top, and same for bottom

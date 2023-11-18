@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cygteeqvo3oc"]
+[gd_scene load_steps=5 format=3 uid="uid://cygteeqvo3oc"]
 
 [ext_resource type="Script" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.gd" id="1_sv2vy"]
-[ext_resource type="AudioStream" uid="uid://dr505u2i5t8ti" path="res://Audio/Music/rhythm.ogg" id="2_bjhfw"]
 [ext_resource type="Texture2D" uid="uid://cikxmkd3je67u" path="res://Graphics/Sprites/Room_objects/sprPlayMusic.png" id="3_yb448"]
 [ext_resource type="Texture2D" uid="uid://boc18ngim4vdg" path="res://Graphics/Sprites/My Stuff/sprUpArrow.png" id="4_n6oje"]
 
@@ -9,7 +8,6 @@
 
 [node name="objRhythmPreviewer" type="Node2D"]
 script = ExtResource("1_sv2vy")
-song_id = ExtResource("2_bjhfw")
 
 [node name="Area2D" type="Area2D" parent="."]
 

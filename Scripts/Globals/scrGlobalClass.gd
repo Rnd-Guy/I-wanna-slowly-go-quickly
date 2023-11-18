@@ -12,7 +12,8 @@ class_name GlobalClass
 
 enum weapon_type {
 	BULLET,
-	
+	NOTE,
+	LASER,
 	# Not implemented, but put here anyway just to give an idea of what you
 	# can do with it. Custom classes are powerful!
 	SWORD

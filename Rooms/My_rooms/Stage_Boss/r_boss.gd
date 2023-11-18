@@ -8,6 +8,7 @@ var seconds_per_beat = 0.5 # 60 / bpm
 var last_beat = -0.5
 #var offset = 0.065 # 0.05 offset for the song (not player offset)
 var offset = -0.05
+var boss_hp = 1500
 
 var frames_before_resync = 10
 
@@ -62,6 +63,7 @@ func _ready():
 	seconds_per_beat = 60.0/bpm
 	$objRhythmPreviewer.play_sample()
 	$Room_related/objPlayer.is_boss = true
+	setup_boss()
 	pass # Replace with function body.
 
 
@@ -82,11 +84,12 @@ func _physics_process(_delta):
 		resync_rhythm_position()
 		frames_before_resync = 7
 
-	$Debug/ms.set_text(str(music_time))
-	$Debug/beat.set_text(str(beat))
-	$Debug/shotbeat.set_text(str(GLOBAL_GAME.shot_beat))
+	$Debug/CanvasLayer/ms.set_text(str(music_time))
+	$Debug/CanvasLayer/beat.set_text(str(beat))
+	$Debug/CanvasLayer/shotbeat.set_text(str(GLOBAL_GAME.shot_beat))
 	set_phase()
 	debug_inputs()
+	update_boss()
 
 func resync_rhythm_position():
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
@@ -136,3 +139,15 @@ func beat_to_music_time(beat):
 func music_time_to_beat(music_time):
 	var beat = (music_time + offset)/seconds_per_beat + beat_offset
 	return beat
+
+func setup_boss():
+	%bossHp.max_value = boss_hp
+	%bossHp.value = boss_hp
+func update_boss():
+	%bossHp.value = boss_hp
+	%bossHpLabel.set_text("Hp: " + str(snappedf(boss_hp, 0.1)))
+func take_damage(attack_type, damage):
+	if attack_type == GlobalClass.weapon_type.BULLET:
+		boss_hp -= damage
+	elif attack_type == GlobalClass.weapon_type.NOTE:
+		boss_hp -= 2*damage

@@ -39,6 +39,10 @@ var show_speed = true
 var is_boss = false
 var reverse_controls = false
 var vertical_shots = false
+var instant_speed = false
+var no_fall = false
+var shmup = false
+var shmup_mark_2 = false
 
 func _ready():
 	
@@ -88,6 +92,7 @@ func _physics_process(delta):
 	# always work (even if the player is frozen)
 	handle_masks()
 	handle_gravity(delta)
+	handle_shmup(delta)
 	debug_mouse_teleport()
 	
 	# "move_and_slide()" handles all sorts of movement, using velocity values
@@ -172,7 +177,17 @@ func set_first_time_saving():
 	# "room_name"
 	get_tree().change_scene_to_file(get_tree().get_current_scene().get_scene_file_path())
 
-
+func handle_shmup(delta) -> void:
+	if (shmup):
+		velocity.y = 0
+		if Input.is_action_pressed("button_up"):
+			velocity.y -= h_speed * 50
+		if Input.is_action_pressed("button_down"):
+			velocity.y += h_speed * 50
+		if Input.is_action_pressed("button_jump"):
+			velocity.x *= 0.5
+			velocity.y *= 0.5
+	
 # Handles gravity / falling
 func handle_gravity(delta) -> void:
 	
@@ -183,7 +198,9 @@ func handle_gravity(delta) -> void:
 		# Clamps the falling value to v_speed, which is also modified by 
 		# water physics. Check _handle_water()
 		velocity.y = min(v_speed * v_speed_modifier, velocity.y)
-
+	
+	if no_fall:
+		velocity.y = 0
 
 # Main movement logic (walking/running)
 func handle_movement() -> void:
@@ -193,6 +210,8 @@ func handle_movement() -> void:
 	velocity.x = main_direction * h_speed * 50
 	if reverse_controls:
 		velocity.x *= -1
+	if instant_speed:
+		velocity.x = 50000 * sign(velocity.x)	
 	# Set where the player is looking at (for things like flipping the sprite
 	# or setting the direction bullets should fire towards)
 	if velocity.x != 0:
@@ -335,9 +354,11 @@ func handle_shooting():
 			# if boss mode and is close to beat, change sprite
 			if is_boss:
 				if fmod(GLOBAL_GAME.boss_beat,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat,1) > 0.9:
-					#create_bullet_id.set_texture("res://Graphics/Sprites/Room_objects/sprPlayMusic.png")
 					create_bullet_id.boss_bullet = true
+					create_bullet_id.attack_type = GlobalClass.weapon_type.NOTE
 				GLOBAL_GAME.shot_beat = GLOBAL_GAME.boss_beat
+				create_bullet_id.attack_damage = h_speed
+				
 			
 			# After everything is set and done, creates the bullet
 			get_parent().add_child(create_bullet_id)
@@ -509,3 +530,35 @@ func handle_actual_movement(delta):
 
 func debug_command():
 	pass
+
+func enable_shmup():
+	shmup = true
+	$BossRelated.set_process_mode(PROCESS_MODE_INHERIT)
+	$BossRelated.set_visible(true)
+	$playerSprites.set_visible(false)
+	$extraCollisions/Killers.set_process_mode(PROCESS_MODE_DISABLED)
+func disable_shmup():
+	shmup = false
+	$BossRelated.set_process_mode(PROCESS_MODE_DISABLED)
+	$BossRelated.set_visible(false)
+	$playerSprites.set_visible(true)
+	$extraCollisions/Killers.set_process_mode(PROCESS_MODE_INHERIT)
+	
+func enable_shmup_mark_1():
+	shmup_mark_2 = false
+	$BossRelated/noisz.set_visible(false)
+	$BossRelated/star.set_visible(false)
+	enable_shmup()
+func disable_shmup_mark_1():
+	shmup_mark_2 = false
+	$BossRelated/noisz.set_visible(false)
+	$BossRelated/star.set_visible(false)
+	disable_shmup()
+	
+func enable_shmup_mark_2():
+	shmup_mark_2 = true
+	$BossRelated/noisz.set_visible(true)
+	$BossRelated/star.set_visible(true)
+	enable_shmup()
+func disable_shmup_mark_2():
+	disable_shmup_mark_1()
