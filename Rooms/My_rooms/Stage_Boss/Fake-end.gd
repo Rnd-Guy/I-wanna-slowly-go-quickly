@@ -5,24 +5,17 @@ class_name BossPhase
 
 @onready var player = GLOBAL_INSTANCES.objPlayerID
 
-var in_green = 0
-var in_red = 0
 @onready var list = [
 
 ]
+
+var onetime = []
 
 # NOTE cannot set process mode to disabled and then enabled on the same frame
 # it breaks the area2d collision detection and there's no fix yet
 # therefore only set it once per frame
 
 func _physics_process(delta):
-	#if t(1, 5):
-	#	pass
-		
-#	for i in range(0,in_green):
-#		GLOBAL_INSTANCES.objPlayerID.h_speed += delta * 0.1
-#	for i in range(0,in_red):
-#		GLOBAL_INSTANCES.objPlayerID.h_speed -= delta * 0.1
 	pass
 
 # shortcuts
@@ -40,6 +33,12 @@ func w(mint,maxt,time):
 # radians is pain
 func d(degrees):
 	return deg_to_rad(degrees)
+
+func one(time) -> bool:
+	if b() > time && !onetime.has(time):
+		onetime.append(time)
+		return true
+	return false
 
 func phase(mint, maxt):
 	pass

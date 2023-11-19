@@ -39,6 +39,8 @@ var beat_offset = -1
 ]
 
 func set_phase():
+	if !%objPlayer:
+		return
 	for i in range(0, phases.size()-1):
 		var phase = phases[i][1]
 		if phases[i][0] <= beat && beat < phases[i+1][0]:
@@ -132,6 +134,10 @@ func debug_inputs():
 		$Room_related/objPlayer.h_speed += 0.1
 	if Input.is_action_just_pressed("button_debug_down"):
 		$Room_related/objPlayer.h_speed -= 0.1
+	
+	if Input.is_action_just_pressed("button_debug_prog"):
+		%objPlayer.h_speed = 6
+		GLOBAL_MUSIC.seek(beat_to_music_time(phases[10][0]))
 	
 func beat_to_music_time(beat):
 	var music_time = ((beat-beat_offset)*seconds_per_beat) - offset

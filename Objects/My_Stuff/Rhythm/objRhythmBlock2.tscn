@@ -84,7 +84,7 @@ func on_time():
 
 func on_player_collision(player, collision):
 	#print(\"test\")
-	if (collision.get_normal().x == 1 && !flip) || (collision.get_normal().x == -1 && flip):
+	if (collision.get_normal().x > 0 && !flip) || (collision.get_normal().x < 0 && flip):
 		$Sprite2D.set_region_rect(Rect2(32,0,32,size*32))
 		collided.emit(\"note\")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=76 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Chorus2_part2.gd" id="19_tb3y5"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/PostChorus2.gd" id="20_b5xfr"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Final.gd" id="21_n2q38"]
+[ext_resource type="PackedScene" uid="uid://3hxvrced2kkw" path="res://Objects/My_Stuff/Movement/objOneWay.tscn" id="23_gsy0w"]
 [ext_resource type="Texture2D" uid="uid://geevuntqe112" path="res://Graphics/Sprites/My Stuff/boss/boss3.png" id="24_yd4ll"]
 [ext_resource type="AudioStream" uid="uid://dfril5dm2066f" path="res://Audio/Music/boss.ogg" id="31_tjblq"]
 
@@ -135,7 +136,7 @@ var speed = Vector2(120,0)
 
 func _physics_process(delta):
 	if iframe:
-		modulate.a = floori(GLOBAL_GAME.boss_beat/0.25) % 2
+		modulate.a = 0.5
 	rotation_degrees = pow(GLOBAL_GAME.boss_beat-149,2.5)*3
 	#global_translate(delta * speed)
 
@@ -171,6 +172,50 @@ func react_to_hit(attack_type, attack_damage):
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcvmd"]
 size = Vector2(736, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqalh"]
+size = Vector2(16, 256)
+
+[sub_resource type="Animation" id="Animation_bvn41"]
+resource_name = "test"
+length = 3.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.375, 1, 3, 3.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-784, 416), Vector2(-944, 416), Vector2(-1456, 416), Vector2(-1616, 416)]
+}
+
+[sub_resource type="Animation" id="Animation_a3jas"]
+resource_name = "TopBar"
+length = 3.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.375, 1, 3, 3.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1616, 160), Vector2(-1456, 160), Vector2(-944, 160), Vector2(-784, 160)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2kdvh"]
+_data = {
+"BottomBar": SubResource("Animation_bvn41"),
+"TopBar": SubResource("Animation_a3jas")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17p4g"]
+size = Vector2(14.4, 256)
 
 [sub_resource type="GDScript" id="GDScript_npkfy"]
 script/source = "extends Node2D
@@ -1564,7 +1609,6 @@ anchor_mode = 1
 scrolling_speed = 100
 
 [node name="Minigame3" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("15_xo8nr")
 
 [node name="StartRegion" type="Area2D" parent="Phases/Minigame3"]
@@ -1589,8 +1633,156 @@ position = Vector2(-1200, 301)
 [node name="Notes" type="Node2D" parent="Phases/Minigame3"]
 
 [node name="Minigame4" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("17_ecwox")
+
+[node name="objOneWay" parent="Phases/Minigame4" instance=ExtResource("23_gsy0w")]
+position = Vector2(-1424, 304)
+
+[node name="objOneWay2" parent="Phases/Minigame4" instance=ExtResource("23_gsy0w")]
+position = Vector2(-976, 304)
+rotation = 3.14159
+
+[node name="StartRegion" type="Area2D" parent="Phases/Minigame4"]
+position = Vector2(-1200, 56)
+scale = Vector2(0.195032, -0.0926667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame4/StartRegion"]
+position = Vector2(8, 348)
+shape = SubResource("RectangleShape2D_f0jvw")
+
+[node name="tiles" parent="Phases/Minigame4" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 524288, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1114136, 65536, 0, 1048600, 65536, 0, 983064, 65536, 0, 917528, 65536, 0, 851992, 65536, 0, 786456, 65536, 0, 720920, 65536, 0, 655384, 65536, 0, 589848, 65536, 0, 524312, 65536, 0, 458776, 65536, 0, 393240, 65536, 0, 327704, 65536, 0, 262168, 65536, 0, 196632, 65536, 0, 131096, 65536, 0, 65560, 65536, 0, 24, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 65536, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 65536, 0, 19, 65536, 0, 20, 65536, 0, 21, 65536, 0, 22, 65536, 0, 23, 65536, 0, 589828, 65536, 0, 589830, 65536, 0, 589831, 65536, 0, 589832, 65536, 0, 589833, 65536, 0, 589834, 65536, 0, 589835, 65536, 0, 589836, 65536, 0, 589837, 65536, 0, 589838, 65536, 0, 589839, 65536, 0, 589840, 65536, 0, 589841, 65536, 0, 589842, 65536, 0, 589844, 65536, 0, 1114113, 65536, 0, 1114114, 65536, 0, 1114134, 65536, 0, 1114135, 65536, 0, 65538, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 65536, 0, 327682, 65536, 0, 393218, 65536, 0, 458754, 65536, 0, 524290, 65536, 0, 589826, 65536, 0, 655362, 65536, 0, 720898, 65536, 0, 786434, 65536, 0, 851970, 65536, 0, 917506, 65536, 0, 983042, 65536, 0, 1048578, 65536, 0, 1048598, 65536, 0, 983062, 65536, 0, 917526, 65536, 0, 851990, 65536, 0, 786454, 65536, 0, 720918, 65536, 0, 655382, 65536, 0, 589846, 65536, 0, 524310, 65536, 0, 458774, 65536, 0, 393238, 65536, 0, 327702, 65536, 0, 262166, 65536, 0, 196630, 65536, 0, 131094, 65536, 0, 65558, 65536, 0, 65537, 65536, 0, 131073, 65536, 0, 196609, 65536, 0, 262145, 65536, 0, 327681, 65536, 0, 393217, 65536, 0, 983041, 65536, 0, 1048577, 65536, 0, 458753, 65536, 0, 524289, 65536, 0, 589825, 65536, 0, 655361, 65536, 0, 720897, 65536, 0, 786433, 65536, 0, 851969, 65536, 0, 917505, 65536, 0, 65559, 65536, 0, 131095, 65536, 0, 196631, 65536, 0, 262167, 65536, 0, 327703, 65536, 0, 393239, 65536, 0, 458775, 65536, 0, 524311, 65536, 0, 589847, 65536, 0, 655383, 65536, 0, 720919, 65536, 0, 786455, 65536, 0, 851991, 65536, 0, 1048599, 65536, 0, 983063, 65536, 0, 917527, 65536, 0, 1179649, 65536, 0, 1179650, 65536, 0, 1179651, 65536, 0, 1179652, 65536, 0, 1179653, 65536, 0, 1179654, 65536, 0, 1179655, 65536, 0, 1179656, 65536, 0, 1179657, 65536, 0, 1179658, 65536, 0, 1179659, 65536, 0, 1179660, 65536, 0, 1179661, 65536, 0, 1179662, 65536, 0, 1179663, 65536, 0, 1179664, 65536, 0, 1179665, 65536, 0, 1179666, 65536, 0, 1179667, 65536, 0, 1179668, 65536, 0, 1179669, 65536, 0, 1179670, 65536, 0, 1179671, 65536, 0, 1179672, 65536, 0, 1179648, 65536, 0, 589827, 65536, 0, 589845, 65536, 0)
+
+[node name="objCameraFixedNoSmoothing" parent="Phases/Minigame4" instance=ExtResource("3_sbg1e")]
+position = Vector2(-1200, 304)
+anchor_mode = 1
+scrolling_speed = 100
+
+[node name="Start" type="Node2D" parent="Phases/Minigame4"]
+position = Vector2(-1192, 240)
+
+[node name="RhythmBars" type="Node2D" parent="Phases/Minigame4"]
+
+[node name="TopBar" type="Area2D" parent="Phases/Minigame4/RhythmBars"]
+position = Vector2(-1616, 160)
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame4/RhythmBars/TopBar"]
+shape = SubResource("RectangleShape2D_aqalh")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame4/RhythmBars/TopBar"]
+polygon = PackedVector2Array(-8, -128, 8, -128, 8, 128, -8, 128)
+metadata/_edit_lock_ = true
+
+[node name="TopBarAnimation" type="AnimationPlayer" parent="Phases/Minigame4/RhythmBars/TopBar"]
+libraries = {
+"": SubResource("AnimationLibrary_2kdvh")
+}
+
+[node name="BottomBar" type="Area2D" parent="Phases/Minigame4/RhythmBars"]
+position = Vector2(-784, 416)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame4/RhythmBars/BottomBar"]
+position = Vector2(-0.799988, 32)
+shape = SubResource("RectangleShape2D_17p4g")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame4/RhythmBars/BottomBar"]
+polygon = PackedVector2Array(-8, -96, 8, -96, 6.40002, 160, -9.59998, 160)
+metadata/_edit_lock_ = true
+
+[node name="BottomBarAnimation" type="AnimationPlayer" parent="Phases/Minigame4/RhythmBars/BottomBar"]
+libraries = {
+"": SubResource("AnimationLibrary_2kdvh")
+}
+
+[node name="Obstacles" type="Node2D" parent="Phases/Minigame4"]
+
+[node name="t1" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
+
+[node name="spike" parent="Phases/Minigame4/Obstacles/t1" instance=ExtResource("7_i72w6")]
+layer_0/tile_data = PackedInt32Array(393170, 65536, 1, 393171, 65536, 1, 393173, 65536, 1, 393172, 65536, 1, 393174, 65536, 1, 393175, 65536, 1, 393176, 65536, 1, 393177, 65536, 1, 458712, 65536, 1, 524247, 65536, 1, 327640, 65536, 1, 262103, 65536, 1, 131034, 0, 0, 131035, 0, 0, 131037, 0, 0, 458721, 0, 0, 393186, 0, 0, 393184, 0, 0, 393185, 0, 0, 327649, 0, 0, 262113, 0, 0, 196577, 0, 0, 131041, 0, 0, 131039, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="tiles" parent="Phases/Minigame4/Obstacles/t1" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+
+[node name="b1" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
+
+[node name="spike" parent="Phases/Minigame4/Obstacles/b1" instance=ExtResource("7_i72w6")]
+layer_0/tile_data = PackedInt32Array(851934, 0, 1, 851933, 0, 1, 851932, 0, 1, 851931, 0, 1, 786396, 0, 1, 917468, 0, 1, 1114080, 0, 1, 1179616, 0, 1, 1048544, 0, 1, 1114081, 0, 1, 1114082, 0, 1, 1114079, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="tiles" parent="Phases/Minigame4/Obstacles/b1" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(1048587, 65537, 0, 917513, 65537, 0, 786439, 65537, 0, 1114124, 65537, 0, 720902, 65537, 0, 720901, 65536, 3, 655364, 65536, 3)
+
+[node name="t2" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
+
+[node name="spike" parent="Phases/Minigame4/Obstacles/t2" instance=ExtResource("7_i72w6")]
+layer_0/tile_data = PackedInt32Array(458717, 0, 0, 524253, 65536, 0, 589789, 0, 0, 589781, 0, 0, 458711, 0, 0, 327641, 0, 0, 327643, 0, 0, 524247, 65536, 0, 589783, 0, 0, 589785, 0, 0, 589787, 0, 0, 393177, 65536, 0, 524249, 65536, 0, 524251, 65536, 0, 393179, 65536, 0, 458713, 0, 0, 458715, 0, 0, 131034, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="tiles" parent="Phases/Minigame4/Obstacles/t2" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(196621, 65537, 0, 524306, 65537, 0, 524308, 65536, 3, 458772, 65536, 3, 393236, 1, 1, 327699, 1, 1, 262162, 1, 1, 524294, 1, 0, 458759, 1, 0, 393224, 1, 0, 327689, 1, 0, 262154, 1, 0, 196619, 1, 0, 65551, 1, 1, 65545, 65537, 1, 131080, 65537, 1, 196615, 65537, 1, 262150, 65537, 1, 327685, 65537, 1, 393220, 65536, 3, 458756, 65536, 3, 524292, 65536, 3, 327695, 65537, 0, 393232, 65537, 0, 131088, 1, 1, 196620, 65536, 3)
+
+[node name="b2" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+
+[node name="spike" parent="Phases/Minigame4/Obstacles/b2" instance=ExtResource("7_i72w6")]
+layer_0/tile_data = PackedInt32Array(720859, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="tiles" parent="Phases/Minigame4/Obstacles/b2" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(1114132, 65537, 0, 1048595, 65537, 0, 983058, 65537, 0, 917521, 65537, 0, 851984, 65537, 0, 786447, 65537, 0, 720904, 65537, 0, 786441, 65537, 0, 786443, 65537, 0, 851980, 65537, 0, 786446, 1, 0, 983044, 65536, 3, 786438, 65536, 3)
+
+[node name="t3" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
+
+[node name="spike" parent="Phases/Minigame4/Obstacles/t3" instance=ExtResource("7_i72w6")]
+metadata/_edit_lock_ = true
+
+[node name="tiles" parent="Phases/Minigame4/Obstacles/t3" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(524292, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524300, 1, 0, 524303, 1, 0, 524305, 1, 0, 524306, 1, 0, 524308, 1, 0)
+
+[node name="b3" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
+
+[node name="spike" parent="Phases/Minigame4/Obstacles/b3" instance=ExtResource("7_i72w6")]
+metadata/_edit_lock_ = true
+
+[node name="tiles" parent="Phases/Minigame4/Obstacles/b3" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(1114132, 65537, 0, 1114131, 65537, 0, 1114130, 65537, 0, 1114129, 65537, 0, 1114128, 65537, 0, 1114127, 65537, 0, 1114126, 65537, 0, 1114124, 65537, 0, 1114125, 65537, 0, 1114121, 65537, 0, 1114118, 65537, 0, 1114117, 65537, 0, 1114116, 65537, 0, 1114119, 65537, 0)
+
+[node name="t4" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
+
+[node name="spike" parent="Phases/Minigame4/Obstacles/t4" instance=ExtResource("7_i72w6")]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="tiles" parent="Phases/Minigame4/Obstacles/t4" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(524292, 1, 0, 524295, 1, 0, 524297, 1, 0, 524298, 1, 0, 524301, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0)
+
+[node name="b4" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
+
+[node name="spike" parent="Phases/Minigame4/Obstacles/b4" instance=ExtResource("7_i72w6")]
+metadata/_edit_lock_ = true
+
+[node name="tiles" parent="Phases/Minigame4/Obstacles/b4" instance=ExtResource("1_b2h4h")]
+position = Vector2(-1600, 0)
+layer_0/tile_data = PackedInt32Array(1114132, 65537, 0, 1114130, 65537, 0, 1114128, 65537, 0, 1114126, 65537, 0, 1114124, 65537, 0)
 
 [node name="Minigame5" type="Node2D" parent="Phases"]
 visible = false
@@ -1599,6 +1791,7 @@ visible = false
 visible = false
 
 [node name="Chorus2" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("17_55lui")
 
 [node name="tiles" parent="Phases/Chorus2" instance=ExtResource("1_b2h4h")]
@@ -1778,9 +1971,11 @@ polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -18
 [node name="Timer" type="Timer" parent="Phases/Final/Boss3d"]
 
 [node name="End" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("11_trd68")
 
 [node name="Fake-end" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("4_upcyl")
 
 [node name="Debug" type="Control" parent="."]
@@ -1818,9 +2013,9 @@ offset_bottom = 232.0
 [node name="bossHp" type="TextureProgressBar" parent="Debug/CanvasLayer"]
 unique_name_in_owner = true
 offset_left = 112.0
-offset_top = 16.0
+offset_top = 8.0
 offset_right = 712.0
-offset_bottom = 32.0
+offset_bottom = 24.0
 step = 0.1
 value = 100.0
 nine_patch_stretch = true
@@ -2128,8 +2323,12 @@ song_id = ExtResource("31_tjblq")
 [connection signal="body_entered" from="Phases/Transition2/StartRegion" to="Phases/Transition2" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/Transition2/StartRegion" to="Phases/Transition2" method="_on_start_region_body_exited"]
 [connection signal="body_entered" from="Phases/Transition2/InstantSpeed" to="Phases/Transition2" method="_on_instant_speed_body_entered"]
-[connection signal="body_entered" from="Phases/Minigame3/StartRegion" to="Phases/Transition2" method="_on_start_region_body_entered"]
-[connection signal="body_exited" from="Phases/Minigame3/StartRegion" to="Phases/Transition2" method="_on_start_region_body_exited"]
+[connection signal="body_entered" from="Phases/Minigame3/StartRegion" to="Phases/Minigame3" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/Minigame3/StartRegion" to="Phases/Minigame3" method="_on_start_region_body_exited"]
+[connection signal="body_entered" from="Phases/Minigame4/StartRegion" to="Phases/Minigame4" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/Minigame4/StartRegion" to="Phases/Minigame4" method="_on_start_region_body_exited"]
+[connection signal="area_entered" from="Phases/Minigame4/RhythmBars/TopBar" to="Phases/Minigame4" method="_on_top_bar_area_entered"]
+[connection signal="body_entered" from="Phases/Minigame4/RhythmBars/TopBar" to="Phases/Minigame4" method="_on_top_bar_body_entered"]
 [connection signal="body_entered" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_exited"]
 [connection signal="timeout" from="Phases/Chorus2/Boss3a/Timer" to="Phases/Chorus2/Boss3a" method="on_timeout"]
