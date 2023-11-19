@@ -174,7 +174,7 @@ func react_to_hit(attack_type, attack_damage):
 size = Vector2(736, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqalh"]
-size = Vector2(16, 256)
+size = Vector2(16, 272)
 
 [sub_resource type="Animation" id="Animation_bvn41"]
 resource_name = "test"
@@ -215,7 +215,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17p4g"]
-size = Vector2(14.4, 256)
+size = Vector2(14.4, 272)
 
 [sub_resource type="GDScript" id="GDScript_npkfy"]
 script/source = "extends Node2D
@@ -1670,6 +1670,7 @@ collision_layer = 0
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame4/RhythmBars/TopBar"]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_aqalh")
 metadata/_edit_lock_ = true
 
@@ -1686,7 +1687,7 @@ libraries = {
 position = Vector2(-784, 416)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame4/RhythmBars/BottomBar"]
-position = Vector2(-0.799988, 32)
+position = Vector2(-0.799988, 24)
 shape = SubResource("RectangleShape2D_17p4g")
 metadata/_edit_lock_ = true
 
@@ -1711,6 +1712,12 @@ metadata/_edit_lock_ = true
 [node name="tiles" parent="Phases/Minigame4/Obstacles/t1" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
 
+[node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t1"]
+position = Vector2(-976, 336)
+
+[node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t1"]
+position = Vector2(-1424, 336)
+
 [node name="b1" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
 
@@ -1722,18 +1729,31 @@ metadata/_edit_lock_ = true
 position = Vector2(-1600, 0)
 layer_0/tile_data = PackedInt32Array(1048587, 65537, 0, 917513, 65537, 0, 786439, 65537, 0, 1114124, 65537, 0, 720902, 65537, 0, 720901, 65536, 3, 655364, 65536, 3)
 
+[node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b1"]
+position = Vector2(-1424, 272)
+
+[node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b1"]
+position = Vector2(-944, 272)
+
 [node name="t2" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/t2" instance=ExtResource("7_i72w6")]
-layer_0/tile_data = PackedInt32Array(458717, 0, 0, 524253, 65536, 0, 589789, 0, 0, 589781, 0, 0, 458711, 0, 0, 327641, 0, 0, 327643, 0, 0, 524247, 65536, 0, 589783, 0, 0, 589785, 0, 0, 589787, 0, 0, 393177, 65536, 0, 524249, 65536, 0, 524251, 65536, 0, 393179, 65536, 0, 458713, 0, 0, 458715, 0, 0, 131034, 0, 0)
+layer_0/tile_data = PackedInt32Array(458717, 0, 0, 524253, 65536, 0, 589789, 0, 0, 589781, 0, 0, 458711, 0, 0, 327641, 0, 0, 327643, 0, 0, 524247, 65536, 0, 589783, 0, 0, 589785, 0, 0, 589787, 0, 0, 393177, 65536, 0, 524249, 65536, 0, 524251, 65536, 0, 393179, 65536, 0, 458713, 0, 0, 458715, 0, 0)
 metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/t2" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
-layer_0/tile_data = PackedInt32Array(196621, 65537, 0, 524306, 65537, 0, 524308, 65536, 3, 458772, 65536, 3, 393236, 1, 1, 327699, 1, 1, 262162, 1, 1, 524294, 1, 0, 458759, 1, 0, 393224, 1, 0, 327689, 1, 0, 262154, 1, 0, 196619, 1, 0, 65551, 1, 1, 65545, 65537, 1, 131080, 65537, 1, 196615, 65537, 1, 262150, 65537, 1, 327685, 65537, 1, 393220, 65536, 3, 458756, 65536, 3, 524292, 65536, 3, 327695, 65537, 0, 393232, 65537, 0, 131088, 1, 1, 196620, 65536, 3)
+layer_0/tile_data = PackedInt32Array(196621, 65537, 0, 524306, 65537, 0, 458772, 65536, 3, 393236, 65536, 3, 327699, 1, 1, 262162, 1, 1, 524294, 1, 0, 458759, 1, 0, 393224, 1, 0, 327689, 1, 0, 262154, 1, 0, 196619, 1, 0, 65551, 1, 1, 65545, 65537, 1, 131080, 65537, 1, 196615, 65537, 1, 262150, 65537, 1, 327685, 65537, 1, 393220, 65536, 3, 458756, 65536, 3, 524292, 65536, 3, 327695, 65537, 0, 393232, 65537, 0, 131088, 1, 1, 327684, 65536, 3, 262149, 65536, 3, 196614, 65536, 3, 131079, 65536, 3, 65544, 65536, 3, 65552, 65536, 3, 262163, 65536, 3, 327700, 65536, 3, 196620, 65536, 3)
+
+[node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t2"]
+position = Vector2(-976, 336)
+
+[node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t2"]
+position = Vector2(-1392, 368)
 
 [node name="b2" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/b2" instance=ExtResource("7_i72w6")]
 layer_0/tile_data = PackedInt32Array(720859, 0, 0)
@@ -1743,46 +1763,78 @@ metadata/_edit_lock_ = true
 position = Vector2(-1600, 0)
 layer_0/tile_data = PackedInt32Array(1114132, 65537, 0, 1048595, 65537, 0, 983058, 65537, 0, 917521, 65537, 0, 851984, 65537, 0, 786447, 65537, 0, 720904, 65537, 0, 786441, 65537, 0, 786443, 65537, 0, 851980, 65537, 0, 786446, 1, 0, 983044, 65536, 3, 786438, 65536, 3)
 
+[node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b2"]
+position = Vector2(-1424, 272)
+
+[node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b2"]
+position = Vector2(-944, 272)
+
 [node name="t3" type="Node2D" parent="Phases/Minigame4/Obstacles"]
-visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/t3" instance=ExtResource("7_i72w6")]
+layer_0/tile_data = PackedInt32Array(458706, 65536, 0, 131034, 0, 0, 327642, 65536, 0, 589791, 65536, 0, 589792, 65536, 0, 458719, 65536, 0, 524256, 65536, 0, 262111, 0, 0, 524253, 65536, 0, 327645, 0, 0, 262112, 0, 0)
 metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/t3" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
-layer_0/tile_data = PackedInt32Array(524292, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524300, 1, 0, 524303, 1, 0, 524305, 1, 0, 524306, 1, 0, 524308, 1, 0)
+layer_0/tile_data = PackedInt32Array(524292, 65536, 3, 524296, 65536, 3, 524297, 65536, 3, 524298, 65536, 3, 524300, 65536, 3, 458756, 65536, 3, 458760, 1, 0, 393225, 1, 0, 393226, 65536, 3, 458762, 65536, 3, 458761, 65536, 3, 327692, 65536, 3, 393228, 65536, 3, 458764, 65536, 3, 393236, 65536, 3, 327700, 65536, 3, 524305, 65536, 3, 458769, 65536, 3, 524306, 65536, 3, 131089, 65536, 3, 65553, 65536, 3, 131090, 65536, 3, 65554, 65536, 3, 524303, 65536, 3, 65551, 65536, 3, 131087, 65536, 3, 196623, 65536, 3, 262164, 65536, 3, 196628, 65536, 3, 131092, 65536, 3, 65556, 65536, 3, 458772, 65536, 3)
+
+[node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t3"]
+position = Vector2(-976, 336)
+
+[node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t3"]
+position = Vector2(-1424, 336)
 
 [node name="b3" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/b3" instance=ExtResource("7_i72w6")]
+layer_0/tile_data = PackedInt32Array(982999, 0, 0, 917463, 65536, 0, 1179607, 65536, 0, 720855, 0, 0)
 metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/b3" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
-layer_0/tile_data = PackedInt32Array(1114132, 65537, 0, 1114131, 65537, 0, 1114130, 65537, 0, 1114129, 65537, 0, 1114128, 65537, 0, 1114127, 65537, 0, 1114126, 65537, 0, 1114124, 65537, 0, 1114125, 65537, 0, 1114121, 65537, 0, 1114118, 65537, 0, 1114117, 65537, 0, 1114116, 65537, 0, 1114119, 65537, 0)
+layer_0/tile_data = PackedInt32Array(1114118, 1, 1, 1114117, 65537, 1, 1114116, 1, 1, 1114119, 65537, 1, 851985, 65537, 0, 786448, 65537, 0, 720911, 65537, 0, 720910, 1, 0, 786445, 1, 0, 786444, 65537, 0, 1048583, 65537, 0, 983047, 65537, 1, 917511, 65537, 0, 1048582, 1, 0, 983046, 1, 1, 917510, 1, 0, 983045, 65537, 1, 983044, 1, 1, 1048580, 1, 0, 917508, 1, 0, 786436, 65536, 3, 786437, 65536, 3, 917509, 65537, 0, 1048581, 65537, 0, 851973, 65537, 1, 851972, 1, 1, 851975, 65537, 1, 720901, 65537, 0, 655364, 65536, 3, 720900, 65536, 3, 851974, 1, 1, 786438, 1, 0, 786439, 65537, 0, 851986, 1, 0, 851987, 65537, 0, 983052, 65537, 0, 983053, 1, 0, 917518, 1, 0, 917519, 65537, 0, 983056, 65537, 0, 1048593, 65537, 0, 1048594, 1, 0, 1048595, 65537, 0, 1048596, 1, 0, 983061, 1, 0, 655373, 65537, 1, 655372, 1, 1, 655376, 1, 1, 720913, 1, 1, 720914, 65537, 1, 655378, 65536, 3, 655377, 65536, 3, 917523, 1, 1, 917522, 65537, 1, 917521, 1, 1, 851984, 1, 1, 786447, 1, 1, 786446, 65537, 1, 851981, 65537, 1, 851980, 1, 1, 1048597, 65537, 1, 1114132, 65537, 1, 1114131, 1, 1, 1114130, 65537, 1, 1114129, 1, 1, 1048592, 1, 1, 983055, 1, 1, 983054, 65537, 1, 1048589, 65537, 1, 1048588, 1, 1)
+
+[node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b3"]
+position = Vector2(-1424, 272)
+
+[node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b3"]
+position = Vector2(-944, 272)
 
 [node name="t4" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/t4" instance=ExtResource("7_i72w6")]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/t4" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
-layer_0/tile_data = PackedInt32Array(524292, 1, 0, 524295, 1, 0, 524297, 1, 0, 524298, 1, 0, 524301, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0)
+layer_0/tile_data = PackedInt32Array(524292, 65536, 3, 524301, 65536, 3, 524303, 65536, 3, 524304, 65536, 3, 524305, 65536, 3, 458756, 65536, 3, 393229, 1, 0, 196623, 1, 0, 196624, 65537, 0, 327697, 65537, 0, 196627, 65536, 3, 196628, 65537, 0, 458765, 65536, 3, 458767, 65536, 3, 393231, 65536, 3, 327695, 65536, 3, 262159, 65536, 3, 262160, 65536, 3, 327696, 65536, 3, 393232, 65536, 3, 458768, 65536, 3, 458769, 65536, 3, 393233, 65536, 3, 393235, 65536, 3, 327699, 65536, 3, 262163, 65536, 3, 262164, 65536, 3, 327700, 65536, 3, 393236, 65536, 3, 393220, 65537, 0, 458772, 65537, 1, 524295, 1, 0, 262154, 1, 0, 327690, 65536, 3, 327689, 1, 0, 393225, 65536, 3, 458761, 65536, 3, 458762, 65536, 3, 524298, 65536, 3, 524297, 65536, 3, 393226, 65536, 3, 65549, 65536, 3, 131085, 1, 1, 524306, 65537, 0, 458771, 1, 1, 262162, 1, 1, 196626, 1, 0)
+
+[node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t4"]
+position = Vector2(-976, 336)
+
+[node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t4"]
+position = Vector2(-1488, 560)
 
 [node name="b4" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/b4" instance=ExtResource("7_i72w6")]
+layer_0/tile_data = PackedInt32Array(983002, 0, 1, 917468, 0, 1, 983004, 0, 1, 1048540, 0, 1, 983006, 0, 1, 983008, 0, 1, 983010, 0, 1, 851932, 0, 1, 1114076, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/b4" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
-layer_0/tile_data = PackedInt32Array(1114132, 65537, 0, 1114130, 65537, 0, 1114128, 65537, 0, 1114126, 65537, 0, 1114124, 65537, 0)
+
+[node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b4"]
+position = Vector2(-1488, 560)
+
+[node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b4"]
+position = Vector2(-1488, 560)
+
+[node name="instanced" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 
 [node name="Minigame5" type="Node2D" parent="Phases"]
 visible = false
@@ -2329,6 +2381,7 @@ song_id = ExtResource("31_tjblq")
 [connection signal="body_exited" from="Phases/Minigame4/StartRegion" to="Phases/Minigame4" method="_on_start_region_body_exited"]
 [connection signal="area_entered" from="Phases/Minigame4/RhythmBars/TopBar" to="Phases/Minigame4" method="_on_top_bar_area_entered"]
 [connection signal="body_entered" from="Phases/Minigame4/RhythmBars/TopBar" to="Phases/Minigame4" method="_on_top_bar_body_entered"]
+[connection signal="body_entered" from="Phases/Minigame4/RhythmBars/BottomBar" to="Phases/Minigame4" method="_on_bottom_bar_body_entered"]
 [connection signal="body_entered" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_exited"]
 [connection signal="timeout" from="Phases/Chorus2/Boss3a/Timer" to="Phases/Chorus2/Boss3a" method="on_timeout"]

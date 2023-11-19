@@ -14,6 +14,13 @@ var player_in_start = false
 @onready var b3 = $Obstacles/b3
 @onready var b4 = $Obstacles/b4
 
+var phases = [t1,b1,t2,b2,t3,b3,t4,b4]
+@onready var currentTop = t1
+@onready var currentBot = b1
+var dontSpawnAdder = null
+
+var speedAdder = preload("res://Objects/My_Stuff/Speed/objSpeedAdder.tscn")
+
 func setup():
 	super()
 	if %objPlayer:
@@ -70,41 +77,57 @@ func _physics_process(delta):
 	if one(217):
 		topAni.play("TopBar")
 		topAni.seek(1,true)
+		currentTop = t1
 		eo(t1)
 		eo(b1)
+		ca(t1)
 	elif one(219):
 		botAni.play("BottomBar")
+		currentBot = b1
 	elif one(221):
 		diso(t1)
 		eo(t2)
+		ca(b1)
 	elif one(223):
 		topAni.play("TopBar")
+		currentTop = t2
 	elif one(225):
 		diso(b1)
 		eo(b2)
+		ca(t2)
 	elif one(227):
 		botAni.play("BottomBar")
+		currentBot = b2
 	elif one(229):
 		diso(t2)
 		eo(t3)
+		ca(b2)
 	elif one(231):
 		topAni.play("TopBar")
+		currentTop = t3
 	elif one(233):
 		diso(b2)
 		eo(b3)
+		ca(t3)
 	elif one(235):
 		botAni.play("BottomBar")
+		currentBot = b3
 	elif one(237):
 		diso(t3)
 		eo(t4)
+		ca(b3)
 	elif one(239):
 		topAni.play("TopBar")
+		currentTop = t4
 	elif one(241):
 		diso(b3)
 		eo(b4)
+		ca(t4)
 	elif one(243):
 		botAni.play("BottomBar")
-	
+		currentBot = b4
+	elif one(245):
+		ca(b4)
 
 func setup_deferred():
 	if !player_in_start:
@@ -134,11 +157,36 @@ func _on_instant_speed_body_entered(body):
 
 
 func _on_top_bar_area_entered(area):
-	print("stuff")
+	#print("stuff")
+	pass
 
 
 func _on_top_bar_body_entered(body):
-	print("maybe")
+	if body is Player:
+		#print("player detected !!!")
+		if currentTop == t1:
+			handle_bar_collision(t1,b1)
+		elif currentTop == t2:
+			handle_bar_collision(t2,b2)
+		elif currentTop == t3:
+			handle_bar_collision(t3,b3)
+		elif currentTop == t4:
+			handle_bar_collision(t4,b4)
+	#print("maybe")
+
+
+func _on_bottom_bar_body_entered(body):
+	if body is Player:
+		#print("player detected !!!")
+		if currentBot == b1:
+			handle_bar_collision(b1,t2)
+		elif currentBot == b2:
+			handle_bar_collision(b2,t3)
+		elif currentBot == b3:
+			handle_bar_collision(b3,t4)
+		elif currentBot == b4:
+			handle_bar_collision(b4,b4)
+
 
 # enable obstacle
 func eo(phase: Node2D):
@@ -153,3 +201,33 @@ func diso(phase: Node2D):
 	phase.find_child("spike", false).set_layer_enabled(0, false)
 	phase.find_child("tiles", false).set_layer_enabled(0, false)
 	phase.set_visible(false)
+	delete_adder(phase)
+
+func create_adder(phase):
+	var pos = phase.get_node("speedBuffLocation")
+	var adder = speedAdder.instantiate()
+	adder.speed = 1
+	adder.decay = 0.25
+	adder.one_use = true
+#	if phase == t1:
+#		adder.speed = 1
+	phase.get_node("speedBuffLocation").add_child(adder)
+
+func delete_adder(phase):
+	if phase.get_node("speedBuffLocation").get_child_count() > 0:
+		for child in phase.get_node("speedBuffLocation").get_children():
+			child.queue_free()
+
+func ca(phase):
+	if dontSpawnAdder != phase:
+		create_adder(phase)
+	else:
+		dontSpawnAdder = null
+
+func handle_bar_collision(current_phase, next_phase):
+	%objPlayer.h_speed -= 1
+	%objPlayer.global_position = current_phase.get_node("spawnLocation").global_position
+	delete_adder(current_phase)
+	#delete_adder(next_phase)
+	dontSpawnAdder = next_phase
+

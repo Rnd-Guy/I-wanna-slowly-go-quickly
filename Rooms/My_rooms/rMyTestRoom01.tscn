@@ -39,6 +39,7 @@ position = Vector2(747, 522)
 
 [node name="objSpeedAdder" parent="Gimmicks" instance=ExtResource("4_xfq02")]
 position = Vector2(193, 459)
+decay = 0.2
 
 [node name="objSpeedMultiplier" parent="Gimmicks" instance=ExtResource("7_erlfp")]
 position = Vector2(427, 458)
