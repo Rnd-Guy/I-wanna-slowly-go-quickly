@@ -68,6 +68,7 @@ func lerp_rotation(node, start_time, end_time, start_angle, end_angle):
 func reset():
 	if get_node_or_null("tiles"):
 		$tiles.set_layer_enabled(0,false)
+	onetime.clear()
 func setup():
 	if get_node_or_null("tiles"):
 		$tiles.set_layer_enabled(0, true)

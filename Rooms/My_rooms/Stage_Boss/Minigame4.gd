@@ -44,7 +44,6 @@ func reset():
 	$"../../Room_related/objCameraFixedNoSmoothing".make_current()
 	$"../../Room_related/objCameraFixedNoSmoothing".reset_smoothing()
 	first_frames = 0
-	onetime.clear()
 	topAni.stop()
 	botAni.stop()
 	diso(t1)
@@ -228,6 +227,6 @@ func handle_bar_collision(current_phase, next_phase):
 	%objPlayer.h_speed -= 1
 	%objPlayer.global_position = current_phase.get_node("spawnLocation").global_position
 	delete_adder(current_phase)
-	#delete_adder(next_phase)
+	delete_adder(next_phase)
 	dontSpawnAdder = next_phase
 
