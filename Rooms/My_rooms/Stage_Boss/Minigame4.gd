@@ -229,4 +229,8 @@ func handle_bar_collision(current_phase, next_phase):
 	delete_adder(current_phase)
 	delete_adder(next_phase)
 	dontSpawnAdder = next_phase
+	
+	var index = phases.find(current_phase)
+	var phases = phases.size()
+	
 

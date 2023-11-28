@@ -51,3 +51,7 @@ func _on_fall_check_body_entered(body):
 	%objPlayer.set_global_position($Start.global_position)
 	%objPlayer.h_speed -= 1
 	pass # Replace with function body.
+
+func gain_speed(speed):
+	%objPlayer.set_global_position($Start.global_position)
+	%objPlayer.h_speed += speed

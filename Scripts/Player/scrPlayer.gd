@@ -43,6 +43,10 @@ var instant_speed = false
 var no_fall = false
 var shmup = false
 var shmup_mark_2 = false
+var max_iframes = 2 # seconds
+var current_iframes = 0
+var last_shot_beat = 0 # to prevent spamming
+
 
 func _ready():
 	
@@ -125,6 +129,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("button_debug_command"):
 		debug_command()
+	
+	handle_iframes(delta)
+
 
 
 """
@@ -353,11 +360,14 @@ func handle_shooting():
 			# CUSTOM
 			# if boss mode and is close to beat, change sprite
 			if is_boss:
-				if fmod(GLOBAL_GAME.boss_beat,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat,1) > 0.9:
+				if abs(GLOBAL_GAME.shot_beat - GLOBAL_GAME.boss_beat) > 0.4 && \
+						fmod(GLOBAL_GAME.boss_beat,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat,1) > 0.9:
 					create_bullet_id.boss_bullet = true
 					create_bullet_id.attack_type = GlobalClass.weapon_type.NOTE
+					h_speed += 0.01
 				GLOBAL_GAME.shot_beat = GLOBAL_GAME.boss_beat
 				create_bullet_id.attack_damage = h_speed
+				#last_shot_beat = GLOBAL_GAME.boss_beat
 				
 			
 			# After everything is set and done, creates the bullet
@@ -528,8 +538,32 @@ func handle_actual_movement(delta):
 		if collision != null:
 			handle_collision(collision)
 
+"""
+BOSS RELATED
+"""
+
 func debug_command():
 	pass
+
+func take_damage(damage):
+	if current_iframes <= 0:
+		h_speed -= damage
+		current_iframes = max_iframes
+
+func handle_iframes(delta):
+	if is_boss:
+		if current_iframes > 0:
+			current_iframes -= delta
+			if current_iframes < 0:
+				current_iframes = 0
+				modulate.a = 1
+			else:
+				modulate.a = 0.5
+		else:
+			modulate.a = 1
+		
+		if h_speed <= 0:
+			on_death()
 
 func enable_shmup():
 	shmup = true
@@ -537,28 +571,35 @@ func enable_shmup():
 	$BossRelated.set_visible(true)
 	$playerSprites.set_visible(false)
 	$extraCollisions/Killers.set_process_mode(PROCESS_MODE_DISABLED)
+	$shmupMask.set_disabled(false)
+	$playerMask.set_disabled(true)
 func disable_shmup():
 	shmup = false
 	$BossRelated.set_process_mode(PROCESS_MODE_DISABLED)
 	$BossRelated.set_visible(false)
 	$playerSprites.set_visible(true)
 	$extraCollisions/Killers.set_process_mode(PROCESS_MODE_INHERIT)
+	$shmupMask.set_disabled(true)
+	$playerMask.set_disabled(false)
 	
 func enable_shmup_mark_1():
 	shmup_mark_2 = false
 	$BossRelated/noisz.set_visible(false)
 	$BossRelated/star.set_visible(false)
+	$BossRelated/particles.set_visible(false)
 	enable_shmup()
 func disable_shmup_mark_1():
 	shmup_mark_2 = false
 	$BossRelated/noisz.set_visible(false)
 	$BossRelated/star.set_visible(false)
+	$BossRelated/particles.set_visible(false)
 	disable_shmup()
 	
 func enable_shmup_mark_2():
 	shmup_mark_2 = true
 	$BossRelated/noisz.set_visible(true)
 	$BossRelated/star.set_visible(true)
+	$BossRelated/particles.set_visible(true)
 	enable_shmup()
 func disable_shmup_mark_2():
 	disable_shmup_mark_1()

@@ -242,12 +242,12 @@ func physics(_delta):
 size = Vector2(114, 154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4mpm"]
-size = Vector2(2572, 32)
+size = Vector2(2104, 32)
 
 [sub_resource type="GDScript" id="GDScript_s4bne"]
 script/source = "extends Area2D
 
-@export var speed: float = 1
+@export var speed = 1
 var minigame1 = null
 
 func setup():
@@ -268,7 +268,6 @@ func _on_body_entered(body):
 size = Vector2(32, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ou7ga"]
-font_size = 13
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="GDScript" id="GDScript_d51nq"]
@@ -975,7 +974,6 @@ script = SubResource("GDScript_802m5")
 
 [node name="Minigame1" type="Node2D" parent="Phases"]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("4_7agvo")
 
 [node name="Start" type="Node2D" parent="Phases/Minigame1"]
@@ -1038,16 +1036,15 @@ position = Vector2(16, 632)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/FallCheck"]
-position = Vector2(890, 0)
+position = Vector2(1036, 0)
 shape = SubResource("RectangleShape2D_n4mpm")
 
 [node name="PointBonuses" type="Node2D" parent="Phases/Minigame1"]
 
 [node name="Point" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(288, 152)
+position = Vector2(152, 296)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.02
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point"]
 shape = SubResource("RectangleShape2D_1napu")
@@ -1056,146 +1053,9 @@ shape = SubResource("RectangleShape2D_1napu")
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point"]
-offset_left = -24.0
+offset_left = -16.0
 offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 16.0
-text = "+1
-"
-label_settings = SubResource("LabelSettings_ou7ga")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Point2" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(448, 152)
-collision_layer = 0
-script = SubResource("GDScript_s4bne")
-speed = 0.05
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point2"]
-shape = SubResource("RectangleShape2D_1napu")
-
-[node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point2"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point2"]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 16.0
-text = "+1
-"
-label_settings = SubResource("LabelSettings_ou7ga")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Point3" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(632, 152)
-collision_layer = 0
-script = SubResource("GDScript_s4bne")
-speed = 0.15
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point3"]
-shape = SubResource("RectangleShape2D_1napu")
-
-[node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point3"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point3"]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 16.0
-text = "+1
-"
-label_settings = SubResource("LabelSettings_ou7ga")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Point4" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(848, 152)
-collision_layer = 0
-script = SubResource("GDScript_s4bne")
-speed = 0.3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point4"]
-shape = SubResource("RectangleShape2D_1napu")
-
-[node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point4"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point4"]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 16.0
-text = "+1
-"
-label_settings = SubResource("LabelSettings_ou7ga")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Point5" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(1088, 152)
-collision_layer = 0
-script = SubResource("GDScript_s4bne")
-speed = 0.5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point5"]
-shape = SubResource("RectangleShape2D_1napu")
-
-[node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point5"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point5"]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 16.0
-text = "+1
-"
-label_settings = SubResource("LabelSettings_ou7ga")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Point6" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(1312, 152)
-collision_layer = 0
-script = SubResource("GDScript_s4bne")
-speed = 0.75
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point6"]
-shape = SubResource("RectangleShape2D_1napu")
-
-[node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point6"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point6"]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 16.0
-text = "+1
-"
-label_settings = SubResource("LabelSettings_ou7ga")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Point7" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(1616, 152)
-collision_layer = 0
-script = SubResource("GDScript_s4bne")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point7"]
-shape = SubResource("RectangleShape2D_1napu")
-
-[node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point7"]
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point7"]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = 24.0
+offset_right = 16.0
 offset_bottom = 16.0
 text = "+1
 "
@@ -2009,6 +1869,7 @@ position = Vector2(-1200, 301)
 [node name="Notes" type="Node2D" parent="Phases/Minigame3"]
 
 [node name="Minigame4" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("17_ecwox")
 
 [node name="objOneWay" parent="Phases/Minigame4" instance=ExtResource("23_gsy0w")]
@@ -2129,6 +1990,7 @@ position = Vector2(-976, 336)
 position = Vector2(-1392, 368)
 
 [node name="b2" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/b2" instance=ExtResource("7_i72w6")]
 layer_0/tile_data = PackedInt32Array(720859, 0, 0)
@@ -2136,7 +1998,7 @@ metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/b2" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
-layer_0/tile_data = PackedInt32Array(1114132, 65537, 0, 1048595, 65537, 0, 983058, 65537, 0, 917521, 65537, 0, 851984, 65537, 0, 786447, 65537, 0, 720904, 65537, 0, 786441, 65537, 0, 786443, 65537, 0, 851980, 65537, 0, 786446, 1, 0, 983044, 65536, 3, 786438, 65536, 3, 655364, 65536, 3, 720900, 65536, 3)
+layer_0/tile_data = PackedInt32Array(1114132, 65537, 0, 1048595, 65537, 0, 983058, 65537, 0, 917521, 65537, 0, 851984, 65537, 0, 786447, 65537, 0, 720904, 65537, 0, 786441, 65537, 0, 786443, 65537, 0, 851980, 65537, 0, 786446, 1, 0, 983044, 65536, 3, 786438, 65536, 3)
 
 [node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b2"]
 position = Vector2(-1424, 272)
@@ -2152,7 +2014,7 @@ metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/t3" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
-layer_0/tile_data = PackedInt32Array(524292, 65536, 3, 524296, 65536, 3, 524297, 65536, 3, 524298, 65536, 3, 524300, 65536, 3, 458756, 65536, 3, 458760, 1, 0, 393225, 1, 0, 393226, 65536, 3, 458762, 65536, 3, 458761, 65536, 3, 327692, 65536, 3, 393228, 65536, 3, 458764, 65536, 3, 393236, 65536, 3, 327700, 65536, 3, 524305, 65536, 3, 458769, 65536, 3, 524306, 65536, 3, 131089, 65536, 3, 65553, 65536, 3, 131090, 65536, 3, 65554, 65536, 3, 524303, 65536, 3, 65551, 65536, 3, 131087, 65536, 3, 196623, 65536, 3, 262164, 65536, 3, 196628, 65536, 3, 131092, 65536, 3, 65556, 65536, 3, 458772, 65536, 3, 327690, 65536, 3)
+layer_0/tile_data = PackedInt32Array(524292, 65536, 3, 524296, 65536, 3, 524297, 65536, 3, 524298, 65536, 3, 524300, 65536, 3, 458756, 65536, 3, 458760, 1, 0, 393225, 1, 0, 393226, 65536, 3, 458762, 65536, 3, 458761, 65536, 3, 327692, 65536, 3, 393228, 65536, 3, 458764, 65536, 3, 393236, 65536, 3, 327700, 65536, 3, 524305, 65536, 3, 458769, 65536, 3, 524306, 65536, 3, 131089, 65536, 3, 65553, 65536, 3, 131090, 65536, 3, 65554, 65536, 3, 524303, 65536, 3, 65551, 65536, 3, 131087, 65536, 3, 196623, 65536, 3, 262164, 65536, 3, 196628, 65536, 3, 131092, 65536, 3, 65556, 65536, 3, 458772, 65536, 3)
 
 [node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t3"]
 position = Vector2(-976, 336)
@@ -2576,12 +2438,6 @@ song_id = ExtResource("31_tjblq")
 [connection signal="body_exited" from="Phases/Minigame1/PositionCheck" to="Phases/Minigame1" method="_on_position_check_body_exited"]
 [connection signal="body_entered" from="Phases/Minigame1/FallCheck" to="Phases/Minigame1" method="_on_fall_check_body_entered"]
 [connection signal="body_entered" from="Phases/Minigame1/PointBonuses/Point" to="Phases/Minigame1/PointBonuses/Point" method="_on_body_entered"]
-[connection signal="body_entered" from="Phases/Minigame1/PointBonuses/Point2" to="Phases/Minigame1/PointBonuses/Point2" method="_on_body_entered"]
-[connection signal="body_entered" from="Phases/Minigame1/PointBonuses/Point3" to="Phases/Minigame1/PointBonuses/Point3" method="_on_body_entered"]
-[connection signal="body_entered" from="Phases/Minigame1/PointBonuses/Point4" to="Phases/Minigame1/PointBonuses/Point4" method="_on_body_entered"]
-[connection signal="body_entered" from="Phases/Minigame1/PointBonuses/Point5" to="Phases/Minigame1/PointBonuses/Point5" method="_on_body_entered"]
-[connection signal="body_entered" from="Phases/Minigame1/PointBonuses/Point6" to="Phases/Minigame1/PointBonuses/Point6" method="_on_body_entered"]
-[connection signal="body_entered" from="Phases/Minigame1/PointBonuses/Point7" to="Phases/Minigame1/PointBonuses/Point7" method="_on_body_entered"]
 [connection signal="timeout" from="Phases/Chorus1/Boss2/Timer" to="Phases/Chorus1/Boss2" method="on_timeout"]
 [connection signal="body_entered" from="Phases/PostChorus1/StartRegion" to="Phases/PostChorus1" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/PostChorus1/StartRegion" to="Phases/PostChorus1" method="_on_start_region_body_exited"]

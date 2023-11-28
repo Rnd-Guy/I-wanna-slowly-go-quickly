@@ -1,5 +1,7 @@
 extends BossPhase
 
+var cap = 0.8
+
 func setup():
 	super()
 	%objPlayer.set_global_position($start.global_position)
@@ -42,7 +44,8 @@ func _physics_process(delta):
 		
 
 func handle_random_adder(adder_node):
-	adder_node.speed = randf_range(0.01, 0.8)
+	adder_node.colour_cap = cap
+	adder_node.speed = randf_range(0.01, cap)
 	adder_node.speed *= adder_node.speed
 	adder_node.enable_buff()
 	adder_node._ready()
