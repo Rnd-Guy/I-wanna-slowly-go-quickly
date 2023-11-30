@@ -31,39 +31,43 @@ func _physics_process(_delta):
 		%objPlayer.take_damage(damage)
 	
 	if one(117):
-		spawn_turret(rx(), ry(), 119, 121)
+		spawn_turret(rx(), ry(), 120, 121)
 	elif one(117.5):
-		spawn_turret(rx(), ry(), 119.5, 121.5)
+		spawn_turret(rx(), ry(), 120.5, 121.5)
 	elif one(118):
-		spawn_turret(rx(), ry(), 120, 122)
+		spawn_turret(rx(), ry(), 121, 122)
 	elif one(118.5):
-		spawn_turret(rx(), ry(), 120.5, 122.5)
+		spawn_turret(rx(), ry(), 121.5, 122.5)
 	elif one(119):
-		spawn_turret(rx(), ry(), 121, 123)
+		spawn_turret(rx(), ry(), 122, 123)
 	
 	elif one(121):
-		spawn_turret(rx(), ry(), 123, 125)
+		spawn_turret(rx(), ry(), 124, 125)
 	elif one(121.5):
-		spawn_turret(rx(), ry(), 123.5, 125.5)
+		spawn_turret(rx(), ry(), 124.5, 125.5)
 	elif one(122):
-		spawn_turret(rx(), ry(), 124, 126)
+		spawn_turret(rx(), ry(), 125, 126)
 	elif one(122.5):
-		spawn_turret(rx(), ry(), 124.5, 126.5)
+		spawn_turret(rx(), ry(), 125.5, 126.5)
 	elif one(123):
-		spawn_turret(rx(), ry(), 125, 127)
+		spawn_turret(rx(), ry(), 126, 127)
 		
 	elif one(125):
-		spawn_turret(rx(), ry(), 127, 129)
-		spawn_turret(rx(), ry(), 127, 129)
+		spawn_turret(rx(), ry(), 128, 129)
+		spawn_turret(rx(), ry(), 128, 129)
+		spawn_turret(rx(), ry(), 128, 129)
 	elif one(125.5):
-		spawn_turret(rx(), ry(), 127.5, 129.5)
-		spawn_turret(rx(), ry(), 127.5, 129.5)
+		spawn_turret(rx(), ry(), 128.5, 129.5)
+		spawn_turret(rx(), ry(), 128.5, 129.5)
+		spawn_turret(rx(), ry(), 128.5, 129.5)
 	elif one(126):
-		spawn_turret(rx(), ry(), 128, 130)
-		spawn_turret(rx(), ry(), 128, 130)
+		spawn_turret(rx(), ry(), 129, 130)
+		spawn_turret(rx(), ry(), 129, 130)
+		spawn_turret(rx(), ry(), 129, 130)
 	elif one(126.5):
-		spawn_turret(rx(), ry(), 128.5, 130.5)
-		spawn_turret(rx(), ry(), 128.5, 130.5)
+		spawn_turret(rx(), ry(), 129.5, 130.5)
+		spawn_turret(rx(), ry(), 129.5, 130.5)
+		spawn_turret(rx(), ry(), 129.5, 130.5)
 		
 
 
