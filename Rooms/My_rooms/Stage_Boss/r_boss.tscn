@@ -286,6 +286,7 @@ var iframe = false
 var speed = Vector2(120,0)
 
 var turret = preload(\"res://Rooms/My_rooms/Stage_Boss/boss_turret.tscn\")
+var bullet = preload(\"res://Objects/My_Stuff/Boss/objBossBullet.tscn\")
 
 func _physics_process(delta):
 	if iframe:
@@ -313,6 +314,11 @@ func spawn_turret(relative_position, start_beat, end_beat):
 	# kept separate to avoid boss alpha affecting turrets
 	# the BossRelativeTransformer will move the Instances node along for us
 	$\"../Instances\".add_child(t)
+
+func shoot(mode=\"circle\", velocity=Vector2(100,0), direction=randf_range(-10,10), curve=0, m_scale=0.5):
+	var b = bullet.instantiate()
+	b.setup(mode, velocity, direction, curve, m_scale)
+	$\"../Instances\".add_child(b)
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g61c8"]
@@ -1431,6 +1437,8 @@ polygon = PackedVector2Array(-592, 32, -560, 32, -552, 16, -560, 0, -552, 0, -55
 
 [node name="BossRelativeTransformer" type="RemoteTransform2D" parent="Phases/Chorus1/Boss2"]
 remote_path = NodePath("../../Instances")
+
+[node name="ignore" type="Node2D" parent="Phases/Chorus1/Boss2"]
 
 [node name="PostChorus1" type="Node2D" parent="Phases"]
 visible = false

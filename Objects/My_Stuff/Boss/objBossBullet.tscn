@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi0wxgs74ck85"]
+
+[ext_resource type="Script" path="res://Objects/My_Stuff/Boss/objBossBullet.gd" id="1_nqary"]
+[ext_resource type="Texture2D" uid="uid://b6tq8mvs3abws" path="res://Graphics/Sprites/My Stuff/boss/bullet.png" id="1_ru3k0"]
+[ext_resource type="Texture2D" uid="uid://hxsdxp73n38r" path="res://Graphics/Sprites/My Stuff/boss/bullet3.png" id="2_sqn3n"]
+[ext_resource type="Texture2D" uid="uid://dekxpuihnmotw" path="res://Graphics/Sprites/My Stuff/boss/bullet4.png" id="3_ry72p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gt22v"]
+radius = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6s1x3"]
+radius = 3.5
+height = 24.0
+
+[node name="objBossBullet" type="Node2D"]
+script = ExtResource("1_nqary")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="circle" type="Node2D" parent="."]
+visible = false
+
+[node name="sprite" type="Sprite2D" parent="circle"]
+position = Vector2(0, -1)
+texture = ExtResource("1_ru3k0")
+
+[node name="area" type="Area2D" parent="circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="circle/area"]
+shape = SubResource("CircleShape2D_gt22v")
+
+[node name="line" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="line"]
+position = Vector2(0.5, 0)
+texture = ExtResource("2_sqn3n")
+
+[node name="area" type="Area2D" parent="line"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="line/area"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_6s1x3")
+
+[node name="arrow" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="arrow"]
+position = Vector2(0, -1)
+texture = ExtResource("3_ry72p")
+
+[node name="area" type="Area2D" parent="arrow"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arrow/area"]
+polygon = PackedVector2Array(-8, -4, 0, 7, 9, -4, 8, -5, 0, 0, -7, -5)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="circle/area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="circle/area" to="." method="_on_area_body_exited"]
+[connection signal="body_entered" from="line/area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="line/area" to="." method="_on_area_body_exited"]
+[connection signal="body_entered" from="arrow/area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="arrow/area" to="." method="_on_area_body_exited"]
