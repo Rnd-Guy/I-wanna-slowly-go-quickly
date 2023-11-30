@@ -1,5 +1,7 @@
 extends BossPhase
 
+var bar_damage = 2
+
 var first_frames = 0
 var player_in_start = false
 
@@ -14,7 +16,7 @@ var player_in_start = false
 @onready var b3 = $Obstacles/b3
 @onready var b4 = $Obstacles/b4
 
-var phases = [t1,b1,t2,b2,t3,b3,t4,b4]
+@onready var phases = [t1,b1,t2,b2,t3,b3,t4,b4]
 @onready var currentTop = t1
 @onready var currentBot = b1
 var dontSpawnAdder = null
@@ -132,18 +134,12 @@ func setup_deferred():
 	if !player_in_start:
 		%objPlayer.set_global_position($Start.global_position)
 		pass
-	
-
 
 func _on_start_region_body_entered(body):
 	player_in_start = true
-	pass # Replace with function body.
-
 
 func _on_start_region_body_exited(body):
 	player_in_start = false
-	pass # Replace with function body.
-
 
 func _on_instant_speed_body_entered(body):
 	%objPlayer.instant_speed = true
@@ -154,37 +150,14 @@ func _on_instant_speed_body_entered(body):
 	$"objCameraFixedNoSmoothing".reset_smoothing()
 	pass # Replace with function body.
 
-
-func _on_top_bar_area_entered(area):
-	#print("stuff")
-	pass
-
-
 func _on_top_bar_body_entered(body):
 	if body is Player:
-		#print("player detected !!!")
-		if currentTop == t1:
-			handle_bar_collision(t1,b1)
-		elif currentTop == t2:
-			handle_bar_collision(t2,b2)
-		elif currentTop == t3:
-			handle_bar_collision(t3,b3)
-		elif currentTop == t4:
-			handle_bar_collision(t4,b4)
-	#print("maybe")
+		handle_bar_collision(currentTop)
 
 
 func _on_bottom_bar_body_entered(body):
 	if body is Player:
-		#print("player detected !!!")
-		if currentBot == b1:
-			handle_bar_collision(b1,t2)
-		elif currentBot == b2:
-			handle_bar_collision(b2,t3)
-		elif currentBot == b3:
-			handle_bar_collision(b3,t4)
-		elif currentBot == b4:
-			handle_bar_collision(b4,b4)
+		handle_bar_collision(currentBot)
 
 
 # enable obstacle
@@ -208,8 +181,6 @@ func create_adder(phase):
 	adder.speed = 1
 	adder.decay = 0.25
 	adder.one_use = true
-#	if phase == t1:
-#		adder.speed = 1
 	phase.get_node("speedBuffLocation").add_child(adder)
 
 func delete_adder(phase):
@@ -223,14 +194,24 @@ func ca(phase):
 	else:
 		dontSpawnAdder = null
 
-func handle_bar_collision(current_phase, next_phase):
-	%objPlayer.h_speed -= 1
+func handle_bar_collision(current_phase):
+	%objPlayer.h_speed -= bar_damage
 	%objPlayer.global_position = current_phase.get_node("spawnLocation").global_position
 	delete_adder(current_phase)
-	delete_adder(next_phase)
-	dontSpawnAdder = next_phase
 	
 	var index = phases.find(current_phase)
-	var phases = phases.size()
+	
+	# delete next adder so you don't get instant bonus
+	if index < phases.size()-1:
+		var next_phase = phases[index+1]
+		delete_adder(phases[index+1])
+		dontSpawnAdder = phases[index+1]
+		
+	# change the next phase immediately so you go into the next one
+	if index < phases.size()-2:
+		var next_same_side_phase = phases[index+2]
+		diso(current_phase)
+		eo(phases[index+2])
+	
 	
 

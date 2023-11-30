@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=86 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -285,8 +285,6 @@ script/source = "extends Node2D
 var iframe = false
 var speed = Vector2(120,0)
 
-var turret = preload(\"res://Rooms/My_rooms/Stage_Boss/boss_turret.tscn\")
-
 func _physics_process(delta):
 	if iframe:
 		modulate.a = 0.5
@@ -301,15 +299,6 @@ func react_to_hit(attack_type, attack_damage):
 func on_timeout():
 	iframe = false
 	modulate.a = 1
-
-func spawn_turret(relative_position, start_beat, end_beat):
-	var t = turret.instantiate()
-	t.create_beat = GLOBAL_GAME.boss_beat
-	t.start_beat = start_beat
-	t.end_beat = end_beat
-	t.relative_end_position = relative_position
-	t.player_offset = Vector2(randf_range(-32,32), randf_range(-32,32))
-	$Instances.add_child(t)
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g61c8"]
@@ -329,6 +318,29 @@ script/source = "extends AnimatableBody2D
 # this only exists because bullets act on the collision object
 func react_to_hit(attack_type, attack_damage):
 	$\"../../Boss2\".react_to_hit(attack_type, attack_damage)
+"
+
+[sub_resource type="GDScript" id="GDScript_246r5"]
+script/source = "extends Polygon2D
+
+@onready var target = $\"../Target\"
+
+var timer = 2
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _physics_process(delta):
+	if timer > 0:
+		target.global_position = %objPlayer.global_position
+		look_at(target.global_position)
+		timer -= delta
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0jvw"]
@@ -1394,7 +1406,6 @@ stop_right_at = 2500
 stop_down_at = 608
 
 [node name="Boss2" type="Node2D" parent="Phases/Chorus1"]
-z_index = 1
 position = Vector2(88, 528)
 scale = Vector2(1.5, 1.5)
 script = SubResource("GDScript_d51nq")
@@ -1422,7 +1433,15 @@ collision_layer = 0
 position = Vector2(616, 0)
 polygon = PackedVector2Array(-592, 32, -560, 32, -552, 16, -560, 0, -552, 0, -552, -32, -568, -64, -600, -64, -616, -88, -648, -88, -656, -48, -664, -24, -680, -24, -680, 8, -664, 32, -632, 32, -624, 8, -608, 8)
 
-[node name="Instances" type="Node2D" parent="Phases/Chorus1/Boss2"]
+[node name="bossTurret" type="Node2D" parent="Phases/Chorus1"]
+position = Vector2(240, 392)
+
+[node name="Polygon2D" type="Polygon2D" parent="Phases/Chorus1/bossTurret"]
+polygon = PackedVector2Array(16, 0, -8, -8, 0, 0, -8, 8)
+script = SubResource("GDScript_246r5")
+
+[node name="Target" type="Node2D" parent="Phases/Chorus1/bossTurret"]
+position = Vector2(128, 88)
 
 [node name="PostChorus1" type="Node2D" parent="Phases"]
 visible = false

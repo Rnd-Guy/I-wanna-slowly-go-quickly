@@ -136,8 +136,13 @@ func debug_inputs():
 		$Room_related/objPlayer.h_speed -= 0.1
 	
 	if Input.is_action_just_pressed("button_debug_prog"):
-		%objPlayer.h_speed = 6
-		GLOBAL_MUSIC.seek(beat_to_music_time(phases[10][0]))
+		%objPlayer.h_speed = 4
+		var phase_to_seek = $Phases/Chorus1
+		
+		var phase_filter = phases.filter(func(p): return p[1] == phase_to_seek);
+		var phase_index = phases.find(phase_filter[0])
+		#GLOBAL_MUSIC.seek(beat_to_music_time(phases[10][0]))
+		GLOBAL_MUSIC.seek(beat_to_music_time(phases[phase_index][0]))
 	
 func beat_to_music_time(beat):
 	var music_time = ((beat-beat_offset)*seconds_per_beat) - offset
