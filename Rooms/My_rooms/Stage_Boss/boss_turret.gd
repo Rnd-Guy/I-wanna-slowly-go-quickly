@@ -1,5 +1,8 @@
 extends Node2D
 
+# balancing
+var damage = 0.8
+
 # turret variables
 @onready var target = $Target
 var create_beat = 117
@@ -23,9 +26,10 @@ func _physics_process(delta):
 	var player_group = get_tree().get_nodes_in_group("Player")
 	if player_group.size() == 0:
 		return
+	var player = player_group[0]
 	var beat = GLOBAL_GAME.boss_beat
 	if beat < start_beat:
-		target.global_position = get_tree().get_nodes_in_group("Player")[0].global_position + player_offset
+		target.global_position = player.global_position + player_offset
 		look_at(target.global_position)
 		var weight = inverse_lerp(create_beat, start_beat, beat)
 		var new_position = lerp(start_position, start_position + relative_end_position, ease(weight,0.4))
@@ -43,8 +47,8 @@ func _physics_process(delta):
 		queue_free()
 	
 	if player_in_laser && !was_hit && beat >= end_beat && beat < end_beat+0.2:
-		print("hit")
 		was_hit = true
+		player.take_damage(damage)
 	pass # Replace with function body.
 
 

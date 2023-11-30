@@ -55,24 +55,22 @@ func _physics_process(_delta):
 	elif one(125):
 		spawn_turret(rx(), ry(), 128, 129)
 		spawn_turret(rx(), ry(), 128, 129)
-		spawn_turret(rx(), ry(), 128, 129)
 	elif one(125.5):
-		spawn_turret(rx(), ry(), 128.5, 129.5)
 		spawn_turret(rx(), ry(), 128.5, 129.5)
 		spawn_turret(rx(), ry(), 128.5, 129.5)
 	elif one(126):
 		spawn_turret(rx(), ry(), 129, 130)
 		spawn_turret(rx(), ry(), 129, 130)
-		spawn_turret(rx(), ry(), 129, 130)
 	elif one(126.5):
-		spawn_turret(rx(), ry(), 129.5, 130.5)
 		spawn_turret(rx(), ry(), 129.5, 130.5)
 		spawn_turret(rx(), ry(), 129.5, 130.5)
 		
 
 
 func _on_player_collision_body_entered(body):
-	player_in_hitbox = true
+	# immediately kill on contact
+	#player_in_hitbox = true
+	%objPlayer.on_death()
 
 
 func _on_player_collision_body_exited(body):
