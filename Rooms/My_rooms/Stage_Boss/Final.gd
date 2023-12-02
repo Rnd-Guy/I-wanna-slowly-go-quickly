@@ -35,7 +35,8 @@ func _physics_process(delta):
 	elif first_frames == 2:
 		setup_deferred()
 		first_frames = 3
-
+	
+	
 
 func setup_deferred():
 	if !player_in_start:

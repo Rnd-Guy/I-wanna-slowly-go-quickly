@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=86 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://3hxvrced2kkw" path="res://Objects/My_Stuff/Movement/objOneWay.tscn" id="23_gsy0w"]
 [ext_resource type="Texture2D" uid="uid://geevuntqe112" path="res://Graphics/Sprites/My Stuff/boss/boss3.png" id="24_yd4ll"]
 [ext_resource type="AudioStream" uid="uid://dfril5dm2066f" path="res://Audio/Music/boss.ogg" id="31_tjblq"]
+[ext_resource type="PackedScene" uid="uid://cwnhywfmf4xo0" path="res://Rooms/My_rooms/Stage_Boss/boss_laser.tscn" id="32_bc4ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syc1c"]
 size = Vector2(64, 8)
@@ -1387,6 +1388,7 @@ texture = ExtResource("15_5vlt8")
 script = SubResource("GDScript_k5rfk")
 
 [node name="Chorus1" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("11_0jdnv")
 
 [node name="tiles" parent="Phases/Chorus1" instance=ExtResource("1_b2h4h")]
@@ -2317,7 +2319,6 @@ polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -18
 [node name="Timer" type="Timer" parent="Phases/Chorus2/Boss3a"]
 
 [node name="Chorus2_part2" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("19_tb3y5")
 
 [node name="tiles" parent="Phases/Chorus2_part2" instance=ExtResource("1_b2h4h")]
@@ -2360,6 +2361,28 @@ script = SubResource("GDScript_pe1si")
 polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -184, -32)
 
 [node name="Timer" type="Timer" parent="Phases/Chorus2_part2/Boss3b"]
+
+[node name="LaserRight" parent="Phases/Chorus2_part2/Boss3b" instance=ExtResource("32_bc4ql")]
+position = Vector2(0, 0)
+rotation = -1.5708
+
+[node name="LaserLeft" parent="Phases/Chorus2_part2/Boss3b" instance=ExtResource("32_bc4ql")]
+position = Vector2(0, 0)
+rotation = 1.5708
+
+[node name="Instances" type="Node2D" parent="Phases/Chorus2_part2"]
+
+[node name="LeftWarning" type="Sprite2D" parent="Phases/Chorus2_part2"]
+visible = false
+position = Vector2(176, -256)
+texture = ExtResource("15_5vlt8")
+script = SubResource("GDScript_k5rfk")
+
+[node name="RightWarning" type="Sprite2D" parent="Phases/Chorus2_part2"]
+visible = false
+position = Vector2(640, -256)
+texture = ExtResource("15_5vlt8")
+script = SubResource("GDScript_k5rfk")
 
 [node name="PostChorus2" type="Node2D" parent="Phases"]
 visible = false
@@ -2450,6 +2473,9 @@ script = SubResource("GDScript_isneq")
 polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -184, -32)
 
 [node name="Timer" type="Timer" parent="Phases/Final/Boss3d"]
+
+[node name="Laser" parent="Phases/Final/Boss3d" instance=ExtResource("32_bc4ql")]
+position = Vector2(0, 0)
 
 [node name="End" type="Node2D" parent="Phases"]
 visible = false
