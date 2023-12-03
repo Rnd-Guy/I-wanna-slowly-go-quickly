@@ -1,16 +1,43 @@
 extends BossPhase
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var first_frames = 0
+var player_in_start = false
 
+func setup():
+	super()
+	$fixedCamera.make_current()
+	$fixedCamera.reset_smoothing()
+	%objPlayer.d_jump = false
+	%objPlayer.vertical_shots = true
+	%objPlayer.enable_shmup_mark_2()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	
+
+func reset():
+	super()
+	$"../../Room_related/objCameraFixedNoSmoothing".make_current()
+	$"../../Room_related/objCameraFixedNoSmoothing".reset_smoothing()
+	first_frames = 0
+	%objPlayer.vertical_shots = false
+	%objPlayer.disable_shmup_mark_2()
 
 func _physics_process(delta):
-	if t(400,401):
-		#GLOBAL_MUSIC.stream_paused = true
-		pass
+	if one(397):
+		$LeftLaser.rotation = deg_to_rad(-3)
+		$RightLaser.rotation = deg_to_rad(3)
+		$LeftLaser.play("fire")
+		$RightLaser.play("fire")
+	elif one(398):
+		$"/root/rBoss".stop_processing = true
+		GLOBAL_MUSIC.stop()
+	elif one(402):
+		print(123)
+		var c = $objCherry
+		c.set_visible(true)
+		c.position = $Boss3e.position
+	
+	if t(402,416):
+		var weight = inverse_lerp(402, 416, b())
+		var newPos = lerp($Boss3e.position.y+50, 900.0, weight)
+		$objCherry.position = Vector2($Boss3e.position.x, newPos)

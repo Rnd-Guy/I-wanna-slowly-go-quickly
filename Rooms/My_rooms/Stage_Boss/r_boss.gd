@@ -1,7 +1,7 @@
 extends Node2D
 
 # for debugging - skip to this phase via "o"
-@onready var phase_to_seek = $Phases/Chorus2
+@onready var phase_to_seek = $Phases/Final
 
 var bpm = 120
 var debug_metronome = preload("res://Audio/Sounds/sndMenuButton.wav")
@@ -17,6 +17,8 @@ var frames_before_resync = 10
 
 var beat = -2
 var beat_offset = -1
+
+var stop_processing = false
 
 @onready var phases = [
 	# beat start, phase node, active (first is false, rest should be true)
@@ -74,27 +76,30 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	music_time += delta
-	if music_time >= last_beat + seconds_per_beat + offset:
-		last_beat += seconds_per_beat
-		#GLOBAL_SOUNDS.play_sound(debug_metronome)
-	#beat = (music_time + offset)/seconds_per_beat + beat_offset
-	beat = music_time_to_beat(music_time)
-	GLOBAL_GAME.boss_beat = beat
+	#if !stop_processing:
+		music_time += delta
+		if music_time >= last_beat + seconds_per_beat + offset:
+			last_beat += seconds_per_beat
+
+		beat = music_time_to_beat(music_time)
+		GLOBAL_GAME.boss_beat = beat
 
 func _physics_process(_delta):
-	if frames_before_resync > 0:
-		frames_before_resync -= 1
-	else:
-		resync_rhythm_position()
-		frames_before_resync = 7
-
+	debug_inputs()
 	$Debug/CanvasLayer/ms.set_text(str(music_time))
 	$Debug/CanvasLayer/beat.set_text(str(beat))
 	$Debug/CanvasLayer/shotbeat.set_text(str(GLOBAL_GAME.shot_beat))
-	set_phase()
-	debug_inputs()
-	update_boss()
+	if !stop_processing:
+		# resync beat values every x frames
+		if frames_before_resync > 0:
+			frames_before_resync -= 1
+		else:
+			resync_rhythm_position()
+			frames_before_resync = 7
+
+		set_phase()
+		
+		update_boss()
 
 func resync_rhythm_position():
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
@@ -109,7 +114,6 @@ func on_the_beat():
 
 func debug_inputs():
 	if Input.is_action_just_pressed("button_debug_left", true):
-		print("test")
 		if music_time > 1:
 			GLOBAL_MUSIC.seek(music_time-1)
 		else:
@@ -140,7 +144,6 @@ func debug_inputs():
 	
 	if Input.is_action_just_pressed("button_debug_prog"):
 		%objPlayer.h_speed = 4
-		
 		var phase_filter = phases.filter(func(p): return p[1] == phase_to_seek);
 		var phase_index = phases.find(phase_filter[0])
 		#GLOBAL_MUSIC.seek(beat_to_music_time(phases[10][0]))

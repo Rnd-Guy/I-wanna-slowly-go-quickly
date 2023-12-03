@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3mdc06jwxqka"]
+
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Final.gd" id="1_mvbfq"]
+[ext_resource type="PackedScene" uid="uid://cwnhywfmf4xo0" path="res://Rooms/My_rooms/Stage_Boss/boss_laser.tscn" id="2_1tnuw"]
+[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="3_usrkv"]
+[ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_1iw0p"]
+[ext_resource type="Texture2D" uid="uid://geevuntqe112" path="res://Graphics/Sprites/My Stuff/boss/boss3.png" id="5_i3e2g"]
+
+[sub_resource type="GDScript" id="GDScript_a20gd"]
+script/source = "extends Node2D
+
+var iframe = false
+var speed = Vector2(120,0)
+
+func _physics_process(delta):
+	if iframe:
+		modulate.a = 0.5
+
+func react_to_hit(attack_type, attack_damage):
+	if !iframe:
+		$\"/root/rBoss\".take_damage(attack_type, attack_damage)
+		iframe = true
+		$Timer.start($/root/rBoss.seconds_per_beat * 0.75)
+
+func on_timeout():
+	iframe = false
+	modulate.a = 1
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44arr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i3e2g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_ounay"]
+script/source = "extends AnimatableBody2D
+
+# this only exists because bullets act on the collision object
+func react_to_hit(attack_type, attack_damage):
+	$\"../../Boss3d\".react_to_hit(attack_type, attack_damage)
+"
+
+[node name="boss_still_alive" type="Node2D"]
+
+[node name="Final" type="Node2D" parent="."]
+script = ExtResource("1_mvbfq")
+
+[node name="LeftLaser" parent="Final" instance=ExtResource("2_1tnuw")]
+position = Vector2(0, 0)
+
+[node name="RightLaser" parent="Final" instance=ExtResource("2_1tnuw")]
+
+[node name="tiles" parent="Final" instance=ExtResource("3_usrkv")]
+visible = false
+position = Vector2(0, -608)
+layer_0/tile_data = PackedInt32Array(1245208, 65536, 0, 1245207, 65536, 0, 1245206, 65536, 0, 1245205, 65536, 0, 1245204, 65536, 0, 1245203, 65536, 0, 1245202, 65536, 0, 1245201, 65536, 0, 1245200, 65536, 0, 1245199, 65536, 0, 1245198, 65536, 0, 1245197, 65536, 0, 1245196, 65536, 0, 1245195, 65536, 0, 1245194, 65536, 0, 1245193, 65536, 0, 1245192, 65536, 0, 1245191, 65536, 0, 1245190, 65536, 0, 1245189, 65536, 0, 1245188, 65536, 0, 1245187, 65536, 0, 1245186, 65536, 0, 1245185, 65536, 0, 1245184, 65536, 0, 1310719, 65536, 0, 1245183, 65536, 0, 1179647, 65536, 0, 1114111, 65536, 0, 1048575, 65536, 0, 983039, 65536, 0, 917503, 65536, 0, 851967, 65536, 0, 786431, 65536, 0, 720895, 65536, 0, 655359, 65536, 0, 589823, 65536, 0, 524287, 65536, 0, 458751, 65536, 0, 393215, 65536, 0, 327679, 65536, 0, 262143, 65536, 0, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, -65523, 65536, 0, -65522, 65536, 0, -65521, 65536, 0, -65520, 65536, 0, -65519, 65536, 0, -65518, 65536, 0, -65517, 65536, 0, -65516, 65536, 0, -65515, 65536, 0, -65514, 65536, 0, -65513, 65536, 0, -65512, 65536, 0, -65511, 65536, 0, 25, 65536, 0, 65561, 65536, 0, 131097, 65536, 0, 196633, 65536, 0, 262169, 65536, 0, 327705, 65536, 0, 393241, 65536, 0, 458777, 65536, 0, 524313, 65536, 0, 1245209, 65536, 0, 1179673, 65536, 0, 1114137, 65536, 0, 1048601, 65536, 0, 983065, 65536, 0, 589849, 65536, 0, 655385, 65536, 0, 720921, 65536, 0, 786457, 65536, 0, 851993, 65536, 0, 917529, 65536, 0)
+
+[node name="fixedCamera" parent="Final" node_paths=PackedStringArray("target_node") instance=ExtResource("4_1iw0p")]
+position = Vector2(400, -304)
+anchor_mode = 1
+target_node = NodePath("")
+scrolling_speed = 100
+
+[node name="Boss3d" type="Node2D" parent="Final"]
+position = Vector2(400, -512)
+script = SubResource("GDScript_a20gd")
+
+[node name="bossSprite2" type="AnimatedSprite2D" parent="Final/Boss3d"]
+sprite_frames = SubResource("SpriteFrames_44arr")
+offset = Vector2(0, 20)
+
+[node name="collision" type="AnimatableBody2D" parent="Final/Boss3d"]
+collision_layer = 32
+collision_mask = 17
+sync_to_physics = false
+script = SubResource("GDScript_ounay")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Final/Boss3d/collision"]
+polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -184, -32)
+
+[node name="Timer" type="Timer" parent="Final/Boss3d"]
+
+[connection signal="timeout" from="Final/Boss3d/Timer" to="Final/Boss3d" method="on_timeout"]

@@ -36,7 +36,17 @@ func _physics_process(delta):
 		setup_deferred()
 		first_frames = 3
 	
-	
+	handle_lasers()
+	if one(381):
+		$LeftLaser.position = $Boss3d.position
+		$RightLaser.position = $Boss3d.position
+		$LeftLaser.play("fire")
+		$RightLaser.play("fire")
+
+func handle_lasers():
+	lerp_rotation($LeftLaser, 381, 397, -180, -3)
+	lerp_rotation($RightLaser, 381, 397, 180, 3)
+	pass
 
 func setup_deferred():
 	if !player_in_start:

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnvav0lfj31ym"]
+
+[ext_resource type="Script" path="res://Objects/My_Stuff/Speed/objSpeedAdderCustom.gd" id="1_tcq5u"]
+
+[node name="objSpeedAdderCustom" type="Node2D"]
+script = ExtResource("1_tcq5u")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 16.0
+offset_bottom = 12.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Infinity" type="Label" parent="."]
+visible = false
+offset_left = -16.0
+offset_top = -2.0
+offset_right = 16.0
+offset_bottom = 24.0
+text = "∞"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
