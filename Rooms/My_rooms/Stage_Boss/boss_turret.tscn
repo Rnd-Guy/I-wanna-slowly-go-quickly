@@ -65,7 +65,7 @@ _data = {
 
 [node name="bossTurret" type="Node2D"]
 z_index = -1
-scale = Vector2(0.666667, 0.666667)
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_olybi")
 
 [node name="turretShape" type="Polygon2D" parent="."]

@@ -438,6 +438,7 @@ script/source = "extends Node2D
 
 var iframe = false
 var speed = Vector2(120,0)
+var turret = preload(\"res://Rooms/My_rooms/Stage_Boss/boss_turret.tscn\")
 
 func _physics_process(delta):
 	if iframe:
@@ -452,6 +453,15 @@ func react_to_hit(attack_type, attack_damage):
 func on_timeout():
 	iframe = false
 	modulate.a = 1
+
+func spawn_turret(relative_position, start_beat, end_beat):
+	var t = turret.instantiate()
+	t.create_beat = GLOBAL_GAME.boss_beat
+	t.start_beat = start_beat
+	t.end_beat = end_beat
+	t.relative_end_position = relative_position
+	t.player_offset = Vector2(randf_range(-32,32), randf_range(-32,32))
+	$\"../Instances\".add_child(t)
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t53pd"]
@@ -2298,6 +2308,19 @@ shape = SubResource("RectangleShape2D_f0jvw")
 
 [node name="Start" type="Node2D" parent="Phases/Chorus2"]
 position = Vector2(408, -104)
+
+[node name="Instances" type="Node2D" parent="Phases/Chorus2"]
+position = Vector2(400, -512)
+
+[node name="LaserRight" parent="Phases/Chorus2/Instances" instance=ExtResource("32_bc4ql")]
+visible = false
+position = Vector2(0, 0)
+rotation = -1.5708
+
+[node name="LaserLeft" parent="Phases/Chorus2/Instances" instance=ExtResource("32_bc4ql")]
+visible = false
+position = Vector2(0, 0)
+rotation = 1.5708
 
 [node name="Boss3a" type="Node2D" parent="Phases/Chorus2"]
 position = Vector2(400, -512)

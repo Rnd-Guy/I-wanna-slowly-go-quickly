@@ -32,6 +32,7 @@ func _physics_process(_delta):
 	
 	if one(117):
 		spawn_turret(rx(), ry(), 120, 121)
+		spawn_turret(rx(), ry(), 120, 121)
 	elif one(117.5):
 		spawn_turret(rx(), ry(), 120.5, 121.5)
 	elif one(118):
@@ -116,6 +117,11 @@ func _physics_process(_delta):
 		spawn_turret(rx(), ry(), 147, 148)
 		spawn_turret(rx(), ry(), 147, 148)
 	elif one(145):
+		spawn_turret(rx(), ry(), 148, 149)
+		spawn_turret(rx(), ry(), 148, 149)
+		spawn_turret(rx(), ry(), 148, 149)
+		spawn_turret(rx(), ry(), 148, 149)
+		spawn_turret(rx(), ry(), 148, 149)
 		$Boss2/BossRelativeTransformer.set_remote_node("")
 
 func _on_player_collision_body_entered(body):

@@ -1,5 +1,8 @@
 extends Node2D
 
+# for debugging - skip to this phase via "o"
+@onready var phase_to_seek = $Phases/Chorus2
+
 var bpm = 120
 var debug_metronome = preload("res://Audio/Sounds/sndMenuButton.wav")
 
@@ -137,7 +140,6 @@ func debug_inputs():
 	
 	if Input.is_action_just_pressed("button_debug_prog"):
 		%objPlayer.h_speed = 4
-		var phase_to_seek = $Phases/Chorus2_part2
 		
 		var phase_filter = phases.filter(func(p): return p[1] == phase_to_seek);
 		var phase_index = phases.find(phase_filter[0])

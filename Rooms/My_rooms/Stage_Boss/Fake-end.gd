@@ -60,7 +60,7 @@ func sole_enable(nodes):
 		else:
 			disable(node)
 
-func lerp_rotation(node, start_time, end_time, start_angle, end_angle):
+func lerp_rotation(node, start_time, end_time, start_angle: float, end_angle: float):
 	var weight = w(start_time, end_time, b())
 	var angle = lerp(start_angle, end_angle, weight)
 	node.set_rotation(d(angle))
