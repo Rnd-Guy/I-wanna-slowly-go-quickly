@@ -11,6 +11,7 @@ func setup():
 	%objPlayer.d_jump = false
 	%objPlayer.vertical_shots = true
 	%objPlayer.enable_shmup_mark_2()
+	%objPlayer.turn_back_on_killers()
 
 	
 

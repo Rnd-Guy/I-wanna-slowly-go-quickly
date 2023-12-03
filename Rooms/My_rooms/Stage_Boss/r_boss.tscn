@@ -2469,8 +2469,10 @@ visible = false
 script = ExtResource("21_n2q38")
 
 [node name="LeftLaser" parent="Phases/Final" instance=ExtResource("32_bc4ql")]
+damage = 999
 
 [node name="RightLaser" parent="Phases/Final" instance=ExtResource("32_bc4ql")]
+damage = 999
 
 [node name="tiles" parent="Phases/Final" instance=ExtResource("1_b2h4h")]
 visible = false
@@ -2522,8 +2524,10 @@ z_index = 2
 scale = Vector2(2, 2)
 
 [node name="LeftLaser" parent="Phases/End" instance=ExtResource("32_bc4ql")]
+damage = 999
 
 [node name="RightLaser" parent="Phases/End" instance=ExtResource("32_bc4ql")]
+damage = 999
 
 [node name="fixedCamera" parent="Phases/End" node_paths=PackedStringArray("target_node") instance=ExtResource("3_sbg1e")]
 position = Vector2(400, -304)

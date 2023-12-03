@@ -603,3 +603,6 @@ func enable_shmup_mark_2():
 	enable_shmup()
 func disable_shmup_mark_2():
 	disable_shmup_mark_1()
+
+func turn_back_on_killers():
+	$extraCollisions/Killers.set_process_mode(PROCESS_MODE_INHERIT)

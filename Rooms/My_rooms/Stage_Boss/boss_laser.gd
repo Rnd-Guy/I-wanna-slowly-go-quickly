@@ -1,7 +1,7 @@
 extends Node2D
 
 var player_in_hitbox = false
-var damage = 3
+@export var damage = 3
 var direction = 0 # 0 = south
 
 # Called when the node enters the scene tree for the first time.
