@@ -26,12 +26,12 @@ func _physics_process(_delta):
 	
 
 
-func _on_player_collision_body_entered(body):
+func _on_player_collision_body_entered(_body):
 	player_in_hitbox = true
 	pass # Replace with function body.
 
 
-func _on_player_collision_body_exited(body):
+func _on_player_collision_body_exited(_body):
 	player_in_hitbox = false
 	pass # Replace with function body.
 

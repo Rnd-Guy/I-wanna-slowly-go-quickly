@@ -184,7 +184,7 @@ func set_first_time_saving():
 	# "room_name"
 	get_tree().change_scene_to_file(get_tree().get_current_scene().get_scene_file_path())
 
-func handle_shmup(delta) -> void:
+func handle_shmup(_delta) -> void:
 	if (shmup):
 		velocity.y = 0
 		if Input.is_action_pressed("button_up"):

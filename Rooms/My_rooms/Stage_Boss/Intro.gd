@@ -126,11 +126,6 @@ func sole_enable(nodes):
 			enable(node)
 		else:
 			disable(node)
-#	for node in nodes:
-#		if node in list:
-#			enable(node)
-#		else:
-#			disable(node)
 
 func lerp_rotation(node, start_time, end_time, start_angle, end_angle):
 	var weight = w(start_time, end_time, b())

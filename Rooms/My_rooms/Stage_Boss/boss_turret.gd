@@ -22,7 +22,7 @@ func _ready():
 	$turretShape/Laser.set_visible(false)
 	start_position = position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var player_group = get_tree().get_nodes_in_group("Player")
 	if player_group.size() == 0:
 		return
@@ -52,9 +52,9 @@ func _physics_process(delta):
 	pass # Replace with function body.
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	player_in_laser = true
 
 
-func _on_hitbox_body_exited(body):
+func _on_hitbox_body_exited(_body):
 	player_in_laser = false

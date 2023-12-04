@@ -28,10 +28,6 @@ func _ready():
 	assert(found)
 	scale = Vector2(default_scale,default_scale)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _physics_process(delta):
 	# in case i want curving shenanigans
 	move_local_x(velocity.x * delta)
@@ -49,13 +45,13 @@ func set_curve(c):
 func set_velocity(v):
 	velocity = v
 
-func setup(mode="circle", velocity=Vector2(0,0), direction=0, curve=0, m_scale=0.5):
-	self.mode = mode
-	self.velocity = velocity
-	rotation = deg_to_rad(direction)
+func setup(bullet_mode="circle", bullet_velocity=Vector2(0,0), bullet_direction=0, bullet_curve=0, m_scale=0.5):
+	mode = bullet_mode
+	velocity = bullet_velocity
+	rotation = deg_to_rad(bullet_direction)
 	scale = Vector2(m_scale, m_scale)
 	default_scale = m_scale # in case setup is called before ready()
-	self.curve = curve
+	curve = bullet_curve
 	
 
 
@@ -63,9 +59,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 
-func _on_area_body_entered(body):
+func _on_area_body_entered(_body):
 	player_in_hitbox = true
 
 
-func _on_area_body_exited(body):
+func _on_area_body_exited(_body):
 	player_in_hitbox = false

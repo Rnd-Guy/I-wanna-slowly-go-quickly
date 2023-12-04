@@ -263,7 +263,7 @@ func _physics_process(_delta):
 	setup()
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	minigame1.gain_speed(speed)
 "
 
@@ -290,7 +290,7 @@ var speed = Vector2(120,0)
 var turret = preload(\"res://Rooms/My_rooms/Stage_Boss/boss_turret.tscn\")
 var bullet = preload(\"res://Objects/My_Stuff/Boss/objBossBullet.tscn\")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if iframe:
 		modulate.a = 0.5
 	#global_translate(delta * speed)
@@ -351,7 +351,7 @@ script/source = "extends Node2D
 var iframe = false
 var speed = Vector2(120,0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if iframe:
 		modulate.a = 0.5
 	rotation_degrees = pow(GLOBAL_GAME.boss_beat-149,2.5)*3
@@ -441,7 +441,7 @@ var iframe = false
 var speed = Vector2(120,0)
 var turret = preload(\"res://Rooms/My_rooms/Stage_Boss/boss_turret.tscn\")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if iframe:
 		modulate.a = 0.5
 
@@ -490,7 +490,7 @@ script/source = "extends Node2D
 var iframe = false
 var speed = Vector2(120,0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if iframe:
 		modulate.a = 0.5
 
@@ -519,7 +519,7 @@ script/source = "extends Node2D
 var iframe = false
 var speed = Vector2(120,0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if iframe:
 		modulate.a = 0.5
 
@@ -548,7 +548,7 @@ script/source = "extends Node2D
 var iframe = false
 var speed = Vector2(120,0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if iframe:
 		modulate.a = 0.5
 
@@ -2925,7 +2925,6 @@ song_id = ExtResource("31_tjblq")
 [connection signal="body_exited" from="Phases/Minigame3/StartRegion" to="Phases/Minigame3" method="_on_start_region_body_exited"]
 [connection signal="body_entered" from="Phases/Minigame4/StartRegion" to="Phases/Minigame4" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/Minigame4/StartRegion" to="Phases/Minigame4" method="_on_start_region_body_exited"]
-[connection signal="area_entered" from="Phases/Minigame4/RhythmBars/TopBar" to="Phases/Minigame4" method="_on_top_bar_area_entered"]
 [connection signal="body_entered" from="Phases/Minigame4/RhythmBars/TopBar" to="Phases/Minigame4" method="_on_top_bar_body_entered"]
 [connection signal="body_entered" from="Phases/Minigame4/RhythmBars/BottomBar" to="Phases/Minigame4" method="_on_bottom_bar_body_entered"]
 [connection signal="body_entered" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_entered"]

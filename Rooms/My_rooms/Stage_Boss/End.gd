@@ -23,7 +23,7 @@ func reset():
 	%objPlayer.vertical_shots = false
 	%objPlayer.disable_shmup_mark_2()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if one(397):
 		$LeftLaser.rotation = deg_to_rad(-3)
 		$RightLaser.rotation = deg_to_rad(3)

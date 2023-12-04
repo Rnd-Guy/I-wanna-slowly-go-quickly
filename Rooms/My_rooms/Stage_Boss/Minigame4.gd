@@ -56,18 +56,8 @@ func reset():
 	diso(b2)
 	diso(b3)
 	diso(b4)
-	
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -135,13 +125,13 @@ func setup_deferred():
 		%objPlayer.set_global_position($Start.global_position)
 		pass
 
-func _on_start_region_body_entered(body):
+func _on_start_region_body_entered(_body):
 	player_in_start = true
 
-func _on_start_region_body_exited(body):
+func _on_start_region_body_exited(_body):
 	player_in_start = false
 
-func _on_instant_speed_body_entered(body):
+func _on_instant_speed_body_entered(_body):
 	%objPlayer.instant_speed = true
 	%objPlayer.set_global_position(Vector2(%objPlayer.global_position.x,$"../Minigame3".get_start_y()))
 	%objPlayer.global_translate(Vector2(-3200,0))
@@ -176,7 +166,7 @@ func diso(phase: Node2D):
 	delete_adder(phase)
 
 func create_adder(phase):
-	var pos = phase.get_node("speedBuffLocation")
+	#var pos = phase.get_node("speedBuffLocation")
 	var adder = speedAdder.instantiate()
 	adder.speed = 1
 	adder.decay = 0.25
@@ -204,14 +194,14 @@ func handle_bar_collision(current_phase):
 	# delete next adder so you don't get instant bonus
 	if index < phases.size()-1:
 		var next_phase = phases[index+1]
-		delete_adder(phases[index+1])
-		dontSpawnAdder = phases[index+1]
+		delete_adder(next_phase)
+		dontSpawnAdder = next_phase
 		
 	# change the next phase immediately so you go into the next one
 	if index < phases.size()-2:
 		var next_same_side_phase = phases[index+2]
 		diso(current_phase)
-		eo(phases[index+2])
+		eo(next_same_side_phase)
 	
 	
 

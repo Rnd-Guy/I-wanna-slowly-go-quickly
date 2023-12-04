@@ -21,18 +21,8 @@ func reset():
 	first_frames = 0
 	%objPlayer.vertical_shots = false
 	%objPlayer.disable_shmup_mark_2()
-	
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -52,18 +42,18 @@ func _physics_process(delta):
 var last_bird = 349
 func handle_bird():
 	if b()  > last_bird:
-		var b = bird.instantiate()
-		b.position = $Boss3c.position
-		b.position.y += randf_range(-100, 500)
-		b.position.x += (randi_range(0,1) - 0.5)*800
-		b.velocity = Vector2(0,0)
-		if b.position.x < $Boss3c.position.x:
-			b.velocity.x = randf_range(100,300)
+		var bd = bird.instantiate()
+		bd.position = $Boss3c.position
+		bd.position.y += randf_range(-100, 500)
+		bd.position.x += (randi_range(0,1) - 0.5)*800
+		bd.velocity = Vector2(0,0)
+		if bd.position.x < $Boss3c.position.x:
+			bd.velocity.x = randf_range(100,300)
 		else:
-			b.velocity.x = randf_range(-100,-300)
-		b.velocity.y = randf_range(-200, 200)
+			bd.velocity.x = randf_range(-100,-300)
+		bd.velocity.y = randf_range(-200, 200)
 		last_bird += randf_range(0.5, 1)
-		$Instances.add_child(b)
+		$Instances.add_child(bd)
 	
 	pass
 
@@ -94,17 +84,17 @@ func setup_deferred():
 	
 
 
-func _on_start_region_body_entered(body):
+func _on_start_region_body_entered(_body):
 	player_in_start = true
 	pass # Replace with function body.
 
 
-func _on_start_region_body_exited(body):
+func _on_start_region_body_exited(_body):
 	player_in_start = false
 	pass # Replace with function body.
 
 
-func _on_instant_speed_body_entered(body):
+func _on_instant_speed_body_entered(_body):
 	%objPlayer.instant_speed = true
 	%objPlayer.set_global_position(Vector2(%objPlayer.global_position.x,$"../Minigame3".get_start_y()))
 	%objPlayer.global_translate(Vector2(-3200,0))
@@ -117,8 +107,8 @@ var next_bullet = 317
 func handle_bullets():
 	if b() > next_bullet:
 		next_bullet += 0.1
-		var b = bullet.instantiate()
+		var blt = bullet.instantiate()
 		# setup(mode="circle", velocity=Vector2(0,0), direction=0, curve=0, m_scale=0.5):
-		b.setup("circle", Vector2(0, 100), randf_range(-80, 80))
-		b.position = $Boss3b.position
-		$Instances.add_child(b)
+		blt.setup("circle", Vector2(0, 100), randf_range(-80, 80))
+		blt.position = $Boss3b.position
+		$Instances.add_child(blt)

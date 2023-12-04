@@ -17,7 +17,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var camera_weight = min(w(117,145,b()),1) # don't extrapolate
 	var cameraX = lerp(400,2000,camera_weight)
 	$objCameraDynamic.set_global_position(Vector2(cameraX,304))
@@ -124,13 +124,13 @@ func _physics_process(_delta):
 		spawn_turret(rx(), ry(), 148, 149)
 		$Boss2/BossRelativeTransformer.set_remote_node("")
 
-func _on_player_collision_body_entered(body):
+func _on_player_collision_body_entered(_body):
 	# immediately kill on contact
 	#player_in_hitbox = true
 	%objPlayer.on_death()
 
 
-func _on_player_collision_body_exited(body):
+func _on_player_collision_body_exited(_body):
 	player_in_hitbox = false
 
 func spawn_turret(x, y, start_beat, end_beat):

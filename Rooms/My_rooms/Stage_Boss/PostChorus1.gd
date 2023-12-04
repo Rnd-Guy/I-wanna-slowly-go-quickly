@@ -22,17 +22,8 @@ func reset():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#var weight = min(w(117,145,b()),1) # don't extrapolate
-	#var cameraX = lerp(400,2000,weight)
-	#print(cameraX)
-	#$objCameraDynamic.set_global_position(Vector2(cameraX,304))
-	pass
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -56,15 +47,15 @@ func setup_deferred():
 	
 
 
-func _on_start_region_body_entered(body):
+func _on_start_region_body_entered(_body):
 	player_in_start = true
 
 
-func _on_start_region_body_exited(body):
+func _on_start_region_body_exited(_body):
 	player_in_start = false
 
 
-func _on_falling_spike_body_entered(body):
+func _on_falling_spike_body_entered(_body):
 	%objPlayer.h_speed -= 0.5
 	pass # Replace with function body.
 

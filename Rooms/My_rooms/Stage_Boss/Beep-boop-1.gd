@@ -121,21 +121,21 @@ func lerp_rotation(node, start_time, end_time, start_angle, end_angle):
 	node.set_rotation(d(angle))
 
 
-func _on_gfp_body_entered(body):
+func _on_gfp_body_entered(_body):
 	in_green += 1
 	pass # Replace with function body.
 
 
-func _on_gfp_body_exited(body):
+func _on_gfp_body_exited(_body):
 	in_green -= 1
 	pass # Replace with function body.
 
 
-func _on_rfp_body_entered(body):
+func _on_rfp_body_entered(_body):
 	in_red += 1
 	pass # Replace with function body.
 
 
-func _on_rfp_body_exited(body):
+func _on_rfp_body_exited(_body):
 	in_red -= 1
 	pass # Replace with function body.

@@ -50,18 +50,15 @@ func _ready():
 	is_locked = false
 
 func on_player_speed_change(newSpeed):
-	print("made it: " + str(newSpeed))
 	var current_value = $StaticBody2D.get_collision_layer_value(2)
 	var new_value: bool
 	if ((above && newSpeed > speed) ||
 			(below && newSpeed < speed) ||
 			(equal && newSpeed == speed)):
 		new_value = false
-		#$StaticBody2D.set_collision_layer_value(2, false)
 		
 	else:
 		new_value = true
-		#$StaticBody2D.set_collision_layer_value(2, true)
 	
 	if current_value != new_value && !is_locked:
 		$StaticBody2D.set_collision_layer_value(2, new_value)

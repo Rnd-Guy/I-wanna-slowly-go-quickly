@@ -19,18 +19,8 @@ func reset():
 	first_frames = 0
 	%objPlayer.vertical_shots = false
 	%objPlayer.disable_shmup_mark_1()
-	
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -151,22 +141,22 @@ func handle_bullets(count):
 		next_bullet += 0.5
 		var angle = randf_range(-80, 80)
 		for i in range(count):
-			var b = bullet.instantiate()
+			var bul = bullet.instantiate()
 			# setup(mode="circle", velocity=Vector2(0,0), direction=0, curve=0, m_scale=0.5):
-			b.setup("arrow", Vector2(0, 150), angle-4 + (((count-1)/2)*i))
-			$Instances.add_child(b)
+			bul.setup("arrow", Vector2(0, 150), angle-4 + (((count-1)/2)*i))
+			$Instances.add_child(bul)
 
-func _on_start_region_body_entered(body):
+func _on_start_region_body_entered(_body):
 	player_in_start = true
 	pass # Replace with function body.
 
 
-func _on_start_region_body_exited(body):
+func _on_start_region_body_exited(_body):
 	player_in_start = false
 	pass # Replace with function body.
 
 
-func _on_instant_speed_body_entered(body):
+func _on_instant_speed_body_entered(_body):
 	%objPlayer.instant_speed = true
 	%objPlayer.set_global_position(Vector2(%objPlayer.global_position.x,$"../Minigame3".get_start_y()))
 	%objPlayer.global_translate(Vector2(-3200,0))

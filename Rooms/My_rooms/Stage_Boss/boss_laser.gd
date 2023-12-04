@@ -4,16 +4,7 @@ var player_in_hitbox = false
 @export var damage = 3
 var direction = 0 # 0 = south
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player_in_hitbox:
 		var player = get_tree().get_first_node_in_group("Player")
 		if player:

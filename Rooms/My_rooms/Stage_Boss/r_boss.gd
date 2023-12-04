@@ -149,12 +149,12 @@ func debug_inputs():
 		#GLOBAL_MUSIC.seek(beat_to_music_time(phases[10][0]))
 		GLOBAL_MUSIC.seek(beat_to_music_time(phases[phase_index][0]))
 	
-func beat_to_music_time(beat):
-	var music_time = ((beat-beat_offset)*seconds_per_beat) - offset
-	return music_time
-func music_time_to_beat(music_time):
-	var beat = (music_time + offset)/seconds_per_beat + beat_offset
-	return beat
+func beat_to_music_time(b):
+	var mt = ((b-beat_offset)*seconds_per_beat) - offset
+	return mt
+func music_time_to_beat(mt):
+	var b = (mt + offset)/seconds_per_beat + beat_offset
+	return b
 
 func setup_boss():
 	%bossHp.max_value = boss_hp

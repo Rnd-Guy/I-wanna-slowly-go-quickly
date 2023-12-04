@@ -15,23 +15,20 @@ var onetime = []
 # it breaks the area2d collision detection and there's no fix yet
 # therefore only set it once per frame
 
-func _physics_process(delta):
-	pass
-
 # shortcuts
-func b():
+func b() -> float:
 	return GLOBAL_GAME.boss_beat
 
 # use for the timeline
-func t(mint, maxt):
+func t(mint, maxt) -> bool:
 	return GLOBAL_GAME.boss_beat >= mint && GLOBAL_GAME.boss_beat < maxt
 
 # get weight where t is between min and max, for use in a lerp
-func w(mint,maxt,time):
+func w(mint,maxt,time) -> float:
 	return (time-mint)/(maxt-mint)
 
 # radians is pain
-func d(degrees):
+func d(degrees) -> float:
 	return deg_to_rad(degrees)
 
 func one(time) -> bool:
@@ -39,9 +36,6 @@ func one(time) -> bool:
 		onetime.append(time)
 		return true
 	return false
-
-func phase(mint, maxt):
-	pass
 
 func disable(node):
 	node.set_process_mode(PROCESS_MODE_DISABLED)

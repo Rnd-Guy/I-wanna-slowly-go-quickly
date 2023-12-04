@@ -13,7 +13,6 @@ func _ready():
 		$objSpeedAdderCustom/cloud1.set_visible(false)
 		$objSpeedAdderCustom/cloud1/Area2D.set_monitoring(false)
 
-	var test = $objSpeedAdderCustom
 	$objSpeedAdderCustom.speed = speed
 	$objSpeedAdderCustom.one_use = true
 
