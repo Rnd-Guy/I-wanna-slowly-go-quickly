@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cja6216x82d8e"]
+[gd_scene load_steps=20 format=3 uid="uid://cja6216x82d8e"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_fytnh"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_1mn8w"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_r7w4j"]
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="13_7wiix"]
 [ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="16_4i4qp"]
+[ext_resource type="AudioStream" uid="uid://dr505u2i5t8ti" path="res://Audio/Music/rhythm.ogg" id="16_5xvcf"]
 
 [sub_resource type="GDScript" id="GDScript_yrdkg"]
 script/source = "extends Node2D
@@ -161,7 +162,7 @@ func create_note2(note, prev_x):
 	if note_block.x > prev_x:
 		note_block.flip = true
 	note_block.collided.connect(score_points)
-	add_child(note_block)
+	$Instances.add_child(note_block)
 
 func create_slider(note, prev_x):
 	# this is to make the prev_x based off the end of the slider rather than the start
@@ -180,7 +181,7 @@ func create_slider(note, prev_x):
 		note_block.flip = true
 		end_offset *= -1
 	note_block.collided.connect(score_points)
-	add_child(note_block)
+	$Instances.add_child(note_block)
 	
 	return note[1] - end_offset
 	
@@ -189,7 +190,8 @@ func on_music_end():
 	$Room_related/objPlayer.h_speed = 3
 	$Room_related/objPlayer.slide = true
 	song_finished = true
-
+	$Instances.queue_free()
+	
 func score_points(event):
 	if event == \"note\":
 		score += 100
@@ -197,17 +199,28 @@ func score_points(event):
 		score += 50
 	elif event == \"sliderBody\":
 		score += 1
+	
+	if $scoreReq && score > 5000: 
+		$scoreReq.queue_free()
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_78oei"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ddus"]
+size = Vector2(64, 64)
 
 [node name="rRhythm" type="Node2D"]
 script = SubResource("GDScript_yrdkg")
 metadata/_edit_lock_ = true
 
+[node name="Instances" type="Node2D" parent="."]
+
 [node name="Environment" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="til32x32" parent="Environment" instance=ExtResource("1_fytnh")]
-layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 983063, 65536, 0, 983062, 65536, 0, 983061, 65536, 0, 983060, 65536, 0, 983059, 65536, 0)
 metadata/_edit_lock_ = true
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_1mn8w")]
@@ -273,6 +286,7 @@ one_use = true
 
 [node name="objRhythmPreviewer" parent="." instance=ExtResource("16_4i4qp")]
 position = Vector2(-32, 88)
+song_id = ExtResource("16_5xvcf")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 40.0
@@ -280,3 +294,26 @@ offset_top = 40.0
 offset_right = 101.0
 offset_bottom = 66.0
 text = "Score: 0"
+
+[node name="scoreReq" type="Node2D" parent="."]
+position = Vector2(688, 544)
+
+[node name="Polygon2D" type="Polygon2D" parent="scoreReq"]
+polygon = PackedVector2Array(-48, -32, 16, -32, 16, 32, -48, 32)
+
+[node name="Label" type="Label" parent="scoreReq"]
+offset_left = -40.0
+offset_top = -24.0
+offset_right = 10.0
+offset_bottom = 28.0
+text = "> 5000
+score"
+label_settings = SubResource("LabelSettings_78oei")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="scoreReq"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scoreReq/StaticBody2D"]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_5ddus")

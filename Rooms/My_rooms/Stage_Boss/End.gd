@@ -29,16 +29,14 @@ func _physics_process(delta):
 		$RightLaser.rotation = deg_to_rad(3)
 		$LeftLaser.play("fire")
 		$RightLaser.play("fire")
-	elif one(398):
-		$"/root/rBoss".stop_processing = true
-		GLOBAL_MUSIC.stop()
-	elif one(402):
-		print(123)
 		var c = $objCherry
 		c.set_visible(true)
 		c.position = $Boss3e.position
+		$"/root/rBoss".stop_processing = true
+		GLOBAL_MUSIC.stop()
+
 	
-	if t(402,416):
-		var weight = inverse_lerp(402, 416, b())
+	if t(397,416):
+		var weight = inverse_lerp(397, 427, b())
 		var newPos = lerp($Boss3e.position.y+50, 900.0, weight)
 		$objCherry.position = Vector2($Boss3e.position.x, newPos)
