@@ -1,8 +1,13 @@
 extends Area2D
 
-func _physics_process(_delta):
+var shine_strength = 1
+
+func _physics_process(delta):
 	handle_warning_arrow()
-		
+	if shine_strength > 0:
+		modulate.b = 1 - (0.8 * shine_strength * 2)
+		shine_strength -= delta
+
 
 func handle_warning_arrow():
 	var canvas_coord = get_global_transform_with_canvas()
@@ -14,3 +19,6 @@ func handle_warning_arrow():
 	else:
 		$CanvasLayer/Warning.set_visible(false)
 		
+func shine():
+	shine_strength = 0.5
+

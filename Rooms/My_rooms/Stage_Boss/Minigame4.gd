@@ -23,6 +23,13 @@ var dontSpawnAdder = null
 
 var speedAdder = preload("res://Objects/My_Stuff/Speed/objSpeedAdder.tscn")
 
+var tilemap_to_spike_rotation = {
+	[0,0]: 180,
+	[1,0]: 0,
+	[0,1]: 270,
+	[1,1]: 90
+}
+
 func setup():
 	super()
 	if %objPlayer:
@@ -157,6 +164,7 @@ func eo(phase: Node2D):
 	var tiles: TileMap = phase.find_child("tiles", false)
 	tiles.set_layer_enabled(0, true)
 	phase.set_visible(true)
+	replace_spikes(phase)
 
 # disable obstacle
 func diso(phase: Node2D):
@@ -203,5 +211,12 @@ func handle_bar_collision(current_phase):
 		diso(current_phase)
 		eo(next_same_side_phase)
 	
+func replace_spikes(phase):
 	
-
+	var tiles = phase.get_node("spike") as TileMap
+	var used_cells = tiles.get_used_cells(0)
+	for i in used_cells.size():
+		#var object = tiles.get_cell_tile_data(0, used_cells[i])
+		#var object = tiles.get_cell_source_id(0, used_cells[i])
+		var object = tiles.get_cell_atlas_coords(0, used_cells[i])
+		print(object)

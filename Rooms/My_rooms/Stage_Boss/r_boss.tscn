@@ -2081,7 +2081,6 @@ position = Vector2(-1200, 301)
 [node name="Notes" type="Node2D" parent="Phases/Minigame3"]
 
 [node name="Minigame4" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("17_ecwox")
 
 [node name="objOneWay" parent="Phases/Minigame4" instance=ExtResource("23_gsy0w")]
@@ -2152,7 +2151,6 @@ libraries = {
 [node name="Obstacles" type="Node2D" parent="Phases/Minigame4"]
 
 [node name="t1" type="Node2D" parent="Phases/Minigame4/Obstacles"]
-visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/t1" instance=ExtResource("7_i72w6")]
 layer_0/tile_data = PackedInt32Array(393170, 65536, 1, 393171, 65536, 1, 393173, 65536, 1, 393172, 65536, 1, 393174, 65536, 1, 393175, 65536, 1, 393176, 65536, 1, 393177, 65536, 1, 458712, 65536, 1, 524247, 65536, 1, 327640, 65536, 1, 262103, 65536, 1, 131034, 0, 0, 131035, 0, 0, 131037, 0, 0, 458721, 0, 0, 393186, 0, 0, 393184, 0, 0, 393185, 0, 0, 327649, 0, 0, 262113, 0, 0, 196577, 0, 0, 131041, 0, 0, 131039, 0, 0)
@@ -2166,6 +2164,8 @@ position = Vector2(-976, 336)
 
 [node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t1"]
 position = Vector2(-1424, 336)
+
+[node name="FallingSpike" parent="Phases/Minigame4/Obstacles/t1" instance=ExtResource("13_6jr5t")]
 
 [node name="b1" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
@@ -2516,6 +2516,7 @@ polygon = PackedVector2Array(-56, 48, 56, 48, 192, -40, 152, -72, -136, -64, -18
 [node name="Timer" type="Timer" parent="Phases/Final/Boss3d"]
 
 [node name="End" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("11_trd68")
 
 [node name="objCherry" parent="Phases/End" instance=ExtResource("34_78a3a")]
