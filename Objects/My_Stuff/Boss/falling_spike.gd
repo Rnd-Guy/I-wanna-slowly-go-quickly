@@ -4,6 +4,9 @@ var shine_strength = 0
 var max_strength = 0.2
 var damage = 0.5
 
+func _ready():
+	set_colour()
+
 func _physics_process(delta):
 	handle_warning_arrow()
 	if shine_strength > 0:
@@ -22,8 +25,9 @@ func handle_warning_arrow():
 		$CanvasLayer/Warning.set_visible(false)
 		
 func shine():
-	reset_colour()
-	shine_strength = max_strength
+	#reset_colour()
+	#shine_strength = max_strength
+	blackout()
 
 func set_colour():
 	$Shape/FallingSpike/Polygon2D.color.g = 0.5
@@ -32,6 +36,9 @@ func set_colour():
 func reset_colour():
 	$Shape/FallingSpike/Polygon2D.color.g = 1
 	$Shape/FallingSpike/Polygon2D.color.b = 1
+
+func blackout():
+	$Shape/FallingSpike/Polygon2D.color = "000000"
 
 func _on_area_2d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
 	shine()

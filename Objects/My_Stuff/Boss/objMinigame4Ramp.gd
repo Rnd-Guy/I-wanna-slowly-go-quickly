@@ -10,7 +10,8 @@ func _physics_process(delta):
 		#shine_strength -= delta
 
 func shine():
-	shine_strength = max_strength
+	#shine_strength = max_strength
+	$Shape/Polygon2D.color = "000000"
 
 func _on_area_2d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
 	if timeout:
