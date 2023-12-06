@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8paldpfe5thc"]
+
+[ext_resource type="Script" path="res://Objects/My_Stuff/Boss/objMinigame4Ramp.gd" id="1_nqp8q"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ym0gj"]
+a = Vector2(0, -16)
+b = Vector2(0, 16)
+
+[node name="objMinigame4Ramp" type="Node2D"]
+script = ExtResource("1_nqp8q")
+
+[node name="Shape" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Shape"]
+polygon = PackedVector2Array(16, -16, 16, 16, -16, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Shape"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shape/StaticBody2D"]
+polygon = PackedVector2Array(16, -16, 16, 16, -16, 16)
+
+[node name="NotShape" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="NotShape"]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NotShape/Area2D"]
+shape = SubResource("SegmentShape2D_ym0gj")
+
+[node name="Timer" type="Timer" parent="NotShape"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="area_shape_entered" from="NotShape/Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="timeout" from="NotShape/Timer" to="." method="_on_timer_timeout"]

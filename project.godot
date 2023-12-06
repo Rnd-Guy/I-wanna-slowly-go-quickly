@@ -232,6 +232,7 @@ button_debug_prog={
 2d_physics/layer_8="Water"
 2d_physics/layer_9="Triggers"
 2d_physics/layer_10="Vines"
+2d_physics/layer_11="BossDjMaxBar"
 
 [rendering]
 

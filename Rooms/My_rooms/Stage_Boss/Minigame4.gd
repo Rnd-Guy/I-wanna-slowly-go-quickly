@@ -22,12 +22,21 @@ var player_in_start = false
 var dontSpawnAdder = null
 
 var speedAdder = preload("res://Objects/My_Stuff/Speed/objSpeedAdder.tscn")
+var falling_spike = preload("res://Objects/My_Stuff/Boss/falling_spike.tscn")
+var mg4_block = preload("res://Objects/My_Stuff/Boss/Minigame4Block.tscn")
+var mg4_ramp = preload("res://Objects/My_Stuff/Boss/objMinigame4Ramp.tscn")
 
 var tilemap_to_spike_rotation = {
-	[0,0]: 180,
-	[1,0]: 0,
-	[0,1]: 270,
-	[1,1]: 90
+	0: 180,
+	10: 0,
+	1: 270,
+	11: 90
+}
+var tilemap_to_ramp_rotation = {
+	0: 0,
+	10: 90,
+	1: 270,
+	11: 180
 }
 
 func setup():
@@ -159,11 +168,12 @@ func _on_bottom_bar_body_entered(body):
 
 # enable obstacle
 func eo(phase: Node2D):
-	var spikes: TileMap = phase.find_child("spike", false)
-	spikes.set_layer_enabled(0, true)
-	var tiles: TileMap = phase.find_child("tiles", false)
-	tiles.set_layer_enabled(0, true)
+	#var spikes: TileMap = phase.find_child("spike", false)
+	#spikes.set_layer_enabled(0, true)
+	#var tiles: TileMap = phase.find_child("tiles", false)
+	#tiles.set_layer_enabled(0, true)
 	phase.set_visible(true)
+	replace_blocks(phase)
 	replace_spikes(phase)
 
 # disable obstacle
@@ -172,6 +182,8 @@ func diso(phase: Node2D):
 	phase.find_child("tiles", false).set_layer_enabled(0, false)
 	phase.set_visible(false)
 	delete_adder(phase)
+	for node in phase.get_node("instances").get_children():
+		node.queue_free()
 
 func create_adder(phase):
 	#var pos = phase.get_node("speedBuffLocation")
@@ -186,6 +198,7 @@ func delete_adder(phase):
 		for child in phase.get_node("speedBuffLocation").get_children():
 			child.queue_free()
 
+# create adder
 func ca(phase):
 	if dontSpawnAdder != phase:
 		create_adder(phase)
@@ -208,15 +221,42 @@ func handle_bar_collision(current_phase):
 	# change the next phase immediately so you go into the next one
 	if index < phases.size()-2:
 		var next_same_side_phase = phases[index+2]
-		diso(current_phase)
-		eo(next_same_side_phase)
+		diso.call_deferred(current_phase)
+		eo.call_deferred(next_same_side_phase)
 	
 func replace_spikes(phase):
 	
 	var tiles = phase.get_node("spike") as TileMap
 	var used_cells = tiles.get_used_cells(0)
 	for i in used_cells.size():
-		#var object = tiles.get_cell_tile_data(0, used_cells[i])
-		#var object = tiles.get_cell_source_id(0, used_cells[i])
-		var object = tiles.get_cell_atlas_coords(0, used_cells[i])
-		print(object)
+		var atlas_coords = tiles.get_cell_atlas_coords(0, used_cells[i])
+		var spike_rotation = tilemap_to_spike_rotation.get(10*atlas_coords.x + atlas_coords.y)
+		var spike = falling_spike.instantiate()
+		spike.position = tiles.map_to_local(used_cells[i])
+		spike.set_shape_rotation(spike_rotation)
+		spike.set_colour()
+		phase.get_node("instances").add_child(spike)
+
+func replace_blocks(phase):
+	var tiles = phase.get_node("tiles") as TileMap
+	var used_cells = tiles.get_used_cells(0)
+	for i in used_cells.size():
+		# 0 is blocks, 1 is ramp
+		var source = tiles.get_cell_source_id(0, used_cells[i])
+		var obj
+		# block
+		if source == 0:
+			obj = mg4_block.instantiate()
+		# ramp
+		elif source == 1:
+			obj = mg4_ramp.instantiate()
+			var atlas_coords = tiles.get_cell_atlas_coords(0, used_cells[i])
+			var ramp_rotation = tilemap_to_ramp_rotation.get(10*atlas_coords.x + atlas_coords.y)
+			obj.set_shape_rotation(ramp_rotation)
+		obj.position = tiles.map_to_local(used_cells[i])
+		obj.position.x -= 1600 # for some reason all the tiles are transformed to -1600x 0y
+		phase.get_node("instances").add_child(obj)
+
+func _on_falling_spike_body_entered(body):
+	pass # Replace with function body.
+

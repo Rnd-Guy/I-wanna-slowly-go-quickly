@@ -2095,7 +2095,7 @@ position = Vector2(-1200, 56)
 scale = Vector2(0.195032, -0.0926667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame4/StartRegion"]
-position = Vector2(8, 348)
+position = Vector2(-0.000488281, 1640.29)
 shape = SubResource("RectangleShape2D_f0jvw")
 
 [node name="tiles" parent="Phases/Minigame4" instance=ExtResource("1_b2h4h")]
@@ -2113,8 +2113,8 @@ position = Vector2(-1192, 240)
 [node name="RhythmBars" type="Node2D" parent="Phases/Minigame4"]
 
 [node name="TopBar" type="Area2D" parent="Phases/Minigame4/RhythmBars"]
-position = Vector2(-1616, 160)
-collision_layer = 0
+position = Vector2(-784, 416)
+collision_layer = 1024
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame4/RhythmBars/TopBar"]
@@ -2133,6 +2133,7 @@ libraries = {
 
 [node name="BottomBar" type="Area2D" parent="Phases/Minigame4/RhythmBars"]
 position = Vector2(-784, 416)
+collision_layer = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame4/RhythmBars/BottomBar"]
 position = Vector2(-0.799988, 24)
@@ -2151,6 +2152,7 @@ libraries = {
 [node name="Obstacles" type="Node2D" parent="Phases/Minigame4"]
 
 [node name="t1" type="Node2D" parent="Phases/Minigame4/Obstacles"]
+visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/t1" instance=ExtResource("7_i72w6")]
 layer_0/tile_data = PackedInt32Array(393170, 65536, 1, 393171, 65536, 1, 393173, 65536, 1, 393172, 65536, 1, 393174, 65536, 1, 393175, 65536, 1, 393176, 65536, 1, 393177, 65536, 1, 458712, 65536, 1, 524247, 65536, 1, 327640, 65536, 1, 262103, 65536, 1, 131034, 0, 0, 131035, 0, 0, 131037, 0, 0, 458721, 0, 0, 393186, 0, 0, 393184, 0, 0, 393185, 0, 0, 327649, 0, 0, 262113, 0, 0, 196577, 0, 0, 131041, 0, 0, 131039, 0, 0)
@@ -2166,6 +2168,8 @@ position = Vector2(-976, 336)
 position = Vector2(-1424, 336)
 
 [node name="FallingSpike" parent="Phases/Minigame4/Obstacles/t1" instance=ExtResource("13_6jr5t")]
+
+[node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/t1"]
 
 [node name="b1" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
@@ -2184,6 +2188,8 @@ position = Vector2(-1424, 272)
 [node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b1"]
 position = Vector2(-944, 272)
 
+[node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/b1"]
+
 [node name="t2" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
 
@@ -2200,6 +2206,8 @@ position = Vector2(-976, 336)
 
 [node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t2"]
 position = Vector2(-1392, 368)
+
+[node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/t2"]
 
 [node name="b2" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
@@ -2218,11 +2226,12 @@ position = Vector2(-1424, 272)
 [node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b2"]
 position = Vector2(-944, 272)
 
+[node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/b2"]
+
 [node name="t3" type="Node2D" parent="Phases/Minigame4/Obstacles"]
-visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/t3" instance=ExtResource("7_i72w6")]
-layer_0/tile_data = PackedInt32Array(458706, 65536, 0, 131034, 0, 0, 327642, 65536, 0, 589791, 65536, 0, 589792, 65536, 0, 458719, 65536, 0, 524256, 65536, 0, 262111, 0, 0, 524253, 65536, 0, 327645, 0, 0, 262112, 0, 0)
+layer_0/tile_data = PackedInt32Array(458706, 65536, 0, 131034, 0, 0, 327642, 65536, 0, 458719, 65536, 0, 524256, 65536, 0, 262111, 0, 0, 524253, 65536, 0, 327645, 0, 0, 262112, 0, 0)
 metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/t3" instance=ExtResource("1_b2h4h")]
@@ -2234,6 +2243,8 @@ position = Vector2(-976, 336)
 
 [node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t3"]
 position = Vector2(-1424, 336)
+
+[node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/t3"]
 
 [node name="b3" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
@@ -2252,6 +2263,8 @@ position = Vector2(-1424, 272)
 [node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b3"]
 position = Vector2(-944, 272)
 
+[node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/b3"]
+
 [node name="t4" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
 
@@ -2268,6 +2281,8 @@ position = Vector2(-976, 336)
 [node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/t4"]
 position = Vector2(-1488, 560)
 
+[node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/t4"]
+
 [node name="b4" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 visible = false
 
@@ -2283,6 +2298,8 @@ position = Vector2(-1488, 560)
 
 [node name="spawnLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b4"]
 position = Vector2(-1488, 560)
+
+[node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/b4"]
 
 [node name="instanced" type="Node2D" parent="Phases/Minigame4/Obstacles"]
 
@@ -2751,173 +2768,6 @@ song_id = ExtResource("31_tjblq")
 [connection signal="body_exited" from="Phases/Chorus1/Boss2/playerCollision" to="Phases/Chorus1" method="_on_player_collision_body_exited"]
 [connection signal="body_entered" from="Phases/PostChorus1/StartRegion" to="Phases/PostChorus1" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/PostChorus1/StartRegion" to="Phases/PostChorus1" method="_on_start_region_body_exited"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike2" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike3" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike4" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike5" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike6" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike7" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike8" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike9" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike10" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike11" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike12" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike13" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike14" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike15" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike16" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike17" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike18" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike19" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike20" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike21" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike22" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike23" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike24" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike25" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike26" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike27" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike28" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike29" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike30" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike31" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike32" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike33" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike34" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike35" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike36" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike37" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike38" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike39" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike40" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike41" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike42" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike43" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike44" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike45" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike46" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike47" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike48" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike49" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike50" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike51" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike52" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike53" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike54" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike55" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike56" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike57" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike58" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike59" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike60" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike61" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike62" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike63" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike64" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike65" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike67" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike68" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike69" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike70" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike71" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike72" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike73" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike75" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike76" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike66" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike74" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike77" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike78" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike79" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike80" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike81" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike82" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike83" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike84" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike85" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike86" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike87" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike88" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike89" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike90" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike91" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike92" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike93" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike94" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike95" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike96" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike97" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike98" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike99" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike100" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike101" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike102" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike103" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike104" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike105" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike106" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike107" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike108" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike109" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike110" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike111" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike112" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike113" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike114" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike115" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike116" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike117" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike118" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike119" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike120" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike121" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike122" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike123" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike124" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike125" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike126" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike127" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike128" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike129" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike130" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike131" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike132" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike133" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike134" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike135" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike136" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike137" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike138" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike139" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike140" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike141" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike142" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike143" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike144" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike145" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike146" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike147" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike148" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike149" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike150" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike151" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike152" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike153" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike154" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike155" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike156" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike157" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike158" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike159" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike160" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike161" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike162" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike163" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike164" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike165" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike166" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
-[connection signal="body_entered" from="Phases/PostChorus1/Obstacles/FallingSpike167" to="Phases/PostChorus1" method="_on_falling_spike_body_entered"]
 [connection signal="timeout" from="Phases/PostChorus1/Boss2Falling/Timer" to="Phases/PostChorus1/Boss2Falling" method="on_timeout"]
 [connection signal="body_entered" from="Phases/Transition2/StartRegion" to="Phases/Transition2" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/Transition2/StartRegion" to="Phases/Transition2" method="_on_start_region_body_exited"]

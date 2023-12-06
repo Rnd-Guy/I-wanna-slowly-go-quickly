@@ -2,6 +2,7 @@ extends Node2D
 
 # for debugging - skip to this phase via "o"
 @onready var phase_to_seek = $Phases/Minigame4
+var speed_on_debug = 8
 
 var bpm = 120
 var debug_metronome = preload("res://Audio/Sounds/sndMenuButton.wav")
@@ -143,7 +144,7 @@ func debug_inputs():
 		$Room_related/objPlayer.h_speed -= 0.1
 	
 	if Input.is_action_just_pressed("button_debug_prog"):
-		%objPlayer.h_speed = 4
+		%objPlayer.h_speed = speed_on_debug
 		var phase_filter = phases.filter(func(p): return p[1] == phase_to_seek);
 		var phase_index = phases.find(phase_filter[0])
 		#GLOBAL_MUSIC.seek(beat_to_music_time(phases[10][0]))
