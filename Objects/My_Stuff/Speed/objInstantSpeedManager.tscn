@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7mtkr2mk7dkk"]
+
+[ext_resource type="Script" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.gd" id="1_2tyy1"]
+
+[node name="InstantSpeedManager" type="Node2D"]
+script = ExtResource("1_2tyy1")

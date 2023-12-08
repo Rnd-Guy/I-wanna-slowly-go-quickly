@@ -25,6 +25,7 @@ var create_bullet := preload("res://Objects/Player/objBullet.tscn")
 var jump_particle := preload("res://Objects/Player/objJumpParticle.tscn")
 @onready var animated_sprite = $playerSprites
 
+
 #############
 # rnd's custom variables
 ################
@@ -34,6 +35,9 @@ var jump_particle := preload("res://Objects/Player/objJumpParticle.tscn")
 var slide = true
 var wall_death = false
 var show_speed = true
+var instant_speed_ammo = 0 # for instant speed stuff
+var show_instant_speed = false
+var default_instant_speed_ammo = 0
 
 # boss related
 var is_boss = false
@@ -67,13 +71,15 @@ func _ready():
 
 	$CanvasLayer/currentSpeed.top_level = true
 	$CanvasLayer/currentSpeed.position = Vector2(40,40)
+	$CanvasLayer/currentInstaSpeed.top_level = true
+	$CanvasLayer/currentInstaSpeed.position = Vector2(40,60)
 
 
 """
 ---------- MAIN LOGIC LOOP ----------
 """
 func _physics_process(delta):
-	
+	other_debug_commands()
 	# More specific logic is handled inside of methods, which keeps the main
 	# loop clean and easier to read.
 	# These methods should only work if the player isn't in the middle of a
@@ -126,6 +132,12 @@ func _physics_process(delta):
 		$CanvasLayer/currentSpeed.set_text("Speed: " + speed_string)
 	else:
 		$CanvasLayer/currentSpeed.visible = false
+	
+	if show_instant_speed:
+		if instant_speed_ammo == -1:
+			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: ∞")
+		else:
+			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: " + str(instant_speed_ammo))
 	
 	if Input.is_action_just_pressed("button_debug_command"):
 		debug_command()
@@ -231,6 +243,8 @@ func handle_jumping() -> void:
 	# Always allow djump if you're grounded
 	if (is_on_floor() == true):
 		d_jump = true
+		if show_instant_speed && default_instant_speed_ammo > instant_speed_ammo:
+			instant_speed_ammo = default_instant_speed_ammo
 	
 	# Adds vertical velocity when jumping
 	if Input.is_action_just_pressed("button_jump"):
@@ -337,41 +351,46 @@ func handle_walljumping():
 # Shooting logic
 func handle_shooting():
 	if Input.is_action_just_pressed("button_shoot"):
+		if instant_speed_ammo != 0:
+			if instant_speed_ammo > 0:
+				instant_speed_ammo -= 1
+			
+			if velocity.x != 0:
+				velocity.x *= 1000
+			else:
+				velocity.x = sign(xscale) * 100000
+			
+			return
+			
+		# Loads the bullet scene, instances it, assigns the shooting direction
+		# and global position, makes a sound and then adds it to the main scene 
+		# (the actual game)
+		var create_bullet_id: AnimatableBody2D = create_bullet.instantiate()
+		create_bullet_id.looking_at = xscale
+		if vertical_shots:
+			create_bullet_id.vertical = true
 		
-		# An equivalent to gamemaker's "instance_number() < 4"
-		# It checks how many nodes belonging to the "Bullet" group
-		# exist in the current scene
-		#if get_tree().get_nodes_in_group("Bullet").size() < 4:
+		# Bullet's x coordinate:
+		#	-Takes into account the global x
+		#	-The bullet spacing, relative to where we are looking at 
+		create_bullet_id.global_position = Vector2(global_position.x, global_position.y + 5)
+		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndShoot)
+		
+		# CUSTOM
+		# if boss mode and is close to beat, change sprite
+		if is_boss:
+			if abs(GLOBAL_GAME.shot_beat - GLOBAL_GAME.boss_beat) > 0.4 && \
+					fmod(GLOBAL_GAME.boss_beat,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat,1) > 0.9:
+				create_bullet_id.boss_bullet = true
+				create_bullet_id.attack_type = GlobalClass.weapon_type.NOTE
+				h_speed += 0.01
+			GLOBAL_GAME.shot_beat = GLOBAL_GAME.boss_beat
+			create_bullet_id.attack_damage = h_speed
+			#last_shot_beat = GLOBAL_GAME.boss_beat
 			
-			# Loads the bullet scene, instances it, assigns the shooting direction
-			# and global position, makes a sound and then adds it to the main scene 
-			# (the actual game)
-			var create_bullet_id: AnimatableBody2D = create_bullet.instantiate()
-			create_bullet_id.looking_at = xscale
-			if vertical_shots:
-				create_bullet_id.vertical = true
-			
-			# Bullet's x coordinate:
-			#	-Takes into account the global x
-			#	-The bullet spacing, relative to where we are looking at 
-			create_bullet_id.global_position = Vector2(global_position.x, global_position.y + 5)
-			GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndShoot)
-			
-			# CUSTOM
-			# if boss mode and is close to beat, change sprite
-			if is_boss:
-				if abs(GLOBAL_GAME.shot_beat - GLOBAL_GAME.boss_beat) > 0.4 && \
-						fmod(GLOBAL_GAME.boss_beat,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat,1) > 0.9:
-					create_bullet_id.boss_bullet = true
-					create_bullet_id.attack_type = GlobalClass.weapon_type.NOTE
-					h_speed += 0.01
-				GLOBAL_GAME.shot_beat = GLOBAL_GAME.boss_beat
-				create_bullet_id.attack_damage = h_speed
-				#last_shot_beat = GLOBAL_GAME.boss_beat
-				
-			
-			# After everything is set and done, creates the bullet
-			get_parent().add_child(create_bullet_id)
+		
+		# After everything is set and done, creates the bullet
+		get_parent().add_child(create_bullet_id)
 
 
 # Method to handle sprite animations
@@ -544,6 +563,11 @@ BOSS RELATED
 
 func debug_command():
 	pass
+
+func other_debug_commands():
+	if Input.is_action_just_pressed("button_debug_save"):
+		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndSave)
+		GLOBAL_SAVELOAD.save_game()
 
 func take_damage(damage):
 	if current_iframes <= 0:

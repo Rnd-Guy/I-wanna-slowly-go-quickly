@@ -276,6 +276,10 @@ debug_color = Color(0, 1, 0.0156863, 0.419608)
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="currentInstaSpeed" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="shmupMask" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_oi7fq")
