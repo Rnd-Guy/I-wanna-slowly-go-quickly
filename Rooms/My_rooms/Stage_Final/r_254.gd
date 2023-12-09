@@ -9,9 +9,81 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	while !scramble():
+		pass # just need to rerun scramble until it returns true
+	
+func scramble():
+	# only 7 combinations are now possible
+	# 1.27 +1 -2
+	# 1.52 +1 -2
+	# 1.77 +1 -2
+	# 2.27 +1 -2
+	# 3.02 +1 -2
+	#
+	# 1.02 +2 -1
+	# 1.27 +2 -1
+	
+	
+	var sub = snappedf(randf_range(1,2), 1)
+	var add = snappedf(randf_range(1,2), 1)
+	var mult = snappedf(randf_range(4,4), 1)
+	
+	# limit divide values
+	var divide = [0.5]
+	divide.shuffle()
+	divide = divide[0]
+	
+	a1.speed = add
+	a2.speed = -sub
+	m1.multiplier = mult
+	m2.multiplier = divide
+	
+	# avoid making it too easy
+	if add == sub:
+		return false
+	if mult == 1/divide:
+		return false
+	
 	blocks.shuffle()
 	for i in range(positions.size()):
 		blocks[i].position = positions[i]
+		blocks[i]._ready()
 	
+	var order = ["add", "sub", "mult", "divide"]
+	order.shuffle()
 	
-
+	var answer = 2.54
+	var debug_strings = []
+	var debug_instructions = []
+	for i in order:
+		match i:
+			"add":
+				answer -= add
+			"sub":
+				answer += sub
+			"mult":
+				answer /= mult
+			"divide":
+				answer /= divide
+		if answer < 1:
+			return false
+		
+		debug_strings.push_back(i + ": " + str(answer))
+		debug_instructions.push_back(i)
+	
+	if answer < 1:
+		return false
+	
+	#for d in debug_strings:
+	#	print(d)
+	
+#	debug_instructions.reverse()
+#	var reverse = ""
+#	for d in debug_instructions:
+#		if reverse != "":
+#			reverse += ", "
+#		reverse += d
+#	print(reverse)
+	
+	%objPlayer.h_speed = answer
+	return true

@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6c17nivlb4ui"]
+[gd_scene load_steps=17 format=3 uid="uid://c6c17nivlb4ui"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_26o8x"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Final/r_254.gd" id="1_tgqwr"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_3tail"]
-[ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="3_20rkd"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_3fkuf"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_vopkt"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_x7t67"]
@@ -31,10 +30,6 @@ layer_0/tile_data = PackedInt32Array(1441810, 65536, 0, 1441812, 65536, 0, 14418
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_3tail")]
 
-[node name="InstantSpeedManager" parent="Environment" instance=ExtResource("3_20rkd")]
-position = Vector2(-32, 64)
-default_instant_speed_ammo = 1
-
 [node name="Room_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -44,13 +39,14 @@ anchor_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("5_vopkt")]
-position = Vector2(560, 336)
+position = Vector2(576, 336)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("6_x7t67")]
-position = Vector2(352, 336)
+unique_name_in_owner = true
+position = Vector2(256, 336)
 
 [node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_8mru2")]
-position = Vector2(352, 336)
+position = Vector2(256, 336)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -62,10 +58,12 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="m2" parent="." instance=ExtResource("8_omlpu")]
-position = Vector2(384, 240)
+position = Vector2(384, 256)
+fade_timer = 1e+09
 
 [node name="m1" parent="." instance=ExtResource("8_omlpu")]
-position = Vector2(256, 240)
+position = Vector2(256, 256)
+fade_timer = 1e+09
 
 [node name="SpeedDamageBlock" parent="." instance=ExtResource("9_wk87o")]
 position = Vector2(-144, 224)
@@ -74,10 +72,12 @@ position = Vector2(-144, 224)
 position = Vector2(-48, 176)
 
 [node name="a1" parent="." instance=ExtResource("11_bqx7p")]
-position = Vector2(320, 240)
+position = Vector2(320, 256)
+fade_timer = 1e+09
 
 [node name="a2" parent="." instance=ExtResource("11_bqx7p")]
-position = Vector2(448, 240)
+position = Vector2(448, 256)
+fade_timer = 1e+09
 
 [node name="objSpeedLock" parent="." instance=ExtResource("12_vxfhv")]
 position = Vector2(-96, 224)
@@ -96,7 +96,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="objSpeedLock2" parent="." instance=ExtResource("12_vxfhv")]
-position = Vector2(512, 272)
-scale = Vector2(1, 5.08)
+position = Vector2(528, 272)
+scale = Vector2(1.96, 5.08)
 speed = 2.54
 above = false

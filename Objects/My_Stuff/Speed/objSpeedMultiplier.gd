@@ -4,7 +4,10 @@ extends SpeedBuff
 @export var multiplier: float = 1
 
 func _ready():
-	$Control/Label.set_text("x" + str(multiplier))
+	if multiplier >= 1:
+		$Control/Label.set_text("x" + str(multiplier))
+	else:
+		$Control/Label.set_text("/" + str(1/multiplier))
 	update_text_scaling()
 
 func buff_effect():

@@ -25,7 +25,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_qilb1")]
-layer_0/tile_data = PackedInt32Array(1703982, 65536, 0, 1703980, 65536, 0, 1703978, 65536, 0, 655406, 65536, 0, 655404, 65536, 0, 655402, 65536, 0)
+layer_0/tile_data = PackedInt32Array(1703982, 65536, 0, 1703980, 65536, 0, 1703978, 65536, 0, 655406, 65536, 0, 655404, 65536, 0, 655402, 65536, 0, 1835018, 65536, 0, 1966090, 65536, 0, 2097162, 65536, 0, 2228234, 65536, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_3ln3y")]
 layer_0/tile_data = PackedInt32Array(1572874, 65536, 0, 1048610, 65536, 0, 851992, 65536, 0, 655376, 65536, 0, 458760, 65536, 0)

@@ -19,19 +19,18 @@ extends Node2D
 @export var perma_lock: bool = false
 var is_locked: bool = false
 
+## For direct equality leniency, how much leeway to give
+@export var leniency = 0.01
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GLOBAL_INSTANCES.player_speed_changed.connect(on_player_speed_change)
-	#GLOBAL_INSTANCES.connect("player_speed_changed", self, "on_player_speed_change")
 	
 	var prefix = ""
 	# should never have all true or all false as it's useless
 	assert(!(above && below && equal))
 	assert(!(!above && !below && !equal))
-#	if !above && !below && !equal:
-#		prefix = "X"
-#	elif above && below && equal:
-#		prefix = "*"
+
 	if above && below && !equal:
 		prefix = "!="
 	elif !above && !below && equal:
@@ -45,16 +44,17 @@ func _ready():
 			prefix += "="
 	
 	$Control/Label.set_text(prefix + str(speed))
-	print(GLOBAL_INSTANCES.objPlayerID)
 	is_locked = false
 	update_text_scaling()
+	if get_tree().get_first_node_in_group("Player"):
+		on_player_speed_change(get_tree().get_first_node_in_group("Player").h_speed)
 
 func on_player_speed_change(newSpeed):
 	var current_value = $StaticBody2D.get_collision_layer_value(2)
 	var new_value: bool
 	if ((above && newSpeed > speed) ||
 			(below && newSpeed < speed) ||
-			(equal && newSpeed == speed)):
+			(equal && is_equal(newSpeed, speed))):
 		new_value = false
 		
 	else:
@@ -69,6 +69,9 @@ func on_player_speed_change(newSpeed):
 		else:
 			modulate.a = 0.5
 
+func is_equal(speeda, speedb, len=leniency):
+	#print(str(speeda) + " " + str(speedb) + " " + str(len) + " " + str(abs(speeda - speedb) <= leniency))
+	return abs(speeda - speedb) <= leniency
 
 func _on_area_2d_body_entered(body):
 	if body is Player && one_use:
