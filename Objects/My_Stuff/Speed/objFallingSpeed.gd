@@ -15,7 +15,9 @@ func _ready():
 	var speed_string = str(speed)
 	if speed >= 1000:
 		speed_string = "c"
-	$Label.set_text(prefix + speed_string)
+	$Control/Label.set_text(prefix + speed_string)
+	update_text_scaling()
+	
 
 func buff_effect():
 	if contact_body is Player:

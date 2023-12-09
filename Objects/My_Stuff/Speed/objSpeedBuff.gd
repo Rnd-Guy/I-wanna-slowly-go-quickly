@@ -64,3 +64,12 @@ func disable_buff():
 func enable_buff():
 	disabled = false
 	modulate.a = 1
+
+func update_text_scaling():
+	var xscale = scale.x
+	var yscale = scale.y
+	
+	if xscale > yscale:
+		$Control.scale.x = (yscale/xscale)
+	else:
+		$Control.scale.y *= (xscale/yscale)

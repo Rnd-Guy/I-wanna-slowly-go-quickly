@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ydfe5ajko4un"]
+[gd_scene load_steps=5 format=3 uid="uid://ydfe5ajko4un"]
 
 [ext_resource type="Script" path="res://Objects/My_Stuff/Speed/objSpeedAdder.gd" id="1_67ngr"]
 [ext_resource type="Texture2D" uid="uid://c7gx4j76prjg8" path="res://Graphics/Sprites/Speed/sprSpeed.png" id="2_qwk64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfy8k"]
 size = Vector2(32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jimsn"]
+font_size = 18
 
 [node name="objSpeedAdder" type="Node2D"]
 script = ExtResource("1_67ngr")
@@ -29,19 +32,42 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_qfy8k")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -16.0
-offset_top = -11.0
-offset_right = 16.0
-offset_bottom = 12.0
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Infinity" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -11.5
+offset_right = 16.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+label_settings = SubResource("LabelSettings_jimsn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Infinity" type="Label" parent="Control"]
 visible = false
+layout_mode = 0
 offset_left = -16.0
 offset_top = -2.0
 offset_right = 16.0

@@ -138,7 +138,7 @@ func _physics_process(delta):
 		if instant_speed_ammo == -1:
 			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: ∞")
 		else:
-			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: " + str(instant_speed_ammo))
+			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: " + str(instant_speed_ammo) + " [" + str(default_instant_speed_ammo) + "]")
 	
 	if Input.is_action_just_pressed("button_debug_command"):
 		debug_command()

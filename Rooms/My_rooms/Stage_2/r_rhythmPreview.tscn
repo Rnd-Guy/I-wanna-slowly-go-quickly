@@ -50,6 +50,16 @@ position = Vector2(128, 559)
 [node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_g0mxe")]
 position = Vector2(128, 560)
 
+[node name="obTouchSavePoint2" parent="Room_related" instance=ExtResource("6_g0mxe")]
+position = Vector2(360, 552)
+show = true
+delete_after_save = false
+
+[node name="obTouchSavePoint3" parent="Room_related" instance=ExtResource("6_g0mxe")]
+position = Vector2(440, 552)
+show = true
+delete_after_save = false
+
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -81,7 +91,7 @@ position = Vector2(-96, 224)
 position = Vector2(-48, 224)
 
 [node name="objRhythmPreviewer" parent="." instance=ExtResource("14_f84h7")]
-position = Vector2(264, 560)
+position = Vector2(272, 552)
 song_id = ExtResource("16_8acbd")
 
 [node name="objSavePoint" parent="." instance=ExtResource("16_pvhu1")]

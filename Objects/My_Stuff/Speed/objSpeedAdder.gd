@@ -8,6 +8,7 @@ extends SpeedBuff
 func _ready():
 	update_text()
 	update_colour()
+	update_text_scaling()
 
 func _physics_process(delta):
 	if decay > 0:
@@ -29,10 +30,10 @@ func update_text():
 	var speed_string = str(snapped(speed,0.01))
 	if speed >= 1000:
 		speed_string = "c"
-	$Label.set_text(prefix + speed_string)
+	$Control/Label.set_text(prefix + speed_string)
 	
 	if !one_use && fade_timer < 100:
-		$Infinity.set_visible(true)
+		$Control/Infinity.set_visible(true)
 
 func update_colour():
 	if speed > 0:

@@ -223,6 +223,7 @@ func on_player_collision(player, collision):
 "
 
 [node name="objRhythmSlider" type="Node2D"]
+z_index = 1
 script = SubResource("GDScript_lmu2u")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]

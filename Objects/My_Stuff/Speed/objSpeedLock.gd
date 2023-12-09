@@ -44,10 +44,10 @@ func _ready():
 		if equal:
 			prefix += "="
 	
-	$Label.set_text(prefix + str(speed))
-	
-	on_player_speed_change(GLOBAL_INSTANCES.objPlayerID.h_speed)
+	$Control/Label.set_text(prefix + str(speed))
+	print(GLOBAL_INSTANCES.objPlayerID)
 	is_locked = false
+	update_text_scaling()
 
 func on_player_speed_change(newSpeed):
 	var current_value = $StaticBody2D.get_collision_layer_value(2)
@@ -73,3 +73,12 @@ func on_player_speed_change(newSpeed):
 func _on_area_2d_body_entered(body):
 	if body is Player && one_use:
 		queue_free()
+
+func update_text_scaling():
+	var xscale = scale.x
+	var yscale = scale.y
+	
+	if xscale > yscale:
+		$Control.scale.x = (yscale/xscale)
+	else:
+		$Control.scale.y *= (xscale/yscale)
