@@ -38,6 +38,7 @@ var show_speed = true
 var instant_speed_ammo = 0 # for instant speed stuff
 var show_instant_speed = false
 var default_instant_speed_ammo = 0
+var just_dashed = 0
 
 # boss related
 var is_boss = false
@@ -350,6 +351,8 @@ func handle_walljumping():
 
 # Shooting logic
 func handle_shooting():
+	if just_dashed > 0:
+		just_dashed -= 1
 	if Input.is_action_just_pressed("button_shoot"):
 		if instant_speed_ammo != 0:
 			if instant_speed_ammo > 0:
@@ -360,6 +363,7 @@ func handle_shooting():
 			else:
 				velocity.x = sign(xscale) * 100000
 			
+			just_dashed = 2
 			return
 			
 		# Loads the bullet scene, instances it, assigns the shooting direction

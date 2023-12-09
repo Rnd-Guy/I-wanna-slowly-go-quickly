@@ -8,7 +8,7 @@ var can_save = true
 
 func _ready():
 	if !show:
-		modulate.a = 0
+		modulate.a = 01
 
 func _physics_process(_delta):
 	if (is_touching_save == true):

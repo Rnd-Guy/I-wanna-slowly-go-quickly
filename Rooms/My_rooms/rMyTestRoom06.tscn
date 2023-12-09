@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c01ccufrbgwjx"]
+[gd_scene load_steps=19 format=3 uid="uid://c01ccufrbgwjx"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_07l3t"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_vfom2"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="13_ihi2d"]
 [ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="14_beex5"]
 [ext_resource type="PackedScene" uid="uid://c3lorff4trlae" path="res://Objects/My_Stuff/Movement/objInstantSpeedRefresher.tscn" id="15_ephx8"]
+[ext_resource type="PackedScene" uid="uid://cnqm3l13cnhqe" path="res://Objects/My_Stuff/Movement/objRefresherWall.tscn" id="18_7bbjn"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -91,3 +92,7 @@ initial_ammo = 3
 
 [node name="objInstantSpeedRefresher" parent="." instance=ExtResource("15_ephx8")]
 position = Vector2(304, 480)
+
+[node name="RefresherWall" parent="." instance=ExtResource("18_7bbjn")]
+position = Vector2(160, 504)
+right = true
