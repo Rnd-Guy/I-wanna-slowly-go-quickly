@@ -38,7 +38,7 @@ var show_speed = true
 var instant_speed_ammo = 0 # for instant speed stuff
 var show_instant_speed = false
 var default_instant_speed_ammo = 0
-var just_dashed = 0
+var just_dashed = false
 
 # boss related
 var is_boss = false
@@ -345,14 +345,13 @@ func handle_walljumping():
 		
 		# Sets things back to normal (not walljumping anymore).
 		# handle_water() sets the "v_speed_modifier" variable properly, so we
-		# just call it here instead of re-setting things manually
+		# just ca1ll it here instead of re-setting things manually
 		handle_water()
 
 
 # Shooting logic
 func handle_shooting():
-	if just_dashed > 0:
-		just_dashed -= 1
+	just_dashed = false
 	if Input.is_action_just_pressed("button_shoot"):
 		if instant_speed_ammo != 0:
 			if instant_speed_ammo > 0:
@@ -363,7 +362,7 @@ func handle_shooting():
 			else:
 				velocity.x = sign(xscale) * 100000
 			
-			just_dashed = 2
+			just_dashed = true
 			return
 			
 		# Loads the bullet scene, instances it, assigns the shooting direction
