@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dgqo0014s6h5w"]
+[gd_scene load_steps=20 format=3 uid="uid://dgqo0014s6h5w"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_nonlu"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_3/r_soundvoltex.gd" id="1_qthnx"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="14_qog6b"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="15_37g6l"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="16_cugjg"]
+[ext_resource type="Texture2D" uid="uid://cl8qucfh1wm0y" path="res://Graphics/Backgrounds/colourfulstage.png" id="18_mxow7"]
+[ext_resource type="PackedScene" uid="uid://ct15bqbbs3hsg" path="res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn" id="19_5eip4"]
 
 [node name="rTemplate" type="Node2D"]
 script = ExtResource("1_qthnx")
@@ -26,6 +28,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_nonlu")]
+layer_0/tile_data = PackedInt32Array(2097162, 65536, 0, 2097164, 65536, 0, 2097166, 65536, 0, 2097168, 65536, 0, 2097170, 65536, 0, 2097172, 65536, 0, 2097174, 65536, 0, 2097176, 65536, 0, 2097178, 65536, 0, 2097180, 65536, 0, 2097182, 65536, 0, 2097184, 65536, 0, 2097186, 65536, 0, 2097188, 65536, 0, 1966118, 65536, 0, 1835044, 65536, 0, 1835042, 65536, 0, 1835040, 65536, 0, 1835038, 65536, 0, 1835036, 65536, 0, 1835034, 65536, 0, 1835032, 65536, 0, 1835030, 65536, 0, 1835028, 65536, 0, 1835026, 65536, 0, 1835024, 65536, 0, 1835022, 65536, 0, 1835020, 65536, 0, 1835018, 65536, 0, 1966088, 65536, 0, 2228258, 65536, 0, 2228254, 65536, 0, 2359324, 65536, 0, 2228250, 65536, 0, 2228246, 65536, 0, 2359316, 65536, 0, 2228242, 65536, 0, 2228238, 65536, 0, 2359308, 65536, 0, 2228234, 65536, 0, 2359332, 65536, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_h8dir")]
 
@@ -46,10 +49,11 @@ metadata/_edit_lock_ = true
 position = Vector2(736, 549)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("6_xackp")]
-position = Vector2(128, 559)
+unique_name_in_owner = true
+position = Vector2(376, 488)
 
 [node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_bauj7")]
-position = Vector2(128, 560)
+position = Vector2(376, 489)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -82,8 +86,60 @@ position = Vector2(-48, 224)
 position = Vector2(-16, 16)
 
 [node name="til32x32" parent="." instance=ExtResource("15_37g6l")]
+visible = false
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
 
 [node name="tilSpikes" parent="." instance=ExtResource("16_cugjg")]
 metadata/_edit_lock_ = true
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(400, 304)
+texture = ExtResource("18_mxow7")
+metadata/_edit_lock_ = true
+
+[node name="Note" parent="." instance=ExtResource("19_5eip4")]
+position = Vector2(208, 8)
+
+[node name="Note2" parent="." instance=ExtResource("19_5eip4")]
+position = Vector2(280, 8)
+
+[node name="Note3" parent="." instance=ExtResource("19_5eip4")]
+position = Vector2(352, 8)
+
+[node name="Note4" parent="." instance=ExtResource("19_5eip4")]
+position = Vector2(416, 8)
+
+[node name="Note5" parent="." instance=ExtResource("19_5eip4")]
+position = Vector2(488, 8)
+
+[node name="Note6" parent="." instance=ExtResource("19_5eip4")]
+position = Vector2(560, 7)
+
+[node name="Middle" type="Marker2D" parent="."]
+position = Vector2(384, 0)
+gizmo_extents = 619.4
+
+[node name="Middle2" type="Marker2D" parent="."]
+position = Vector2(160, 0)
+gizmo_extents = 619.4
+
+[node name="Middle3" type="Marker2D" parent="."]
+position = Vector2(608, 0)
+gizmo_extents = 619.4
+
+[node name="Middle4" type="Marker2D" parent="."]
+position = Vector2(312, 0)
+gizmo_extents = 619.4
+
+[node name="Middle5" type="Marker2D" parent="."]
+position = Vector2(240, 0)
+gizmo_extents = 619.4
+
+[node name="Middle6" type="Marker2D" parent="."]
+position = Vector2(456, 0)
+gizmo_extents = 619.4
+
+[node name="Middle7" type="Marker2D" parent="."]
+position = Vector2(528, 0)
+gizmo_extents = 619.4

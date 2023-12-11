@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct15bqbbs3hsg"]
+
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_3/Note.gd" id="1_grtgm"]
+[ext_resource type="Shader" path="res://Rooms/My_rooms/Stage_3/r_soundvoltex.gdshader" id="2_21yk4"]
+[ext_resource type="Texture2D" uid="uid://hpkwkivbbg2r" path="res://Graphics/Sprites/My Stuff/colorfulstageNote.png" id="3_2aot1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hl6r"]
+shader = ExtResource("2_21yk4")
+shader_parameter/screen_position = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cftut"]
+size = Vector2(64, 16)
+
+[node name="Note" type="Node2D"]
+script = ExtResource("1_grtgm")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6hl6r")
+scale = Vector2(1, 2.25)
+texture = ExtResource("3_2aot1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cftut")
