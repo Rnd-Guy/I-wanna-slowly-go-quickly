@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=94 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_sbg1e"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame1.gd" id="4_7agvo"]
 [ext_resource type="AudioStream" uid="uid://cbtxeavsqivpn" path="res://Audio/Music/musLevel01.ogg" id="4_27w03"]
+[ext_resource type="Texture2D" uid="uid://ctsu4jsdxx6yb" path="res://Graphics/Backgrounds/predj.png" id="4_pp6rn"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Fake-end.gd" id="4_upcyl"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_pfun0"]
 [ext_resource type="Texture2D" uid="uid://blbt5tce2v06o" path="res://Graphics/Sprites/My Stuff/boss/boss1.png" id="6_4cb84"]
@@ -26,8 +27,10 @@
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Chorus1.gd" id="11_0jdnv"]
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_acjg2"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/End.gd" id="11_trd68"]
+[ext_resource type="Texture2D" uid="uid://cpglhm0n1u6fl" path="res://Graphics/Backgrounds/mayudj2.png" id="11_vikrh"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_erl4f"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/PostChorus1.gd" id="12_mlexc"]
+[ext_resource type="Texture2D" uid="uid://byjy5fm4x5mf4" path="res://Graphics/Backgrounds/mayudj.png" id="12_vp8at"]
 [ext_resource type="PackedScene" uid="uid://w6w4iv17qcbs" path="res://Objects/My_Stuff/Boss/falling_spike.tscn" id="13_6jr5t"]
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="13_ig2yi"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Transition2.gd" id="14_tanqx"]
@@ -35,9 +38,11 @@
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame3.gd" id="15_xo8nr"]
 [ext_resource type="Texture2D" uid="uid://bm5gd7fkg2p6l" path="res://Graphics/Sprites/My Stuff/boss/boss2.png" id="15_yvg50"]
 [ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="16_0uul7"]
+[ext_resource type="Texture2D" uid="uid://bpo4mador1wxa" path="res://Graphics/Backgrounds/minigame1.png" id="16_uc65p"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Chorus2.gd" id="17_55lui"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame4.gd" id="17_ecwox"]
 [ext_resource type="Texture2D" uid="uid://b10imwv5qksm3" path="res://Graphics/Sprites/My Stuff/boss/boss2falling.png" id="18_pddg4"]
+[ext_resource type="Texture2D" uid="uid://c0sgivj60t64j" path="res://Graphics/Backgrounds/blockbg.png" id="19_0gtm3"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Chorus2_part2.gd" id="19_tb3y5"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/PostChorus2.gd" id="20_b5xfr"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Final.gd" id="21_n2q38"]
@@ -240,6 +245,20 @@ func physics(_delta):
 		
 	
 "
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0a2ps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vikrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vp8at")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwi6y"]
 size = Vector2(114, 154)
@@ -608,6 +627,11 @@ script = ExtResource("2_p4ai6")
 [node name="tiles" parent="Phases/BeforeIntro" instance=ExtResource("1_b2h4h")]
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Phases/BeforeIntro"]
+z_index = -2
+texture = ExtResource("4_pp6rn")
+centered = false
 
 [node name="Intro-Intro" parent="Phases" instance=ExtResource("2_5ss1g")]
 visible = false
@@ -1021,6 +1045,11 @@ script = SubResource("GDScript_8kwre")
 [node name="InitialIdle" type="Node" parent="Phases/Beep-boop-1/Boss1/StateMachine"]
 script = SubResource("GDScript_802m5")
 
+[node name="bg" type="AnimatedSprite2D" parent="Phases/Beep-boop-1"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_0a2ps")
+centered = false
+
 [node name="Minigame1" type="Node2D" parent="Phases"]
 unique_name_in_owner = true
 visible = false
@@ -1251,8 +1280,13 @@ label_settings = SubResource("LabelSettings_ou7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="Phases/Minigame1"]
+z_index = -2
+scale = Vector2(1, 1.02667)
+texture = ExtResource("16_uc65p")
+centered = false
+
 [node name="Minigame2" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("9_tag34")
 
 [node name="start" type="Node2D" parent="Phases/Minigame2"]
@@ -1392,6 +1426,11 @@ fade_timer = 100.0
 [node name="randomAdder30" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
 position = Vector2(592, 240)
 fade_timer = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Phases/Minigame2"]
+z_index = -2
+texture = ExtResource("19_0gtm3")
+centered = false
 
 [node name="Transition1" type="Node2D" parent="Phases"]
 visible = false
@@ -2081,6 +2120,7 @@ position = Vector2(-1200, 301)
 [node name="Notes" type="Node2D" parent="Phases/Minigame3"]
 
 [node name="Minigame4" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("17_ecwox")
 
 [node name="objOneWay" parent="Phases/Minigame4" instance=ExtResource("23_gsy0w")]

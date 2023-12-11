@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6c17nivlb4ui"]
+[gd_scene load_steps=18 format=3 uid="uid://c6c17nivlb4ui"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_26o8x"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Final/r_254.gd" id="1_tgqwr"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="14_2im8f"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="15_83wla"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="16_y5d1a"]
+[ext_resource type="Texture2D" uid="uid://csry4836dptbn" path="res://Graphics/Backgrounds/question.png" id="17_xchip"]
 
 [node name="rTemplate" type="Node2D"]
 script = ExtResource("1_tgqwr")
@@ -100,3 +101,8 @@ position = Vector2(528, 272)
 scale = Vector2(1.96, 5.08)
 speed = 2.54
 above = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("17_xchip")
+centered = false

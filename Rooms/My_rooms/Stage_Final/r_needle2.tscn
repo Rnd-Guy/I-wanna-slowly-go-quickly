@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://3m8wjkywmcnu"]
+[gd_scene load_steps=15 format=3 uid="uid://3m8wjkywmcnu"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_ij7us"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_hao3s"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_nd6b8"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_ohcun"]
 [ext_resource type="PackedScene" uid="uid://c363rig7brl0p" path="res://Objects/Gimmicks/objMovingPlatform.tscn" id="13_qf8iu"]
+[ext_resource type="Texture2D" uid="uid://dl3s108xxv2ef" path="res://Graphics/Backgrounds/genericbg.png" id="14_dwuxc"]
 
 [node name="rTemplate" type="Node2D"]
 
@@ -105,3 +106,9 @@ one_use = true
 
 [node name="objMovingPlatform2" parent="." instance=ExtResource("13_qf8iu")]
 position = Vector2(368, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(0, 16)
+texture = ExtResource("14_dwuxc")
+centered = false

@@ -49,6 +49,7 @@ func setup():
 	$tiles.set_layer_enabled(0, true)
 	$Boss1/StateMachine.initial_state = $Boss1/StateMachine/InitialIdle
 	$Boss1/StateMachine.start()
+	$bg.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

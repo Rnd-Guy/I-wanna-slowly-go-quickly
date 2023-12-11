@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2cbv1ivyg21n"]
+[gd_scene load_steps=19 format=3 uid="uid://c2cbv1ivyg21n"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_tctq6"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_o7t2m"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="15_p5ldc"]
 [ext_resource type="PackedScene" uid="uid://cnqm3l13cnhqe" path="res://Objects/My_Stuff/Movement/objRefresherWall.tscn" id="16_k1hsk"]
 [ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="17_d0r64"]
+[ext_resource type="Texture2D" uid="uid://xtnq2ap46g7h" path="res://Graphics/Backgrounds/night.png" id="18_0pwng"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -129,3 +130,8 @@ right = true
 [node name="InstantSpeedManager" parent="." instance=ExtResource("17_d0r64")]
 position = Vector2(-32, 88)
 default_instant_speed_ammo = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("18_0pwng")
+centered = false
