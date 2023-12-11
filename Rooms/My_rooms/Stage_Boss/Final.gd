@@ -20,6 +20,9 @@ func reset():
 	%objPlayer.disable_shmup_mark_2()
 
 func _physics_process(_delta):
+	if !$Boss3d:
+		return
+		
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -28,14 +31,14 @@ func _physics_process(_delta):
 	
 	handle_lasers()
 	if one(381):
-		$LeftLaser.position = $Boss3d.position
-		$RightLaser.position = $Boss3d.position
-		$LeftLaser.play("fire")
-		$RightLaser.play("fire")
+		$Instances/LeftLaser.position = $Boss3d.position
+		$Instances/RightLaser.position = $Boss3d.position
+		$Instances/LeftLaser.play("fire")
+		$Instances/RightLaser.play("fire")
 
 func handle_lasers():
-	lerp_rotation($LeftLaser, 381, 397, -180, -3)
-	lerp_rotation($RightLaser, 381, 397, 180, 3)
+	lerp_rotation($Instances/LeftLaser, 381, 397, -180, -3)
+	lerp_rotation($Instances/RightLaser, 381, 397, 180, 3)
 	pass
 
 func setup_deferred():
@@ -62,3 +65,8 @@ func _on_instant_speed_body_entered(_body):
 	$"objCameraFixedNoSmoothing".make_current()
 	$"objCameraFixedNoSmoothing".reset_smoothing()
 	pass # Replace with function body.
+
+func phase_defeated():
+	%warp.position = $Boss3d.position
+	$Boss3d.queue_free()
+	$Instances.queue_free()

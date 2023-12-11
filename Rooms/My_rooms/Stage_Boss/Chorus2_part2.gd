@@ -21,6 +21,9 @@ func reset():
 	%objPlayer.disable_shmup_mark_2()
 	
 func _physics_process(_delta):
+	if !$Boss3b:
+		return
+	
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -31,50 +34,50 @@ func _physics_process(_delta):
 		$RightWarning.set_visible(true)
 	elif one(321.2):
 		$RightWarning.set_visible(false)
-		$LaserRight.play("fire")
+		$Instances/LaserRight.play("fire")
 	elif one(322.5):
-		$LaserRight.play("fade_partial", 2)
+		$Instances/LaserRight.play("fade_partial", 2)
 	elif one(323):
 		$LeftWarning.set_visible(true)
 	elif one(325.2):
 		$LeftWarning.set_visible(false)
-		$LaserLeft.play("fire")
+		$Instances/LaserLeft.play("fire")
 		$RightWarning.set_visible(true)
 	elif one(326.5):
-		$LaserLeft.play("fade_partial", 2)
+		$Instances/LaserLeft.play("fade_partial", 2)
 	elif one(327.2):
 		$RightWarning.set_visible(false)
-		$LaserRight.play("fire")
+		$Instances/LaserRight.play("fire")
 		$LeftWarning.set_visible(true)
 	elif one(328.5):
-		$LaserRight.play("fade_partial", 2)
+		$Instances/LaserRight.play("fade_partial", 2)
 	elif one(329.2):
 		$LeftWarning.set_visible(false)
-		$LaserLeft.play("fire")
+		$Instances/LaserLeft.play("fire")
 	elif one(330.5):
-		$LaserLeft.play("fade_partial", 2)
+		$Instances/LaserLeft.play("fade_partial", 2)
 	elif one(333):
-		$LaserLeft.play("fire")
-		$LaserRight.play("fire")
+		$Instances/LaserLeft.play("fire")
+		$Instances/LaserRight.play("fire")
 	elif one(345):
-		$LaserLeft.play("fade_partial", 10)
-		$LaserRight.play("fade_partial", 10)
+		$Instances/LaserLeft.play("fade_partial", 10)
+		$Instances/LaserRight.play("fade_partial", 10)
 		
 	if t(321, 323):
-		lerp_rotation($LaserRight, 321, 323, -90, 0)
+		lerp_rotation($Instances/LaserRight, 321, 323, -90, 0)
 	elif t(325,327):
-		lerp_rotation($LaserLeft, 325, 327, 90, 0)
+		lerp_rotation($Instances/LaserLeft, 325, 327, 90, 0)
 	elif t(327, 329):
-		lerp_rotation($LaserRight, 327, 329, 0, -90)
+		lerp_rotation($Instances/LaserRight, 327, 329, 0, -90)
 	elif t(329, 331):
-		lerp_rotation($LaserLeft, 329, 331, 0, 90)
+		lerp_rotation($Instances/LaserLeft, 329, 331, 0, 90)
 	elif t(333, 345):
-		lerp_rotation($LaserLeft, 333, 345, 90, 450)
-		lerp_rotation($LaserRight, 333, 345, -90,270)
+		lerp_rotation($Instances/LaserLeft, 333, 345, 90, 450)
+		lerp_rotation($Instances/LaserRight, 333, 345, -90,270)
 		handle_laser_on_off()
 	elif t(345, 349):
-		lerp_rotation($LaserLeft, 345, 349, 90, 810)
-		lerp_rotation($LaserRight, 345, 349, -90,630)
+		lerp_rotation($Instances/LaserLeft, 345, 349, 90, 810)
+		lerp_rotation($Instances/LaserRight, 345, 349, -90,630)
 	
 	if t(317,341):
 		handle_bullets()
@@ -85,12 +88,12 @@ func handle_laser_on_off():
 	if floor_time == last_laser:
 		return
 	if floor_time % 2 == 1:
-		$LaserRight.play("fire", 4)
-		$LaserLeft.play("fade_partial", 4)
+		$Instances/LaserRight.play("fire", 4)
+		$Instances/LaserLeft.play("fade_partial", 4)
 		last_laser = floor_time
 	else:
-		$LaserRight.play("fade_partial", 4)
-		$LaserLeft.play("fire", 4)
+		$Instances/LaserRight.play("fade_partial", 4)
+		$Instances/LaserLeft.play("fire", 4)
 		last_laser = floor_time
 
 var next_bullet = 317
@@ -127,3 +130,8 @@ func _on_instant_speed_body_entered(_body):
 	$"objCameraFixedNoSmoothing".make_current()
 	$"objCameraFixedNoSmoothing".reset_smoothing()
 	pass # Replace with function body.
+
+func phase_defeated():
+	%warp.position = $Boss3b.position
+	$Boss3b.queue_free()
+	$Instances.queue_free()

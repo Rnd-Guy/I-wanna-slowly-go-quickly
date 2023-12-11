@@ -21,6 +21,9 @@ func reset():
 	%objPlayer.disable_shmup_mark_1()
 
 func _physics_process(_delta):
+	if !$Boss3a:
+		return
+	
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -183,3 +186,8 @@ func point_lasers_with_angle(angle):
 		# looking at position makes these point left as these originally point down instead of right, so need to subtract
 		$Instances/LaserRight.rotation -= deg_to_rad(90 + angle)
 		$Instances/LaserLeft.rotation -= deg_to_rad(90 - angle)
+
+func phase_defeated():
+	%warp.position = $Boss3a.position
+	$Boss3a.queue_free()
+	$Instances.queue_free()

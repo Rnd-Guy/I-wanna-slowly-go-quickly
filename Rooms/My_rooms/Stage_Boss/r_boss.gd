@@ -2,7 +2,7 @@ extends Node2D
 
 # for debugging - skip to this phase via "o"
 @onready var phase_to_seek = $Phases/Minigame4
-var speed_on_debug = 8
+var speed_on_debug = 150
 
 var bpm = 120
 var debug_metronome = preload("res://Audio/Sounds/sndMenuButton.wav")
@@ -100,7 +100,7 @@ func _physics_process(_delta):
 
 		set_phase()
 		
-		update_boss()
+	update_boss()
 
 func resync_rhythm_position():
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
@@ -168,3 +168,44 @@ func take_damage(attack_type, damage):
 		boss_hp -= damage
 	elif attack_type == GlobalClass.weapon_type.NOTE:
 		boss_hp -= 2*damage
+	
+	if boss_hp <= 0:
+		defeat_boss()
+
+func defeat_boss():
+	for node in [
+#		$"Phases/Beep-boop-1/Boss1",
+#		$Phases/Chorus1/Boss2,
+#		$Phases/Chorus2/Boss3a,
+#		$Phases/Chorus2_part2/Boss3b,
+#		$Phases/PostChorus2/Boss3c,
+#		$Phases/Final/Boss3d,
+#		$Phases/End/Boss3e,
+		$"Phases/Beep-boop-1",
+		$Phases/Chorus1,
+		$Phases/PostChorus1,
+		$Phases/Chorus2,
+		$Phases/Chorus2_part2,
+		$Phases/PostChorus2,
+		$Phases/Final,
+		$Phases/End,
+	]:
+		if node.visible == true:
+			#$Room_related/objWarp.position = node.position
+			#node.queue_free()
+			node.phase_defeated()
+		else:
+			pass
+			#node.queue_free()
+#	$"Phases/Beep-boop-1/Boss1".queue_free()
+#	$Phases/Chorus2/Boss3a.queue_free()
+#	$Phases/Chorus2_part2/Boss3b.queue_free()
+#	$Phases/PostChorus2/Boss3c.queue_free()
+#	$Phases/Final/Boss3d.queue_free()
+#	$Phases/End/Boss3e.queue_free()
+	set_stop_processing()
+	pass
+
+func set_stop_processing():
+	stop_processing = true
+	GLOBAL_MUSIC.stop()

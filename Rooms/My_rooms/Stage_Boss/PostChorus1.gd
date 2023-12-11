@@ -24,6 +24,9 @@ func _ready():
 	pass # Replace with function body.
 	
 func _physics_process(_delta):
+	if !$Boss2Falling:
+		return
+	
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -61,3 +64,7 @@ func _on_falling_spike_body_entered(_body):
 
 func get_camera_pos():
 	return $objCameraDynamic.global_position
+
+func phase_defeated():
+	$Boss2Falling.queue_free()
+	%warp.position = %objPlayer.position

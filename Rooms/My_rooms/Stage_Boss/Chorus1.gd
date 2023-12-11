@@ -18,6 +18,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if !$Boss2:
+		return
+	
 	var camera_weight = min(w(117,145,b()),1) # don't extrapolate
 	var cameraX = lerp(400,2000,camera_weight)
 	$objCameraDynamic.set_global_position(Vector2(cameraX,304))
@@ -27,6 +30,9 @@ func _process(_delta):
 	$Boss2.set_global_position(Vector2(bossX,528))
 	
 func _physics_process(_delta):
+	if !$Boss2:
+		return
+	
 	if player_in_hitbox == true:
 		%objPlayer.take_damage(damage)
 	
@@ -144,3 +150,8 @@ func ry():
 
 func shoot():
 	$Boss2.shoot("circle", Vector2(200, 0), randf_range(-10,10), 0, 1)
+
+func phase_defeated():
+	%warp.position = $Boss2.position
+	$Boss2.queue_free()
+	$Instances.queue_free()

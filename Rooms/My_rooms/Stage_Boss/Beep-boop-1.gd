@@ -140,3 +140,7 @@ func _on_rfp_body_entered(_body):
 func _on_rfp_body_exited(_body):
 	in_red -= 1
 	pass # Replace with function body.
+
+func phase_defeated():
+	%warp.position = $Boss1.position
+	$Boss1.queue_free()

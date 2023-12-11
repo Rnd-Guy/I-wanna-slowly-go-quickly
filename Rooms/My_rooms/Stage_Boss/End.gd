@@ -24,19 +24,26 @@ func reset():
 	%objPlayer.disable_shmup_mark_2()
 
 func _physics_process(_delta):
+	if !$Boss3e:
+		return
+		
 	if one(397):
-		$LeftLaser.rotation = deg_to_rad(-3)
-		$RightLaser.rotation = deg_to_rad(3)
-		$LeftLaser.play("fire")
-		$RightLaser.play("fire")
-		var c = $objCherry
+		$Instances/LeftLaser.rotation = deg_to_rad(-3)
+		$Instances/RightLaser.rotation = deg_to_rad(3)
+		$Instances/LeftLaser.play("fire")
+		$Instances/RightLaser.play("fire")
+		var c = $Instances/objCherry
 		c.set_visible(true)
 		c.position = $Boss3e.position
-		$"/root/rBoss".stop_processing = true
-		GLOBAL_MUSIC.stop()
+		$"/root/rBoss".set_stop_processing()
 
 	
 	if t(397,416):
 		var weight = inverse_lerp(397, 427, b())
 		var newPos = lerp($Boss3e.position.y+50, 900.0, weight)
-		$objCherry.position = Vector2($Boss3e.position.x, newPos)
+		$Instances/objCherry.position = Vector2($Boss3e.position.x, newPos)
+
+func phase_defeated():
+	%warp.position = $Boss3e.position
+	$Boss3e.queue_free()
+	$Instances.queue_free()

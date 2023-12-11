@@ -23,6 +23,9 @@ func reset():
 	%objPlayer.disable_shmup_mark_2()
 
 func _physics_process(_delta):
+	if !$Boss3c:
+		return
+	
 	if first_frames < 2:
 		first_frames += 1
 	elif first_frames == 2:
@@ -113,3 +116,8 @@ func handle_bullets():
 		blt.position = $Boss3b.position
 		blt.set_colour()
 		$Instances.add_child(blt)
+
+func phase_defeated():
+	%warp.position = $Boss3c.position
+	$Boss3c.queue_free()
+	$Instances.queue_free()
