@@ -144,6 +144,8 @@ func handle_bullets(count):
 			var bul = bullet.instantiate()
 			# setup(mode="circle", velocity=Vector2(0,0), direction=0, curve=0, m_scale=0.5):
 			bul.setup("arrow", Vector2(0, 150), angle-4 + (((count-1)/2)*i))
+			bul.set_colour()
+			
 			$Instances.add_child(bul)
 
 func _on_start_region_body_entered(_body):

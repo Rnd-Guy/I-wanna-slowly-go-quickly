@@ -31,50 +31,50 @@ func _physics_process(_delta):
 		$RightWarning.set_visible(true)
 	elif one(321.2):
 		$RightWarning.set_visible(false)
-		$Boss3b/LaserRight.play("fire")
+		$LaserRight.play("fire")
 	elif one(322.5):
-		$Boss3b/LaserRight.play("fade_partial", 2)
+		$LaserRight.play("fade_partial", 2)
 	elif one(323):
 		$LeftWarning.set_visible(true)
 	elif one(325.2):
 		$LeftWarning.set_visible(false)
-		$Boss3b/LaserLeft.play("fire")
+		$LaserLeft.play("fire")
 		$RightWarning.set_visible(true)
 	elif one(326.5):
-		$Boss3b/LaserLeft.play("fade_partial", 2)
+		$LaserLeft.play("fade_partial", 2)
 	elif one(327.2):
 		$RightWarning.set_visible(false)
-		$Boss3b/LaserRight.play("fire")
+		$LaserRight.play("fire")
 		$LeftWarning.set_visible(true)
 	elif one(328.5):
-		$Boss3b/LaserRight.play("fade_partial", 2)
+		$LaserRight.play("fade_partial", 2)
 	elif one(329.2):
 		$LeftWarning.set_visible(false)
-		$Boss3b/LaserLeft.play("fire")
+		$LaserLeft.play("fire")
 	elif one(330.5):
-		$Boss3b/LaserLeft.play("fade_partial", 2)
+		$LaserLeft.play("fade_partial", 2)
 	elif one(333):
-		$Boss3b/LaserLeft.play("fire")
-		$Boss3b/LaserRight.play("fire")
+		$LaserLeft.play("fire")
+		$LaserRight.play("fire")
 	elif one(345):
-		$Boss3b/LaserLeft.play("fade_partial", 10)
-		$Boss3b/LaserRight.play("fade_partial", 10)
+		$LaserLeft.play("fade_partial", 10)
+		$LaserRight.play("fade_partial", 10)
 		
 	if t(321, 323):
-		lerp_rotation($Boss3b/LaserRight, 321, 323, -90, 0)
+		lerp_rotation($LaserRight, 321, 323, -90, 0)
 	elif t(325,327):
-		lerp_rotation($Boss3b/LaserLeft, 325, 327, 90, 0)
+		lerp_rotation($LaserLeft, 325, 327, 90, 0)
 	elif t(327, 329):
-		lerp_rotation($Boss3b/LaserRight, 327, 329, 0, -90)
+		lerp_rotation($LaserRight, 327, 329, 0, -90)
 	elif t(329, 331):
-		lerp_rotation($Boss3b/LaserLeft, 329, 331, 0, 90)
+		lerp_rotation($LaserLeft, 329, 331, 0, 90)
 	elif t(333, 345):
-		lerp_rotation($Boss3b/LaserLeft, 333, 345, 90, 450)
-		lerp_rotation($Boss3b/LaserRight, 333, 345, -90,270)
+		lerp_rotation($LaserLeft, 333, 345, 90, 450)
+		lerp_rotation($LaserRight, 333, 345, -90,270)
 		handle_laser_on_off()
 	elif t(345, 349):
-		lerp_rotation($Boss3b/LaserLeft, 345, 349, 90, 810)
-		lerp_rotation($Boss3b/LaserRight, 345, 349, -90,630)
+		lerp_rotation($LaserLeft, 345, 349, 90, 810)
+		lerp_rotation($LaserRight, 345, 349, -90,630)
 	
 	if t(317,341):
 		handle_bullets()
@@ -85,12 +85,12 @@ func handle_laser_on_off():
 	if floor_time == last_laser:
 		return
 	if floor_time % 2 == 1:
-		$Boss3b/LaserRight.play("fire", 4)
-		$Boss3b/LaserLeft.play("fade_partial", 4)
+		$LaserRight.play("fire", 4)
+		$LaserLeft.play("fade_partial", 4)
 		last_laser = floor_time
 	else:
-		$Boss3b/LaserRight.play("fade_partial", 4)
-		$Boss3b/LaserLeft.play("fire", 4)
+		$LaserRight.play("fade_partial", 4)
+		$LaserLeft.play("fire", 4)
 		last_laser = floor_time
 
 var next_bullet = 317
@@ -101,6 +101,7 @@ func handle_bullets():
 		# setup(mode="circle", velocity=Vector2(0,0), direction=0, curve=0, m_scale=0.5):
 		bul.setup("circle", Vector2(0, 100), randf_range(-80, 80))
 		bul.position = $Boss3b.position
+		bul.set_colour()
 		$Instances.add_child(bul)
 
 func setup_deferred():

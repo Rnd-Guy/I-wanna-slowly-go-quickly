@@ -53,7 +53,9 @@ func setup(bullet_mode="circle", bullet_velocity=Vector2(0,0), bullet_direction=
 	default_scale = m_scale # in case setup is called before ready()
 	curve = bullet_curve
 	
-
+func set_colour():
+	modulate.g = 0.2
+	modulate.b = 0.2
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

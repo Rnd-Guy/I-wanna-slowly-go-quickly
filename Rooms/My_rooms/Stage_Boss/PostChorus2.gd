@@ -111,4 +111,5 @@ func handle_bullets():
 		# setup(mode="circle", velocity=Vector2(0,0), direction=0, curve=0, m_scale=0.5):
 		blt.setup("circle", Vector2(0, 100), randf_range(-80, 80))
 		blt.position = $Boss3b.position
+		blt.set_colour()
 		$Instances.add_child(blt)

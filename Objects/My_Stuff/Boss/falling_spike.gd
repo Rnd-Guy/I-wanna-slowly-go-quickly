@@ -30,8 +30,8 @@ func shine():
 	blackout()
 
 func set_colour():
-	$Shape/FallingSpike/Polygon2D.color.g = 0.5
-	$Shape/FallingSpike/Polygon2D.color.b = 0.5
+	$Shape/FallingSpike/Polygon2D.color.g = 0.2
+	$Shape/FallingSpike/Polygon2D.color.b = 0.2
 
 func reset_colour():
 	$Shape/FallingSpike/Polygon2D.color.g = 1
