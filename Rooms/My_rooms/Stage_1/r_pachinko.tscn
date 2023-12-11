@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1pfai2urg7m1"]
+[gd_scene load_steps=18 format=3 uid="uid://c1pfai2urg7m1"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_l6ikr"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_b2p50"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cdx3h81o7hqb4" path="res://Objects/Room_objects/objCameraDynamic.tscn" id="13_ndd0n"]
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="13_pjr4q"]
 [ext_resource type="PackedScene" uid="uid://c363rig7brl0p" path="res://Objects/Gimmicks/objMovingPlatform.tscn" id="14_34xgr"]
+[ext_resource type="Texture2D" uid="uid://cb2oqstbs1uyp" path="res://Graphics/Backgrounds/calm_extended.png" id="15_qtu07"]
+[ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="16_ehvck"]
 
 [sub_resource type="GDScript" id="GDScript_fqxg6"]
 resource_name = "PachinkoLayerManager"
@@ -264,3 +266,12 @@ scale = Vector2(1.88, 1)
 speed = 2.0
 multiply = true
 one_use = true
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(400, 2272)
+texture = ExtResource("15_qtu07")
+
+[node name="objCherry" parent="bg" instance=ExtResource("16_ehvck")]
+visible = false
+position = Vector2(164, -2012)

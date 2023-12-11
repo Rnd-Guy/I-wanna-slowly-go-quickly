@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgmp5nlxtjdff"]
+[gd_scene load_steps=14 format=3 uid="uid://bgmp5nlxtjdff"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_1t5oa"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_3g2bg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="10_rlfc6"]
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_sbk7c"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_rgnbk"]
+[ext_resource type="Texture2D" uid="uid://04uyq1hbt2gh" path="res://Graphics/Backgrounds/hall.png" id="13_yfj0h"]
 
 [node name="rTemplate" type="Node2D"]
 
@@ -102,3 +103,8 @@ speed = 2000.0
 [node name="objSpeedSetter7" parent="." instance=ExtResource("10_rlfc6")]
 position = Vector2(744, 56)
 speed = 2000.0
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("13_yfj0h")
+centered = false

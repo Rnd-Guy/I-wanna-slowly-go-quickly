@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6j74mjrbwp0i"]
+[gd_scene load_steps=12 format=3 uid="uid://6j74mjrbwp0i"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b07dh"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_ny6kh"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_si2p1"]
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="8_jvq3a"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="9_cemdh"]
+[ext_resource type="Texture2D" uid="uid://drinfn7ig3ce0" path="res://Graphics/Backgrounds/calm.png" id="10_ftarf"]
+[ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="11_q5w5k"]
 
 [node name="rTemplate" type="Node2D"]
 
@@ -189,3 +191,12 @@ one_use = true
 [node name="objSpeedLock" parent="." instance=ExtResource("9_cemdh")]
 position = Vector2(720, 464)
 speed = 2.0
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(400, 304)
+texture = ExtResource("10_ftarf")
+
+[node name="objCherry" parent="bg" instance=ExtResource("11_q5w5k")]
+visible = false
+position = Vector2(163, -39)

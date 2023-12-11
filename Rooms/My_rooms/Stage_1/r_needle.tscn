@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d02s2eun1dup8"]
+[gd_scene load_steps=16 format=3 uid="uid://d02s2eun1dup8"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_qtrse"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_fra7t"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_iy21f"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_r3mos"]
 [ext_resource type="PackedScene" uid="uid://c363rig7brl0p" path="res://Objects/Gimmicks/objMovingPlatform.tscn" id="13_the72"]
+[ext_resource type="Texture2D" uid="uid://drinfn7ig3ce0" path="res://Graphics/Backgrounds/calm.png" id="14_jnrfm"]
+[ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="15_fd3tm"]
 
 [node name="rTemplate" type="Node2D"]
 
@@ -91,3 +93,12 @@ one_use = true
 position = Vector2(528, 208)
 show = true
 delete_after_save = false
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(400, 304)
+texture = ExtResource("14_jnrfm")
+
+[node name="objCherry" parent="bg" instance=ExtResource("15_fd3tm")]
+visible = false
+position = Vector2(163, -39)
