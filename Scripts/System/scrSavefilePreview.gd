@@ -2,7 +2,7 @@ extends Node2D
 
 # This variable is changed from the object's properties. Check rMainMenu 
 @export_enum("1:1", "2:2", "3:3") var fileID: int = 1
-var default_sprite = load("res://Graphics/Sprites/System/sprSaveFile.png")
+var default_sprite = load("res://Graphics/Sprites/System/sprSaveFileCustom.png")
 
 
 func _ready():

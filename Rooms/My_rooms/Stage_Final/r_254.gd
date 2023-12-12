@@ -13,16 +13,6 @@ func _ready():
 		pass # just need to rerun scramble until it returns true
 	
 func scramble():
-	# only 7 combinations are now possible
-	# 1.27 +1 -2
-	# 1.52 +1 -2
-	# 1.77 +1 -2
-	# 2.27 +1 -2
-	# 3.02 +1 -2
-	#
-	# 1.02 +2 -1
-	# 1.27 +2 -1
-	
 	
 	var sub = snappedf(randf_range(1,2), 1)
 	var add = snappedf(randf_range(1,2), 1)
@@ -55,8 +45,9 @@ func scramble():
 	var answer = 2.54
 	var debug_strings = []
 	var debug_instructions = []
-	for i in order:
-		match i:
+	for i in range(2):
+		var o = order[i]
+		match o:
 			"add":
 				answer -= add
 			"sub":
@@ -68,8 +59,8 @@ func scramble():
 		if answer < 1:
 			return false
 		
-		debug_strings.push_back(i + ": " + str(answer))
-		debug_instructions.push_back(i)
+		debug_strings.push_back(o + ": " + str(answer))
+		debug_instructions.push_back(o)
 	
 	if answer < 1:
 		return false

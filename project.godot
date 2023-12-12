@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Tworney"
+config/name="Title Pending"
 config/tags=PackedStringArray("fangame_engine")
-run/main_scene="res://Rooms/00_Title_and_menus/rMainMenu.tscn"
+run/main_scene="res://Rooms/My_rooms/Other/rMyMainMenu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/show_image=false
