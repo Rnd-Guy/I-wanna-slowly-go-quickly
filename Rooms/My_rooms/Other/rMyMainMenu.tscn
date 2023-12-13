@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/scrMainMenu.gd" id="1_yigd4"]
 [ext_resource type="PackedScene" uid="uid://wr3v4lkgftxk" path="res://Objects/Tiles/til16x16.tscn" id="2_8x2wx"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="3_0g3en"]
-[ext_resource type="AudioStream" uid="uid://bnnwvgmabq10w" path="res://Audio/Music/musMainMenu.ogg" id="4_wplf4"]
+[ext_resource type="AudioStream" uid="uid://cdgqcc25014jb" path="res://Audio/Music/029.mp3" id="4_dhxpb"]
 [ext_resource type="PackedScene" path="res://Objects/Backgrounds/Specific_backgrounds/objBackgroundMenus.tscn" id="5_lsbms"]
 [ext_resource type="Texture2D" uid="uid://cc17hlfab3s5p" path="res://Graphics/Backgrounds/title.png" id="6_25pcb"]
 [ext_resource type="PackedScene" uid="uid://bm671n4cnmoon" path="res://Objects/System/objSavefilePreview.tscn" id="6_qtufp"]
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_yigd4")
-starting_room = "res://Rooms/My_rooms/Stage_1/r1-3_dontSlowDown.tscn"
+starting_room = "res://Rooms/My_rooms/Stage_1/r1-1_introduction.tscn"
 settings_menu = "res://Rooms/00_Title_and_menus/rMenuSettings.tscn"
 
 [node name="Environment" type="Node2D" parent="."]
@@ -30,7 +30,7 @@ layer_0/tile_data = PackedInt32Array(2424832, 65537, 2, 2424833, 65537, 2, 24248
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("3_0g3en")]
 position = Vector2(-12, 18)
-song_id = ExtResource("4_wplf4")
+song_id = ExtResource("4_dhxpb")
 
 [node name="objMainMenuBackground" parent="Environment" instance=ExtResource("5_lsbms")]
 visible = false

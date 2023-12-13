@@ -1,0 +1,155 @@
+[gd_scene load_steps=18 format=3 uid="uid://bamm7ojfdwhy0"]
+
+[ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_3f8wl"]
+[ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_7pkrg"]
+[ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_1v4yp"]
+[ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_vkitb"]
+[ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_g2hap"]
+[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_u4qh3"]
+[ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="7_als56"]
+[ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="8_okeiv"]
+[ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="9_dhnm1"]
+[ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="10_tpssm"]
+[ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="11_pryba"]
+[ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="12_51klo"]
+[ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="13_yp2bw"]
+[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="14_00qtl"]
+[ext_resource type="AudioStream" uid="uid://drrqrkhoy785u" path="res://Audio/Music/balanceValley.ogg" id="14_73c72"]
+[ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="15_g1607"]
+[ext_resource type="Texture2D" uid="uid://drinfn7ig3ce0" path="res://Graphics/Backgrounds/calm.png" id="16_husuv"]
+
+[node name="rTemplate" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Environment" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="tiles16" parent="Environment" instance=ExtResource("1_3f8wl")]
+
+[node name="tilSpikes16" parent="Environment" instance=ExtResource("2_7pkrg")]
+
+[node name="Room_related" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("3_1v4yp")]
+position = Vector2(16, 16)
+anchor_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="objWarp" parent="Room_related" instance=ExtResource("4_vkitb")]
+position = Vector2(736, 549)
+
+[node name="objPlayer" parent="Room_related" instance=ExtResource("5_g2hap")]
+position = Vector2(128, 559)
+
+[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_u4qh3")]
+position = Vector2(128, 560)
+
+[node name="Gimmicks" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Hazards" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Trigger_related" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="objSpeedMultiplier" parent="." instance=ExtResource("7_als56")]
+position = Vector2(-96, 176)
+
+[node name="SpeedDamageBlock" parent="." instance=ExtResource("8_okeiv")]
+position = Vector2(-144, 224)
+
+[node name="objSpeedSetter" parent="." instance=ExtResource("9_dhnm1")]
+position = Vector2(-48, 176)
+
+[node name="objSpeedAdder" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(176, 544)
+one_use = true
+
+[node name="objSpeedAdder2" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(208, 544)
+one_use = true
+
+[node name="objSpeedAdder3" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(240, 544)
+one_use = true
+
+[node name="objSpeedAdder4" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(272, 544)
+one_use = true
+
+[node name="objSpeedAdder5" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(304, 544)
+one_use = true
+
+[node name="objSpeedAdder6" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(336, 544)
+one_use = true
+
+[node name="objSpeedAdder7" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(368, 544)
+one_use = true
+
+[node name="objSpeedAdder8" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(400, 544)
+one_use = true
+
+[node name="objSpeedAdder9" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(432, 544)
+one_use = true
+
+[node name="objSpeedAdder10" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(464, 544)
+one_use = true
+
+[node name="objSpeedAdder11" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(496, 544)
+one_use = true
+
+[node name="objSpeedAdder12" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(528, 544)
+one_use = true
+
+[node name="objSpeedAdder13" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(592, 544)
+one_use = true
+
+[node name="objSpeedAdder14" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(560, 544)
+speed = 145.0
+one_use = true
+
+[node name="objSpeedAdder15" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(624, 544)
+one_use = true
+
+[node name="objSpeedAdder16" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(656, 544)
+one_use = true
+
+[node name="objSpeedAdder17" parent="." instance=ExtResource("10_tpssm")]
+position = Vector2(688, 544)
+one_use = true
+
+[node name="objSpeedLock" parent="." instance=ExtResource("11_pryba")]
+position = Vector2(-96, 224)
+
+[node name="objFallingSpeed" parent="." instance=ExtResource("12_51klo")]
+position = Vector2(-48, 224)
+
+[node name="objMusicPlayer" parent="." instance=ExtResource("13_yp2bw")]
+position = Vector2(-16, 16)
+song_id = ExtResource("14_73c72")
+
+[node name="til32x32" parent="." instance=ExtResource("14_00qtl")]
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
+metadata/_edit_lock_ = true
+
+[node name="tilSpikes" parent="." instance=ExtResource("15_g1607")]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("16_husuv")
+centered = false

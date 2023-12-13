@@ -2767,6 +2767,7 @@ position = Vector2(416, 561)
 [node name="warp" parent="Room_related" instance=ExtResource("53_rnubl")]
 unique_name_in_owner = true
 position = Vector2(-1120, -456)
+warp_to = "res://Rooms/My_rooms/Other/r_end.tscn"
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
