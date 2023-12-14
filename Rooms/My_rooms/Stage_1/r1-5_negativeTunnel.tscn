@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdknmh7k22jof"]
+[gd_scene load_steps=19 format=3 uid="uid://bdknmh7k22jof"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_qaysg"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_r0mw5"]
-[ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="3_cekno"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_6g2j3"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_2cdal"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_4xe1s"]
@@ -30,10 +29,6 @@ metadata/_edit_lock_ = true
 layer_0/tile_data = PackedInt32Array(1441800, 65536, 0, 1441802, 65536, 0, 1441804, 65536, 0, 1441806, 65536, 0, 1048592, 65536, 0, 1441808, 65536, 0, 1441810, 65536, 0, 1441812, 65536, 0, 1179670, 65536, 0, 1441814, 65536, 0, 1441816, 65536, 0, 1441818, 65536, 0, 1179672, 65536, 0, 1179674, 65536, 0, 1179676, 65536, 0, 1441820, 65536, 0, 1441822, 65536, 0, 1048608, 65536, 0, 1048610, 65536, 0, 1441834, 65536, 0, 1441832, 65536, 0, 1441830, 65536, 0, 1441828, 65536, 0, 1441826, 65536, 0, 1441824, 65536, 0, 1048582, 65536, 0, 1179654, 65536, 0, 1310726, 65536, 0, 1441798, 65536, 0, 1048590, 65536, 0, 1179668, 65536, 0, 1048618, 65536, 0, 1179690, 65536, 0, 1310762, 65536, 0, 1179680, 65536, 0, 1048612, 65536, 0, 1048614, 65536, 0, 1048616, 65536, 0, 1048594, 65536, 0, 1048596, 65536, 0, 1048606, 65536, 0, 1048604, 65536, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_r0mw5")]
-
-[node name="InstantSpeedManager" parent="Environment" instance=ExtResource("3_cekno")]
-position = Vector2(-32, 64)
-default_instant_speed_ammo = 1
 
 [node name="Room_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

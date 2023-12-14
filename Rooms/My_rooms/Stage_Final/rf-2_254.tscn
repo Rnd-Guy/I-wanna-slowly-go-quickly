@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6c17nivlb4ui"]
+[gd_scene load_steps=20 format=3 uid="uid://c6c17nivlb4ui"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_26o8x"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Final/r_254.gd" id="1_tgqwr"]
@@ -18,6 +18,10 @@
 [ext_resource type="AudioStream" uid="uid://kftjeohvwaxd" path="res://Audio/Music/braveDecision.ogg" id="15_smejf"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="16_y5d1a"]
 [ext_resource type="Texture2D" uid="uid://csry4836dptbn" path="res://Graphics/Backgrounds/question.png" id="17_xchip"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cs8o6"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="rTemplate" type="Node2D"]
 script = ExtResource("1_tgqwr")
@@ -108,3 +112,11 @@ above = false
 z_index = -2
 texture = ExtResource("17_xchip")
 centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 304.0
+offset_top = 192.0
+offset_right = 393.0
+offset_bottom = 240.0
+text = "Pick 2"
+label_settings = SubResource("LabelSettings_cs8o6")

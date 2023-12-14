@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=104 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -462,6 +462,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17p4g"]
 size = Vector2(14.4, 272)
 
+[sub_resource type="LabelSettings" id="LabelSettings_m11yw"]
+font_size = 40
+
 [sub_resource type="GDScript" id="GDScript_npkfy"]
 script/source = "extends Node2D
 
@@ -642,9 +645,11 @@ texture = ExtResource("4_pp6rn")
 centered = false
 
 [node name="Intro-Intro" parent="Phases" instance=ExtResource("2_5ss1g")]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="Beep-boop-1" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("3_lr0jd")
 metadata/_edit_lock_ = true
 
@@ -1058,6 +1063,7 @@ centered = false
 
 [node name="Minigame1" type="Node2D" parent="Phases"]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("4_7agvo")
 
 [node name="Start" type="Node2D" parent="Phases/Minigame1"]
@@ -1292,6 +1298,7 @@ texture = ExtResource("16_uc65p")
 centered = false
 
 [node name="Minigame2" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("9_tag34")
 
 [node name="start" type="Node2D" parent="Phases/Minigame2"]
@@ -1438,6 +1445,7 @@ texture = ExtResource("19_0gtm3")
 centered = false
 
 [node name="Transition1" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("2_p4ai6")
 
 [node name="tiles" parent="Phases/Transition1" instance=ExtResource("1_b2h4h")]
@@ -1455,6 +1463,7 @@ texture = ExtResource("21_ql7vj")
 centered = false
 
 [node name="Chorus1" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("11_0jdnv")
 
 [node name="tiles" parent="Phases/Chorus1" instance=ExtResource("1_b2h4h")]
@@ -1514,6 +1523,7 @@ texture = ExtResource("21_ql7vj")
 centered = false
 
 [node name="PostChorus1" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("12_mlexc")
 
 [node name="Start" type="Node2D" parent="Phases/PostChorus1"]
@@ -2071,6 +2081,7 @@ texture = ExtResource("27_vr402")
 centered = false
 
 [node name="Transition2" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("14_tanqx")
 
 [node name="objCameraDynamic" parent="Phases/Transition2" node_paths=PackedStringArray("target_node") instance=ExtResource("7_ildvd")]
@@ -2124,6 +2135,7 @@ texture = ExtResource("31_4b8ne")
 centered = false
 
 [node name="Minigame3" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("15_xo8nr")
 
 [node name="StartRegion" type="Area2D" parent="Phases/Minigame3"]
@@ -2154,6 +2166,7 @@ texture = ExtResource("31_4b8ne")
 centered = false
 
 [node name="Minigame4" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("17_ecwox")
 
 [node name="objOneWay" parent="Phases/Minigame4" instance=ExtResource("23_gsy0w")]
@@ -2383,10 +2396,24 @@ texture = ExtResource("36_eom3k")
 centered = false
 
 [node name="Minigame5" type="Node2D" parent="Phases"]
+visible = false
+
+[node name="Label" type="Label" parent="Phases/Minigame5"]
+visible = false
+offset_left = 216.0
+offset_top = 264.0
+offset_right = 617.0
+offset_bottom = 438.0
+text = "TODO
+(boss will continue in
+ 16 seconds)"
+label_settings = SubResource("LabelSettings_m11yw")
 
 [node name="Transition3" type="Node2D" parent="Phases"]
+visible = false
 
 [node name="Chorus2" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("17_55lui")
 
 [node name="tiles" parent="Phases/Chorus2" instance=ExtResource("1_b2h4h")]
@@ -2450,6 +2477,7 @@ texture = ExtResource("40_4uxis")
 centered = false
 
 [node name="Chorus2_part2" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("19_tb3y5")
 
 [node name="tiles" parent="Phases/Chorus2_part2" instance=ExtResource("1_b2h4h")]
@@ -2520,6 +2548,7 @@ texture = ExtResource("40_4uxis")
 centered = false
 
 [node name="PostChorus2" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("20_b5xfr")
 
 [node name="tiles" parent="Phases/PostChorus2" instance=ExtResource("1_b2h4h")]
@@ -2572,6 +2601,7 @@ texture = ExtResource("43_s15sc")
 centered = false
 
 [node name="Final" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("21_n2q38")
 
 [node name="tiles" parent="Phases/Final" instance=ExtResource("1_b2h4h")]
@@ -2629,6 +2659,7 @@ damage = 999
 damage = 999
 
 [node name="End" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("11_trd68")
 
 [node name="fixedCamera" parent="Phases/End" node_paths=PackedStringArray("target_node") instance=ExtResource("3_sbg1e")]

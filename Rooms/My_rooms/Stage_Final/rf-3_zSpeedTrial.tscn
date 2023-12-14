@@ -79,7 +79,7 @@ metadata/_edit_lock_ = true
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("7_qo0hy")]
 position = Vector2(640, 552)
-warp_to = "res://Rooms/My_rooms/Stage_Boss/r_boss.tscn"
+warp_to = "res://Rooms/My_rooms/Stage_Final/rf-b_preFinalBoss.tscn"
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("8_g4dnq")]
 position = Vector2(48, 144)

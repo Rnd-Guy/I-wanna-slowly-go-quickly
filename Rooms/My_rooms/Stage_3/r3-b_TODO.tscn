@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dh053wiwetpf0"]
+[gd_scene load_steps=20 format=3 uid="uid://dh053wiwetpf0"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_ys22b"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_c3txj"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="14_icjam"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="15_1o3w6"]
 [ext_resource type="Texture2D" uid="uid://xtnq2ap46g7h" path="res://Graphics/Backgrounds/night.png" id="16_u0w6w"]
+[ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="18_4biop"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e5fti"]
 font_size = 40
@@ -98,6 +99,10 @@ offset_top = 312.0
 offset_right = 660.0
 offset_bottom = 486.0
 text = "TODO: 
-stage 3 boss
+stage 3 \"boss\"
 More levels with z speed"
 label_settings = SubResource("LabelSettings_e5fti")
+
+[node name="InstantSpeedManager" parent="." instance=ExtResource("18_4biop")]
+position = Vector2(-16, 48)
+default_instant_speed_ammo = 1

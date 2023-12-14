@@ -69,11 +69,11 @@ func _ready():
 	# player does in fact exist and assigns it with its "id"
 	GLOBAL_INSTANCES.objPlayerID = self
 	
-
 	$CanvasLayer/currentSpeed.top_level = true
 	$CanvasLayer/currentSpeed.position = Vector2(40,40)
 	$CanvasLayer/currentInstaSpeed.top_level = true
 	$CanvasLayer/currentInstaSpeed.position = Vector2(40,60)
+	
 
 
 """
@@ -135,10 +135,13 @@ func _physics_process(delta):
 		$CanvasLayer/currentSpeed.visible = false
 	
 	if show_instant_speed:
+		$CanvasLayer/currentSpeed/Polygon2D2.set_visible(true)
 		if instant_speed_ammo == -1:
 			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: ∞")
 		else:
 			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: " + str(instant_speed_ammo) + " [" + str(default_instant_speed_ammo) + "]")
+	else:
+		$CanvasLayer/currentSpeed/Polygon2D2.set_visible(false)
 	
 	if Input.is_action_just_pressed("button_debug_command"):
 		debug_command()
@@ -493,6 +496,9 @@ func on_death():
 		# player object gets freed!
 		add_sibling(blood_emitter_id)
 		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndDeath)
+		
+		GLOBAL_GAME.deaths += 1
+		GLOBAL_GAME.player_died = true
 		
 		queue_free()
 

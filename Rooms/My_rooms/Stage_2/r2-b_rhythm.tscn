@@ -244,7 +244,7 @@ warp_to = "res://Rooms/My_rooms/Stage_3/r3-1_zSpeedTutorial.tscn"
 position = Vector2(400, 295)
 
 [node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_1422b")]
-position = Vector2(240, 144)
+position = Vector2(400, 296)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

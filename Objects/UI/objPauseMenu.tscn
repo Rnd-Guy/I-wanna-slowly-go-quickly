@@ -9,7 +9,7 @@ process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_yte7v")
-main_menu = "res://Rooms/00_Title_and_menus/rMainMenu.tscn"
+main_menu = "res://Rooms/My_rooms/Other/rMyMainMenu.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

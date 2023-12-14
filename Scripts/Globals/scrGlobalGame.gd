@@ -23,6 +23,11 @@ var warp_to_point: Vector2 = Vector2.ZERO
 var boss_beat = 0
 var shot_beat = 0
 
+var deaths = 0
+var time = 0
+var reset_counts_as_death = true # add one to deaths when resetting (unless player is already dead)
+var player_died = false # this is to track resets 
+
 """
 Public readonly variables, meant to be accessed but not modified outside of this script
 """
@@ -56,7 +61,9 @@ func _ready():
 	# want
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-
+func _process(delta):
+	if !game_paused:
+		time += delta
 
 # The global functions we want to handle each frame. They're self contained
 # and should only fire once or be toggled on and off
@@ -83,6 +90,8 @@ func _physics_process(_delta):
 	# Resetting is more complex, as it needs to make a few checks before
 	# the reset key is even pressed
 	handle_resetting()
+	
+	set_window_title()
 
 
 # We use this to check what type of input device we're using, which in turn
@@ -134,7 +143,10 @@ func toggle_fullscreen() -> void:
 # A full game restart. Goes back to the main menu
 func full_game_restart() -> void:
 	if is_valid_room():
-		
+		# avoid F2 cheese by saving the deaths and time, and adding one if needed
+		# do we need such high effort though?
+		handle_reset_death_count()
+		GLOBAL_SAVELOAD.save_game(false)
 		# If the scene we're on is not the initial project's scene, we change
 		# our current scene to it, essentially working as a game reset.
 		# We get the main scene from our project settings. To compare the name,
@@ -203,7 +215,34 @@ func reset():
 	
 	# Clear/reset our global trigger array
 	triggered_events.clear()
+	
+	handle_reset_death_count()
 
+func handle_reset_death_count():
+	if reset_counts_as_death && !player_died:
+		deaths += 1
+	player_died = false
+
+func set_window_title():
+	#var title = "game title"
+	var title = "game title"
+	if is_valid_room():
+		title = "game title - Deaths: " + str(deaths) + " Time: " + seconds_to_time(time)
+	DisplayServer.window_set_title(title)
+
+func seconds_to_time(seconds):
+	var hours = floori(seconds/(60*60))
+	var minutes = floori((floori(seconds) % (60*60))/60)
+	var minutes_string = ""
+	if minutes < 10:
+		minutes_string += "0"
+	minutes_string += str(minutes)
+	var remaining_seconds = floori(seconds)%60
+	var seconds_string = ""
+	if seconds < 10:
+		seconds_string += "0"
+	seconds_string += str(remaining_seconds)
+	return str(hours) + ":" + minutes_string + ":" + seconds_string
 
 # Fully quits the game (alt + F4)
 func game_quit() -> void:

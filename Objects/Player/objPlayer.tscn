@@ -276,6 +276,20 @@ debug_color = Color(0, 1, 0.0156863, 0.419608)
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/currentSpeed"]
+show_behind_parent = true
+position = Vector2(-8, 0)
+scale = Vector2(0.9375, 0.75)
+color = Color(0, 0.670588, 0.670588, 1)
+polygon = PackedVector2Array(0, 0, 128, 0, 128, 32, 0, 32)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/currentSpeed"]
+show_behind_parent = true
+position = Vector2(-8, -4)
+scale = Vector2(0.9375, 0.75)
+color = Color(0, 0.670588, 0.670588, 1)
+polygon = PackedVector2Array(0, 0, 187.733, 0, 187.733, 64, 0, 64)
+
 [node name="currentInstaSpeed" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
