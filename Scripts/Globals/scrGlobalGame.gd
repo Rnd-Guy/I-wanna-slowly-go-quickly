@@ -239,7 +239,7 @@ func seconds_to_time(seconds):
 	minutes_string += str(minutes)
 	var remaining_seconds = floori(seconds)%60
 	var seconds_string = ""
-	if seconds < 10:
+	if remaining_seconds < 10:
 		seconds_string += "0"
 	seconds_string += str(remaining_seconds)
 	return str(hours) + ":" + minutes_string + ":" + seconds_string
