@@ -36,6 +36,31 @@ var music_is_playing: bool = true
 enum {KEYBOARD, CONTROLLER}
 var global_input_device = KEYBOARD
 
+var room_order = [
+	#"res://Rooms/My_rooms/Other/rMyMainMenu.tscn",
+	"res://Rooms/My_rooms/Stage_1/r1-1_introduction.tscn",
+	"res://Rooms/My_rooms/Stage_1/r1-2_dontSlowDown.tscn",
+	"res://Rooms/My_rooms/Stage_1/r1-3_miniLockpick.tscn",
+	"res://Rooms/My_rooms/Stage_1/r1-4_needle.tscn",
+	"res://Rooms/My_rooms/Stage_1/r1-5_negativeTunnel.tscn",
+	"res://Rooms/My_rooms/Stage_1/r1-6_pachinko.tscn",
+	"res://Rooms/My_rooms/Stage_1/r1-b_avoidance.tscn",
+	"res://Rooms/My_rooms/Stage_2/r2-1_instantSpeed.tscn",
+	"res://Rooms/My_rooms/Stage_2/r2-2_lockpickWithGates.tscn",
+	"res://Rooms/My_rooms/Stage_2/r2-3_neverEndingStairs.tscn",
+	"res://Rooms/My_rooms/Stage_2/r2-b_rhythm.tscn",
+	"res://Rooms/My_rooms/Stage_3/r3-1_zSpeedTutorial.tscn",
+	"res://Rooms/My_rooms/Stage_3/r3-3_wall_refresher_tutorial.tscn",
+	"res://Rooms/My_rooms/Stage_3/r3-4_wall_refreshers.tscn",
+	"res://Rooms/My_rooms/Stage_3/r3-b_TODO.tscn",
+	"res://Rooms/My_rooms/Stage_Final/rf-1_needle2.tscn",
+	"res://Rooms/My_rooms/Stage_Final/rf-2_254.tscn",
+	"res://Rooms/My_rooms/Stage_Final/rf-3_zSpeedTrial.tscn",
+	"res://Rooms/My_rooms/Stage_Final/rf-b_preFinalBoss.tscn",
+	"res://Rooms/My_rooms/Stage_Boss/r_boss.tscn",
+	"res://Rooms/My_rooms/Other/r_end.tscn"
+]
+
 
 """
 Private variables, meant to be handled only by this script
@@ -86,6 +111,12 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("button_quitgame"):
 		game_quit()
+	
+	if debug_mode:
+		if Input.is_action_just_pressed("button_debug_next_room"):
+			switch_to_next_room()
+		elif Input.is_action_just_pressed("button_debug_previous_room"):
+			switch_to_previous_room()
 	
 	# Resetting is more complex, as it needs to make a few checks before
 	# the reset key is even pressed
@@ -286,4 +317,18 @@ func get_input_name(button_id, input_device):
 		return str(InputMap.action_get_events(button_id)[input_device].as_text().trim_prefix("Joypad ").left(9).trim_suffix(" "))
 	
 
+func switch_to_next_room():
+	var cur_room = get_tree().get_current_scene().scene_file_path
+	for i in range(room_order.size()-1):
+		if room_order[i] == cur_room:
+			switch_to_room(room_order[i+1])
+
+func switch_to_previous_room():
+	var cur_room = get_tree().get_current_scene().scene_file_path
+	for i in range(1, room_order.size()):
+		if room_order[i] == cur_room:
+			switch_to_room(room_order[i-1])
+
+func switch_to_room(room_name):
+		get_tree().change_scene_to_file(room_name)
 

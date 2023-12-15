@@ -114,6 +114,8 @@ func on_the_beat():
 		$Environment/til32x32.modulate = Color(1,1,1)
 
 func debug_inputs():
+	if GLOBAL_GAME.debug_mode == false:
+		return
 	if Input.is_action_just_pressed("button_debug_left", true):
 		if music_time > 1:
 			GLOBAL_MUSIC.seek(music_time-1)
@@ -147,7 +149,6 @@ func debug_inputs():
 		%objPlayer.h_speed = speed_on_debug
 		var phase_filter = phases.filter(func(p): return p[1] == phase_to_seek);
 		var phase_index = phases.find(phase_filter[0])
-		#GLOBAL_MUSIC.seek(beat_to_music_time(phases[10][0]))
 		GLOBAL_MUSIC.seek(beat_to_music_time(phases[phase_index][0]))
 	
 func beat_to_music_time(b):
@@ -174,13 +175,6 @@ func take_damage(attack_type, damage):
 
 func defeat_boss():
 	for node in [
-#		$"Phases/Beep-boop-1/Boss1",
-#		$Phases/Chorus1/Boss2,
-#		$Phases/Chorus2/Boss3a,
-#		$Phases/Chorus2_part2/Boss3b,
-#		$Phases/PostChorus2/Boss3c,
-#		$Phases/Final/Boss3d,
-#		$Phases/End/Boss3e,
 		$"Phases/Beep-boop-1",
 		$Phases/Chorus1,
 		$Phases/PostChorus1,
@@ -191,18 +185,8 @@ func defeat_boss():
 		$Phases/End,
 	]:
 		if node.visible == true:
-			#$Room_related/objWarp.position = node.position
-			#node.queue_free()
 			node.phase_defeated()
-		else:
-			pass
-			#node.queue_free()
-#	$"Phases/Beep-boop-1/Boss1".queue_free()
-#	$Phases/Chorus2/Boss3a.queue_free()
-#	$Phases/Chorus2_part2/Boss3b.queue_free()
-#	$Phases/PostChorus2/Boss3c.queue_free()
-#	$Phases/Final/Boss3d.queue_free()
-#	$Phases/End/Boss3e.queue_free()
+
 	set_stop_processing()
 	pass
 

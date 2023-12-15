@@ -106,8 +106,10 @@ func _physics_process(delta):
 	
 	if %objPlayer.position.x > 400:
 		position.x = 112
+		flip_h = true
 	else:
 		position.x = 696
+		flip_h = false
 "
 
 [node name="rTemplate" type="Node2D"]

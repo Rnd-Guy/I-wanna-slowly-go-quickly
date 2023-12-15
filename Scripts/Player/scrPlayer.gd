@@ -574,6 +574,8 @@ func debug_command():
 	pass
 
 func other_debug_commands():
+	if GLOBAL_GAME.debug_mode == false:
+		return
 	if Input.is_action_just_pressed("button_debug_save"):
 		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndSave)
 		GLOBAL_SAVELOAD.save_game()
