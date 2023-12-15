@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=103 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Beep-boop-1.gd" id="3_lr0jd"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_sbg1e"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame1.gd" id="4_7agvo"]
-[ext_resource type="AudioStream" uid="uid://cbtxeavsqivpn" path="res://Audio/Music/musLevel01.ogg" id="4_27w03"]
 [ext_resource type="Texture2D" uid="uid://ctsu4jsdxx6yb" path="res://Graphics/Backgrounds/predj.png" id="4_pp6rn"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Fake-end.gd" id="4_upcyl"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_pfun0"]
@@ -52,7 +51,6 @@
 [ext_resource type="Texture2D" uid="uid://b0mngkv5dpvi7" path="res://Graphics/Backgrounds/postchorus1.png" id="27_vr402"]
 [ext_resource type="Texture2D" uid="uid://ctv43mpp6b7c2" path="res://Graphics/Backgrounds/transition2.png" id="30_6fgt5"]
 [ext_resource type="Texture2D" uid="uid://lkihod0grq2q" path="res://Graphics/Backgrounds/minigame3.png" id="31_4b8ne"]
-[ext_resource type="AudioStream" uid="uid://dfril5dm2066f" path="res://Audio/Music/boss.ogg" id="31_tjblq"]
 [ext_resource type="PackedScene" uid="uid://cwnhywfmf4xo0" path="res://Rooms/My_rooms/Stage_Boss/boss_laser.tscn" id="32_bc4ql"]
 [ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="34_78a3a"]
 [ext_resource type="Texture2D" uid="uid://2kyv0odae18b" path="res://Graphics/Backgrounds/minigame4.png" id="36_eom3k"]
@@ -60,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://dpdihse2e6rby" path="res://Graphics/Backgrounds/postchorus2.png" id="43_s15sc"]
 [ext_resource type="Texture2D" uid="uid://dfepr1bsd6gb2" path="res://Graphics/Backgrounds/final.png" id="45_3qti8"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="53_rnubl"]
+[ext_resource type="AudioStream" uid="uid://b5m7meshk27eg" path="res://Audio/Music/boss-normalized.ogg" id="59_h1fm7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syc1c"]
 size = Vector2(64, 8)
@@ -2399,7 +2398,6 @@ centered = false
 visible = false
 
 [node name="Label" type="Label" parent="Phases/Minigame5"]
-visible = false
 offset_left = 216.0
 offset_top = 264.0
 offset_right = 617.0
@@ -2777,7 +2775,6 @@ metadata/_edit_lock_ = true
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_ro6vu")]
 position = Vector2(-56, 24)
-song_id = ExtResource("4_27w03")
 
 [node name="Room_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -2833,7 +2830,7 @@ metadata/_edit_lock_ = true
 
 [node name="objRhythmPreviewer" parent="." instance=ExtResource("16_0uul7")]
 position = Vector2(-32, 88)
-song_id = ExtResource("31_tjblq")
+song_id = ExtResource("59_h1fm7")
 
 [connection signal="body_entered" from="Phases/Beep-boop-1/Floor/Green/GFP" to="Phases/Beep-boop-1" method="_on_gfp_body_entered"]
 [connection signal="body_exited" from="Phases/Beep-boop-1/Floor/Green/GFP" to="Phases/Beep-boop-1" method="_on_gfp_body_exited"]

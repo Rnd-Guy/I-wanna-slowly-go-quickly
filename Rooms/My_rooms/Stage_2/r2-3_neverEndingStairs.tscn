@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_cyoia"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_1ermu"]
-[ext_resource type="AudioStream" uid="uid://d1b1i23gbpir" path="res://Audio/Music/elona.ogg" id="3_cwi2k"]
+[ext_resource type="AudioStream" uid="uid://bs8w4og0717o" path="res://Audio/Music/elona-normalized.ogg" id="3_8kdd5"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_jxppy"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_ee6a0"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_vgo7e"]
@@ -24,7 +24,7 @@ layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_1ermu")]
 position = Vector2(-16, 16)
-song_id = ExtResource("3_cwi2k")
+song_id = ExtResource("3_8kdd5")
 
 [node name="Room_related" type="Node2D" parent="."]
 

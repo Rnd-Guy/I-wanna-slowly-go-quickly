@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_ij7us"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_hao3s"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_0o5kn"]
-[ext_resource type="AudioStream" uid="uid://kftjeohvwaxd" path="res://Audio/Music/braveDecision.ogg" id="3_437mo"]
+[ext_resource type="AudioStream" uid="uid://bmqa2lja363ph" path="res://Audio/Music/braveDecision-normalized.ogg" id="3_x31dq"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_7xhbq"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_7h385"]
 [ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_bhkmv"]
@@ -25,7 +25,7 @@ layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 0, 65536, 0, 65536, 65536
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_hao3s")]
 position = Vector2(-16, 16)
-song_id = ExtResource("3_437mo")
+song_id = ExtResource("3_x31dq")
 
 [node name="til32x32+0_5x" parent="Environment" instance=ExtResource("1_ij7us")]
 position = Vector2(16, 0)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_eg4u7"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_7s262"]
-[ext_resource type="AudioStream" uid="uid://d1b1i23gbpir" path="res://Audio/Music/elona.ogg" id="3_tykut"]
+[ext_resource type="AudioStream" uid="uid://bs8w4og0717o" path="res://Audio/Music/elona-normalized.ogg" id="3_r6psj"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_cabqm"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_0300q"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_lcm82"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="13_64y0r"]
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="14_yelvg"]
 [ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="15_fpv70"]
-[ext_resource type="AudioStream" uid="uid://dr505u2i5t8ti" path="res://Audio/Music/rhythm.ogg" id="16_ub484"]
+[ext_resource type="AudioStream" uid="uid://dhnnn5yql1tba" path="res://Audio/Music/rhythm-normalized.ogg" id="16_vhr4u"]
 [ext_resource type="Texture2D" uid="uid://04uyq1hbt2gh" path="res://Graphics/Backgrounds/hall.png" id="17_2qhxm"]
 
 [sub_resource type="GDScript" id="GDScript_yrdkg"]
@@ -226,7 +226,7 @@ metadata/_edit_lock_ = true
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_7s262")]
 position = Vector2(-16, 16)
-song_id = ExtResource("3_tykut")
+song_id = ExtResource("3_r6psj")
 
 [node name="Room_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -288,7 +288,7 @@ one_use = true
 
 [node name="objRhythmPreviewer" parent="." instance=ExtResource("15_fpv70")]
 position = Vector2(-32, 88)
-song_id = ExtResource("16_ub484")
+song_id = ExtResource("16_vhr4u")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 40.0

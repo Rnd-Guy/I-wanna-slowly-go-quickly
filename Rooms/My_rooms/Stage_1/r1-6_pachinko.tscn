@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_neo8c"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_fpkt1"]
+[ext_resource type="AudioStream" uid="uid://b8k0524ex6amw" path="res://Audio/Music/balanceValley-normalized.ogg" id="3_1tvee"]
 [ext_resource type="PackedScene" uid="uid://cdx3h81o7hqb4" path="res://Objects/Room_objects/objCameraDynamic.tscn" id="3_us5v4"]
-[ext_resource type="AudioStream" uid="uid://drrqrkhoy785u" path="res://Audio/Music/balanceValley.ogg" id="3_x42ev"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_g8xex"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_3y2qu"]
 [ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_bkgen"]
@@ -122,7 +122,7 @@ metadata/_edit_lock_ = true
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_fpkt1")]
 position = Vector2(-16, 16)
-song_id = ExtResource("3_x42ev")
+song_id = ExtResource("3_1tvee")
 
 [node name="Room_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

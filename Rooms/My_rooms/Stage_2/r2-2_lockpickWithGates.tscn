@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_vwlny"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_p84ce"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_iae4y"]
-[ext_resource type="AudioStream" uid="uid://d1b1i23gbpir" path="res://Audio/Music/elona.ogg" id="3_o8d1c"]
+[ext_resource type="AudioStream" uid="uid://bs8w4og0717o" path="res://Audio/Music/elona-normalized.ogg" id="3_uymxj"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_ha2ql"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_sih0y"]
 [ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_g11hv"]
@@ -24,7 +24,7 @@ layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_p84ce")]
 position = Vector2(-16, 16)
-song_id = ExtResource("3_o8d1c")
+song_id = ExtResource("3_uymxj")
 
 [node name="Room_related" type="Node2D" parent="."]
 
