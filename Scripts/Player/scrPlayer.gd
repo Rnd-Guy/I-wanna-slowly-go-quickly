@@ -385,8 +385,11 @@ func handle_shooting():
 		# CUSTOM
 		# if boss mode and is close to beat, change sprite
 		if is_boss:
+			# bpm is 120 so multiply global offset by 2 (ie divide by 500 instead of 1000)
+			var global_offset = GLOBAL_SETTINGS.MUSIC_OFFSET/500.0
+			
 			if abs(GLOBAL_GAME.shot_beat - GLOBAL_GAME.boss_beat) > 0.4 && \
-					fmod(GLOBAL_GAME.boss_beat,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat,1) > 0.9:
+					fmod(GLOBAL_GAME.boss_beat - global_offset,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat - global_offset,1) > 0.9:
 				create_bullet_id.boss_bullet = true
 				create_bullet_id.attack_type = GlobalClass.weapon_type.NOTE
 				h_speed += 0.01

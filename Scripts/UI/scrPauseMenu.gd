@@ -87,6 +87,7 @@ func _on_tree_exiting():
 func set_labels_text():
 	$CanvasLayer/VBoxContainer/MusicVolume/Label.text = "Music Volume: " + str(round(music_volume * 100)) + "%"
 	$CanvasLayer/VBoxContainer/SoundVolume/Label.text = "Sound Volume: " + str(round(sound_volume * 100)) + "%"
+	$CanvasLayer/VBoxContainer/MusicOffset/Label.text = "Music Offset: " + str(GLOBAL_SETTINGS.MUSIC_OFFSET)
 	$CanvasLayer/VBoxContainer/QuitToMenu/Label.text = "Quit to Main Menu"
 	$CanvasLayer/VBoxContainer/ResumeGame/Label.text = "Resume"
 
@@ -95,10 +96,25 @@ func set_labels_text():
 # Just a personal preference, and lazily made
 func set_button_colors():
 	$CanvasLayer/VBoxContainer/SoundVolume/Label.set("theme_override_colors/font_outline_color", button_color_unfocused)
+	$CanvasLayer/VBoxContainer/MusicOffset/Label.set("theme_override_colors/font_outline_color", button_color_unfocused)
 	$CanvasLayer/VBoxContainer/QuitToMenu/Label.set("theme_override_colors/font_outline_color", button_color_unfocused)
 	$CanvasLayer/VBoxContainer/ResumeGame/Label.set("theme_override_colors/font_outline_color", button_color_unfocused)
 	
 	$CanvasLayer/VBoxContainer/MusicVolume.color_unfocused = button_color_unfocused
 	$CanvasLayer/VBoxContainer/SoundVolume.color_unfocused = button_color_unfocused
+	$CanvasLayer/VBoxContainer/MusicOffset.color_unfocused = button_color_unfocused
 	$CanvasLayer/VBoxContainer/QuitToMenu.color_unfocused = button_color_unfocused
 	$CanvasLayer/VBoxContainer/ResumeGame.color_unfocused = button_color_unfocused
+
+
+func _on_music_offset_gui_input(event):
+	
+	if Input.is_action_just_pressed("button_shift_right"):
+		GLOBAL_SETTINGS.MUSIC_OFFSET += 10
+	elif Input.is_action_just_pressed("ui_right"):
+		GLOBAL_SETTINGS.MUSIC_OFFSET += 1
+	
+	if Input.is_action_just_pressed("button_shift_left"):
+		GLOBAL_SETTINGS.MUSIC_OFFSET -= 10
+	elif Input.is_action_just_pressed("ui_left"):
+		GLOBAL_SETTINGS.MUSIC_OFFSET -= 1

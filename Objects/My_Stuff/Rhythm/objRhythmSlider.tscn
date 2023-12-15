@@ -51,6 +51,8 @@ func _ready():
 	resync_rhythm_position()
 	pass # Replace with function body.
 
+func get_global_offset():
+	global_offset = GLOBAL_SETTINGS.MUSIC_OFFSET/1000.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -66,13 +68,14 @@ func _physics_process(delta):
 
 
 func resync_rhythm_position():
-	time_to_reach_middle = (beat * seconds_per_beat) + time_offset
+	get_global_offset()
+	time_to_reach_middle = (beat * seconds_per_beat) + time_offset + global_offset
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
 	var distance = (time_to_reach_middle - music_time) * speed
 	if direction == \"up\":
-		set_global_position(Vector2(x-x_offset,320 + global_offset + y_offset + distance))
+		set_global_position(Vector2(x-x_offset,320 + y_offset + distance))
 	elif direction == \"down\":
-		set_global_position(Vector2(x-x_offset,320 + global_offset + y_offset - distance))
+		set_global_position(Vector2(x-x_offset,320 + y_offset - distance))
 
 func _on_timer_timeout():
 	resync_rhythm_position()

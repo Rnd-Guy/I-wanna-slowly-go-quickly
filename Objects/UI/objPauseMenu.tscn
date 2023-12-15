@@ -60,13 +60,21 @@ layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../MusicVolume")
 focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../MusicOffset")
+action_mode = 0
+
+[node name="MusicOffset" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_vn420")]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../SoundVolume")
+focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../QuitToMenu")
 action_mode = 0
 
 [node name="QuitToMenu" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_vn420")]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../SoundVolume")
+focus_neighbor_top = NodePath("../MusicOffset")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../ResumeGame")
 action_mode = 0
@@ -81,5 +89,6 @@ focus_neighbor_bottom = NodePath("../MusicVolume")
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="gui_input" from="CanvasLayer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_gui_input"]
 [connection signal="gui_input" from="CanvasLayer/VBoxContainer/SoundVolume" to="." method="_on_sound_volume_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/VBoxContainer/MusicOffset" to="." method="_on_music_offset_gui_input"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitToMenu" to="." method="_on_quit_to_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ResumeGame" to="." method="_on_resume_game_pressed"]

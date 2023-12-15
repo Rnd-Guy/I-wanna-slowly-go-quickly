@@ -156,6 +156,8 @@ var max_right = 740
 var end_beat = 1000
 
 func enter():
+	if !%objPlayer:
+		return
 	#current_direction = direction[randi_range(0,1)]
 	if %objPlayer.position.x > %Boss1.position.x:
 		current_direction = 1
@@ -202,6 +204,8 @@ var end_beat = 1000
 var boss_y = 0
 
 func enter():
+	if !%objPlayer:
+		return
 	boss_y = %Boss1.position.y
 	#current_direction = direction[randi_range(0,1)]
 	if %objPlayer.position.x > %Boss1.position.x:

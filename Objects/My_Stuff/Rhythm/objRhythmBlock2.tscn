@@ -16,6 +16,7 @@ var offset = 0
 var size = 2
 var flip = false
 var time_offset = 0
+var global_offset = 0
 
 # calculations
 var seconds_per_beat # 60 / bpm
@@ -52,7 +53,8 @@ func _physics_process(delta):
 
 func resync_rhythm_position():
 	#seconds_per_beat = 60.0/beat
-	time_to_reach_middle = (beat * seconds_per_beat) + time_offset
+	global_offset = GLOBAL_SETTINGS.MUSIC_OFFSET/1000.0
+	time_to_reach_middle = (beat * seconds_per_beat) + time_offset + global_offset
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
 	#var music_time = GLOBAL_MUSIC.get_memoized_position()
 	#var distance = time_to_reach_middle * speed

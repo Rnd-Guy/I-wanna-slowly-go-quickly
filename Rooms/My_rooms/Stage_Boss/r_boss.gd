@@ -101,6 +101,7 @@ func _physics_process(_delta):
 		set_phase()
 		
 	update_boss()
+	show_debug_labels()
 
 func resync_rhythm_position():
 	music_time = GLOBAL_MUSIC.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
@@ -193,3 +194,13 @@ func defeat_boss():
 func set_stop_processing():
 	stop_processing = true
 	GLOBAL_MUSIC.stop()
+
+func show_debug_labels():
+	if GLOBAL_GAME.debug_mode:
+		$Debug/CanvasLayer/ms.set_visible(true)
+		$Debug/CanvasLayer/beat.set_visible(true)
+		$Debug/CanvasLayer/shotbeat.set_visible(true)
+	else:
+		$Debug/CanvasLayer/ms.set_visible(false)
+		$Debug/CanvasLayer/beat.set_visible(false)
+		$Debug/CanvasLayer/shotbeat.set_visible(false)

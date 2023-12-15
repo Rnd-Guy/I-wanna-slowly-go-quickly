@@ -7,6 +7,7 @@ var SOUND_VOLUME: float = 1.0
 var FULLSCREEN: bool = false
 var VSYNC: bool = true
 var AUTORESET: bool = false
+var MUSIC_OFFSET: float = 0.0
 
 # Default values, for when you need to reset them from the settings menu
 const DEFAULT_MUSIC_VOLUME: float = 1.0
@@ -14,6 +15,7 @@ const DEFAULT_SOUND_VOLUME: float = 1.0
 var DEFAULT_FULLSCREEN: bool = false
 const DEFAULT_VSYNC: bool = true
 const DEFAULT_AUTORESET: bool = false
+const DEFAULT_MUSIC_OFFSET: float = 0.0
 
 # Window related variables, for handling window modes
 var INITIAL_WINDOW_WIDTH: int = DisplayServer.window_get_size().x
@@ -43,6 +45,7 @@ func save_settings() -> void:
 	
 	configFile.set_value("volume", "music_volume", MUSIC_VOLUME)
 	configFile.set_value("volume", "sound_volume", SOUND_VOLUME)
+	configFile.set_value("volume", "offset", MUSIC_OFFSET)
 	configFile.set_value("settings", "fullscreen", FULLSCREEN)
 	configFile.set_value("settings", "vsync", VSYNC)
 	configFile.set_value("settings", "autoreset", AUTORESET)
@@ -60,6 +63,7 @@ func load_settings() -> void:
 	
 	MUSIC_VOLUME = configFile.get_value("volume", "music_volume", MUSIC_VOLUME)
 	SOUND_VOLUME = configFile.get_value("volume", "sound_volume", SOUND_VOLUME)
+	MUSIC_OFFSET = configFile.get_value("volume", "offset", MUSIC_OFFSET)
 	FULLSCREEN = configFile.get_value("settings", "fullscreen", FULLSCREEN)
 	VSYNC = configFile.get_value("settings", "vsync", VSYNC)
 	AUTORESET = configFile.get_value("settings", "autoreset", AUTORESET)
@@ -83,6 +87,7 @@ func default_settings() -> void:
 	
 	MUSIC_VOLUME = DEFAULT_MUSIC_VOLUME
 	SOUND_VOLUME = DEFAULT_SOUND_VOLUME
+	MUSIC_OFFSET = DEFAULT_MUSIC_OFFSET
 	FULLSCREEN = DEFAULT_FULLSCREEN
 	VSYNC = DEFAULT_VSYNC
 	AUTORESET = DEFAULT_AUTORESET
