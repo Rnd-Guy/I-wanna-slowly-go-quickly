@@ -29,6 +29,7 @@ layer_0/tile_data = PackedInt32Array(2359304, 1, 1, 2359305, 65537, 1, 2359306, 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("3_065ej")]
 position = Vector2(-16, 16)
 song_id = ExtResource("4_m1mlu")
+loop_end = 230.0
 
 [node name="objMainMenuBackground" parent="Environment" instance=ExtResource("5_ijnuw")]
 

@@ -123,6 +123,8 @@ metadata/_edit_lock_ = true
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_fpkt1")]
 position = Vector2(-16, 16)
 song_id = ExtResource("3_1tvee")
+loop_start = 169.0
+loop_end = 347.2
 
 [node name="Room_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

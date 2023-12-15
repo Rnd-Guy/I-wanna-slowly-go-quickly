@@ -31,6 +31,7 @@ layer_0/tile_data = PackedInt32Array(14, 65537, 1, 65550, 65537, 1, 131086, 6553
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("4_7s7wq")]
 position = Vector2(-16, 16)
 song_id = ExtResource("5_qq83t")
+loop_end = 230.0
 
 [node name="ControlsContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
