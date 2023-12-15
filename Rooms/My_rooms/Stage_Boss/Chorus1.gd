@@ -99,35 +99,35 @@ func _physics_process(_delta):
 		spawn_turret(rx(), ry(), 143, 144)
 		
 	elif one(141):
-		spawn_turret(rx(), ry(), 144, 145)
-		spawn_turret(rx(), ry(), 144, 145)
-		spawn_turret(rx(), ry(), 144, 145)
-		spawn_turret(rx(), ry(), 144, 145)
-		spawn_turret(rx(), ry(), 144, 145)
+		spawn_turret(rx(), ry(), 144, 145, true)
+		spawn_turret(rx(), ry(), 144, 145, true)
+		spawn_turret(rx(), ry(), 144, 145, true)
+		spawn_turret(rx(), ry(), 144, 145, true)
+		spawn_turret(rx(), ry(), 144, 145, true)
 	elif one(142):
-		spawn_turret(rx(), ry(), 145, 146)
-		spawn_turret(rx(), ry(), 145, 146)
-		spawn_turret(rx(), ry(), 145, 146)
-		spawn_turret(rx(), ry(), 145, 146)
-		spawn_turret(rx(), ry(), 145, 146)
+		spawn_turret(rx(), ry(), 145, 146, true)
+		spawn_turret(rx(), ry(), 145, 146, true)
+		spawn_turret(rx(), ry(), 145, 146, true)
+		spawn_turret(rx(), ry(), 145, 146, true)
+		spawn_turret(rx(), ry(), 145, 146, true)
 	elif one(143):
-		spawn_turret(rx(), ry(), 146, 147)
-		spawn_turret(rx(), ry(), 146, 147)
-		spawn_turret(rx(), ry(), 146, 147)
-		spawn_turret(rx(), ry(), 146, 147)
-		spawn_turret(rx(), ry(), 146, 147)
+		spawn_turret(rx(), ry(), 146, 147, true)
+		spawn_turret(rx(), ry(), 146, 147, true)
+		spawn_turret(rx(), ry(), 146, 147, true)
+		spawn_turret(rx(), ry(), 146, 147, true)
+		spawn_turret(rx(), ry(), 146, 147, true)
 	elif one(144):
-		spawn_turret(rx(), ry(), 147, 148)
-		spawn_turret(rx(), ry(), 147, 148)
-		spawn_turret(rx(), ry(), 147, 148)
-		spawn_turret(rx(), ry(), 147, 148)
-		spawn_turret(rx(), ry(), 147, 148)
+		spawn_turret(rx(), ry(), 147, 148, true)
+		spawn_turret(rx(), ry(), 147, 148, true)
+		spawn_turret(rx(), ry(), 147, 148, true)
+		spawn_turret(rx(), ry(), 147, 148, true)
+		spawn_turret(rx(), ry(), 147, 148, true)
 	elif one(145):
-		spawn_turret(rx(), ry(), 148, 149)
-		spawn_turret(rx(), ry(), 148, 149)
-		spawn_turret(rx(), ry(), 148, 149)
-		spawn_turret(rx(), ry(), 148, 149)
-		spawn_turret(rx(), ry(), 148, 149)
+		spawn_turret(rx(), ry(), 148, 149, true)
+		spawn_turret(rx(), ry(), 148, 149, true)
+		spawn_turret(rx(), ry(), 148, 149, true)
+		spawn_turret(rx(), ry(), 148, 149, true)
+		spawn_turret(rx(), ry(), 148, 149, true)
 		$Boss2/BossRelativeTransformer.set_remote_node("")
 
 func _on_player_collision_body_entered(_body):
@@ -139,8 +139,8 @@ func _on_player_collision_body_entered(_body):
 func _on_player_collision_body_exited(_body):
 	player_in_hitbox = false
 
-func spawn_turret(x, y, start_beat, end_beat):
-	$Boss2.spawn_turret(Vector2(x, y), start_beat, end_beat)
+func spawn_turret(x, y, start_beat, end_beat, direct=false):
+	$Boss2.spawn_turret(Vector2(x, y), start_beat, end_beat, direct)
 
 func rx():
 	return 0 + randf_range(0,300)

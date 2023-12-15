@@ -35,6 +35,7 @@ scroll_active = false
 shortcut_keys_enabled = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+z_index = 4096
 scale = Vector2(4, 4)
 texture = ExtResource("2_sjbyw")
 centered = false

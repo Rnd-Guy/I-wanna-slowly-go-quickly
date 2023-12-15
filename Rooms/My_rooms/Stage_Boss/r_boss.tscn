@@ -336,13 +336,16 @@ func on_timeout():
 	iframe = false
 	modulate.a = 1
 
-func spawn_turret(relative_position, start_beat, end_beat):
+func spawn_turret(relative_position, start_beat, end_beat, direct=false):
 	var t = turret.instantiate()
 	t.create_beat = GLOBAL_GAME.boss_beat
 	t.start_beat = start_beat
 	t.end_beat = end_beat
 	t.relative_end_position = relative_position
-	t.player_offset = Vector2(randf_range(-32,32), randf_range(-32,32))
+	if !direct:
+		t.player_offset = Vector2(randf_range(-32,32), randf_range(-32,32))
+	else:
+		t.player_offset = Vector2(0,0)
 	
 	# kept separate to avoid boss alpha affecting turrets
 	# the BossRelativeTransformer will move the Instances node along for us
