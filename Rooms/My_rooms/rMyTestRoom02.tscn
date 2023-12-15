@@ -31,7 +31,7 @@ position = Vector2(163, 153)
 anchor_mode = 1
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("4_65hrq")]
-position = Vector2(736, 549)
+position = Vector2(673, 145)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_0bfj7")]
 position = Vector2(128, 559)
@@ -70,136 +70,136 @@ position = Vector2(107, 510)
 fade_instant = true
 
 [node name="objSpeedLock2" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(628, 265)
+position = Vector2(580, 260)
 above = false
 
 [node name="objSpeedLock3" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(626, 300)
+position = Vector2(578, 295)
 above = false
 below = true
 equal = false
 
 [node name="objSpeedLock4" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(624, 337)
+position = Vector2(576, 332)
 above = false
 below = true
 
 [node name="objSpeedLock5" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(622, 376)
+position = Vector2(574, 371)
 equal = false
 
 [node name="objSpeedLock6" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(620, 416)
+position = Vector2(572, 411)
 
 [node name="objSpeedLock7" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(618, 454)
+position = Vector2(570, 449)
 below = true
 equal = false
 
 [node name="objMovingPlatform" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(563, 492)
+position = Vector2(515, 487)
 
 [node name="objMovingPlatform2" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(568, 452)
+position = Vector2(520, 447)
 
 [node name="objMovingPlatform3" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(569, 403)
+position = Vector2(521, 398)
 
 [node name="objMovingPlatform4" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(574, 335)
+position = Vector2(526, 330)
 
 [node name="objMovingPlatform5" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(574, 268)
+position = Vector2(526, 263)
 
 [node name="objSpeedAdder2" parent="." instance=ExtResource("10_nvxcu")]
-position = Vector2(689, 488)
+position = Vector2(735, 551)
 speed = -1.0
 fade_instant = true
 
 [node name="objSpeedAdder3" parent="." instance=ExtResource("10_nvxcu")]
-position = Vector2(516, 498)
+position = Vector2(412, 433)
 fade_instant = true
 
 [node name="objSpeedSetter" parent="." instance=ExtResource("13_hp38k")]
-position = Vector2(624, 518)
+position = Vector2(514, 556)
 
 [node name="objSpeedLock8" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(666, 266)
+position = Vector2(618, 261)
 above = false
 one_use = true
 
 [node name="objSpeedLock9" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(664, 301)
+position = Vector2(616, 296)
 above = false
 below = true
 equal = false
 one_use = true
 
 [node name="objSpeedLock10" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(662, 338)
+position = Vector2(614, 333)
 above = false
 below = true
 one_use = true
 
 [node name="objSpeedLock11" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(660, 377)
+position = Vector2(612, 372)
 equal = false
 one_use = true
 
 [node name="objSpeedLock12" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(658, 417)
+position = Vector2(610, 412)
 one_use = true
 
 [node name="objSpeedLock13" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(656, 455)
+position = Vector2(608, 450)
 below = true
 equal = false
 one_use = true
 
 [node name="objSpeedLock14" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(703, 264)
+position = Vector2(655, 259)
 above = false
 perma_lock = true
 
 [node name="objSpeedLock15" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(701, 299)
+position = Vector2(653, 294)
 above = false
 below = true
 equal = false
 perma_lock = true
 
 [node name="objSpeedLock16" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(699, 336)
+position = Vector2(651, 331)
 above = false
 below = true
 perma_lock = true
 
 [node name="objSpeedLock17" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(697, 375)
+position = Vector2(649, 370)
 equal = false
 perma_lock = true
 
 [node name="objSpeedLock18" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(695, 415)
+position = Vector2(647, 410)
 perma_lock = true
 
 [node name="objSpeedLock19" parent="." instance=ExtResource("11_c8ldi")]
-position = Vector2(693, 453)
+position = Vector2(645, 448)
 below = true
 equal = false
 perma_lock = true
 
 [node name="objMovingPlatform6" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(733, 479)
+position = Vector2(697, 500)
 
 [node name="objMovingPlatform7" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(738, 439)
+position = Vector2(705, 455)
 
 [node name="objMovingPlatform8" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(739, 390)
+position = Vector2(691, 385)
 
 [node name="objMovingPlatform9" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(744, 322)
+position = Vector2(696, 317)
 
 [node name="objMovingPlatform10" parent="." instance=ExtResource("12_unf7h")]
-position = Vector2(744, 255)
+position = Vector2(696, 250)

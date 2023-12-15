@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://desnunju1h5wd"]
+[gd_scene load_steps=12 format=3 uid="uid://desnunju1h5wd"]
 
 [ext_resource type="Script" path="res://Objects/My_Stuff/Speed/objSpeedLock.gd" id="1_equmf"]
 [ext_resource type="Texture2D" uid="uid://c7gx4j76prjg8" path="res://Graphics/Sprites/Speed/sprSpeed.png" id="2_5rnk5"]
+[ext_resource type="Texture2D" uid="uid://cyipcr6ol6ep6" path="res://Graphics/Sprites/My Stuff/lock_open.png" id="3_1hvk7"]
+[ext_resource type="Texture2D" uid="uid://bxm2c2ebakar3" path="res://Graphics/Sprites/My Stuff/lock_shut.png" id="4_bvg7j"]
+[ext_resource type="Texture2D" uid="uid://dhd75fw5srb37" path="res://Graphics/Sprites/My Stuff/breakable_lock_open.png" id="5_15xvu"]
+[ext_resource type="Texture2D" uid="uid://bxwo4pkoe8cnv" path="res://Graphics/Sprites/My Stuff/temp_open.png" id="5_ej12c"]
+[ext_resource type="Texture2D" uid="uid://jtd71hgmuvry" path="res://Graphics/Sprites/My Stuff/breakable_lock_closed.png" id="6_aji64"]
+[ext_resource type="Texture2D" uid="uid://6q1w8i137y4h" path="res://Graphics/Sprites/My Stuff/temp_closed.png" id="6_i6occ"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv3f4"]
 size = Vector2(32, 32)
@@ -9,10 +15,14 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trjee"]
 size = Vector2(32, 32)
 
+[sub_resource type="LabelSettings" id="LabelSettings_t0g6j"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="objSpeedLock" type="Node2D"]
 script = ExtResource("1_equmf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_5rnk5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -30,6 +40,44 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_trjee")
 
+[node name="perma" type="Node2D" parent="."]
+
+[node name="open" type="Sprite2D" parent="perma"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1hvk7")
+
+[node name="closed" type="Sprite2D" parent="perma"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_bvg7j")
+
+[node name="breakable" type="Node2D" parent="."]
+visible = false
+
+[node name="open" type="Sprite2D" parent="breakable"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_15xvu")
+
+[node name="closed" type="Sprite2D" parent="breakable"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_aji64")
+
+[node name="temp" type="Node2D" parent="."]
+visible = false
+
+[node name="open" type="Sprite2D" parent="temp"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ej12c")
+
+[node name="closed" type="Sprite2D" parent="temp"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_i6occ")
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -42,6 +90,7 @@ offset_left = -16.0
 offset_top = -11.0
 offset_right = 16.0
 offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_t0g6j")
 horizontal_alignment = 1
 vertical_alignment = 1
 
