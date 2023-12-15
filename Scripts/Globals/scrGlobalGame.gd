@@ -6,6 +6,7 @@ Public variables, meant to be accessed and modified outside of this script
 var debug_mode: bool = false
 var is_changing_rooms: bool = false
 var game_paused: bool = false
+var game_name = ProjectSettings.get_setting("application/config/name")
 
 # This fixes some issues with collision detection on moving platforms
 const SNAPPING_GRID: int = 16
@@ -255,10 +256,9 @@ func handle_reset_death_count():
 	player_died = false
 
 func set_window_title():
-	#var title = "game title"
-	var title = "game title"
+	var title = game_name
 	if is_valid_room():
-		title = "game title - Deaths: " + str(deaths) + " Time: " + seconds_to_time(time)
+		title = game_name + " - Deaths: " + str(deaths) + " Time: " + seconds_to_time(time)
 	DisplayServer.window_set_title(title)
 
 func seconds_to_time(seconds):
