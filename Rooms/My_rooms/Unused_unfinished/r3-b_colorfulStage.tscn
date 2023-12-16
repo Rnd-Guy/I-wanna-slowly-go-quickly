@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dgqo0014s6h5w"]
+[gd_scene load_steps=23 format=3 uid="uid://dgqo0014s6h5w"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_3/r_soundvoltex.gd" id="1_kamkh"]
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="2_nyeud"]
@@ -15,10 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="13_uwx4c"]
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="14_gxukw"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="15_1r234"]
+[ext_resource type="AudioStream" uid="uid://c3w88gj6frbi3" path="res://Audio/Music/muGarden-normalized.ogg" id="16_0kf14"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="16_6hedi"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="17_4avam"]
 [ext_resource type="Texture2D" uid="uid://cl8qucfh1wm0y" path="res://Graphics/Backgrounds/colourfulstage.png" id="18_sxfau"]
 [ext_resource type="PackedScene" uid="uid://ct15bqbbs3hsg" path="res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn" id="19_576su"]
+[ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="20_21c5f"]
+[ext_resource type="AudioStream" uid="uid://omenyxn54k4g" path="res://Audio/Music/miku.ogg" id="21_wrqbj"]
 
 [node name="rTemplate" type="Node2D"]
 script = ExtResource("1_kamkh")
@@ -29,7 +32,12 @@ metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("2_nyeud")]
 rendering_quadrant_size = 32
-layer_0/tile_data = PackedInt32Array(2097162, 65536, 0, 2097164, 65536, 0, 2097166, 65536, 0, 2097168, 65536, 0, 2097170, 65536, 0, 2097172, 65536, 0, 2097174, 65536, 0, 2097176, 65536, 0, 2097178, 65536, 0, 2097180, 65536, 0, 2097182, 65536, 0, 2097184, 65536, 0, 2097186, 65536, 0, 2097188, 65536, 0, 1966118, 65536, 0, 1835044, 65536, 0, 1835042, 65536, 0, 1835040, 65536, 0, 1835038, 65536, 0, 1835036, 65536, 0, 1835034, 65536, 0, 1835032, 65536, 0, 1835030, 65536, 0, 1835028, 65536, 0, 1835026, 65536, 0, 1835024, 65536, 0, 1835022, 65536, 0, 1835020, 65536, 0, 1835018, 65536, 0, 1966088, 65536, 0, 2228258, 65536, 0, 2228254, 65536, 0, 2359324, 65536, 0, 2228250, 65536, 0, 2228246, 65536, 0, 2359316, 65536, 0, 2228242, 65536, 0, 2228238, 65536, 0, 2359308, 65536, 0, 2228234, 65536, 0, 2359332, 65536, 0)
+layer_0/tile_data = PackedInt32Array(2359344, 65536, 3, 2359342, 0, 3, 2359340, 0, 3, 2359338, 0, 3, 2359336, 0, 3, 2359334, 0, 3, 2359332, 0, 3, 2359330, 0, 3, 2359328, 0, 3, 2359326, 0, 3, 2359324, 0, 3, 2359322, 0, 3, 2359320, 0, 3, 2359318, 0, 3, 2359316, 0, 3, 2359314, 0, 3, 2359312, 0, 3, 2359310, 0, 3, 2359308, 0, 3, 2359306, 0, 3, 2359304, 0, 3, 2359302, 0, 3, 2359300, 0, 3, 2359298, 0, 3, 2359296, 65536, 3, 2228224, 65536, 2, 2097152, 65536, 2, 1966080, 65536, 2, 1835008, 65536, 2, 1703936, 65536, 2, 1572864, 65536, 2, 1441792, 65536, 2, 1310720, 65536, 2, 1179648, 65536, 2, 1048576, 65536, 2, 917504, 65536, 2, 786432, 65536, 2, 655360, 65536, 2, 524288, 65536, 2, 393216, 65536, 2, 262144, 65536, 2, 131072, 65536, 2, 0, 65536, 3, 2, 0, 3, 4, 0, 3, 6, 0, 3, 8, 0, 3, 10, 0, 3, 12, 0, 3, 14, 0, 3, 16, 0, 3, 18, 0, 3, 20, 0, 3, 22, 0, 3, 24, 0, 3, 26, 0, 3, 28, 0, 3, 30, 0, 3, 32, 0, 3, 34, 0, 3, 36, 0, 3, 38, 0, 3, 40, 0, 3, 42, 0, 3, 44, 0, 3, 46, 0, 3, 2228272, 65536, 2, 2097200, 65536, 2, 1966128, 65536, 2, 1835056, 65536, 2, 1703984, 65536, 2, 1572912, 65536, 2, 1441840, 65536, 2, 1310768, 65536, 2, 1179696, 65536, 2, 1048624, 65536, 2, 917552, 65536, 2, 786480, 65536, 2, 655408, 65536, 2, 524336, 65536, 2, 393264, 65536, 2, 262192, 65536, 2, 131120, 65536, 2, 48, 65536, 3)
+
+[node name="tempTiles" parent="Environment" instance=ExtResource("2_nyeud")]
+visible = false
+rendering_quadrant_size = 32
+layer_0/tile_data = PackedInt32Array(1835018, 65536, 0, 1835020, 65536, 0, 1835022, 65536, 0, 1835024, 65536, 0, 1835026, 65536, 0, 1835028, 65536, 0, 1835030, 65536, 0, 1835032, 65536, 0, 1835034, 65536, 0, 1835036, 65536, 0, 1835038, 65536, 0, 1835040, 65536, 0, 1835042, 65536, 0, 1835044, 65536, 0, 1966117, 65536, 0, 2097188, 65536, 0, 2097186, 65536, 0, 2097184, 65536, 0, 2097182, 65536, 0, 2097180, 65536, 0, 2097178, 65536, 0, 2097176, 65536, 0, 2097174, 65536, 0, 2097172, 65536, 0, 2097170, 65536, 0, 2097168, 65536, 0, 2097166, 65536, 0, 2097164, 65536, 0, 2097162, 65536, 0, 1966089, 65536, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("3_k8yd3")]
 
@@ -85,6 +93,7 @@ position = Vector2(-48, 224)
 
 [node name="objMusicPlayer" parent="." instance=ExtResource("15_1r234")]
 position = Vector2(-16, 16)
+song_id = ExtResource("16_0kf14")
 
 [node name="til32x32" parent="." instance=ExtResource("16_6hedi")]
 visible = false
@@ -101,21 +110,27 @@ texture = ExtResource("18_sxfau")
 metadata/_edit_lock_ = true
 
 [node name="Note" parent="." instance=ExtResource("19_576su")]
+visible = false
 position = Vector2(208, 8)
 
 [node name="Note2" parent="." instance=ExtResource("19_576su")]
+visible = false
 position = Vector2(280, 8)
 
 [node name="Note3" parent="." instance=ExtResource("19_576su")]
+visible = false
 position = Vector2(352, 8)
 
 [node name="Note4" parent="." instance=ExtResource("19_576su")]
+visible = false
 position = Vector2(416, 8)
 
 [node name="Note5" parent="." instance=ExtResource("19_576su")]
+visible = false
 position = Vector2(488, 8)
 
 [node name="Note6" parent="." instance=ExtResource("19_576su")]
+visible = false
 position = Vector2(560, 7)
 
 [node name="Middle" type="Marker2D" parent="."]
@@ -145,3 +160,16 @@ gizmo_extents = 619.4
 [node name="Middle7" type="Marker2D" parent="."]
 position = Vector2(528, 0)
 gizmo_extents = 619.4
+
+[node name="objRhythmPreviewer" parent="." instance=ExtResource("20_21c5f")]
+position = Vector2(-32, 88)
+song_id = ExtResource("21_wrqbj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 101.0
+offset_bottom = 66.0
+text = "Score: 0"
+
+[node name="Instances" type="Node2D" parent="."]

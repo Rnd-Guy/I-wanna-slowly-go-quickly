@@ -31,7 +31,7 @@ func _ready():
 		$Sprite2D.flip_h = true
 	# set initial position here
 	seconds_per_beat = 60.0/bpm
-	time_to_reach_middle = (beat * seconds_per_beat) + time_offset
+	time_to_reach_middle = (beat * seconds_per_beat) + time_offset + global_offset
 	
 	resync_rhythm_position()
 	pass # Replace with function body.
