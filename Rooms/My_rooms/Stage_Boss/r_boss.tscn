@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=111 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -54,6 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://cwnhywfmf4xo0" path="res://Rooms/My_rooms/Stage_Boss/boss_laser.tscn" id="32_bc4ql"]
 [ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="34_78a3a"]
 [ext_resource type="Texture2D" uid="uid://2kyv0odae18b" path="res://Graphics/Backgrounds/minigame4.png" id="36_eom3k"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Transition3.gd" id="37_sb05k"]
 [ext_resource type="Texture2D" uid="uid://cs4cmmn1ge4es" path="res://Graphics/Backgrounds/chorus2.png" id="40_4uxis"]
 [ext_resource type="Texture2D" uid="uid://dpdihse2e6rby" path="res://Graphics/Backgrounds/postchorus2.png" id="43_s15sc"]
 [ext_resource type="Texture2D" uid="uid://dfepr1bsd6gb2" path="res://Graphics/Backgrounds/final.png" id="45_3qti8"]
@@ -471,6 +472,145 @@ size = Vector2(14.4, 272)
 [sub_resource type="LabelSettings" id="LabelSettings_m11yw"]
 font_size = 40
 
+[sub_resource type="Animation" id="Animation_idqty"]
+resource_name = "Transition3"
+length = 0.1
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%objPlayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.00919241, 0.0153207, 0.021829, 0.0255345, 0.0347269, 0.0408552, 0.0449407, 0.0571972, 0.0653683, 0.0755821, 0.0857959, 0.0929455, 0.102138, 0.106223),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(416, -30), Vector2(417, -20), Vector2(416.515, -25.8196), Vector2(416, -32), Vector2(416, -21), Vector2(418, -25), Vector2(412, -17), Vector2(411, -24), Vector2(420, -19), Vector2(415, -19), Vector2(418, -27), Vector2(417, -18), Vector2(417, -18), Vector2(417, -18), Vector2(413, -14)]
+}
+
+[sub_resource type="Animation" id="Animation_fu3md"]
+resource_name = "BlastOff"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%objPlayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00102138, 0.499454),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(416, -30), Vector2(416, -72)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t5aq2"]
+_data = {
+"BlastOff": SubResource("Animation_fu3md"),
+"Shake": SubResource("Animation_idqty")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_yuubf"]
+font_size = 500
+
+[sub_resource type="LabelSettings" id="LabelSettings_snnuo"]
+line_spacing = 2.0
+font_size = 250
+
+[sub_resource type="Animation" id="Animation_x8lle"]
+resource_name = "TransitionText"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Countdown:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["3", "2", "1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Countdown:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.49, 0.5, 0.99, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Countdown:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(285, 682)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BlastOff:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("Countdown:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("Countdown:label_settings")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("LabelSettings_yuubf"), SubResource("LabelSettings_yuubf"), SubResource("LabelSettings_yuubf"), SubResource("LabelSettings_yuubf")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BlastOff:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bn3a6"]
+_data = {
+"TransitionText": SubResource("Animation_x8lle")
+}
+
 [sub_resource type="GDScript" id="GDScript_npkfy"]
 script/source = "extends Node2D
 
@@ -639,6 +779,7 @@ metadata/_edit_lock_ = true
 [node name="Phases" type="Node2D" parent="."]
 
 [node name="BeforeIntro" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("2_p4ai6")
 
 [node name="tiles" parent="Phases/BeforeIntro" instance=ExtResource("1_b2h4h")]
@@ -2433,7 +2574,62 @@ text = "TODO
 label_settings = SubResource("LabelSettings_m11yw")
 
 [node name="Transition3" type="Node2D" parent="Phases"]
+script = ExtResource("37_sb05k")
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="Phases/Transition3"]
+active = false
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_t5aq2")
+}
+
+[node name="Countdown" type="Label" parent="Phases/Transition3"]
+modulate = Color(1, 1, 1, 0.0627451)
+offset_left = 272.0
+offset_top = -664.0
+offset_right = 557.0
+offset_bottom = 18.0
+text = "1"
+label_settings = SubResource("LabelSettings_yuubf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bg" type="Sprite2D" parent="Phases/Transition3"]
+z_index = -4
+position = Vector2(0, -608)
+texture = ExtResource("40_4uxis")
+centered = false
+
+[node name="BlastOff" type="Label" parent="Phases/Transition3"]
 visible = false
+offset_left = 32.0
+offset_top = -648.0
+offset_right = 776.0
+offset_bottom = 173.0
+text = "BLAST
+OFF"
+label_settings = SubResource("LabelSettings_snnuo")
+horizontal_alignment = 1
+
+[node name="fixedCamera" parent="Phases/Transition3" node_paths=PackedStringArray("target_node") instance=ExtResource("3_sbg1e")]
+position = Vector2(400, -304)
+anchor_mode = 1
+target_node = NodePath("../../../Room_related/objPlayer")
+scrolling_speed = 100
+
+[node name="tiles" parent="Phases/Transition3" instance=ExtResource("1_b2h4h")]
+visible = false
+position = Vector2(0, -608)
+rendering_quadrant_size = 32
+layer_0/tile_data = PackedInt32Array(1245208, 65536, 0, 1245207, 65536, 0, 1245206, 65536, 0, 1245205, 65536, 0, 1245204, 65536, 0, 1245203, 65536, 0, 1245202, 65536, 0, 1245201, 65536, 0, 1245200, 65536, 0, 1245199, 65536, 0, 1245198, 65536, 0, 1245197, 65536, 0, 1245196, 65536, 0, 1245195, 65536, 0, 1245194, 65536, 0, 1245193, 65536, 0, 1245192, 65536, 0, 1245191, 65536, 0, 1245190, 65536, 0, 1245189, 65536, 0, 1245188, 65536, 0, 1245187, 65536, 0, 1245186, 65536, 0, 1245185, 65536, 0, 1245184, 65536, 0, 1310719, 65536, 0, 1245183, 65536, 0, 1179647, 65536, 0, 1114111, 65536, 0, 1048575, 65536, 0, 983039, 65536, 0, 917503, 65536, 0, 851967, 65536, 0, 786431, 65536, 0, 720895, 65536, 0, 655359, 65536, 0, 589823, 65536, 0, 524287, 65536, 0, 458751, 65536, 0, 393215, 65536, 0, 327679, 65536, 0, 262143, 65536, 0, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, -65523, 65536, 0, -65522, 65536, 0, -65521, 65536, 0, -65520, 65536, 0, -65519, 65536, 0, -65518, 65536, 0, -65517, 65536, 0, -65516, 65536, 0, -65515, 65536, 0, -65514, 65536, 0, -65513, 65536, 0, -65512, 65536, 0, -65511, 65536, 0, 25, 65536, 0, 65561, 65536, 0, 131097, 65536, 0, 196633, 65536, 0, 262169, 65536, 0, 327705, 65536, 0, 393241, 65536, 0, 458777, 65536, 0, 524313, 65536, 0, 1245209, 65536, 0, 1179673, 65536, 0, 1114137, 65536, 0, 1048601, 65536, 0, 983065, 65536, 0, 589849, 65536, 0, 655385, 65536, 0, 720921, 65536, 0, 786457, 65536, 0, 851993, 65536, 0, 917529, 65536, 0)
+
+[node name="Start" type="Node2D" parent="Phases/Transition3"]
+position = Vector2(416, -24)
+
+[node name="TextAnimation" type="AnimationPlayer" parent="Phases/Transition3"]
+libraries = {
+"": SubResource("AnimationLibrary_bn3a6")
+}
 
 [node name="Chorus2" type="Node2D" parent="Phases"]
 visible = false

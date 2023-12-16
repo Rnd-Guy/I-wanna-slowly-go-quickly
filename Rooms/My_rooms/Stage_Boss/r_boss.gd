@@ -1,7 +1,7 @@
 extends Node2D
 
 # for debugging - skip to this phase via "o"
-@onready var phase_to_seek = $Phases/Minigame4
+@onready var phase_to_seek = $Phases/Transition3
 var speed_on_debug = 150
 
 var bpm = 120
