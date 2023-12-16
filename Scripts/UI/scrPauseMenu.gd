@@ -87,7 +87,7 @@ func _on_tree_exiting():
 func set_labels_text():
 	$CanvasLayer/VBoxContainer/MusicVolume/Label.text = "Music Volume: " + str(round(music_volume * 100)) + "%"
 	$CanvasLayer/VBoxContainer/SoundVolume/Label.text = "Sound Volume: " + str(round(sound_volume * 100)) + "%"
-	$CanvasLayer/VBoxContainer/MusicOffset/Label.text = "Music Offset: " + str(GLOBAL_SETTINGS.MUSIC_OFFSET)
+	$CanvasLayer/VBoxContainer/MusicOffset/Label.text = "Music Offset: " + str(GLOBAL_SETTINGS.MUSIC_OFFSET) + "ms"
 	$CanvasLayer/VBoxContainer/QuitToMenu/Label.text = "Quit to Main Menu"
 	$CanvasLayer/VBoxContainer/ResumeGame/Label.text = "Resume"
 

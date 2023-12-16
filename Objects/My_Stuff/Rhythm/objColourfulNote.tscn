@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://hpkwkivbbg2r" path="res://Graphics/Sprites/My Stuff/colorfulstageNote.png" id="3_2aot1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6hl6r"]
+resource_local_to_scene = true
 shader = ExtResource("2_21yk4")
 shader_parameter/screen_position = Vector2(0, 0)
 

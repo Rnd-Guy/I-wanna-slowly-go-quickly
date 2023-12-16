@@ -45,6 +45,12 @@ window/size/viewport_height=608
 window/size/resizable=false
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://Rooms/My_rooms/": "red"
+}
+
 [filesystem]
 
 import/blender/enabled=false
