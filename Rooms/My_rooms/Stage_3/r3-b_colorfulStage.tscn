@@ -1,48 +1,48 @@
 [gd_scene load_steps=24 format=3 uid="uid://dgqo0014s6h5w"]
 
-[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_3/r_soundvoltex.gd" id="1_kamkh"]
-[ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="2_nyeud"]
-[ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="3_k8yd3"]
-[ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="4_bo83k"]
-[ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="5_27pl7"]
-[ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="6_b7lhl"]
-[ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="7_2ig8f"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="8_pyjq5"]
-[ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="9_6j5e6"]
-[ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="10_cw83u"]
-[ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="11_en6y2"]
-[ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="12_lawcg"]
-[ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="13_uwx4c"]
-[ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="14_gxukw"]
-[ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="15_1r234"]
-[ext_resource type="AudioStream" uid="uid://c3w88gj6frbi3" path="res://Audio/Music/muGarden-normalized.ogg" id="16_0kf14"]
-[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="16_6hedi"]
-[ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="17_4avam"]
-[ext_resource type="Texture2D" uid="uid://cl8qucfh1wm0y" path="res://Graphics/Backgrounds/colourfulstage.png" id="18_sxfau"]
-[ext_resource type="PackedScene" uid="uid://ct15bqbbs3hsg" path="res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn" id="19_576su"]
-[ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="20_21c5f"]
-[ext_resource type="AudioStream" uid="uid://omenyxn54k4g" path="res://Audio/Music/miku.ogg" id="21_wrqbj"]
-[ext_resource type="Texture2D" uid="uid://cty4y6v0rqw5m" path="res://Graphics/Backgrounds/miku.png" id="23_o3cxa"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_3/r_soundvoltex.gd" id="1_8n40b"]
+[ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="2_kotxr"]
+[ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="3_7acav"]
+[ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="4_1met8"]
+[ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="5_u0vxc"]
+[ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="6_quxt6"]
+[ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="7_gi7on"]
+[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="8_h6jv0"]
+[ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="9_jooa8"]
+[ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="10_smw8l"]
+[ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="11_tl7x8"]
+[ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="12_j56qp"]
+[ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="13_wioie"]
+[ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="14_qkv00"]
+[ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="15_dkd2e"]
+[ext_resource type="AudioStream" uid="uid://c3w88gj6frbi3" path="res://Audio/Music/muGarden-normalized.ogg" id="16_16tsv"]
+[ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="17_dllap"]
+[ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="18_ffsq4"]
+[ext_resource type="Texture2D" uid="uid://cl8qucfh1wm0y" path="res://Graphics/Backgrounds/colourfulstage.png" id="19_1cw5u"]
+[ext_resource type="PackedScene" uid="uid://ct15bqbbs3hsg" path="res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn" id="20_kfwxq"]
+[ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="21_u32hk"]
+[ext_resource type="AudioStream" uid="uid://omenyxn54k4g" path="res://Audio/Music/miku.ogg" id="22_7xli6"]
+[ext_resource type="Texture2D" uid="uid://cty4y6v0rqw5m" path="res://Graphics/Backgrounds/miku.png" id="23_lh7m5"]
 
 [node name="rTemplate" type="Node2D"]
-script = ExtResource("1_kamkh")
+script = ExtResource("1_8n40b")
 metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="tiles16" parent="Environment" instance=ExtResource("2_nyeud")]
+[node name="tiles16" parent="Environment" instance=ExtResource("2_kotxr")]
 rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(2359344, 65536, 3, 2359342, 0, 3, 2359340, 0, 3, 2359338, 0, 3, 2359336, 0, 3, 2359334, 0, 3, 2359332, 0, 3, 2359330, 0, 3, 2359328, 0, 3, 2359326, 0, 3, 2359324, 0, 3, 2359322, 0, 3, 2359320, 0, 3, 2359318, 0, 3, 2359316, 0, 3, 2359314, 0, 3, 2359312, 0, 3, 2359310, 0, 3, 2359308, 0, 3, 2359306, 0, 3, 2359304, 0, 3, 2359302, 0, 3, 2359300, 0, 3, 2359298, 0, 3, 2359296, 65536, 3, 2228224, 65536, 2, 2097152, 65536, 2, 1966080, 65536, 2, 1835008, 65536, 2, 1703936, 65536, 2, 1572864, 65536, 2, 1441792, 65536, 2, 1310720, 65536, 2, 1179648, 65536, 2, 1048576, 65536, 2, 917504, 65536, 2, 786432, 65536, 2, 655360, 65536, 2, 524288, 65536, 2, 393216, 65536, 2, 262144, 65536, 2, 131072, 65536, 2, 0, 65536, 3, 2, 0, 3, 4, 0, 3, 6, 0, 3, 8, 0, 3, 10, 0, 3, 12, 0, 3, 14, 0, 3, 16, 0, 3, 18, 0, 3, 20, 0, 3, 22, 0, 3, 24, 0, 3, 26, 0, 3, 28, 0, 3, 30, 0, 3, 32, 0, 3, 34, 0, 3, 36, 0, 3, 38, 0, 3, 40, 0, 3, 42, 0, 3, 44, 0, 3, 46, 0, 3, 2228272, 65536, 2, 2097200, 65536, 2, 1966128, 65536, 2, 1835056, 65536, 2, 1703984, 65536, 2, 1572912, 65536, 2, 1441840, 65536, 2, 1310768, 65536, 2, 1179696, 65536, 2, 1048624, 65536, 2, 917552, 65536, 2, 786480, 65536, 2, 655408, 65536, 2, 524336, 65536, 2, 393264, 65536, 2, 262192, 65536, 2, 131120, 65536, 2, 48, 65536, 3)
 
-[node name="tempTiles" parent="Environment" instance=ExtResource("2_nyeud")]
+[node name="tempTiles" parent="Environment" instance=ExtResource("2_kotxr")]
 visible = false
 rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(1835018, 65536, 0, 1835020, 65536, 0, 1835022, 65536, 0, 1835024, 65536, 0, 1835026, 65536, 0, 1835028, 65536, 0, 1835030, 65536, 0, 1835032, 65536, 0, 1835034, 65536, 0, 1835036, 65536, 0, 1835038, 65536, 0, 1835040, 65536, 0, 1835042, 65536, 0, 1835044, 65536, 0, 1966117, 65536, 0, 2097188, 65536, 0, 2097186, 65536, 0, 2097184, 65536, 0, 2097182, 65536, 0, 2097180, 65536, 0, 2097178, 65536, 0, 2097176, 65536, 0, 2097174, 65536, 0, 2097172, 65536, 0, 2097170, 65536, 0, 2097168, 65536, 0, 2097166, 65536, 0, 2097164, 65536, 0, 2097162, 65536, 0, 1966089, 65536, 0)
 
-[node name="tilSpikes16" parent="Environment" instance=ExtResource("3_k8yd3")]
+[node name="tilSpikes16" parent="Environment" instance=ExtResource("3_7acav")]
 
-[node name="InstantSpeedManager" parent="Environment" instance=ExtResource("4_bo83k")]
+[node name="InstantSpeedManager" parent="Environment" instance=ExtResource("4_1met8")]
 position = Vector2(-32, 64)
 initial_ammo = -1
 default_instant_speed_ammo = -1
@@ -50,19 +50,19 @@ default_instant_speed_ammo = -1
 [node name="Room_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("5_27pl7")]
+[node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("5_u0vxc")]
 position = Vector2(16, 16)
 anchor_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="objWarp" parent="Room_related" instance=ExtResource("6_b7lhl")]
+[node name="objWarp" parent="Room_related" instance=ExtResource("6_quxt6")]
 position = Vector2(693, 548)
 
-[node name="objPlayer" parent="Room_related" instance=ExtResource("7_2ig8f")]
+[node name="objPlayer" parent="Room_related" instance=ExtResource("7_gi7on")]
 unique_name_in_owner = true
 position = Vector2(376, 488)
 
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("8_pyjq5")]
+[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("8_h6jv0")]
 position = Vector2(376, 489)
 
 [node name="Gimmicks" type="Node2D" parent="."]
@@ -74,64 +74,64 @@ metadata/_edit_lock_ = true
 [node name="Trigger_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="objSpeedMultiplier" parent="." instance=ExtResource("9_6j5e6")]
+[node name="objSpeedMultiplier" parent="." instance=ExtResource("9_jooa8")]
 position = Vector2(-96, 176)
 
-[node name="SpeedDamageBlock" parent="." instance=ExtResource("10_cw83u")]
+[node name="SpeedDamageBlock" parent="." instance=ExtResource("10_smw8l")]
 position = Vector2(-144, 224)
 
-[node name="objSpeedSetter" parent="." instance=ExtResource("11_en6y2")]
+[node name="objSpeedSetter" parent="." instance=ExtResource("11_tl7x8")]
 position = Vector2(-48, 176)
 
-[node name="objSpeedAdder" parent="." instance=ExtResource("12_lawcg")]
+[node name="objSpeedAdder" parent="." instance=ExtResource("12_j56qp")]
 position = Vector2(-144, 176)
 
-[node name="objSpeedLock" parent="." instance=ExtResource("13_uwx4c")]
+[node name="objSpeedLock" parent="." instance=ExtResource("13_wioie")]
 position = Vector2(-96, 224)
 
-[node name="objFallingSpeed" parent="." instance=ExtResource("14_gxukw")]
+[node name="objFallingSpeed" parent="." instance=ExtResource("14_qkv00")]
 position = Vector2(-48, 224)
 
-[node name="objMusicPlayer" parent="." instance=ExtResource("15_1r234")]
+[node name="objMusicPlayer" parent="." instance=ExtResource("15_dkd2e")]
 position = Vector2(-16, 16)
-song_id = ExtResource("16_0kf14")
+song_id = ExtResource("16_16tsv")
 
-[node name="til32x32" parent="." instance=ExtResource("16_6hedi")]
+[node name="til32x32" parent="." instance=ExtResource("17_dllap")]
 visible = false
 rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
 
-[node name="tilSpikes" parent="." instance=ExtResource("17_4avam")]
+[node name="tilSpikes" parent="." instance=ExtResource("18_ffsq4")]
 metadata/_edit_lock_ = true
 
 [node name="background" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(400, 304)
-texture = ExtResource("18_sxfau")
+texture = ExtResource("19_1cw5u")
 metadata/_edit_lock_ = true
 
-[node name="Note" parent="." instance=ExtResource("19_576su")]
+[node name="Note" parent="." instance=ExtResource("20_kfwxq")]
 visible = false
 position = Vector2(208, 8)
 
-[node name="Note2" parent="." instance=ExtResource("19_576su")]
+[node name="Note2" parent="." instance=ExtResource("20_kfwxq")]
 visible = false
 position = Vector2(280, 8)
 
-[node name="Note3" parent="." instance=ExtResource("19_576su")]
+[node name="Note3" parent="." instance=ExtResource("20_kfwxq")]
 visible = false
 position = Vector2(352, 8)
 
-[node name="Note4" parent="." instance=ExtResource("19_576su")]
+[node name="Note4" parent="." instance=ExtResource("20_kfwxq")]
 visible = false
 position = Vector2(416, 8)
 
-[node name="Note5" parent="." instance=ExtResource("19_576su")]
+[node name="Note5" parent="." instance=ExtResource("20_kfwxq")]
 visible = false
 position = Vector2(488, 8)
 
-[node name="Note6" parent="." instance=ExtResource("19_576su")]
+[node name="Note6" parent="." instance=ExtResource("20_kfwxq")]
 visible = false
 position = Vector2(560, 7)
 
@@ -163,9 +163,9 @@ gizmo_extents = 619.4
 position = Vector2(528, 0)
 gizmo_extents = 619.4
 
-[node name="objRhythmPreviewer" parent="." instance=ExtResource("20_21c5f")]
+[node name="objRhythmPreviewer" parent="." instance=ExtResource("21_u32hk")]
 position = Vector2(-32, 88)
-song_id = ExtResource("21_wrqbj")
+song_id = ExtResource("22_7xli6")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 40.0
@@ -178,7 +178,7 @@ text = "Score: 0"
 
 [node name="miku" type="Sprite2D" parent="."]
 position = Vector2(690, 381)
-texture = ExtResource("23_o3cxa")
+texture = ExtResource("23_lh7m5")
 
 [node name="Area2D" type="Area2D" parent="miku"]
 collision_layer = 8

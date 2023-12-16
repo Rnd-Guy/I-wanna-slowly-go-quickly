@@ -53,7 +53,7 @@ var room_order = [
 	"res://Rooms/My_rooms/Stage_3/r3-1_zSpeedTutorial.tscn",
 	"res://Rooms/My_rooms/Stage_3/r3-3_wall_refresher_tutorial.tscn",
 	"res://Rooms/My_rooms/Stage_3/r3-4_wall_refreshers.tscn",
-	"res://Rooms/My_rooms/Stage_3/r3-b_TODO.tscn",
+	"res://Rooms/My_rooms/Stage_3/r3-b_colorfulStage.tscn",
 	"res://Rooms/My_rooms/Stage_Final/rf-1_needle2.tscn",
 	"res://Rooms/My_rooms/Stage_Final/rf-2_254.tscn",
 	"res://Rooms/My_rooms/Stage_Final/rf-3_zSpeedTrial.tscn",

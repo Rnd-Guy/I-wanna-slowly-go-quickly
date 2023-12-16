@@ -8,7 +8,7 @@ var x_positions = [
 ]
 var y_target = 490
 
-var target_score = 11600 # max possible without z, max is 12400
+var target_score = 11400 # max possible without z is 11600, max is 12400
 
 var notes = [
 	[2, 3],
