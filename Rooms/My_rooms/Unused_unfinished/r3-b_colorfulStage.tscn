@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgqo0014s6h5w"]
+[gd_scene load_steps=24 format=3 uid="uid://dgqo0014s6h5w"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_3/r_soundvoltex.gd" id="1_kamkh"]
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="2_nyeud"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://ct15bqbbs3hsg" path="res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn" id="19_576su"]
 [ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="20_21c5f"]
 [ext_resource type="AudioStream" uid="uid://omenyxn54k4g" path="res://Audio/Music/miku.ogg" id="21_wrqbj"]
+[ext_resource type="Texture2D" uid="uid://cty4y6v0rqw5m" path="res://Graphics/Backgrounds/miku.png" id="23_o3cxa"]
 
 [node name="rTemplate" type="Node2D"]
 script = ExtResource("1_kamkh")
@@ -55,7 +56,7 @@ anchor_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("6_b7lhl")]
-position = Vector2(712, 552)
+position = Vector2(693, 548)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("7_2ig8f")]
 unique_name_in_owner = true
@@ -105,6 +106,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="background" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(400, 304)
 texture = ExtResource("18_sxfau")
 metadata/_edit_lock_ = true
@@ -173,3 +175,16 @@ offset_bottom = 66.0
 text = "Score: 0"
 
 [node name="Instances" type="Node2D" parent="."]
+
+[node name="miku" type="Sprite2D" parent="."]
+position = Vector2(690, 381)
+texture = ExtResource("23_o3cxa")
+
+[node name="Area2D" type="Area2D" parent="miku"]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="miku/Area2D"]
+polygon = PackedVector2Array(-49, -181, 12, -183, 72, -37, 78, 95, 49, 52, 42, 104, 25, 107, 59, 193, 37, 195, 9, 109, -27, 109, -29, 195, -49, 196, -51, 183, -42, 171, -35, 104, -50, 88, -35, 49, -43, 37, -55, 67, -80, 80, -72, 54, -65, 51, -31, -21, -30, -76, -52, -87, -76, 28, -91, 28, -62, -142)
+
+[connection signal="body_entered" from="miku/Area2D" to="." method="_on_miku_body_entered"]

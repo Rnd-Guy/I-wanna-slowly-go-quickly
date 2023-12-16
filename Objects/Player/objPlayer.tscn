@@ -188,12 +188,10 @@ func _physics_process(delta):
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
 spread = 180.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 20.0
 initial_velocity_max = 40.0
 angular_velocity_max = 360.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 0, 0)
 color = Color(1, 1, 1, 0.137255)
 
 [node name="objPlayer" type="CharacterBody2D" groups=["Player"]]

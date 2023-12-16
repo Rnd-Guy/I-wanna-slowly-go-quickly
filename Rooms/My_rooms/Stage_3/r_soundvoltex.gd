@@ -209,6 +209,12 @@ func score_points():
 	#elif event == "sliderBody":
 		#score += 1
 	score += 100
+	if $miku && score >= target_score:
+		$miku.queue_free()
 	
 	#if $scoreReq && score > 5000: 
 #		$scoreReq.queue_free()
+
+
+func _on_miku_body_entered(body):
+	$Room_related/objPlayer.on_death()
