@@ -44,8 +44,10 @@ func _on_area_2d_body_entered(_body):
 	if warp_to != "":
 		get_tree().change_scene_to_file(warp_to)
 	else:
-		warp_to_next_scene()
+		#pass
+		warp_to_next_room_based_on_order()
 		
+# appears to only work in debug
 func warp_to_next_scene():
 	var room_folder = get_tree().current_scene.scene_file_path.get_base_dir()
 	var my_file = get_tree().current_scene.scene_file_path.get_file()
@@ -63,3 +65,6 @@ func warp_to_next_scene():
 	if next_file != "":
 		var next_scene = room_folder + "/" + next_file
 		get_tree().change_scene_to_file(next_scene)
+
+func warp_to_next_room_based_on_order():
+	GLOBAL_GAME.switch_to_next_room()

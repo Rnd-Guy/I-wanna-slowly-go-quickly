@@ -45,10 +45,6 @@ window/size/viewport_height=608
 window/size/resizable=false
 window/stretch/mode="viewport"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/FileSystemView/plugin.cfg")
-
 [filesystem]
 
 import/blender/enabled=false
