@@ -57,7 +57,7 @@ func _ready():
 	$Control/Label.set_text(prefix + str(speed))
 	is_locked = false
 	update_text_scaling()
-	if get_tree().get_first_node_in_group("Player"):
+	if get_tree() && get_tree().get_first_node_in_group("Player"):
 		on_player_speed_change(get_tree().get_first_node_in_group("Player").h_speed)
 	
 	handle_sprites()

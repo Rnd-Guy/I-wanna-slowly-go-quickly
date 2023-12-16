@@ -62,8 +62,6 @@ func _ready():
 	if (GLOBAL_SAVELOAD.variableGameData.first_time_saving == false):
 		set_position_on_load()
 		flip_sprites_on_creation()
-	else:
-		set_first_time_saving()
 	
 	# Sets a very important global variable. Lets everything know that the
 	# player does in fact exist and assigns it with its "id"
@@ -80,6 +78,10 @@ func _ready():
 ---------- MAIN LOGIC LOOP ----------
 """
 func _physics_process(delta):
+	if (GLOBAL_SAVELOAD.variableGameData.first_time_saving == true):
+		set_first_time_saving()
+	
+	
 	other_debug_commands()
 	# More specific logic is handled inside of methods, which keeps the main
 	# loop clean and easier to read.

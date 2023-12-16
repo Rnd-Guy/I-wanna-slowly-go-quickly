@@ -13,7 +13,7 @@ func _physics_process(_delta):
 # The debug HUD should only get shown as long as objPlayer exists in the scene,
 # regardless of debug_mode being true or false
 func handle_debug_mode() -> void:
-	if is_instance_valid(GLOBAL_INSTANCES.objPlayerID):
+	if is_instance_valid(GLOBAL_INSTANCES.objPlayerID) && get_tree() && get_tree().get_current_scene():
 		if (GLOBAL_GAME.debug_mode == false):
 			$Display.set_visible(false)
 			$Sprite2D.set_visible(false)

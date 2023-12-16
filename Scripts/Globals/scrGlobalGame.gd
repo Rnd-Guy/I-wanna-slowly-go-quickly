@@ -289,7 +289,8 @@ func set_vsync():
 # Checks the current scene/room's name. We use this to make sure we're not
 # doing things like restarting or pausing on menu related scenes
 func is_valid_room():
-	current_scene_name = get_tree().get_current_scene().name
+	if get_tree().get_current_scene():
+		current_scene_name = get_tree().get_current_scene().name
 	
 	match current_scene_name:
 		"rMainMenu":

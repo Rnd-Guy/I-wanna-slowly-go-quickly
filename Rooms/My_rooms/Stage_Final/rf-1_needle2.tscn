@@ -21,6 +21,7 @@
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="til32x32" parent="Environment" instance=ExtResource("1_ij7us")]
+rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 23, 65536, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 65536, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 65536, 0, 19, 65536, 0, 20, 65536, 0, 21, 65536, 0, 22, 65536, 0, 393218, 65536, 0, 655362, 65536, 0, 786436, 65536, 0, 917512, 65536, 0, 851977, 65536, 0, 786442, 65536, 0, 786443, 65536, 0, 786444, 65536, 0, 917516, 65536, 0, 720915, 65536, 0, 655383, 65536, 0, 458768, 65536, 0, 393235, 65536, 0, 196624, 65536, 0, 589837, 65536, 0, 65546, 65536, 0, 131082, 65536, 0, 196618, 65536, 0, 262154, 65536, 0, 327690, 65536, 0, 65548, 65536, 0, 131084, 65536, 0, 196620, 65536, 0, 262156, 65536, 0, 327692, 65536, 0, 393226, 65536, 0, 393228, 65536, 0)
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_hao3s")]
@@ -30,6 +31,7 @@ loop_end = 308.0
 
 [node name="til32x32+0_5x" parent="Environment" instance=ExtResource("1_ij7us")]
 position = Vector2(16, 0)
+rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(393223, 65536, 0, 983059, 65536, 0, 1179660, 65536, 0, 1179662, 65536, 0)
 
 [node name="Room_related" type="Node2D" parent="."]
@@ -46,6 +48,16 @@ position = Vector2(368, 368)
 
 [node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_bhkmv")]
 position = Vector2(368, 369)
+
+[node name="obTouchSavePoint2" parent="Room_related" instance=ExtResource("6_bhkmv")]
+position = Vector2(529, 79)
+show = true
+delete_after_save = false
+
+[node name="obTouchSavePoint3" parent="Room_related" instance=ExtResource("6_bhkmv")]
+position = Vector2(258, 173)
+show = true
+delete_after_save = false
 
 [node name="Gimmicks" type="Node2D" parent="."]
 
