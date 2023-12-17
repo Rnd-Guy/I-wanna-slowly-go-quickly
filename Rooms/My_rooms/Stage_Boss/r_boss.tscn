@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=115 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -55,6 +55,9 @@
 [ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="34_78a3a"]
 [ext_resource type="Texture2D" uid="uid://2kyv0odae18b" path="res://Graphics/Backgrounds/minigame4.png" id="36_eom3k"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Transition3.gd" id="37_sb05k"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame5.gd" id="37_ypmf4"]
+[ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="38_tl7r0"]
+[ext_resource type="Texture2D" uid="uid://bo0jdde265kdn" path="res://Graphics/Backgrounds/colourfulstage_boss.png" id="39_v052p"]
 [ext_resource type="Texture2D" uid="uid://cs4cmmn1ge4es" path="res://Graphics/Backgrounds/chorus2.png" id="40_4uxis"]
 [ext_resource type="Texture2D" uid="uid://dpdihse2e6rby" path="res://Graphics/Backgrounds/postchorus2.png" id="43_s15sc"]
 [ext_resource type="Texture2D" uid="uid://dfepr1bsd6gb2" path="res://Graphics/Backgrounds/final.png" id="45_3qti8"]
@@ -471,6 +474,9 @@ size = Vector2(14.4, 272)
 
 [sub_resource type="LabelSettings" id="LabelSettings_m11yw"]
 font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifpyb"]
+size = Vector2(416, 61.5385)
 
 [sub_resource type="Animation" id="Animation_idqty"]
 resource_name = "Transition3"
@@ -2562,8 +2568,10 @@ centered = false
 
 [node name="Minigame5" type="Node2D" parent="Phases"]
 visible = false
+script = ExtResource("37_ypmf4")
 
 [node name="Label" type="Label" parent="Phases/Minigame5"]
+visible = false
 offset_left = 216.0
 offset_top = 264.0
 offset_right = 617.0
@@ -2573,7 +2581,34 @@ text = "TODO
  16 seconds)"
 label_settings = SubResource("LabelSettings_m11yw")
 
+[node name="tempTiles" parent="Phases/Minigame5" instance=ExtResource("38_tl7r0")]
+visible = false
+rendering_quadrant_size = 32
+layer_0/enabled = false
+layer_0/tile_data = PackedInt32Array(1835018, 65536, 0, 1835020, 65536, 0, 1835022, 65536, 0, 1835024, 65536, 0, 1835026, 65536, 0, 1835028, 65536, 0, 1835030, 65536, 0, 1835032, 65536, 0, 1835034, 65536, 0, 1835036, 65536, 0, 1835038, 65536, 0, 1835040, 65536, 0, 1835042, 65536, 0, 1835044, 65536, 0, 1966117, 65536, 0, 2097188, 65536, 0, 2097186, 65536, 0, 2097184, 65536, 0, 2097182, 65536, 0, 2097180, 65536, 0, 2097178, 65536, 0, 2097176, 65536, 0, 2097174, 65536, 0, 2097172, 65536, 0, 2097170, 65536, 0, 2097168, 65536, 0, 2097166, 65536, 0, 2097164, 65536, 0, 2097162, 65536, 0, 1966089, 65536, 0)
+
+[node name="StartRegion" type="Area2D" parent="Phases/Minigame5"]
+visible = false
+position = Vector2(411, 493)
+scale = Vector2(1, 0.519999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame5/StartRegion"]
+position = Vector2(-27, 5.76923)
+shape = SubResource("RectangleShape2D_ifpyb")
+
+[node name="Start" type="Node2D" parent="Phases/Minigame5"]
+position = Vector2(440, 496)
+
+[node name="Sprite2D" type="Sprite2D" parent="Phases/Minigame5"]
+z_index = -4
+scale = Vector2(1, 1.01333)
+texture = ExtResource("39_v052p")
+centered = false
+
+[node name="Instances" type="Node2D" parent="Phases/Minigame5"]
+
 [node name="Transition3" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("37_sb05k")
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="Phases/Transition3"]
@@ -2632,7 +2667,6 @@ libraries = {
 }
 
 [node name="Chorus2" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("17_55lui")
 
 [node name="tiles" parent="Phases/Chorus2" instance=ExtResource("1_b2h4h")]
@@ -3139,6 +3173,8 @@ song_id = ExtResource("59_h1fm7")
 [connection signal="body_exited" from="Phases/Minigame4/StartRegion" to="Phases/Minigame4" method="_on_start_region_body_exited"]
 [connection signal="body_entered" from="Phases/Minigame4/RhythmBars/TopBar" to="Phases/Minigame4" method="_on_top_bar_body_entered"]
 [connection signal="body_entered" from="Phases/Minigame4/RhythmBars/BottomBar" to="Phases/Minigame4" method="_on_bottom_bar_body_entered"]
+[connection signal="body_entered" from="Phases/Minigame5/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_entered"]
+[connection signal="body_exited" from="Phases/Minigame5/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_exited"]
 [connection signal="body_entered" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_entered"]
 [connection signal="body_exited" from="Phases/Chorus2/StartRegion" to="Phases/Chorus2" method="_on_start_region_body_exited"]
 [connection signal="timeout" from="Phases/Chorus2/Boss3a/Timer" to="Phases/Chorus2/Boss3a" method="on_timeout"]

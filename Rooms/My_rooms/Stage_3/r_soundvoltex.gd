@@ -1,13 +1,14 @@
 extends Node2D
 
 var note = preload("res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn")
+var bpm = 240
+var speed = 300
+var song_finished = false
 
-
-var x_positions = [
-	208, 280, 352, 416, 488, 560
-]
+var x_positions = [208, 280, 352, 416, 488, 560]
 var y_target = 490
 
+var score = 0
 var target_score = 11400 # max possible without z is 11600, max is 12400
 
 var notes = [
@@ -162,11 +163,6 @@ var notes = [
 	
 	
 ]
-
-var bpm = 240
-var speed = 300
-var song_finished = false
-var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

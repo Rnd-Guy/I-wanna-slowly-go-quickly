@@ -1,8 +1,8 @@
 extends Node2D
 
 # for debugging - skip to this phase via "o"
-@onready var phase_to_seek = $Phases/Transition3
-var speed_on_debug = 150
+@onready var phase_to_seek = $Phases/Minigame5
+var speed_on_debug = 10
 
 var bpm = 120
 var debug_metronome = preload("res://Audio/Sounds/sndMenuButton.wav")
@@ -12,7 +12,7 @@ var seconds_per_beat = 0.5 # 60 / bpm
 var last_beat = -0.5
 #var offset = 0.065 # 0.05 offset for the song (not player offset)
 var offset = -0.05
-var boss_hp = 1500
+var boss_hp = 2000
 
 var frames_before_resync = 10
 
