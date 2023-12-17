@@ -13,8 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wc46o")
-dialog = Array[String](["Damage is based on speed, and there's a lot of ways to raise it.", "Shooting on the beat also does more damage!"])
-portrait = Array[Texture2D]([ExtResource("2_6655c"), ExtResource("2_6655c")])
+dialog = Array[String](["Your speed is your hp as well as your damage. If it goes below 0 you'll die D:", "There's a lot of ways to raise your speed!", "Shooting on the beat does more damage and increases your speed too!"])
+portrait = Array[Texture2D]([ExtResource("2_6655c"), ExtResource("2_6655c"), ExtResource("2_6655c")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

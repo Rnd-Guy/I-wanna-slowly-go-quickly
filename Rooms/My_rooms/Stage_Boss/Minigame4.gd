@@ -1,6 +1,7 @@
 extends BossPhase
 
 var bar_damage = 2
+var bonus_point_start = 0.8
 
 var first_frames = 0
 var player_in_start = false
@@ -188,8 +189,8 @@ func diso(phase: Node2D):
 func create_adder(phase):
 	#var pos = phase.get_node("speedBuffLocation")
 	var adder = speedAdder.instantiate()
-	adder.speed = 1
-	adder.decay = 0.25
+	adder.speed = bonus_point_start
+	adder.decay = bonus_point_start/4.0
 	adder.one_use = true
 	phase.get_node("speedBuffLocation").add_child(adder)
 

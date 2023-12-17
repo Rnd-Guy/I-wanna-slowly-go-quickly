@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bp5rqk4l7tesk"]
+[gd_scene load_steps=37 format=3 uid="uid://bp5rqk4l7tesk"]
 
 [ext_resource type="Script" path="res://Scripts/Player/scrPlayer.gd" id="1_qesj7"]
 [ext_resource type="Texture2D" uid="uid://burygy08cq204" path="res://Graphics/Sprites/Player/sprPlayerFall.png" id="2_vhr1p"]
@@ -165,6 +165,9 @@ size = Vector2(10, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6gqu"]
 size = Vector2(1, 20)
 
+[sub_resource type="LabelSettings" id="LabelSettings_oc1t5"]
+font_color = Color(0.101961, 1, 0.0235294, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_oi7fq"]
 radius = 4.0
 
@@ -269,28 +272,36 @@ shape = SubResource("RectangleShape2D_x6gqu")
 debug_color = Color(0, 1, 0.0156863, 0.419608)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="currentSpeed" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/currentSpeed"]
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
 show_behind_parent = true
 position = Vector2(-8, 0)
 scale = Vector2(0.9375, 0.75)
 color = Color(0, 0.670588, 0.670588, 1)
 polygon = PackedVector2Array(0, 0, 128, 0, 128, 32, 0, 32)
 
-[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/currentSpeed"]
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer"]
 show_behind_parent = true
-position = Vector2(-8, -4)
+position = Vector2(-8, -7)
 scale = Vector2(0.9375, 0.75)
 color = Color(0, 0.670588, 0.670588, 1)
-polygon = PackedVector2Array(0, 0, 187.733, 0, 187.733, 64, 0, 64)
+polygon = PackedVector2Array(0, 0, 187.733, 0, 187.733, 56, 0, 56)
+
+[node name="currentSpeed" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="currentInstaSpeed" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="bossBonus" type="Label" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "+50%"
+label_settings = SubResource("LabelSettings_oc1t5")
 
 [node name="shmupMask" type="CollisionShape2D" parent="."]
 visible = false

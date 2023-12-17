@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=117 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -478,6 +478,21 @@ font_size = 40
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifpyb"]
 size = Vector2(416, 61.5385)
 
+[sub_resource type="Animation" id="Animation_fu3md"]
+resource_name = "BlastOff"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%objPlayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00102138, 0.499454),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(416, -30), Vector2(416, -72)]
+}
+
 [sub_resource type="Animation" id="Animation_idqty"]
 resource_name = "Transition3"
 length = 0.1
@@ -496,21 +511,6 @@ tracks/0/keys = {
 "values": [Vector2(416, -30), Vector2(417, -20), Vector2(416.515, -25.8196), Vector2(416, -32), Vector2(416, -21), Vector2(418, -25), Vector2(412, -17), Vector2(411, -24), Vector2(420, -19), Vector2(415, -19), Vector2(418, -27), Vector2(417, -18), Vector2(417, -18), Vector2(417, -18), Vector2(413, -14)]
 }
 
-[sub_resource type="Animation" id="Animation_fu3md"]
-resource_name = "BlastOff"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%objPlayer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.00102138, 0.499454),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(416, -30), Vector2(416, -72)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t5aq2"]
 _data = {
 "BlastOff": SubResource("Animation_fu3md"),
@@ -521,8 +521,7 @@ _data = {
 font_size = 500
 
 [sub_resource type="LabelSettings" id="LabelSettings_snnuo"]
-line_spacing = 2.0
-font_size = 250
+font_size = 240
 
 [sub_resource type="Animation" id="Animation_x8lle"]
 resource_name = "TransitionText"
@@ -695,6 +694,27 @@ script/source = "extends AnimatableBody2D
 func react_to_hit(attack_type, attack_damage):
 	$\"../../Boss3b\".react_to_hit(attack_type, attack_damage)
 "
+
+[sub_resource type="Animation" id="Animation_mtpg6"]
+resource_name = "Upgrade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upgrade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wydi4"]
+_data = {
+"Upgrade": SubResource("Animation_mtpg6")
+}
 
 [sub_resource type="GDScript" id="GDScript_y77sn"]
 script/source = "extends Node2D
@@ -1217,6 +1237,7 @@ centered = false
 
 [node name="Minigame1" type="Node2D" parent="Phases"]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("4_7agvo")
 
 [node name="Start" type="Node2D" parent="Phases/Minigame1"]
@@ -1381,7 +1402,6 @@ vertical_alignment = 1
 position = Vector2(1088, 152)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point5"]
 shape = SubResource("RectangleShape2D_1napu")
@@ -1454,7 +1474,6 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Minigame2" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("9_tag34")
 
 [node name="start" type="Node2D" parent="Phases/Minigame2"]
@@ -1556,16 +1575,8 @@ fade_timer = 100.0
 position = Vector2(496, 400)
 fade_timer = 100.0
 
-[node name="randomAdder21" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(560, 560)
-fade_timer = 100.0
-
 [node name="randomAdder22" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
 position = Vector2(624, 496)
-fade_timer = 100.0
-
-[node name="randomAdder23" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(400, 560)
 fade_timer = 100.0
 
 [node name="randomAdder24" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
@@ -1578,10 +1589,6 @@ fade_timer = 100.0
 
 [node name="randomAdder26" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
 position = Vector2(528, 336)
-fade_timer = 100.0
-
-[node name="randomAdder27" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(272, 560)
 fade_timer = 100.0
 
 [node name="randomAdder28" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
@@ -1600,6 +1607,7 @@ fade_timer = 100.0
 z_index = -2
 texture = ExtResource("19_0gtm3")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Transition1" type="Node2D" parent="Phases"]
 visible = false
@@ -2585,7 +2593,7 @@ label_settings = SubResource("LabelSettings_m11yw")
 visible = false
 rendering_quadrant_size = 32
 layer_0/enabled = false
-layer_0/tile_data = PackedInt32Array(1835018, 65536, 0, 1835020, 65536, 0, 1835022, 65536, 0, 1835024, 65536, 0, 1835026, 65536, 0, 1835028, 65536, 0, 1835030, 65536, 0, 1835032, 65536, 0, 1835034, 65536, 0, 1835036, 65536, 0, 1835038, 65536, 0, 1835040, 65536, 0, 1835042, 65536, 0, 1835044, 65536, 0, 1966117, 65536, 0, 2097188, 65536, 0, 2097186, 65536, 0, 2097184, 65536, 0, 2097182, 65536, 0, 2097180, 65536, 0, 2097178, 65536, 0, 2097176, 65536, 0, 2097174, 65536, 0, 2097172, 65536, 0, 2097170, 65536, 0, 2097168, 65536, 0, 2097166, 65536, 0, 2097164, 65536, 0, 2097162, 65536, 0, 1966089, 65536, 0)
+layer_0/tile_data = PackedInt32Array(1835018, 65536, 0, 1835020, 65536, 0, 1835022, 65536, 0, 1835024, 65536, 0, 1835026, 65536, 0, 1835028, 65536, 0, 1835030, 65536, 0, 1835032, 65536, 0, 1835034, 65536, 0, 1835036, 65536, 0, 1835038, 65536, 0, 1835040, 65536, 0, 1835042, 65536, 0, 1835044, 65536, 0, 1966117, 65536, 0, 2097188, 65536, 0, 2097186, 65536, 0, 2097184, 65536, 0, 2097182, 65536, 0, 2097180, 65536, 0, 2097178, 65536, 0, 2097176, 65536, 0, 2097174, 65536, 0, 2097172, 65536, 0, 2097170, 65536, 0, 2097168, 65536, 0, 2097166, 65536, 0, 2097164, 65536, 0, 2097162, 65536, 0, 1966089, 65536, 0, 1835016, 65536, 0, 1966087, 65536, 0, 2097160, 65536, 0, 2097190, 65536, 0, 1966119, 65536, 0, 1835046, 65536, 0)
 
 [node name="StartRegion" type="Area2D" parent="Phases/Minigame5"]
 visible = false
@@ -2619,12 +2627,11 @@ libraries = {
 }
 
 [node name="Countdown" type="Label" parent="Phases/Transition3"]
-modulate = Color(1, 1, 1, 0.0627451)
 offset_left = 272.0
 offset_top = -664.0
 offset_right = 557.0
 offset_bottom = 18.0
-text = "1"
+text = "3"
 label_settings = SubResource("LabelSettings_yuubf")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2641,10 +2648,10 @@ offset_left = 32.0
 offset_top = -648.0
 offset_right = 776.0
 offset_bottom = 173.0
-text = "BLAST
-OFF"
+text = "BLAST OFF"
 label_settings = SubResource("LabelSettings_snnuo")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="fixedCamera" parent="Phases/Transition3" node_paths=PackedStringArray("target_node") instance=ExtResource("3_sbg1e")]
 position = Vector2(400, -304)
@@ -2667,6 +2674,7 @@ libraries = {
 }
 
 [node name="Chorus2" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("17_55lui")
 
 [node name="tiles" parent="Phases/Chorus2" instance=ExtResource("1_b2h4h")]
@@ -2801,6 +2809,22 @@ z_index = -4
 position = Vector2(0, -608)
 texture = ExtResource("40_4uxis")
 centered = false
+
+[node name="Upgrade" type="Label" parent="Phases/Chorus2_part2"]
+offset_left = -16.0
+offset_top = -640.0
+offset_right = 814.0
+offset_bottom = 19.0
+text = "UP GRADE"
+label_settings = SubResource("LabelSettings_snnuo")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="UpgradeAnimation" type="AnimationPlayer" parent="Phases/Chorus2_part2"]
+libraries = {
+"": SubResource("AnimationLibrary_wydi4")
+}
 
 [node name="PostChorus2" type="Node2D" parent="Phases"]
 visible = false

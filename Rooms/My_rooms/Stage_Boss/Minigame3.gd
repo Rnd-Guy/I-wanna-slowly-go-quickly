@@ -16,6 +16,11 @@ var slider_skew = 0.6
 var beat_offset
 enum {UP, DOWN}
 
+var block_points = 0.04
+var slider_top_points = 0.04
+var slider_bottom_points = 0.025
+var slider_middle_points = 0.005
+
 # first beat is 185
 var notes = [
 	#[185, 100],
@@ -247,11 +252,13 @@ func create_slider(note, prev_x):
 
 func score_points(event):
 	if event == "note":
-		%objPlayer.h_speed += 0.03
-	elif event == "sliderTop" || event == "sliderBottom":
-		%objPlayer.h_speed += 0.015
+		%objPlayer.h_speed += block_points
+	elif event == "sliderTop":
+		%objPlayer.h_speed += slider_top_points
+	elif event == "sliderBottom":
+		%objPlayer.h_speed += slider_bottom_points
 	elif event == "sliderBody":
-		%objPlayer.h_speed += 0.005
+		%objPlayer.h_speed += slider_middle_points
 
 func _physics_process(_delta):
 	if first_frames < 2:

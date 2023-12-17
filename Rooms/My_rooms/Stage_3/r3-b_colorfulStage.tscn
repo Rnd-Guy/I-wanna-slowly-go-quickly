@@ -38,7 +38,7 @@ layer_0/tile_data = PackedInt32Array(2359344, 65536, 3, 2359342, 0, 3, 2359340, 
 [node name="tempTiles" parent="Environment" instance=ExtResource("2_kotxr")]
 visible = false
 rendering_quadrant_size = 32
-layer_0/tile_data = PackedInt32Array(1835018, 65536, 0, 1835020, 65536, 0, 1835022, 65536, 0, 1835024, 65536, 0, 1835026, 65536, 0, 1835028, 65536, 0, 1835030, 65536, 0, 1835032, 65536, 0, 1835034, 65536, 0, 1835036, 65536, 0, 1835038, 65536, 0, 1835040, 65536, 0, 1835042, 65536, 0, 1835044, 65536, 0, 1966117, 65536, 0, 2097188, 65536, 0, 2097186, 65536, 0, 2097184, 65536, 0, 2097182, 65536, 0, 2097180, 65536, 0, 2097178, 65536, 0, 2097176, 65536, 0, 2097174, 65536, 0, 2097172, 65536, 0, 2097170, 65536, 0, 2097168, 65536, 0, 2097166, 65536, 0, 2097164, 65536, 0, 2097162, 65536, 0, 1966089, 65536, 0)
+layer_0/tile_data = PackedInt32Array(1835018, 65536, 0, 1835020, 65536, 0, 1835022, 65536, 0, 1835024, 65536, 0, 1835026, 65536, 0, 1835028, 65536, 0, 1835030, 65536, 0, 1835032, 65536, 0, 1835034, 65536, 0, 1835036, 65536, 0, 1835038, 65536, 0, 1835040, 65536, 0, 1835042, 65536, 0, 1835044, 65536, 0, 1966117, 65536, 0, 2097188, 65536, 0, 2097186, 65536, 0, 2097184, 65536, 0, 2097182, 65536, 0, 2097180, 65536, 0, 2097178, 65536, 0, 2097176, 65536, 0, 2097174, 65536, 0, 2097172, 65536, 0, 2097170, 65536, 0, 2097168, 65536, 0, 2097166, 65536, 0, 2097164, 65536, 0, 2097162, 65536, 0, 1966089, 65536, 0, 1966087, 65536, 0, 2097160, 65536, 0, 1835016, 65536, 0, 1835046, 65536, 0, 2097190, 65536, 0, 1966119, 65536, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("3_7acav")]
 
@@ -167,13 +167,6 @@ gizmo_extents = 619.4
 position = Vector2(-32, 88)
 song_id = ExtResource("22_7xli6")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 101.0
-offset_bottom = 66.0
-text = "Score: 0"
-
 [node name="Instances" type="Node2D" parent="."]
 
 [node name="miku" type="Sprite2D" parent="."]
@@ -186,5 +179,14 @@ collision_mask = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="miku/Area2D"]
 polygon = PackedVector2Array(-49, -181, 12, -183, 72, -37, 78, 95, 49, 52, 42, 104, 25, 107, 59, 193, 37, 195, 9, 109, -27, 109, -29, 195, -49, 196, -51, 183, -42, 171, -35, 104, -50, 88, -35, 49, -43, 37, -55, 67, -80, 80, -72, 54, -65, 51, -31, -21, -30, -76, -52, -87, -76, 28, -91, 28, -62, -142)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 101.0
+offset_bottom = 66.0
+text = "Score: 0"
 
 [connection signal="body_entered" from="miku/Area2D" to="." method="_on_miku_body_entered"]

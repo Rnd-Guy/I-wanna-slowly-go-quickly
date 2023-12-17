@@ -147,7 +147,7 @@ func _ready():
 			prev_x = create_slider(note, prev_x)
 
 func _physics_process(_delta):
-	$Label.set_text(\"Score: \" + str(score))
+	$CanvasLayer/Label.set_text(\"Score: \" + str(score))
 	if !song_finished && $Room_related/objPlayer.global_position.y != 295:
 		var pos = $Room_related/objPlayer.global_position
 		pos.y = 303
@@ -292,13 +292,6 @@ one_use = true
 position = Vector2(-32, 88)
 song_id = ExtResource("16_vhr4u")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 101.0
-offset_bottom = 66.0
-text = "Score: 0"
-
 [node name="scoreReq" type="Node2D" parent="."]
 position = Vector2(688, 544)
 
@@ -310,9 +303,9 @@ offset_left = -40.0
 offset_top = -24.0
 offset_right = 10.0
 offset_bottom = 28.0
-text = "> 5000
-score"
+text = ">5000 score"
 label_settings = SubResource("LabelSettings_78oei")
+autowrap_mode = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="scoreReq"]
 collision_layer = 2
@@ -326,3 +319,13 @@ shape = SubResource("RectangleShape2D_5ddus")
 z_index = -2
 texture = ExtResource("17_2qhxm")
 centered = false
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 101.0
+offset_bottom = 66.0
+text = "Score: 0"

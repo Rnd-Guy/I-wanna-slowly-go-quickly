@@ -20,6 +20,7 @@ visible = false
 shape = SubResource("CircleShape2D_qtjew")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

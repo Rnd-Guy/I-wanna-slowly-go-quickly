@@ -14,8 +14,10 @@ grow_vertical = 2
 script = ExtResource("1_si3b3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
+z_index = 2
 offset_right = 800.0
 offset_bottom = 128.0
 
@@ -32,6 +34,7 @@ theme_override_font_sizes/normal_font_size = 30
 scroll_active = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+z_index = 2
 scale = Vector2(4, 4)
 texture = ExtResource("1_4orag")
 centered = false

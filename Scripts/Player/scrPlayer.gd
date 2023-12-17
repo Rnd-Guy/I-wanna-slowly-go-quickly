@@ -71,6 +71,13 @@ func _ready():
 	$CanvasLayer/currentSpeed.position = Vector2(40,40)
 	$CanvasLayer/currentInstaSpeed.top_level = true
 	$CanvasLayer/currentInstaSpeed.position = Vector2(40,60)
+	$CanvasLayer/Polygon2D.top_level = true
+	$CanvasLayer/Polygon2D.position = Vector2(35,40)
+	$CanvasLayer/Polygon2D2.top_level = true
+	$CanvasLayer/Polygon2D2.position = Vector2(35,40)
+	$CanvasLayer/bossBonus.top_level = true
+	$CanvasLayer/bossBonus.position = Vector2(160,40)
+	
 	
 
 
@@ -133,17 +140,22 @@ func _physics_process(delta):
 		if h_speed >= 1000:
 			speed_string = "c"
 		$CanvasLayer/currentSpeed.set_text("Speed: " + speed_string)
+		if shmup_mark_2:
+			$CanvasLayer/bossBonus.set_visible(true)
+		else:
+			$CanvasLayer/bossBonus.set_visible(false)
 	else:
 		$CanvasLayer/currentSpeed.visible = false
+		$CanvasLayer/bossBonus.set_visible(false)
 	
 	if show_instant_speed:
-		$CanvasLayer/currentSpeed/Polygon2D2.set_visible(true)
+		$CanvasLayer/Polygon2D2.set_visible(true)
 		if instant_speed_ammo == -1:
 			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: ∞")
 		else:
 			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: " + str(instant_speed_ammo) + " [" + str(default_instant_speed_ammo) + "]")
 	else:
-		$CanvasLayer/currentSpeed/Polygon2D2.set_visible(false)
+		$CanvasLayer/Polygon2D2.set_visible(false)
 	
 	if Input.is_action_just_pressed("button_debug_command"):
 		debug_command()
@@ -396,7 +408,12 @@ func handle_shooting():
 				create_bullet_id.attack_type = GlobalClass.weapon_type.NOTE
 				h_speed += 0.01
 			GLOBAL_GAME.shot_beat = GLOBAL_GAME.boss_beat
-			create_bullet_id.attack_damage = h_speed
+			
+			if shmup_mark_2:
+				create_bullet_id.attack_damage = h_speed * 1.5
+			else:
+				create_bullet_id.attack_damage = h_speed
+			
 			#last_shot_beat = GLOBAL_GAME.boss_beat
 			
 		

@@ -9,7 +9,8 @@ var x_positions = [208, 280, 352, 416, 488, 560]
 var y_target = 490
 
 var score = 0
-var target_score = 11400 # max possible without z is 11600, max is 12400
+var target_score = 114 # max possible without z is 11600, max is 12400
+var points_per_bar = 1
 
 var notes = [
 	[2, 3],
@@ -186,7 +187,7 @@ func on_music_end():
 
 
 func _physics_process(_delta):
-	$Label.set_text("Score: " + str(score))
+	$CanvasLayer/Label.set_text("Score: " + str(score))
 
 func create_note(note_data):
 	var note_block = note.instantiate()
@@ -204,7 +205,7 @@ func score_points():
 		#score += 50
 	#elif event == "sliderBody":
 		#score += 1
-	score += 100
+	score += points_per_bar
 	if $miku && score >= target_score:
 		$miku.queue_free()
 	

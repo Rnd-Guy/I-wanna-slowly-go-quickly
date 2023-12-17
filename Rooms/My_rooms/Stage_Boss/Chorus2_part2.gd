@@ -30,7 +30,9 @@ func _physics_process(_delta):
 		setup_deferred()
 		first_frames = 3
 	
-	if one(319):
+	if one(317):
+		$UpgradeAnimation.play("Upgrade")
+	elif one(319):
 		$RightWarning.set_visible(true)
 	elif one(321.2):
 		$RightWarning.set_visible(false)
