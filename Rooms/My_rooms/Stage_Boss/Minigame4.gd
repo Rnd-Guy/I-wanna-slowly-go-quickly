@@ -18,6 +18,8 @@ var player_in_start = false
 @onready var b4 = $Obstacles/b4
 
 @onready var phases = [t1,b1,t2,b2,t3,b3,t4,b4]
+@onready var top_phases = [t1,t2,t3,t4]
+@onready var bot_phases = [b1,b2,b3,b4]
 @onready var currentTop = t1
 @onready var currentBot = b1
 var dontSpawnAdder = null
@@ -169,13 +171,15 @@ func _on_bottom_bar_body_entered(body):
 
 # enable obstacle
 func eo(phase: Node2D):
-	#var spikes: TileMap = phase.find_child("spike", false)
-	#spikes.set_layer_enabled(0, true)
-	#var tiles: TileMap = phase.find_child("tiles", false)
-	#tiles.set_layer_enabled(0, true)
 	phase.set_visible(true)
 	replace_blocks(phase)
 	replace_spikes(phase)
+	if top_phases.has(phase):
+		$objOneWay.rotation = deg_to_rad(0)
+		$objOneWay2.rotation = deg_to_rad(0)
+	else:
+		$objOneWay.rotation = deg_to_rad(180)
+		$objOneWay2.rotation = deg_to_rad(180)
 
 # disable obstacle
 func diso(phase: Node2D):
