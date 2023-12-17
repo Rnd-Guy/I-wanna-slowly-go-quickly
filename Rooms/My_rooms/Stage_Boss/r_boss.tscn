@@ -805,7 +805,6 @@ metadata/_edit_lock_ = true
 [node name="Beep-boop-1" type="Node2D" parent="Phases"]
 visible = false
 script = ExtResource("3_lr0jd")
-metadata/_edit_lock_ = true
 
 [node name="Floor" type="Node2D" parent="Phases/Beep-boop-1"]
 
@@ -1218,7 +1217,6 @@ centered = false
 
 [node name="Minigame1" type="Node2D" parent="Phases"]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("4_7agvo")
 
 [node name="Start" type="Node2D" parent="Phases/Minigame1"]
@@ -1291,7 +1289,7 @@ shape = SubResource("RectangleShape2D_n4mpm")
 position = Vector2(288, 152)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.02
+speed = 0.05
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point"]
 shape = SubResource("RectangleShape2D_1napu")
@@ -1314,7 +1312,7 @@ vertical_alignment = 1
 position = Vector2(448, 152)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.05
+speed = 0.15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point2"]
 shape = SubResource("RectangleShape2D_1napu")
@@ -1337,7 +1335,7 @@ vertical_alignment = 1
 position = Vector2(632, 152)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.15
+speed = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point3"]
 shape = SubResource("RectangleShape2D_1napu")
@@ -1360,7 +1358,7 @@ vertical_alignment = 1
 position = Vector2(848, 152)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.3
+speed = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point4"]
 shape = SubResource("RectangleShape2D_1napu")
@@ -1406,7 +1404,7 @@ vertical_alignment = 1
 position = Vector2(1312, 152)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.75
+speed = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point6"]
 shape = SubResource("RectangleShape2D_1napu")
@@ -1429,6 +1427,7 @@ vertical_alignment = 1
 position = Vector2(1616, 152)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
+speed = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point7"]
 shape = SubResource("RectangleShape2D_1napu")
@@ -1452,6 +1451,7 @@ z_index = -2
 scale = Vector2(1, 1.02667)
 texture = ExtResource("16_uc65p")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Minigame2" type="Node2D" parent="Phases"]
 visible = false

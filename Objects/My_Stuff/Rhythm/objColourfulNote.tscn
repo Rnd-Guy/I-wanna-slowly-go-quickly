@@ -10,7 +10,7 @@ shader = ExtResource("2_21yk4")
 shader_parameter/screen_position = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cftut"]
-size = Vector2(64, 16)
+size = Vector2(72, 16)
 
 [node name="Note" type="Node2D"]
 script = ExtResource("1_grtgm")

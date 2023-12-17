@@ -7,6 +7,7 @@ var note = preload("res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn")
 var bpm = 120
 var speed = 400
 var beat_offset
+var speed_per_hit = 0.05
 
 var x_positions = [208, 280, 352, 416, 488, 560]
 var y_target = 490
@@ -39,7 +40,7 @@ var notes = [
 	[259.5,1],
 	[260,6],
 	[260.5,1],
-	[261,5],
+	[261,6],
 	[261.5,6],
 	[262,4],
 	[262.5,5],
@@ -54,18 +55,18 @@ var notes = [
 	[266.5,2],
 	[267,6],
 	[267.5,1],
-	[267.75,6],
+	[267.75,2],
 	
-	[268.25,5],
-	[268.5,4],
-	[268.75,3],
-	[269,2],
+	[268.25,6],
+	[268.5,5],
+	[268.75,4],
+	[269,3],
 	[269.5,6],
 	[270,4],
 	[270.5,6],
 	[271,1],
 	[271.5,2],
-	[272,5],
+	[272,3],
 	[272.5,6],
 	[273,4],
 	
@@ -75,7 +76,7 @@ var notes = [
 	[275.5,1],
 	[276,3],
 	[276.5,1],
-	[277,5],
+	[277,6],
 	[277.5,6],
 	[278,4],
 	[278.5,5],
@@ -126,7 +127,7 @@ func _physics_process(_delta):
 	#%objPlayer.set_global_position(Vector2(%objPlayer.global_position.x,$Start.global_position.y))
 
 func score_points():
-	%objPlayer.h_speed += 0.02
+	%objPlayer.h_speed += speed_per_hit
 
 func get_beat_offset():
 	return get_tree().root.get_node("rBoss").beat_offset
