@@ -48,6 +48,10 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
+"res://Graphics/": "green",
+"res://Graphics/Sprites/My Stuff/": "pink",
+"res://Objects/": "blue",
+"res://Objects/My_Stuff/": "pink",
 "res://Rooms/My_rooms/": "red"
 }
 

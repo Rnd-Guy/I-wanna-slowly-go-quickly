@@ -107,7 +107,7 @@ func set_button_colors():
 	$CanvasLayer/VBoxContainer/ResumeGame.color_unfocused = button_color_unfocused
 
 
-func _on_music_offset_gui_input(event):
+func _on_music_offset_gui_input(_event):
 	
 	if Input.is_action_just_pressed("button_shift_right"):
 		GLOBAL_SETTINGS.MUSIC_OFFSET += 10

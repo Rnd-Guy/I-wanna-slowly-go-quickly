@@ -263,7 +263,7 @@ func set_window_title():
 
 func seconds_to_time(seconds):
 	var hours = floori(seconds/(60*60))
-	var minutes = floori((floori(seconds) % (60*60))/60)
+	var minutes = floori((floori(seconds) % (60*60))/60.0)
 	var minutes_string = ""
 	if minutes < 10:
 		minutes_string += "0"

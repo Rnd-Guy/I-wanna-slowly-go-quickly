@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://pfdmda2flsn1"]
+
+[ext_resource type="PackedScene" uid="uid://bbrj0nwju8vmg" path="res://Objects/Dialog_system/objDialogBox.tscn" id="1_yh1mm"]
+[ext_resource type="Texture2D" uid="uid://ox7qqy44wanl" path="res://Graphics/Sprites/Dialog_system/sprSign.png" id="2_qavfp"]
+
+[node name="DialogLock" type="Node2D"]
+
+[node name="objDialogBox" parent="." instance=ExtResource("1_yh1mm")]
+dialog = Array[String](["Unlike doors, the lock stays shut when the criteria is no longer met. Watch out!"])
+portrait = Array[Texture2D]([ExtResource("2_qavfp")])

@@ -65,8 +65,8 @@ speed = -1.0
 one_use = true
 
 [node name="objSpeedAdder32" parent="." instance=ExtResource("8_i5aw6")]
-position = Vector2(97, 176)
-scale = Vector2(3.92887, 0.966473)
+position = Vector2(80, 176)
+scale = Vector2(3, 1)
 speed = -1.0
 one_use = true
 
@@ -201,6 +201,7 @@ speed = 2.0
 z_index = -2
 position = Vector2(400, 304)
 texture = ExtResource("10_r6dhv")
+metadata/_edit_lock_ = true
 
 [node name="objCherry" parent="bg" instance=ExtResource("11_jura6")]
 visible = false
