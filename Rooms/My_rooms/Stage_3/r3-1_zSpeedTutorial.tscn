@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0dbyhsp04dcx"]
+[gd_scene load_steps=22 format=3 uid="uid://b0dbyhsp04dcx"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_nfaj7"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_v1h6g"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="16_wgh21"]
 [ext_resource type="PackedScene" uid="uid://cuixijthhxfki" path="res://Objects/Gimmicks/objJumpRefresher.tscn" id="18_ps8di"]
 [ext_resource type="Texture2D" uid="uid://xtnq2ap46g7h" path="res://Graphics/Backgrounds/night.png" id="19_8yfkv"]
+[ext_resource type="PackedScene" uid="uid://dtqw423dm8m3" path="res://Objects/Dialog_system/objSign.tscn" id="21_trvx8"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -29,10 +30,10 @@ metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_nfaj7")]
 rendering_quadrant_size = 32
-layer_0/tile_data = PackedInt32Array(1835010, 65536, 0, 1835012, 65536, 0, 1835014, 65536, 0, 1835016, 65536, 0, 1835018, 65536, 0, 524290, 65536, 0, 524292, 65536, 0, 524294, 65536, 0, 524296, 65536, 0, 524298, 65536, 0)
+layer_0/tile_data = PackedInt32Array(524290, 65536, 0, 524292, 65536, 0, 524294, 65536, 0, 524296, 65536, 0, 524298, 65536, 0, 1966088, 65536, 0, 1966086, 65536, 0, 1966084, 65536, 0, 1966082, 65536, 0, 1572866, 65536, 0, 1572868, 65536, 0, 1572870, 65536, 0, 1572872, 65536, 0, 1966090, 65536, 0, 1572874, 65536, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_v1h6g")]
-layer_0/tile_data = PackedInt32Array(1966090, 0, 0, 2228234, 0, 0, 2097162, 65536, 0)
+layer_0/tile_data = PackedInt32Array(2228234, 65536, 0, 2097162, 0, 0, 1703946, 0, 0, 1835018, 65536, 0)
 
 [node name="Room_related" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -46,10 +47,10 @@ metadata/_edit_lock_ = true
 position = Vector2(72, 112)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_dbd4h")]
-position = Vector2(128, 559)
+position = Vector2(96, 560)
 
 [node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_g24bt")]
-position = Vector2(128, 560)
+position = Vector2(96, 561)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -85,36 +86,43 @@ loop_end = 114.0
 
 [node name="til32x32" parent="." instance=ExtResource("14_nftl1")]
 rendering_quadrant_size = 32
-layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 655361, 65536, 0, 655363, 65536, 0, 655362, 65536, 0, 655364, 65536, 0, 655365, 65536, 0)
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
 
 [node name="tilSpikes" parent="." instance=ExtResource("15_guh1g")]
-layer_0/tile_data = PackedInt32Array(851973, 65536, 0, 786437, 0, 0, 720901, 65536, 0)
 metadata/_edit_lock_ = true
 
 [node name="objInstantSpeedRefresher" parent="tilSpikes" instance=ExtResource("16_m1guw")]
-position = Vector2(752, 344)
+position = Vector2(752, 392)
 
 [node name="objInstantSpeedRefresher2" parent="tilSpikes" instance=ExtResource("16_m1guw")]
-position = Vector2(600, 56)
+position = Vector2(560, 56)
 
 [node name="InstantSpeedManager" parent="." instance=ExtResource("16_wgh21")]
 position = Vector2(-24, 64)
 default_instant_speed_ammo = 1
 
 [node name="objJumpRefresher" parent="." instance=ExtResource("18_ps8di")]
-position = Vector2(752, 192)
+position = Vector2(752, 256)
 
 [node name="objJumpRefresher2" parent="." instance=ExtResource("18_ps8di")]
-position = Vector2(712, 144)
+position = Vector2(720, 208)
 
 [node name="objJumpRefresher3" parent="." instance=ExtResource("18_ps8di")]
-position = Vector2(672, 112)
+position = Vector2(680, 168)
 
 [node name="objJumpRefresher4" parent="." instance=ExtResource("18_ps8di")]
-position = Vector2(640, 88)
+position = Vector2(640, 136)
+
+[node name="objJumpRefresher5" parent="." instance=ExtResource("18_ps8di")]
+position = Vector2(600, 96)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
 texture = ExtResource("19_8yfkv")
 centered = false
+metadata/_edit_lock_ = true
+
+[node name="objSign" parent="." instance=ExtResource("21_trvx8")]
+position = Vector2(128, 560)
+custom_text = "Press Z to zoop!"

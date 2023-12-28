@@ -14,7 +14,7 @@ var points_per_bar = 1
 
 var notes = [
 	[2, 3],
-	[4,1],
+	[4,3],
 	
 	[7,1],
 	[8,2],
