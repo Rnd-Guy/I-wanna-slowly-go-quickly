@@ -805,6 +805,7 @@ metadata/_edit_lock_ = true
 [node name="Phases" type="Node2D" parent="."]
 
 [node name="BeforeIntro" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("2_p4ai6")
 
 [node name="tiles" parent="Phases/BeforeIntro" instance=ExtResource("1_b2h4h")]
@@ -1306,16 +1307,18 @@ shape = SubResource("RectangleShape2D_n4mpm")
 [node name="PointBonuses" type="Node2D" parent="Phases/Minigame1"]
 
 [node name="Point" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(288, 152)
+position = Vector2(288, 208)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.05
+speed = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point"]
 shape = SubResource("RectangleShape2D_1napu")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point"]
 offset_left = -24.0
@@ -1327,18 +1330,22 @@ text = "+1
 label_settings = SubResource("LabelSettings_ou7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Point2" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(448, 152)
+position = Vector2(448, 208)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.15
+speed = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point2"]
 shape = SubResource("RectangleShape2D_1napu")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point2"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point2"]
 offset_left = -24.0
@@ -1350,18 +1357,22 @@ text = "+1
 label_settings = SubResource("LabelSettings_ou7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Point3" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(632, 152)
+position = Vector2(632, 208)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.3
+speed = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point3"]
 shape = SubResource("RectangleShape2D_1napu")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point3"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point3"]
 offset_left = -24.0
@@ -1373,18 +1384,22 @@ text = "+1
 label_settings = SubResource("LabelSettings_ou7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Point4" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(848, 152)
+position = Vector2(848, 208)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 0.5
+speed = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point4"]
 shape = SubResource("RectangleShape2D_1napu")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point4"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point4"]
 offset_left = -24.0
@@ -1396,17 +1411,21 @@ text = "+1
 label_settings = SubResource("LabelSettings_ou7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Point5" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(1088, 152)
+position = Vector2(1088, 208)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point5"]
 shape = SubResource("RectangleShape2D_1napu")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point5"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point5"]
 offset_left = -24.0
@@ -1418,18 +1437,22 @@ text = "+1
 label_settings = SubResource("LabelSettings_ou7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Point6" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(1312, 152)
+position = Vector2(1312, 208)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 1.5
+speed = 1.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point6"]
 shape = SubResource("RectangleShape2D_1napu")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point6"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point6"]
 offset_left = -24.0
@@ -1441,18 +1464,22 @@ text = "+1
 label_settings = SubResource("LabelSettings_ou7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Point7" type="Area2D" parent="Phases/Minigame1/PointBonuses"]
-position = Vector2(1616, 152)
+position = Vector2(1616, 208)
 collision_layer = 0
 script = SubResource("GDScript_s4bne")
-speed = 3.0
+speed = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Phases/Minigame1/PointBonuses/Point7"]
 shape = SubResource("RectangleShape2D_1napu")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Phases/Minigame1/PointBonuses/Point7"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Phases/Minigame1/PointBonuses/Point7"]
 offset_left = -24.0
@@ -1464,6 +1491,8 @@ text = "+1
 label_settings = SubResource("LabelSettings_ou7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Phases/Minigame1"]
 z_index = -2
@@ -1476,130 +1505,321 @@ metadata/_edit_lock_ = true
 script = ExtResource("9_tag34")
 
 [node name="start" type="Node2D" parent="Phases/Minigame2"]
-position = Vector2(432, 240)
+position = Vector2(48, 144)
+metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame2" instance=ExtResource("1_b2h4h")]
 rendering_quadrant_size = 32
-layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0, 131079, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 262152, 65536, 0, 327688, 65536, 0, 393222, 65536, 0, 458758, 65536, 0, 524294, 65536, 0, 589830, 65536, 0, 393221, 65536, 0, 393220, 65536, 0, 393219, 65536, 0, 393218, 65536, 0, 458754, 65536, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 65536, 0, 655362, 65536, 0, 655363, 65536, 0, 655364, 65536, 0, 655365, 65536, 0, 655366, 65536, 0, 655367, 65536, 0, 655368, 65536, 0, 655369, 65536, 0, 655370, 65536, 0, 589832, 65536, 0, 524296, 65536, 0, 458760, 65536, 0, 589834, 65536, 0, 524298, 65536, 0, 327689, 65536, 0, 327690, 65536, 0, 262154, 65536, 0, 196618, 65536, 0, 131082, 65536, 0, 131083, 65536, 0, 131084, 65536, 0, 131085, 65536, 0, 65551, 65536, 0, 131087, 65536, 0, 196623, 65536, 0, 262159, 65536, 0, 262158, 65536, 0, 262157, 65536, 0, 262156, 65536, 0, 458762, 65536, 0, 393228, 65536, 0, 458764, 65536, 0, 524300, 65536, 0, 589836, 65536, 0, 655372, 65536, 0, 720908, 65536, 0, 786444, 65536, 0, 786443, 65536, 0, 786442, 65536, 0, 786441, 65536, 0, 786438, 65536, 0, 786437, 65536, 0, 786434, 65536, 0, 851970, 65536, 0, 917506, 65536, 0, 983042, 65536, 0, 1048578, 65536, 0, 1048579, 65536, 0, 1048580, 65536, 0, 1048581, 65536, 0, 1114119, 65536, 0, 1048583, 65536, 0, 983047, 65536, 0, 917511, 65536, 0, 917508, 65536, 0, 917509, 65536, 0, 786436, 65536, 0, 851973, 65536, 0, 786439, 65536, 0, 851977, 65536, 0, 917513, 65536, 0, 983049, 65536, 0, 1048585, 65536, 0, 393229, 65536, 0, 393230, 65536, 0, 458766, 65536, 0, 524302, 65536, 0, 589838, 65536, 0, 720909, 65536, 0, 720910, 65536, 0, 720911, 65536, 0, 720912, 65536, 0, 786446, 65536, 0, 851982, 65536, 0, 917518, 65536, 0, 917517, 65536, 0, 917516, 65536, 0, 917515, 65536, 0, 1048586, 65536, 0, 1048587, 65536, 0, 1114125, 65536, 0, 983053, 65536, 0, 1048591, 65536, 0, 1048592, 65536, 0, 1048594, 65536, 0, 1048595, 65536, 0, 983056, 65536, 0, 917520, 65536, 0, 851984, 65536, 0, 851986, 65536, 0, 917522, 65536, 0, 983058, 65536, 0, 589840, 65536, 0, 524304, 65536, 0, 393232, 65536, 0, 393233, 65536, 0, 327697, 65536, 0, 196625, 65536, 0, 131089, 65536, 0, 196626, 65536, 0, 196627, 65536, 0, 131091, 65536, 0, 65557, 65536, 0, 131093, 65536, 0, 196629, 65536, 0, 131094, 65536, 0, 262165, 65536, 0, 262166, 65536, 0, 327701, 65536, 0, 327700, 65536, 0, 327699, 65536, 0, 524305, 65536, 0, 458771, 65536, 0, 458772, 65536, 0, 458773, 65536, 0, 458774, 65536, 0, 393239, 65536, 0, 458775, 65536, 0, 524307, 65536, 0, 589843, 65536, 0, 655379, 65536, 0, 655378, 65536, 0, 786450, 65536, 0, 917523, 65536, 0, 917524, 65536, 0, 851988, 65536, 0, 786452, 65536, 0, 786453, 65536, 0, 720917, 65536, 0, 655381, 65536, 0, 589845, 65536, 0, 589846, 65536, 0, 720919, 65536, 0, 917525, 65536, 0, 983061, 65536, 0, 1048597, 65536, 0, 1048598, 65536, 0, 917527, 65536, 0, 786455, 65536, 0, 131073, 65536, 0, 131075, 65536, 0, 65540, 65536, 0)
+layer_0/tile_data = PackedInt32Array(524288, 65536, 1, 12, 65536, 1, 0, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 393216, 65536, 1, 458752, 65536, 1, 589824, 65536, 1, 655360, 65536, 1, 720896, 65536, 1, 786432, 65536, 1, 851968, 65536, 1, 917504, 65536, 1, 983040, 65536, 1, 1048576, 65536, 1, 1114112, 65536, 1, 1179648, 65536, 1, 1, 65536, 1, 2, 65536, 1, 3, 65536, 1, 4, 65536, 1, 5, 65536, 1, 6, 65536, 1, 7, 65536, 1, 8, 65536, 1, 9, 65536, 1, 10, 65536, 1, 11, 65536, 1, 13, 65536, 1, 14, 65536, 1, 16, 65536, 1, 17, 65536, 1, 18, 65536, 1, 19, 65536, 1, 20, 65536, 1, 23, 65536, 1, 24, 65536, 1, 65560, 65536, 1, 131096, 65536, 1, 196632, 65536, 1, 262168, 65536, 1, 327704, 65536, 1, 393240, 65536, 1, 458776, 65536, 1, 524312, 65536, 1, 589848, 65536, 1, 655384, 65536, 1, 720920, 65536, 1, 786456, 65536, 1, 851992, 65536, 1, 917528, 65536, 1, 983064, 65536, 1, 1048600, 65536, 1, 1114136, 65536, 1, 1179672, 65536, 1, 131075, 0, 1, 131076, 0, 1, 327681, 0, 1, 327682, 0, 1, 327683, 0, 1, 327684, 0, 1, 327685, 0, 1, 327686, 0, 1, 327687, 65536, 1, 262151, 0, 1, 262152, 0, 1, 262153, 0, 1, 262154, 0, 1, 262155, 0, 1, 262156, 0, 1, 262157, 0, 1, 262158, 0, 1, 262159, 0, 1, 262160, 0, 1, 262161, 0, 1, 65547, 0, 1, 131083, 0, 1, 131084, 0, 1, 65548, 0, 1, 262162, 65536, 1, 196626, 65536, 1, 131090, 0, 1, 196627, 0, 1, 196628, 0, 1, 196629, 0, 1, 196630, 0, 1, 458754, 0, 1, 524290, 65536, 1, 524291, 0, 1, 524292, 65536, 1, 524293, 0, 1, 458756, 0, 1, 720897, 0, 1, 720898, 0, 1, 720899, 0, 1, 720901, 0, 1, 720902, 0, 1, 720903, 0, 1, 720904, 65536, 1, 655368, 65536, 1, 589832, 65536, 1, 524296, 65536, 1, 458760, 0, 1, 458761, 0, 1, 458762, 0, 1, 786440, 65536, 1, 851976, 65536, 1, 1048580, 0, 1, 1114116, 0, 1, 917507, 0, 1, 917508, 0, 1, 917509, 0, 1, 1179671, 65536, 1, 1179670, 65536, 1, 1179669, 65536, 1, 1179668, 65536, 1, 1179667, 65536, 1, 1179666, 65536, 1, 1179665, 65536, 1, 1179664, 65536, 1, 1179663, 65536, 1, 1179662, 65536, 1, 1179661, 65536, 1, 1179660, 65536, 1, 1179659, 65536, 1, 1179658, 65536, 1, 1179657, 65536, 1, 1179656, 65536, 1, 1179655, 65536, 1, 1179654, 65536, 1, 1179653, 65536, 1, 1179652, 65536, 1, 15, 65536, 1, 21, 65536, 1, 22, 65536, 1, 851974, 0, 1, 917510, 65536, 1, 983046, 65536, 1, 1048582, 65536, 1, 1114120, 65536, 1, 1048584, 65536, 1, 983048, 65536, 1, 917512, 65536, 1, 983050, 0, 1, 983051, 0, 1, 786441, 0, 1, 786442, 0, 1, 589835, 0, 1, 327691, 0, 1, 327692, 65536, 1, 393228, 65536, 1, 458764, 65536, 1, 524300, 65536, 1, 589836, 65536, 1, 655372, 65536, 1, 720908, 65536, 1, 786444, 65536, 1, 851980, 65536, 1, 917516, 65536, 1, 983052, 65536, 1, 983053, 65536, 1, 983054, 65536, 1, 983055, 0, 1, 983056, 0, 1, 983057, 0, 1, 983058, 0, 1, 983059, 0, 1, 983060, 0, 1, 983061, 0, 1, 917517, 0, 1, 917518, 0, 1, 327696, 0, 1, 589840, 0, 1, 655376, 65536, 1, 720912, 65536, 1, 720913, 0, 1, 720914, 65536, 1, 655378, 65536, 1, 589842, 65536, 1, 524306, 65536, 1, 458770, 0, 1, 655379, 0, 1, 655380, 65536, 1, 589844, 65536, 1, 524308, 65536, 1, 458772, 0, 1, 589845, 0, 1, 589846, 65536, 1, 589847, 0, 1, 524310, 65536, 1, 458774, 0, 1, 1179651, 0, 1, 1179650, 0, 1, 1179649, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="BlackBar" type="Polygon2D" parent="Phases/Minigame2"]
 position = Vector2(400, 592)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-168, -8, 168, -8, 168, 8, -168, 8)
+metadata/_edit_lock_ = true
 
 [node name="WhiteBar" type="Polygon2D" parent="Phases/Minigame2"]
 position = Vector2(400, 592)
 polygon = PackedVector2Array(-168, -8, 168, -8, 168, 8, -168, 8)
+metadata/_edit_lock_ = true
 
 [node name="buffs" type="Node2D" parent="Phases/Minigame2"]
 
 [node name="randomAdder" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(112, 112)
+position = Vector2(304, 112)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder2" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(464, 48)
+position = Vector2(464, 112)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder3" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(48, 112)
+position = Vector2(272, 112)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder4" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(240, 176)
+position = Vector2(592, 176)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder5" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(112, 240)
+position = Vector2(496, 304)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder6" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(304, 144)
+position = Vector2(496, 112)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder7" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(240, 304)
+position = Vector2(432, 368)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder8" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(304, 304)
+position = Vector2(432, 304)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder9" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(144, 432)
+position = Vector2(432, 432)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder10" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(48, 560)
+position = Vector2(496, 336)
+speed = 0.5
+fade_timer = 100.0
+
+[node name="randomAdder21" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(496, 368)
+speed = 0.5
+fade_timer = 100.0
+
+[node name="randomAdder23" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(496, 464)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder27" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(528, 464)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder31" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(560, 464)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder32" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(592, 464)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder45" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(400, 528)
+fade_timer = 100.0
+
+[node name="randomAdder49" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(304, 432)
+fade_timer = 100.0
+
+[node name="randomAdder50" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(336, 432)
+fade_timer = 100.0
+
+[node name="randomAdder51" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(368, 336)
+fade_timer = 100.0
+
+[node name="randomAdder52" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(336, 336)
+fade_timer = 100.0
+
+[node name="randomAdder53" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(304, 208)
+fade_timer = 100.0
+
+[node name="randomAdder54" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(368, 184)
+fade_timer = 100.0
+
+[node name="randomAdder55" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(240, 336)
+speed = 2.0
+fade_timer = 100.0
+
+[node name="randomAdder56" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(208, 336)
+speed = 2.0
+fade_timer = 100.0
+
+[node name="randomAdder57" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(176, 336)
+speed = 2.0
+fade_timer = 100.0
+
+[node name="randomAdder58" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(112, 336)
+speed = 2.0
+fade_timer = 100.0
+
+[node name="randomAdder59" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(80, 400)
+speed = 2.0
+fade_timer = 100.0
+
+[node name="randomAdder60" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(112, 432)
+speed = 2.0
+fade_timer = 100.0
+
+[node name="randomAdder46" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(432, 560)
+fade_timer = 100.0
+
+[node name="randomAdder47" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(496, 560)
+fade_timer = 100.0
+
+[node name="randomAdder48" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(592, 560)
+fade_timer = 100.0
+
+[node name="randomAdder33" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(624, 464)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder34" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(656, 464)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder35" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(688, 464)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder36" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(720, 336)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder37" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(752, 336)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder38" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(752, 368)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder39" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(752, 400)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder40" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(752, 432)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder41" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(752, 464)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder42" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(752, 496)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder43" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(752, 528)
+speed = 0.2
+fade_timer = 100.0
+
+[node name="randomAdder44" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
+position = Vector2(752, 560)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder11" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(432, 400)
+position = Vector2(528, 272)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder12" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(752, 560)
+position = Vector2(432, 272)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder13" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(592, 80)
+position = Vector2(560, 112)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder14" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(528, 176)
+position = Vector2(720, 208)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder15" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(720, 48)
+position = Vector2(624, 80)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder16" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(720, 208)
+position = Vector2(656, 80)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder17" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(752, 272)
+position = Vector2(688, 80)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder18" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(752, 432)
+position = Vector2(432, 208)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder19" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(624, 432)
+position = Vector2(432, 176)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder20" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(496, 400)
+position = Vector2(528, 208)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder22" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(624, 496)
+position = Vector2(432, 240)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder24" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(208, 432)
+position = Vector2(432, 400)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder25" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(368, 368)
+position = Vector2(432, 336)
+speed = 0.2
 fade_timer = 100.0
 
 [node name="randomAdder26" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(528, 336)
+position = Vector2(656, 208)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder28" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(176, 48)
+position = Vector2(432, 48)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder29" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(368, 176)
+position = Vector2(624, 144)
+speed = 0.5
 fade_timer = 100.0
 
 [node name="randomAdder30" parent="Phases/Minigame2/buffs" instance=ExtResource("11_acjg2")]
-position = Vector2(592, 240)
+position = Vector2(720, 80)
+speed = 0.5
+fade_timer = 100.0
+
+[node name="objSpeedAdder" parent="Phases/Minigame2" instance=ExtResource("11_acjg2")]
+position = Vector2(80, 528)
+scale = Vector2(3, 3)
+speed = 10.0
 fade_timer = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Phases/Minigame2"]
@@ -3014,18 +3234,21 @@ offset_left = 40.0
 offset_top = 80.0
 offset_right = 80.0
 offset_bottom = 120.0
+metadata/_edit_lock_ = true
 
 [node name="beat" type="Label" parent="Debug/CanvasLayer"]
 offset_left = 40.0
 offset_top = 128.0
 offset_right = 80.0
 offset_bottom = 168.0
+metadata/_edit_lock_ = true
 
 [node name="shotbeat" type="Label" parent="Debug/CanvasLayer"]
 offset_left = 48.0
 offset_top = 192.0
 offset_right = 88.0
 offset_bottom = 232.0
+metadata/_edit_lock_ = true
 
 [node name="bossHp" type="TextureProgressBar" parent="Debug/CanvasLayer"]
 unique_name_in_owner = true
@@ -3038,6 +3261,7 @@ value = 100.0
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_m5jed")
 texture_progress = SubResource("GradientTexture1D_8073o")
+metadata/_edit_lock_ = true
 
 [node name="bossHpLabel" type="Label" parent="Debug/CanvasLayer/bossHp"]
 unique_name_in_owner = true
@@ -3079,6 +3303,7 @@ position = Vector2(416, 561)
 [node name="warp" parent="Room_related" instance=ExtResource("53_rnubl")]
 unique_name_in_owner = true
 position = Vector2(-1120, -456)
+scale = Vector2(10, 10)
 warp_to = "res://Rooms/My_rooms/Other/r_end.tscn"
 
 [node name="Gimmicks" type="Node2D" parent="."]
