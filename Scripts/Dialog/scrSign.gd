@@ -1,13 +1,17 @@
 extends Area2D
 
 @export var dialog_scene: PackedScene = null
+@export var custom_text: String = ""
 var player_is_colliding: bool = false
 var dialog_box
 
 
 # Sets the label and turns it invisible at startup
 func _ready():
-	$Label.text = 'Press "' + handle_text("button_up") +'"'
+	if custom_text == "":
+		$Label.text = 'Press "' + handle_text("button_up") +'"'
+	else:
+		$Label.text = custom_text
 	$Label.visible = false
 
 
@@ -15,7 +19,8 @@ func _physics_process(_delta):
 	
 	# This is repeated here because it will update the text if we changed our
 	# input device (keyboard to controller, or controller to keyboard)
-	$Label.text = 'Press "' + handle_text("button_up") +'"'
+	if custom_text == "":
+		$Label.text = 'Press "' + handle_text("button_up") +'"'
 	
 	
 	# Creates a dialog scene when the player is colliding and button_up is
