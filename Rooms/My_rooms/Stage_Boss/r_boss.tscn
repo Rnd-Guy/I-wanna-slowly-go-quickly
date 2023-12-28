@@ -1473,7 +1473,6 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Minigame2" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("9_tag34")
 
 [node name="start" type="Node2D" parent="Phases/Minigame2"]
