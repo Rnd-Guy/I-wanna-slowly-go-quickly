@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnrb3lx1bit5l"]
+[gd_scene load_steps=21 format=3 uid="uid://cnrb3lx1bit5l"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_hjkwp"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_n6mr7"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="11_45tge"]
 [ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="12_q2w4i"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="13_87g0u"]
+[ext_resource type="PackedScene" uid="uid://dtqw423dm8m3" path="res://Objects/Dialog_system/objSign.tscn" id="14_1ohrg"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="14_rax7i"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="15_tegj0"]
 [ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="16_6a8s5"]
@@ -72,13 +73,13 @@ position = Vector2(-144, 176)
 
 [node name="objSpeedAdder2" parent="." instance=ExtResource("10_hl5fn")]
 position = Vector2(376, 96)
-scale = Vector2(1.4202, 3.95218)
+scale = Vector2(1.42, 4)
 speed = -3.0
 one_use = true
 
 [node name="objSpeedAdder3" parent="." instance=ExtResource("10_hl5fn")]
 position = Vector2(424, 96)
-scale = Vector2(1.4202, 3.95218)
+scale = Vector2(1.42, 4)
 speed = 3.0
 one_use = true
 
@@ -89,9 +90,12 @@ position = Vector2(-96, 224)
 position = Vector2(-48, 224)
 
 [node name="til32x32" parent="." instance=ExtResource("14_rax7i")]
-rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
 metadata/_edit_lock_ = true
+
+[node name="objSign" parent="til32x32" instance=ExtResource("14_1ohrg")]
+position = Vector2(272, 144)
+custom_text = "Reminder: can jump inside a platform!"
 
 [node name="tilSpikes" parent="." instance=ExtResource("15_tegj0")]
 metadata/_edit_lock_ = true

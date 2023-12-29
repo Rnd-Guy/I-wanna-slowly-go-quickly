@@ -1,7 +1,7 @@
 extends BossPhase
 
-var bar_damage = 2
-var bonus_point_start = 0.8
+var bar_damage = 1
+var bonus_point_start = 1
 
 var first_frames = 0
 var player_in_start = false

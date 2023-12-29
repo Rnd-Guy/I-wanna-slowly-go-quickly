@@ -16,10 +16,10 @@ var slider_skew = 0.6
 var beat_offset
 enum {UP, DOWN}
 
-var block_points = 0.1
+var block_points = 0.15
 var slider_top_points = 0.1
 var slider_bottom_points = 0.05
-var slider_middle_points = 0.005
+var slider_middle_points = 0.01
 
 # first beat is 185
 var notes = [

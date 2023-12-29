@@ -7,7 +7,7 @@ var note = preload("res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn")
 var bpm = 120
 var speed = 400
 var beat_offset
-var speed_per_hit = 0.05
+var speed_per_hit = 0.1
 
 var x_positions = [208, 280, 352, 416, 488, 560]
 var y_target = 490
