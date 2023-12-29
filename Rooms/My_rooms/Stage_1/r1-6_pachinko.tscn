@@ -105,7 +105,7 @@ func _physics_process(delta):
 	position.y = %objPlayer.position.y
 	
 	# make it faintly visible during the section of
-	modulate.a = (800.0/12000.0)-abs((position.y-2250.0)/12000.0)
+	modulate.a = (800.0/6000.0)-abs((position.y-2250.0)/6000.0)
 	
 	if %objPlayer.position.x > 400:
 		position.x = 112

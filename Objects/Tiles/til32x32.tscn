@@ -99,5 +99,5 @@ sources/1 = SubResource("TileSetAtlasSource_vu3ik")
 
 [node name="til32x32" type="TileMap" groups=["Walls"]]
 tile_set = SubResource("TileSet_5neqq")
-cell_quadrant_size = 32
+rendering_quadrant_size = 32
 format = 2
