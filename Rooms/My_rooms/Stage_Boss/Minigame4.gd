@@ -260,6 +260,10 @@ func replace_blocks(phase):
 			obj.set_shape_rotation(ramp_rotation)
 		obj.position = tiles.map_to_local(used_cells[i])
 		obj.position.x -= 1600 # for some reason all the tiles are transformed to -1600x 0y
+		if top_phases.has(phase):
+			obj.set_colour("73ff74")
+		else:
+			obj.set_colour("f18a53")
 		phase.get_node("instances").add_child(obj)
 
 func _on_falling_spike_body_entered(body):

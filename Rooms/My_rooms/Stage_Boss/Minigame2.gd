@@ -35,8 +35,10 @@ func _physics_process(_delta):
 		
 
 func handle_random_adder(adder_node):
-	adder_node.colour_cap = cap
-	adder_node.speed = randf_range(0.01, cap)
+	adder_node.colour_cap = 1
+	adder_node.speed = randf_range(0.01, pow(adder_node.speed, 0.5))
+	#adder_node.colour_cap = cap
+	#adder_node.speed = randf_range(0.01, cap)
 	adder_node.speed *= adder_node.speed
 	adder_node.enable_buff()
 	adder_node._ready()

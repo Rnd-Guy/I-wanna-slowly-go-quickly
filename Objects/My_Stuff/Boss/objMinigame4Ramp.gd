@@ -24,3 +24,6 @@ func set_shape_rotation(degrees):
 
 func _on_timer_timeout():
 	timeout = true
+
+func set_colour(colour):
+	$Shape/Polygon2D.set_color(colour)

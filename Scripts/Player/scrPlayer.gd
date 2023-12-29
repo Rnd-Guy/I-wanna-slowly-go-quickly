@@ -406,7 +406,7 @@ func handle_shooting():
 					fmod(GLOBAL_GAME.boss_beat - global_offset,1) < 0.1 || fmod(GLOBAL_GAME.boss_beat - global_offset,1) > 0.9:
 				create_bullet_id.boss_bullet = true
 				create_bullet_id.attack_type = GlobalClass.weapon_type.NOTE
-				h_speed += 0.01
+				h_speed *= 1.005
 			GLOBAL_GAME.shot_beat = GLOBAL_GAME.boss_beat
 			
 			if shmup_mark_2:

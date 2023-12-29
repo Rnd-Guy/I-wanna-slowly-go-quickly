@@ -20,3 +20,6 @@ func _on_area_2d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_
 # avoid flashing on phase change
 func _on_timer_timeout():
 	timeout = true
+
+func set_colour(colour):
+	$Polygon2D.set_color(colour)
