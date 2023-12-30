@@ -165,9 +165,6 @@ size = Vector2(10, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6gqu"]
 size = Vector2(1, 20)
 
-[sub_resource type="LabelSettings" id="LabelSettings_oc1t5"]
-font_color = Color(0.101961, 1, 0.0235294, 1)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_oi7fq"]
 radius = 4.0
 
@@ -196,6 +193,9 @@ initial_velocity_max = 40.0
 angular_velocity_max = 360.0
 gravity = Vector3(0, 0, 0)
 color = Color(1, 1, 1, 0.137255)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oc1t5"]
+font_color = Color(0.101961, 1, 0.0235294, 1)
 
 [node name="objPlayer" type="CharacterBody2D" groups=["Player"]]
 z_index = 2
@@ -271,38 +271,6 @@ position = Vector2(7.5, 6)
 shape = SubResource("RectangleShape2D_x6gqu")
 debug_color = Color(0, 1, 0.0156863, 0.419608)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
-show_behind_parent = true
-position = Vector2(-8, 0)
-scale = Vector2(0.9375, 0.75)
-color = Color(0, 0.670588, 0.670588, 1)
-polygon = PackedVector2Array(0, 0, 128, 0, 128, 32, 0, 32)
-
-[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer"]
-show_behind_parent = true
-position = Vector2(-8, -7)
-scale = Vector2(0.9375, 0.75)
-color = Color(0, 0.670588, 0.670588, 1)
-polygon = PackedVector2Array(0, 0, 187.733, 0, 187.733, 56, 0, 56)
-
-[node name="currentSpeed" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="currentInstaSpeed" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="bossBonus" type="Label" parent="CanvasLayer"]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "+50%"
-label_settings = SubResource("LabelSettings_oc1t5")
-
 [node name="shmupMask" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_oi7fq")
@@ -344,6 +312,46 @@ process_material = SubResource("ParticleProcessMaterial_umpb6")
 texture = ExtResource("8_cc7fo")
 speed_scale = 2.85
 randomness = 0.27
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="uiParent" type="Node2D" parent="CanvasLayer"]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/uiParent"]
+show_behind_parent = true
+position = Vector2(-8, 0)
+scale = Vector2(0.9375, 0.75)
+color = Color(0, 0.670588, 0.670588, 1)
+polygon = PackedVector2Array(0, 0, 128, 0, 128, 32, 0, 32)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/uiParent"]
+show_behind_parent = true
+position = Vector2(-8, -7)
+scale = Vector2(0.9375, 0.75)
+color = Color(0, 0.670588, 0.670588, 1)
+polygon = PackedVector2Array(0, 0, 187.733, 0, 187.733, 56, 0, 56)
+
+[node name="currentSpeed" type="Label" parent="CanvasLayer/uiParent"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="currentInstaSpeed" type="Label" parent="CanvasLayer/uiParent"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="bossBonus" type="Label" parent="CanvasLayer/uiParent"]
+visible = false
+offset_right = 42.0
+offset_bottom = 23.0
+text = "+50%"
+label_settings = SubResource("LabelSettings_oc1t5")
 
 [connection signal="body_entered" from="extraCollisions/Platforms" to="." method="_on_platforms_body_entered"]
 [connection signal="body_exited" from="extraCollisions/Platforms" to="." method="_on_platforms_body_exited"]

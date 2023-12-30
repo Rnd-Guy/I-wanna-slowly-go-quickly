@@ -26,7 +26,7 @@ var shot_beat = 0
 
 var deaths = 0
 var time = 0
-var reset_counts_as_death = true # add one to deaths when resetting (unless player is already dead)
+var reset_counts_as_death = false # add one to deaths when resetting (unless player is already dead)
 var player_died = false # this is to track resets 
 
 """

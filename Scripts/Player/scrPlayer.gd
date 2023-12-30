@@ -67,16 +67,11 @@ func _ready():
 	# player does in fact exist and assigns it with its "id"
 	GLOBAL_INSTANCES.objPlayerID = self
 	
-	$CanvasLayer/currentSpeed.top_level = true
-	$CanvasLayer/currentSpeed.position = Vector2(40,40)
-	$CanvasLayer/currentInstaSpeed.top_level = true
-	$CanvasLayer/currentInstaSpeed.position = Vector2(40,60)
-	$CanvasLayer/Polygon2D.top_level = true
-	$CanvasLayer/Polygon2D.position = Vector2(35,40)
-	$CanvasLayer/Polygon2D2.top_level = true
-	$CanvasLayer/Polygon2D2.position = Vector2(35,40)
-	$CanvasLayer/bossBonus.top_level = true
-	$CanvasLayer/bossBonus.position = Vector2(160,40)
+	$CanvasLayer/uiParent/currentSpeed.position = Vector2(40,40)
+	$CanvasLayer/uiParent/currentInstaSpeed.position = Vector2(40,60)
+	$CanvasLayer/uiParent/Polygon2D.position = Vector2(35,40)
+	$CanvasLayer/uiParent/Polygon2D2.position = Vector2(35,40)
+	$CanvasLayer/uiParent/bossBonus.position = Vector2(160,40)
 	
 	
 
@@ -139,28 +134,29 @@ func _physics_process(delta):
 		var speed_string = str(snapped(h_speed,0.01))
 		if h_speed >= 1000:
 			speed_string = "c"
-		$CanvasLayer/currentSpeed.set_text("Speed: " + speed_string)
+		$CanvasLayer/uiParent/currentSpeed.set_text("Speed: " + speed_string)
 		if shmup_mark_2:
-			$CanvasLayer/bossBonus.set_visible(true)
+			$CanvasLayer/uiParent/bossBonus.set_visible(true)
 		else:
-			$CanvasLayer/bossBonus.set_visible(false)
+			$CanvasLayer/uiParent/bossBonus.set_visible(false)
 	else:
-		$CanvasLayer/currentSpeed.visible = false
-		$CanvasLayer/bossBonus.set_visible(false)
+		$CanvasLayer/uiParent/currentSpeed.visible = false
+		$CanvasLayer/uiParent/bossBonus.set_visible(false)
 	
 	if show_instant_speed:
-		$CanvasLayer/Polygon2D2.set_visible(true)
+		$CanvasLayer/uiParent/Polygon2D2.set_visible(true)
 		if instant_speed_ammo == -1:
-			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: ∞")
+			$CanvasLayer/uiParent/currentInstaSpeed.set_text("Instant Speed: ∞")
 		else:
-			$CanvasLayer/currentInstaSpeed.set_text("Instant Speed: " + str(instant_speed_ammo) + " [" + str(default_instant_speed_ammo) + "]")
+			$CanvasLayer/uiParent/currentInstaSpeed.set_text("Instant Speed: " + str(instant_speed_ammo) + " [" + str(default_instant_speed_ammo) + "]")
 	else:
-		$CanvasLayer/Polygon2D2.set_visible(false)
+		$CanvasLayer/uiParent/Polygon2D2.set_visible(false)
 	
 	if Input.is_action_just_pressed("button_debug_command"):
 		debug_command()
 	
 	handle_iframes(delta)
+	handle_speed_ui_over_player()
 
 
 
@@ -664,3 +660,11 @@ func disable_shmup_mark_2():
 
 func turn_back_on_killers():
 	$extraCollisions/Killers.set_process_mode(PROCESS_MODE_INHERIT)
+
+func handle_speed_ui_over_player():
+	if position[0] < 200 && position[1] < 100:
+		#$CanvasLayer.set_layer(0)
+		$CanvasLayer/uiParent.modulate.a = 0.2
+	else:
+		$CanvasLayer/uiParent.modulate.a = 1
+		#$CanvasLayer.set_layer(1)
