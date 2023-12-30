@@ -51,6 +51,7 @@ var room_order = [
 	"res://Rooms/My_rooms/Stage_2/r2-3_neverEndingStairs.tscn",
 	"res://Rooms/My_rooms/Stage_2/r2-4_ladder.tscn",
 	"res://Rooms/My_rooms/Stage_2/r2-5_backAndForth.tscn",
+	"res://Rooms/My_rooms/Stage_2/r2-6_zoomMaze.tscn",
 	"res://Rooms/My_rooms/Stage_2/r2-b_rhythm.tscn",
 	"res://Rooms/My_rooms/Stage_3/r3-1_zSpeedTutorial.tscn",
 	"res://Rooms/My_rooms/Stage_3/r3-2_hookJump.tscn",
