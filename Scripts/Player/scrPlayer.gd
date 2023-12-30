@@ -380,6 +380,7 @@ func handle_shooting():
 				velocity.x = sign(xscale) * 100000
 			
 			just_dashed = true
+			GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndZoop)
 			return
 			
 		# Loads the bullet scene, instances it, assigns the shooting direction

@@ -11,6 +11,7 @@ func setup():
 	$objCameraDynamic.reset_smoothing()
 	%objPlayer.d_jump = false
 	%objPlayer.vertical_shots = true
+	%objPlayer.v_speed = 400 # was created when this was the value, breaks the falling otherwise
 
 func reset():
 	super()
@@ -18,6 +19,7 @@ func reset():
 	$"../../Room_related/objCameraFixedNoSmoothing".reset_smoothing()
 	first_frames = 0
 	%objPlayer.vertical_shots = false
+	%objPlayer.v_speed = 470
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

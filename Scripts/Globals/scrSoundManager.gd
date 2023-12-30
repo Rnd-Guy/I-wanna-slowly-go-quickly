@@ -17,6 +17,8 @@ const sndCoin = preload("res://Audio/Sounds/sndCoin.wav")
 const sndItem = preload("res://Audio/Sounds/sndItem.wav")
 const sndWarp = preload("res://Audio/Sounds/sndWarp.wav")
 const sndBlockChange = preload("res://Audio/Sounds/sndBlockChange.wav")
+const sndZoop = preload("res://Audio/Sounds/sndZoop.wav")
+const sndGlass = preload("res://Audio/Sounds/sndGlass.wav")
 
 
 # We get the audioPlayerList node from this variable. A little cleaner

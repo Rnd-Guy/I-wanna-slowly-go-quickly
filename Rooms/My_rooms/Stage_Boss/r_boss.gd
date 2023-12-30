@@ -71,6 +71,7 @@ func _ready():
 	seconds_per_beat = 60.0/bpm
 	$objRhythmPreviewer.play_sample()
 	$Room_related/objPlayer.is_boss = true
+	#$Room_related/objPlayer.v_speed = 400 # was created when this was the value, breaks the falling otherwise
 	setup_boss()
 	pass # Replace with function body.
 

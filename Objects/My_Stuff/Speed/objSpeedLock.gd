@@ -88,6 +88,7 @@ func is_equal(speeda, speedb, len=leniency):
 
 func _on_area_2d_body_entered(body):
 	if body is Player && one_use:
+		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndGlass)
 		queue_free()
 
 func update_text_scaling():
