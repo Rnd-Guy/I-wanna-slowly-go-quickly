@@ -145,10 +145,10 @@ position = Vector2(384, 4488)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_3y2qu")]
 unique_name_in_owner = true
-position = Vector2(176, 48)
+position = Vector2(360, 48)
 
 [node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_bkgen")]
-position = Vector2(176, 49)
+position = Vector2(360, 49)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -197,7 +197,7 @@ position = Vector2(-96, 224)
 
 [node name="objFallingSpeed" parent="." instance=ExtResource("13_7mx03")]
 position = Vector2(400, 80)
-speed = 0.5
+speed = 0.42
 multiply = true
 one_use = true
 
@@ -321,6 +321,7 @@ one_use = true
 z_index = -2
 position = Vector2(400, 2272)
 texture = ExtResource("15_vl5ai")
+metadata/_edit_lock_ = true
 
 [node name="objCherry" parent="bg" instance=ExtResource("16_c2db7")]
 visible = false

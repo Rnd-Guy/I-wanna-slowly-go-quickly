@@ -25,7 +25,7 @@ func buff_effect():
 	
 func update_text():
 	var prefix = "+"
-	if speed <= 0:
+	if speed < 0:
 		prefix = ""
 	var speed_string = str(snapped(speed,0.01))
 	if speed >= 1000:

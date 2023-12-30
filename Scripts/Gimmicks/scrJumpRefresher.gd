@@ -24,9 +24,9 @@ func _physics_process(delta):
 	var wave_constant = sin(wave_time) * wave_amplitude
 	
 	# Changes position of several nodes
-	$Sprite2D.position.y = wave_constant
-	$CollisionShape2D.position.y = wave_constant
-	$GPUParticles2D.position.y = wave_constant
+	#$Sprite2D.position.y = wave_constant
+	#$CollisionShape2D.position.y = wave_constant
+	#$GPUParticles2D.position.y = wave_constant
 
 
 # When the player collides with this object, it emits particles, gives d_jump

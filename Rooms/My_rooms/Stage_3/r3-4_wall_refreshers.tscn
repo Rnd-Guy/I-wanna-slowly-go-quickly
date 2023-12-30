@@ -127,7 +127,6 @@ position = Vector2(304, 432)
 
 [node name="RefresherWall6" parent="RefresherWalls" instance=ExtResource("16_k1hsk")]
 position = Vector2(560, 496)
-right = true
 
 [node name="RefresherWall5" parent="RefresherWalls" instance=ExtResource("16_k1hsk")]
 position = Vector2(368, 352)

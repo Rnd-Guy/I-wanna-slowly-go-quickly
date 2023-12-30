@@ -8,7 +8,7 @@ class_name Player
 ---------- VARIABLE DECLARATIONS ---------- 
 """
 var gravity: int = 980
-var v_speed: int = 400
+var v_speed: int = 470 # equates to 9.4 speed in gamemaker
 var h_speed: float = 3 # multiplied by 50 when handling godot movement
 var s_jump_speed: int = 400
 var d_jump_speed: int = 330
