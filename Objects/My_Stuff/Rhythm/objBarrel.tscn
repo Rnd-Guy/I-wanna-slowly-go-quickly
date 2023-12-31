@@ -35,6 +35,7 @@ func play_sample():
 		var dialog_box_id = dialog_scene.instantiate()
 		get_parent().add_child(dialog_box_id)
 		GLOBAL_SOUNDS.play_sound(barrel_voice)
+		GLOBAL_SAVELOAD.variableGameData.interacted_with_barrel = true
 
 func on_sample_finish():
 	pass

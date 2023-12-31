@@ -58,6 +58,7 @@ var room_order = [
 	"res://Rooms/My_rooms/Stage_3/r3-3_wall_refresher_tutorial.tscn",
 	"res://Rooms/My_rooms/Stage_3/r3-4_wall_refreshers.tscn",
 	"res://Rooms/My_rooms/Stage_3/r3-5_backZoop.tscn",
+	"res://Rooms/My_rooms/Stage_3/r3-6_monkeyBars.tscn",
 	"res://Rooms/My_rooms/Stage_3/r3-b_colorfulStage.tscn",
 	"res://Rooms/My_rooms/Stage_Final/rf-1_needle2.tscn",
 	"res://Rooms/My_rooms/Stage_Final/rf-2_254.tscn",
@@ -279,6 +280,31 @@ func seconds_to_time(seconds):
 		seconds_string += "0"
 	seconds_string += str(remaining_seconds)
 	return str(hours) + ":" + minutes_string + ":" + seconds_string
+
+func seconds_to_time_with_microseconds(seconds):
+	var hours = floori(seconds/(60*60))
+	var minutes = floori((floori(seconds) % (60*60))/60.0)
+	var minutes_string = ""
+	if minutes < 10:
+		minutes_string += "0"
+	minutes_string += str(minutes)
+	var remaining_seconds = floori(seconds)%60
+	var seconds_string = ""
+	if remaining_seconds < 10:
+		seconds_string += "0"
+	seconds_string += str(remaining_seconds)
+	var fractional_part: float = snapped(seconds - floori(seconds), 0.01)
+	var fractional_string
+	if fractional_part == 0:
+		fractional_string = ".00"
+	else:
+		fractional_string = str(fractional_part)
+		fractional_string = fractional_string.erase(0)
+		# for .x0, it'll cut off the final 0 so we add it back in
+		if fractional_string.length() == 2: 
+			fractional_string += "0"
+		
+	return str(hours) + ":" + minutes_string + ":" + seconds_string + fractional_string
 
 # Fully quits the game (alt + F4)
 func game_quit() -> void:

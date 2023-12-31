@@ -23,7 +23,10 @@ const defaultGameData = {
 	"time" : 0,
 	"deaths": 0,
 	"final_time": 0,
-	"final_deaths": 0
+	"final_deaths": 0,
+	"interacted_with_barrel": false,
+	"rhythm_score": 0,
+	"miku_score": 0,
 }
 
 # This is the data we can read and write. By default, it's just a copy of

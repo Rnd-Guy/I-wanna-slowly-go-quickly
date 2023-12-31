@@ -209,6 +209,7 @@ func score_points():
 	if $miku && score >= target_score:
 		$miku.queue_free()
 	
+	GLOBAL_SAVELOAD.variableGameData.miku_score = score
 	#if $scoreReq && score > 5000: 
 #		$scoreReq.queue_free()
 

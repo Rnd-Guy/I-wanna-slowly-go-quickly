@@ -203,6 +203,8 @@ func score_points(event):
 	
 	if $scoreReq && score > 5000: 
 		$scoreReq.queue_free()
+	
+	GLOBAL_SAVELOAD.variableGameData.rhythm_score = score
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_78oei"]
