@@ -680,7 +680,8 @@ func spawn_turret(relative_position, start_beat, end_beat):
 	t.start_beat = start_beat
 	t.end_beat = end_beat
 	t.relative_end_position = relative_position
-	t.player_offset = Vector2(randf_range(-32,32), randf_range(-32,32))
+	#t.player_offset = Vector2(randf_range(-32,32), randf_range(-32,32))
+	t.player_offset = Vector2.ZERO
 	$\"../Instances\".add_child(t)
 "
 

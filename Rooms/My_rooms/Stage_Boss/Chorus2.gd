@@ -69,8 +69,10 @@ func _physics_process(_delta):
 #		$Instances/LaserLeft.set_visible(true)
 #		point_lasers_with_angle(10)
 	
-	if t(285,301):
+	if t(285,295):
 		handle_bullets(5)
+	elif one(300):
+		next_bullet = 301
 	elif t(301,313):
 		handle_bullets(3)
 	
