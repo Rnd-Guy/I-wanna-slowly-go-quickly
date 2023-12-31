@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnrb3lx1bit5l"]
+[gd_scene load_steps=22 format=3 uid="uid://cnrb3lx1bit5l"]
 
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_3/r3-2_hookJump.gd" id="1_fqug0"]
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_hjkwp"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_n6mr7"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_bh7m4"]
@@ -22,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="20_wvks0"]
 
 [node name="rTemplate" type="Node2D"]
+script = ExtResource("1_fqug0")
 metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node2D" parent="."]
