@@ -44,22 +44,23 @@ func _physics_process(_delta):
 	elif one(325.2):
 		$LeftWarning.set_visible(false)
 		$Instances/LaserLeft.play("fire")
-		$RightWarning.set_visible(true)
 	elif one(326.5):
 		$Instances/LaserLeft.play("fade_partial", 2)
-	elif one(327.2):
+	elif one(327.5):
+		$RightWarning.set_visible(true)
+	elif one(329.2):
 		$RightWarning.set_visible(false)
 		$Instances/LaserRight.play("fire")
 		$LeftWarning.set_visible(true)
-	elif one(328.5):
+	elif one(330.5):
 		$Instances/LaserRight.play("fade_partial", 2)
-	elif one(329.2):
+	elif one(332.2):
 		$LeftWarning.set_visible(false)
 		$Instances/LaserLeft.play("fire")
-	elif one(330.5):
-		$Instances/LaserLeft.play("fade_partial", 2)
+	elif one(332.8):
+		$Instances/LaserLeft.play("fade_partial", 10)
 	elif one(333):
-		$Instances/LaserLeft.play("fire")
+		#$Instances/LaserLeft.play("fire")
 		$Instances/LaserRight.play("fire")
 	elif one(345):
 		$Instances/LaserLeft.play("fade_partial", 10)
@@ -69,10 +70,10 @@ func _physics_process(_delta):
 		lerp_rotation($Instances/LaserRight, 321, 323, -90, 0)
 	elif t(325,327):
 		lerp_rotation($Instances/LaserLeft, 325, 327, 90, 0)
-	elif t(327, 329):
-		lerp_rotation($Instances/LaserRight, 327, 329, 0, -90)
 	elif t(329, 331):
-		lerp_rotation($Instances/LaserLeft, 329, 331, 0, 90)
+		lerp_rotation($Instances/LaserRight, 329, 331, 0, -90)
+	elif t(332, 333):
+		lerp_rotation($Instances/LaserLeft, 332, 333, 0, 90)
 	elif t(333, 345):
 		lerp_rotation($Instances/LaserLeft, 333, 345, 90, 450)
 		lerp_rotation($Instances/LaserRight, 333, 345, -90,270)
