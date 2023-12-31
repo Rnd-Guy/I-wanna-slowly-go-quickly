@@ -314,6 +314,13 @@ speed = 2.0
 multiply = true
 one_use = true
 
+[node name="objFallingSpeed3" parent="." instance=ExtResource("13_7mx03")]
+position = Vector2(400, 3936)
+scale = Vector2(6.04, 1)
+speed = 10.0
+multiply = true
+one_use = true
+
 [node name="bg" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(400, 2272)
