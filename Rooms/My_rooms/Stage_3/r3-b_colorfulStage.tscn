@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="5_u0vxc"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="6_quxt6"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="7_gi7on"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="8_h6jv0"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="9_jooa8"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="10_smw8l"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="11_tl7x8"]
@@ -23,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="21_u32hk"]
 [ext_resource type="AudioStream" uid="uid://omenyxn54k4g" path="res://Audio/Music/miku.ogg" id="22_7xli6"]
 [ext_resource type="Texture2D" uid="uid://cty4y6v0rqw5m" path="res://Graphics/Backgrounds/miku.png" id="23_lh7m5"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="23_q0hno"]
 
 [node name="rTemplate" type="Node2D"]
 script = ExtResource("1_8n40b")
@@ -60,10 +60,7 @@ position = Vector2(693, 548)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("7_gi7on")]
 unique_name_in_owner = true
-position = Vector2(376, 488)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("8_h6jv0")]
-position = Vector2(376, 489)
+position = Vector2(344, 488)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -187,5 +184,7 @@ offset_top = 40.0
 offset_right = 101.0
 offset_bottom = 66.0
 text = "Score: 0"
+
+[node name="Autosave" parent="." instance=ExtResource("23_q0hno")]
 
 [connection signal="body_entered" from="miku/Area2D" to="." method="_on_miku_body_entered"]

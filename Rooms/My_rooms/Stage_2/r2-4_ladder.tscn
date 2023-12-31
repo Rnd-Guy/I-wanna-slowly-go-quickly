@@ -1,12 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://bvk18r2mxnwcg"]
+[gd_scene load_steps=21 format=3 uid="uid://bvk18r2mxnwcg"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_3ux4u"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_2/r2-4_ladder.gd" id="1_i71yn"]
 [ext_resource type="PackedScene" uid="uid://c363rig7brl0p" path="res://Objects/Gimmicks/objMovingPlatform.tscn" id="2_c3ec8"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="3_1lmap"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_nhh50"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_1n5rq"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_a8nxf"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="7_bnq5y"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_md7rf"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_yowpl"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="10_oo6py"]
@@ -19,8 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://cuixijthhxfki" path="res://Objects/Gimmicks/objJumpRefresher.tscn" id="17_daclx"]
 [ext_resource type="Texture2D" uid="uid://04uyq1hbt2gh" path="res://Graphics/Backgrounds/hall.png" id="18_cr048"]
 [ext_resource type="AudioStream" uid="uid://bs8w4og0717o" path="res://Audio/Music/elona-normalized.ogg" id="19_sf11d"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="19_xrryg"]
 
 [node name="rTemplate" type="Node2D"]
+script = ExtResource("1_i71yn")
 metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node2D" parent="."]
@@ -46,13 +48,10 @@ anchor_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("5_1n5rq")]
-position = Vector2(144, 80)
+position = Vector2(112, 80)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("6_a8nxf")]
 position = Vector2(104, 560)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_bnq5y")]
-position = Vector2(104, 561)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -96,6 +95,13 @@ speed = 2000.0
 fade_instant = true
 fade_timer = 0.5
 
+[node name="objSpeedSetter7" parent="." instance=ExtResource("10_oo6py")]
+position = Vector2(144, 64)
+scale = Vector2(1, 2)
+speed = 2000.0
+fade_instant = true
+fade_timer = 0.5
+
 [node name="objSpeedSetter4" parent="." instance=ExtResource("10_oo6py")]
 position = Vector2(656, 304)
 scale = Vector2(1, 17)
@@ -124,6 +130,9 @@ position = Vector2(96, 448)
 
 [node name="objJumpRefresher2" parent="." instance=ExtResource("17_daclx")]
 position = Vector2(704, 416)
+
+[node name="objJumpRefresher13" parent="." instance=ExtResource("17_daclx")]
+position = Vector2(704, 480)
 
 [node name="objJumpRefresher3" parent="." instance=ExtResource("17_daclx")]
 position = Vector2(96, 384)
@@ -159,8 +168,11 @@ position = Vector2(704, 96)
 z_index = -2
 texture = ExtResource("18_cr048")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="objMusicPlayer" parent="." instance=ExtResource("14_pgc7v")]
 position = Vector2(-16, 16)
 song_id = ExtResource("19_sf11d")
 loop_end = 273.0
+
+[node name="Autosave" parent="." instance=ExtResource("19_xrryg")]

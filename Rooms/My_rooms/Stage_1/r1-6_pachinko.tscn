@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cdx3h81o7hqb4" path="res://Objects/Room_objects/objCameraDynamic.tscn" id="3_us5v4"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_g8xex"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_3y2qu"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_bkgen"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_t64th"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_tc5xt"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="9_ma5dc"]
@@ -20,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="16_c2db7"]
 [ext_resource type="Texture2D" uid="uid://q0q4vtbeursn" path="res://Graphics/Sprites/My Stuff/kotori1.png" id="18_yrbiw"]
 [ext_resource type="Texture2D" uid="uid://ba1icmj4fx43p" path="res://Graphics/Sprites/My Stuff/kotori2.png" id="19_7rks4"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="20_7tafl"]
 
 [sub_resource type="GDScript" id="GDScript_fqxg6"]
 resource_name = "PachinkoLayerManager"
@@ -146,9 +146,6 @@ position = Vector2(384, 4488)
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_3y2qu")]
 unique_name_in_owner = true
 position = Vector2(360, 48)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_bkgen")]
-position = Vector2(360, 49)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -332,3 +329,5 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(696, 48)
 sprite_frames = SubResource("SpriteFrames_ul04y")
 script = SubResource("GDScript_4ti5w")
+
+[node name="Autosave" parent="." instance=ExtResource("20_7tafl")]

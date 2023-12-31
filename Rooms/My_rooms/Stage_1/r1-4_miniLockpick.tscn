@@ -1,12 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3kkqcb1b05po"]
+[gd_scene load_steps=16 format=3 uid="uid://c3kkqcb1b05po"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_dqcav"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_dit4g"]
 [ext_resource type="AudioStream" uid="uid://b8k0524ex6amw" path="res://Audio/Music/balanceValley-normalized.ogg" id="3_l18ft"]
+[ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="4_moc5v"]
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_vmkx2"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_udlsd"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_8bfr8"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="7_0bxoy"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="8_8aokw"]
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="9_2u7t2"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="10_uxc2c"]
@@ -14,19 +14,24 @@
 [ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="12_m4x7c"]
 [ext_resource type="PackedScene" uid="uid://dtqw423dm8m3" path="res://Objects/Dialog_system/objSign.tscn" id="13_d1ba5"]
 [ext_resource type="PackedScene" uid="uid://pfdmda2flsn1" path="res://Objects/My_Stuff/Dialog/dialogLock.tscn" id="14_c4ndo"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="14_ylwoa"]
 
 [node name="rTemplate" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="til32x32" parent="Environment" instance=ExtResource("1_dqcav")]
-layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 917513, 65536, 0, 917514, 65536, 0, 917515, 65536, 0, 917516, 65536, 0, 917517, 65536, 0, 917520, 65536, 0, 917521, 65536, 0, 917522, 65536, 0, 917523, 65536, 0, 917524, 65536, 0, 720904, 65536, 0, 720905, 65536, 0, 524297, 65536, 0, 524296, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327687, 65536, 0, 327686, 65536, 0, 327685, 65536, 0, 524293, 65536, 0, 524295, 65536, 0, 524294, 65536, 0, 524300, 65536, 0, 327692, 65536, 0, 327691, 65536, 0, 327690, 65536, 0, 917504, 65536, 0, 393221, 65536, 0, 458757, 65536, 0, 589831, 65536, 0, 655367, 65536, 0, 720903, 65536, 0, 786441, 65536, 0, 851977, 65536, 0, 524298, 65536, 0, 524299, 65536, 0, 524301, 65536, 0, 720916, 65536, 0, 720915, 65536, 0, 720914, 65536, 0, 720913, 65536, 0, 720912, 65536, 0, 327693, 65536, 0, 655376, 65536, 0, 589840, 65536, 0, 524304, 65536, 0, 458768, 65536, 0, 393232, 65536, 0, 327696, 65536, 0, 327695, 65536, 0, 327694, 65536, 0, 720906, 65536, 0, 720907, 65536, 0, 720908, 65536, 0, 720909, 65536, 0, 720917, 65536, 0, 720918, 65536, 0, 786454, 65536, 0, 851990, 65536, 0, 917526, 65536, 0, 917525, 65536, 0, 983054, 65536, 0, 983055, 65536, 0, 983053, 65536, 0, 983056, 65536, 0)
+layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0, 917513, 65536, 0, 917514, 65536, 0, 917515, 65536, 0, 917516, 65536, 0, 917517, 65536, 0, 917520, 65536, 0, 917521, 65536, 0, 917522, 65536, 0, 917523, 65536, 0, 917524, 65536, 0, 720904, 65536, 0, 720905, 65536, 0, 524297, 65536, 0, 524296, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 327687, 65536, 0, 327686, 65536, 0, 327685, 65536, 0, 524293, 65536, 0, 524295, 65536, 0, 524294, 65536, 0, 524300, 65536, 0, 327692, 65536, 0, 327691, 65536, 0, 327690, 65536, 0, 917504, 65536, 0, 393221, 65536, 0, 458757, 65536, 0, 589831, 65536, 0, 655367, 65536, 0, 720903, 65536, 0, 786441, 65536, 0, 851977, 65536, 0, 524298, 65536, 0, 524299, 65536, 0, 524301, 65536, 0, 720916, 65536, 0, 720915, 65536, 0, 720914, 65536, 0, 720913, 65536, 0, 720912, 65536, 0, 327693, 65536, 0, 655376, 65536, 0, 589840, 65536, 0, 524304, 65536, 0, 458768, 65536, 0, 393232, 65536, 0, 327696, 65536, 0, 327695, 65536, 0, 327694, 65536, 0, 720906, 65536, 0, 720907, 65536, 0, 720908, 65536, 0, 720909, 65536, 0, 720917, 65536, 0, 720918, 65536, 0, 786454, 65536, 0, 851990, 65536, 0, 917526, 65536, 0, 917525, 65536, 0)
 
 [node name="objMusicPlayer" parent="Environment" instance=ExtResource("2_dit4g")]
 position = Vector2(-16, 16)
 song_id = ExtResource("3_l18ft")
 loop_start = 169.0
 loop_end = 347.2
+
+[node name="tiles16" parent="Environment" instance=ExtResource("4_moc5v")]
+rendering_quadrant_size = 32
+layer_0/tile_data = PackedInt32Array(1900572, 65536, 0, 1900574, 65536, 0)
 
 [node name="Room_related" type="Node2D" parent="."]
 
@@ -38,10 +43,7 @@ anchor_mode = 1
 position = Vector2(672, 432)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("6_8bfr8")]
-position = Vector2(464, 464)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_0bxoy")]
-position = Vector2(464, 464)
+position = Vector2(464, 448)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 
@@ -128,5 +130,7 @@ visible = false
 position = Vector2(163, -39)
 
 [node name="objSign" parent="." instance=ExtResource("13_d1ba5")]
-position = Vector2(496, 464)
+position = Vector2(496, 448)
 dialog_scene = ExtResource("14_c4ndo")
+
+[node name="Autosave" parent="." instance=ExtResource("14_ylwoa")]

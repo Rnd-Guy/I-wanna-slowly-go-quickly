@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_3fkuf"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_vopkt"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_x7t67"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="7_8mru2"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_omlpu"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_wk87o"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="10_16ada"]
@@ -18,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bmqa2lja363ph" path="res://Audio/Music/braveDecision-normalized.ogg" id="15_rtf80"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="16_y5d1a"]
 [ext_resource type="Texture2D" uid="uid://csry4836dptbn" path="res://Graphics/Backgrounds/question.png" id="17_xchip"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="18_x5ulq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cs8o6"]
 font_size = 32
@@ -50,9 +50,6 @@ position = Vector2(576, 336)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("6_x7t67")]
 unique_name_in_owner = true
-position = Vector2(256, 336)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_8mru2")]
 position = Vector2(256, 336)
 
 [node name="Gimmicks" type="Node2D" parent="."]
@@ -122,3 +119,5 @@ offset_right = 393.0
 offset_bottom = 240.0
 text = "Pick 2"
 label_settings = SubResource("LabelSettings_cs8o6")
+
+[node name="Autosave" parent="." instance=ExtResource("18_x5ulq")]

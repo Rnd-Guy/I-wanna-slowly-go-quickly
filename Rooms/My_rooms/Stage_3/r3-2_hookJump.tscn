@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_bh7m4"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_5ooy1"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_w4w7q"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_tsnb3"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="7_jgm2n"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="8_a2u1o"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="9_blmr7"]
@@ -20,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c363rig7brl0p" path="res://Objects/Gimmicks/objMovingPlatform.tscn" id="17_tbj6l"]
 [ext_resource type="Texture2D" uid="uid://xtnq2ap46g7h" path="res://Graphics/Backgrounds/night.png" id="18_1go8k"]
 [ext_resource type="AudioStream" uid="uid://c3w88gj6frbi3" path="res://Audio/Music/muGarden-normalized.ogg" id="19_231c3"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="20_wvks0"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -46,9 +46,6 @@ position = Vector2(384, 544)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_w4w7q")]
 position = Vector2(304, 144)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_tsnb3")]
-position = Vector2(304, 145)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -136,3 +133,5 @@ metadata/_edit_lock_ = true
 position = Vector2(-16, 16)
 song_id = ExtResource("19_231c3")
 loop_end = 114.0
+
+[node name="Autosave" parent="." instance=ExtResource("20_wvks0")]

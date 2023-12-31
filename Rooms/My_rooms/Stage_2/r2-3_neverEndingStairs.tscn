@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_jxppy"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_ee6a0"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_vgo7e"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_mg0lh"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_uox88"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_4s1wv"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_xfd2r"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_rxic6"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_5n3hw"]
 [ext_resource type="Texture2D" uid="uid://04uyq1hbt2gh" path="res://Graphics/Backgrounds/hall.png" id="13_d1q6q"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="14_p55ka"]
 
 [node name="rTemplate" type="Node2D"]
 
@@ -38,9 +38,6 @@ position = Vector2(512, 80)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_vgo7e")]
 position = Vector2(128, 559)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_mg0lh")]
-position = Vector2(128, 560)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 
@@ -111,3 +108,5 @@ speed = 2000.0
 z_index = -2
 texture = ExtResource("13_d1q6q")
 centered = false
+
+[node name="Autosave" parent="." instance=ExtResource("14_p55ka")]

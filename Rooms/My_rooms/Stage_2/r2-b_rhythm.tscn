@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_cabqm"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_0300q"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_lcm82"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="7_1422b"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="8_j6k13"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="9_cilmr"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="10_asvxr"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cygteeqvo3oc" path="res://Objects/My_Stuff/Rhythm/objRhythmPreviewer.tscn" id="15_fpv70"]
 [ext_resource type="AudioStream" uid="uid://dhnnn5yql1tba" path="res://Audio/Music/rhythm-normalized.ogg" id="16_vhr4u"]
 [ext_resource type="Texture2D" uid="uid://04uyq1hbt2gh" path="res://Graphics/Backgrounds/hall.png" id="17_2qhxm"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="17_xwcmi"]
 
 [sub_resource type="GDScript" id="GDScript_yrdkg"]
 script/source = "extends Node2D
@@ -244,9 +244,6 @@ warp_to = "res://Rooms/My_rooms/Stage_3/r3-1_zSpeedTutorial.tscn"
 [node name="objPlayer" parent="Room_related" instance=ExtResource("6_lcm82")]
 position = Vector2(400, 295)
 
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_1422b")]
-position = Vector2(400, 296)
-
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -328,3 +325,5 @@ offset_top = 40.0
 offset_right = 101.0
 offset_bottom = 66.0
 text = "Score: 0"
+
+[node name="Autosave" parent="." instance=ExtResource("17_xwcmi")]

@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://bs8w4og0717o" path="res://Audio/Music/elona-normalized.ogg" id="3_uymxj"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_ha2ql"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_sih0y"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_g11hv"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_cuxsi"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_b7l34"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_80pvw"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_65h4u"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_20t77"]
 [ext_resource type="Texture2D" uid="uid://04uyq1hbt2gh" path="res://Graphics/Backgrounds/hall.png" id="13_y8fx1"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="15_a6kg4"]
 [ext_resource type="PackedScene" uid="uid://dtqw423dm8m3" path="res://Objects/Dialog_system/objSign.tscn" id="15_e62bi"]
 
 [node name="rTemplate" type="Node2D"]
@@ -38,9 +38,6 @@ anchor_mode = 1
 position = Vector2(752, 560)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_sih0y")]
-position = Vector2(336, 432)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_g11hv")]
 position = Vector2(336, 432)
 
 [node name="Gimmicks" type="Node2D" parent="."]
@@ -136,3 +133,5 @@ metadata/_edit_lock_ = true
 [node name="objSign" parent="." instance=ExtResource("15_e62bi")]
 position = Vector2(368, 432)
 custom_text = "Glass permanently shatters"
+
+[node name="Autosave" parent="." instance=ExtResource("15_a6kg4")]

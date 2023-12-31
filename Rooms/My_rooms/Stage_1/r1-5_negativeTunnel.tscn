@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="4_6g2j3"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_2cdal"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_4xe1s"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="7_do7xm"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_07n6o"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_rjpyu"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="10_8573m"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="16_56ek0"]
 [ext_resource type="Texture2D" uid="uid://drinfn7ig3ce0" path="res://Graphics/Backgrounds/calm.png" id="17_yvauc"]
 [ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="18_0fh32"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="18_8i0k4"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -26,6 +26,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_qaysg")]
+rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(1441800, 65536, 0, 1441802, 65536, 0, 1441804, 65536, 0, 1441806, 65536, 0, 1048592, 65536, 0, 1441808, 65536, 0, 1441810, 65536, 0, 1441812, 65536, 0, 1179670, 65536, 0, 1441814, 65536, 0, 1441816, 65536, 0, 1441818, 65536, 0, 1179672, 65536, 0, 1179674, 65536, 0, 1179676, 65536, 0, 1441820, 65536, 0, 1441822, 65536, 0, 1048608, 65536, 0, 1048610, 65536, 0, 1441834, 65536, 0, 1441832, 65536, 0, 1441830, 65536, 0, 1441828, 65536, 0, 1441826, 65536, 0, 1441824, 65536, 0, 1048582, 65536, 0, 1179654, 65536, 0, 1310726, 65536, 0, 1441798, 65536, 0, 1048590, 65536, 0, 1179668, 65536, 0, 1048618, 65536, 0, 1179690, 65536, 0, 1310762, 65536, 0, 1179680, 65536, 0, 1048612, 65536, 0, 1048614, 65536, 0, 1048616, 65536, 0, 1048594, 65536, 0, 1048596, 65536, 0, 1048606, 65536, 0, 1048604, 65536, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_r0mw5")]
@@ -43,9 +44,6 @@ position = Vector2(648, 336)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("6_4xe1s")]
 position = Vector2(144, 336)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_do7xm")]
-position = Vector2(144, 337)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -186,7 +184,10 @@ one_use = true
 z_index = -2
 position = Vector2(400, 304)
 texture = ExtResource("17_yvauc")
+metadata/_edit_lock_ = true
 
 [node name="objCherry" parent="bg" instance=ExtResource("18_0fh32")]
 visible = false
 position = Vector2(163, -39)
+
+[node name="Autosave" parent="." instance=ExtResource("18_8i0k4")]

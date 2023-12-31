@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_a2ncf"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_f1mck"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_0aysv"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_f8mtd"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="7_5331t"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="8_5ch30"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="9_bgwwh"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cnqm3l13cnhqe" path="res://Objects/My_Stuff/Movement/objRefresherWall.tscn" id="16_k1hsk"]
 [ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="17_d0r64"]
 [ext_resource type="Texture2D" uid="uid://xtnq2ap46g7h" path="res://Graphics/Backgrounds/night.png" id="18_0pwng"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="19_v2gjc"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -46,9 +46,6 @@ position = Vector2(720, 464)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_0aysv")]
 position = Vector2(128, 559)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_f8mtd")]
-position = Vector2(128, 560)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -141,3 +138,6 @@ z_index = -2
 texture = ExtResource("18_0pwng")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="Autosave" parent="." instance=ExtResource("19_v2gjc")]
+facing = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnnkbk413v3hr"]
+[gd_scene load_steps=21 format=3 uid="uid://dnnkbk413v3hr"]
 
 [ext_resource type="PackedScene" uid="uid://btwg4n5lrhupi" path="res://Objects/My_Stuff/tiles16.tscn" id="1_4bwdm"]
 [ext_resource type="PackedScene" uid="uid://cbgqmoveym26y" path="res://Objects/My_Stuff/tilSpikes16.tscn" id="2_6u7tm"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c7mtkr2mk7dkk" path="res://Objects/My_Stuff/Speed/objInstantSpeedManager.tscn" id="17_d0cu8"]
 [ext_resource type="PackedScene" uid="uid://c3lorff4trlae" path="res://Objects/My_Stuff/Movement/objInstantSpeedRefresher.tscn" id="18_0wvsy"]
 [ext_resource type="PackedScene" uid="uid://cuixijthhxfki" path="res://Objects/Gimmicks/objJumpRefresher.tscn" id="19_myks2"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="20_mcnun"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -46,9 +47,6 @@ position = Vector2(400, 304)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_ee5uq")]
 position = Vector2(432, 176)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_qpdfe")]
-position = Vector2(432, 177)
 
 [node name="obTouchSavePoint2" parent="Room_related" instance=ExtResource("6_qpdfe")]
 position = Vector2(240, 560)
@@ -150,3 +148,6 @@ position = Vector2(752, 328)
 
 [node name="objJumpRefresher3" parent="." instance=ExtResource("19_myks2")]
 position = Vector2(48, 144)
+
+[node name="Autosave" parent="." instance=ExtResource("20_mcnun")]
+facing = 1

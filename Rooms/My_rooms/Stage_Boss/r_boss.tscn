@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_pfun0"]
 [ext_resource type="Texture2D" uid="uid://blbt5tce2v06o" path="res://Graphics/Sprites/My Stuff/boss/boss1.png" id="6_4cb84"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Boss1.gd" id="6_b7u5l"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_m0pi3"]
 [ext_resource type="PackedScene" uid="uid://dflfahb0echkd" path="res://Objects/My_Stuff/Boss/generic_block.tscn" id="6_s8piw"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_i72w6"]
 [ext_resource type="PackedScene" uid="uid://cdx3h81o7hqb4" path="res://Objects/Room_objects/objCameraDynamic.tscn" id="7_ildvd"]
@@ -65,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://dfepr1bsd6gb2" path="res://Graphics/Backgrounds/final.png" id="45_3qti8"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="53_rnubl"]
 [ext_resource type="AudioStream" uid="uid://b5m7meshk27eg" path="res://Audio/Music/boss-normalized.ogg" id="59_h1fm7"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="65_khew7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syc1c"]
 size = Vector2(64, 8)
@@ -843,7 +843,6 @@ metadata/_edit_lock_ = true
 [node name="Phases" type="Node2D" parent="."]
 
 [node name="BeforeIntro" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("2_p4ai6")
 
 [node name="tiles" parent="Phases/BeforeIntro" instance=ExtResource("1_b2h4h")]
@@ -3320,10 +3319,6 @@ unique_name_in_owner = true
 position = Vector2(416, 560)
 metadata/_edit_lock_ = true
 
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_m0pi3")]
-position = Vector2(416, 561)
-metadata/_edit_lock_ = true
-
 [node name="warp" parent="Room_related" instance=ExtResource("53_rnubl")]
 unique_name_in_owner = true
 position = Vector2(-1120, -456)
@@ -3364,6 +3359,8 @@ metadata/_edit_lock_ = true
 [node name="objRhythmPreviewer" parent="." instance=ExtResource("16_0uul7")]
 position = Vector2(-32, 88)
 song_id = ExtResource("59_h1fm7")
+
+[node name="Autosave" parent="." instance=ExtResource("65_khew7")]
 
 [connection signal="body_entered" from="Phases/Beep-boop-1/Floor/Green/GFP" to="Phases/Beep-boop-1" method="_on_gfp_body_entered"]
 [connection signal="body_exited" from="Phases/Beep-boop-1/Floor/Green/GFP" to="Phases/Beep-boop-1" method="_on_gfp_body_exited"]

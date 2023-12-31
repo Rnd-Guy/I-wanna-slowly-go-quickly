@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b3v5su3t4jrq8" path="res://Objects/Room_objects/objCameraFixedNoSmoothing.tscn" id="3_shyn3"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="4_15r6l"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="5_hl0xo"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="6_623tw"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="7_velxi"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="8_yprvs"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="9_fwqte"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dtqw423dm8m3" path="res://Objects/Dialog_system/objSign.tscn" id="17_os565"]
 [ext_resource type="PackedScene" uid="uid://cnqm3l13cnhqe" path="res://Objects/My_Stuff/Movement/objRefresherWall.tscn" id="18_cfcbe"]
 [ext_resource type="Texture2D" uid="uid://xtnq2ap46g7h" path="res://Graphics/Backgrounds/night.png" id="18_pjebm"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="20_gcx3t"]
 [ext_resource type="AudioStream" uid="uid://c3w88gj6frbi3" path="res://Audio/Music/muGarden-normalized.ogg" id="20_ppnsx"]
 
 [node name="rTemplate" type="Node2D"]
@@ -50,10 +50,7 @@ metadata/_edit_lock_ = true
 position = Vector2(216, 560)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_hl0xo")]
-position = Vector2(752, 104)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("6_623tw")]
-position = Vector2(752, 105)
+position = Vector2(752, 112)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -74,7 +71,7 @@ position = Vector2(-144, 224)
 position = Vector2(-48, 176)
 
 [node name="objSpeedSetter2" parent="." instance=ExtResource("9_fwqte")]
-position = Vector2(744, 104)
+position = Vector2(752, 112)
 speed = -3.0
 
 [node name="objSpeedAdder" parent="." instance=ExtResource("10_ldb1s")]
@@ -150,3 +147,6 @@ metadata/_edit_lock_ = true
 position = Vector2(-16, 16)
 song_id = ExtResource("20_ppnsx")
 loop_end = 114.0
+
+[node name="Autosave" parent="." instance=ExtResource("20_gcx3t")]
+facing = -1

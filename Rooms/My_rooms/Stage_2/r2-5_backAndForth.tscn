@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="5_mwh4l"]
 [ext_resource type="AudioStream" uid="uid://bs8w4og0717o" path="res://Audio/Music/elona-normalized.ogg" id="5_y7phu"]
 [ext_resource type="PackedScene" uid="uid://bp5rqk4l7tesk" path="res://Objects/Player/objPlayer.tscn" id="6_rwge8"]
-[ext_resource type="PackedScene" uid="uid://dm6g8cxx1hy78" path="res://Objects/Room_objects/objTouchSavePoint.tscn" id="7_hilcr"]
 [ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_k316b"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_v1nev"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="10_w1bjd"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="16_ptxja"]
 [ext_resource type="Texture2D" uid="uid://04uyq1hbt2gh" path="res://Graphics/Backgrounds/hall.png" id="17_v8tej"]
 [ext_resource type="PackedScene" uid="uid://dtqw423dm8m3" path="res://Objects/Dialog_system/objSign.tscn" id="18_bihbt"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="18_ndgwp"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -54,9 +54,6 @@ position = Vector2(208, 560)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("6_rwge8")]
 position = Vector2(464, 432)
-
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("7_hilcr")]
-position = Vector2(464, 433)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -155,3 +152,5 @@ metadata/_edit_lock_ = true
 [node name="objSign" parent="." instance=ExtResource("18_bihbt")]
 position = Vector2(528, 112)
 custom_text = "Hold right!"
+
+[node name="Autosave" parent="." instance=ExtResource("18_ndgwp")]

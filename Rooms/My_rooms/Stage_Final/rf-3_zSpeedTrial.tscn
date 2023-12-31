@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8ks5g31dif0h"]
+[gd_scene load_steps=22 format=3 uid="uid://8ks5g31dif0h"]
 
 [ext_resource type="PackedScene" uid="uid://cuixijthhxfki" path="res://Objects/Gimmicks/objJumpRefresher.tscn" id="1_ed51p"]
 [ext_resource type="PackedScene" uid="uid://c3lorff4trlae" path="res://Objects/My_Stuff/Movement/objInstantSpeedRefresher.tscn" id="2_exayq"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bmqa2lja363ph" path="res://Audio/Music/braveDecision-normalized.ogg" id="17_popqy"]
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="18_g4no7"]
 [ext_resource type="Texture2D" uid="uid://da7dgwqxh337s" path="res://Graphics/Backgrounds/genericbg2.png" id="19_fe74m"]
+[ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="21_mcykj"]
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -88,9 +89,6 @@ warp_to = "res://Rooms/My_rooms/Stage_Final/rf-b_preFinalBoss.tscn"
 [node name="objPlayer" parent="Room_related" instance=ExtResource("8_g4dnq")]
 position = Vector2(48, 144)
 
-[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("9_wd2nw")]
-position = Vector2(48, 144)
-
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -145,3 +143,6 @@ z_index = -1
 texture = ExtResource("19_fe74m")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="Autosave" parent="." instance=ExtResource("21_mcykj")]
+facing = 1
