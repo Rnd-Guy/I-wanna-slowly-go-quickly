@@ -503,8 +503,8 @@ func debug_mouse_teleport() -> void:
 # Everything that should happen after the player dies
 func on_death():
 	
-	# Death should only happen if we're out of debug mode
-	if (GLOBAL_GAME.debug_mode == false):
+	# Death should only happen if we're out of debug mode or if we died twice (eg same frame)
+	if (GLOBAL_GAME.debug_mode == false && !GLOBAL_GAME.player_died):
 		
 		# We load a particle emitter, which does the visual stuff we want
 		var blood_emitter = load("res://Objects/Player/objBloodEmitter.tscn")
