@@ -27,12 +27,14 @@ func _physics_process(_delta):
 
 func handle_collision(player, collision):
 	if player.just_dashed && right && !used_right && collision.get_normal().x > 0:
-		player.instant_speed_ammo += 1
+		if player.instant_speed_ammo >= 0: # ie not infinite
+			player.instant_speed_ammo += 1
 		player.d_jump = true
 		if limited:
 			used_right = true
 	elif player.just_dashed && left && !used_left && collision.get_normal().x < 0:
-		player.instant_speed_ammo += 1
+		if player.instant_speed_ammo >= 0:
+			player.instant_speed_ammo += 1
 		player.d_jump = true
 		if limited:
 			used_left = true

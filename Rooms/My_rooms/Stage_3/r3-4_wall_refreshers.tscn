@@ -136,7 +136,7 @@ right = true
 position = Vector2(-32, 88)
 default_instant_speed_ammo = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="bg" type="Sprite2D" parent="."]
 z_index = -2
 texture = ExtResource("18_0pwng")
 centered = false

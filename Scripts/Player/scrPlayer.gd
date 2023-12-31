@@ -370,10 +370,11 @@ func handle_shooting():
 			if instant_speed_ammo > 0:
 				instant_speed_ammo -= 1
 			
-			if velocity.x != 0:
-				velocity.x *= 1000
-			else:
-				velocity.x = sign(xscale) * 100000
+			#if velocity.x != 0:
+				#velocity.x *= 1000
+			#else:
+				#velocity.x = sign(xscale) * 100000
+			velocity.x = sign(xscale) * 100000
 			
 			just_dashed = true
 			GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndZoop)
