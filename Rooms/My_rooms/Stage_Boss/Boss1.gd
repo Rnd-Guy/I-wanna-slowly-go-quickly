@@ -9,11 +9,13 @@ func react_to_hit(attack_type, attack_damage):
 		$"/root/rBoss".take_damage(attack_type, attack_damage)
 		iframe = true
 		$Timer.start($/root/rBoss.seconds_per_beat * 0.75)
-		$bossSprite.play("hit")
+		if $bossSprite.get_animation() == "default":
+			$bossSprite.play("hit")
 
 func on_timeout():
 	iframe = false
-	$bossSprite.play("default")
+	if $bossSprite.get_animation() == "hit":
+		$bossSprite.play("default")
 
 func _physics_process(_delta):
 	if %objPlayer && %objPlayer.position.x < position.x:

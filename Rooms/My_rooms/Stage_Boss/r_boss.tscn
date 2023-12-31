@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=119 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -22,9 +22,11 @@
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Idle.gd" id="9_gpypx"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame2.gd" id="9_tag34"]
 [ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_v3p7b"]
+[ext_resource type="Texture2D" uid="uid://bkicopnns40p7" path="res://Graphics/Sprites/My Stuff/boss/boss1-predash.png" id="10_6k2o4"]
 [ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="10_gmpeg"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Chorus1.gd" id="11_0jdnv"]
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_acjg2"]
+[ext_resource type="Texture2D" uid="uid://ojbu8bp84pfc" path="res://Graphics/Sprites/My Stuff/boss/boss1-prejump.png" id="11_odthm"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/End.gd" id="11_trd68"]
 [ext_resource type="Texture2D" uid="uid://cpglhm0n1u6fl" path="res://Graphics/Backgrounds/mayudj2.png" id="11_vikrh"]
 [ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_erl4f"]
@@ -73,17 +75,33 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_4cb84")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("7_juk3v")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
-"speed": 5.0
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_6k2o4")
+}],
+"loop": false,
+"name": &"predash",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_odthm")
+}],
+"loop": false,
+"name": &"prejump",
+"speed": 0.0
 }]
 
 [sub_resource type="GDScript" id="GDScript_e481s"]
@@ -157,7 +175,9 @@ var current_speed = 0
 var max_left = 60
 var max_right = 740
 
+var enter_beat = 0
 var end_beat = 1000
+var started = false
 
 func enter():
 	if !%objPlayer:
@@ -168,12 +188,20 @@ func enter():
 	else:
 		current_direction = -1
 	
-	var current_beat = floori(GLOBAL_GAME.boss_beat)
+	enter_beat = floori(GLOBAL_GAME.boss_beat)
 	
-	end_beat = randi_range(current_beat+1, current_beat+2)
+	end_beat = randi_range(enter_beat+2, enter_beat+3)
 	current_speed = randi_range(min_speed, max_speed)
+	started = false
 
 func physics(delta):
+	if GLOBAL_GAME.boss_beat < enter_beat + 1:
+		%Boss1/bossSprite.play(\"predash\")
+		return
+	elif !started:
+		%Boss1/bossSprite.play(\"default\")
+		started = true
+	
 	if GLOBAL_GAME.boss_beat > end_beat:
 		Transition.emit(self, \"idle\")
 		return
@@ -204,6 +232,7 @@ var max_right = 740
 
 var start_beat = 0
 var end_beat = 1000
+var started = false
 
 var boss_y = 0
 
@@ -219,10 +248,18 @@ func enter():
 	var current_beat = floori(GLOBAL_GAME.boss_beat)
 	start_beat = GLOBAL_GAME.boss_beat
 	
-	end_beat = current_beat+2
+	end_beat = current_beat+3
 	current_speed = randi_range(min_speed, max_speed)
+	started = false
 
 func physics(delta):
+	if GLOBAL_GAME.boss_beat < start_beat + 1:
+		%Boss1/bossSprite.play(\"prejump\")
+		return
+	elif !started:
+		%Boss1/bossSprite.play(\"default\")
+		started = true
+	
 	if GLOBAL_GAME.boss_beat > end_beat:
 		Transition.emit(self, \"idle\")
 		return
@@ -235,7 +272,7 @@ func physics(delta):
 	# beginning of sin = start beat
 	# sin 180 = end beat
 	
-	var weight = inverse_lerp(start_beat, end_beat, GLOBAL_GAME.boss_beat)
+	var weight = inverse_lerp(start_beat+1, end_beat, GLOBAL_GAME.boss_beat)
 	var weighted_angle = lerp(0, 180, weight)
 	%Boss1.position.y = boss_y - 100*sin(deg_to_rad(weighted_angle))
 	
@@ -1193,6 +1230,7 @@ script = ExtResource("6_b7u5l")
 
 [node name="bossSprite" type="AnimatedSprite2D" parent="Phases/Beep-boop-1/Boss1"]
 sprite_frames = SubResource("SpriteFrames_eihmo")
+autoplay = "default"
 
 [node name="bulletCollision" type="AnimatableBody2D" parent="Phases/Beep-boop-1/Boss1"]
 collision_layer = 32
