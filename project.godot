@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="I wanna slowly go quickly"
+config/version="0.4"
 config/tags=PackedStringArray("fangame_engine")
 run/main_scene="res://Rooms/My_rooms/Other/rMyMainMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/show_image=false
-config/icon="res://Resources/Project/icon.png"
+config/icon="res://Graphics/Sprites/My Stuff/boss/boss1.png"
+config/windows_native_icon="res://Graphics/Sprites/My Stuff/boss/icon.ico"
 
 [audio]
 
