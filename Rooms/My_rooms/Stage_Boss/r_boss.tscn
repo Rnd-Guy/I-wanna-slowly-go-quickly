@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=114 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -17,22 +17,17 @@
 [ext_resource type="PackedScene" uid="uid://disuddxn6h6vm" path="res://Objects/Hazards/tilSpikes.tscn" id="7_i72w6"]
 [ext_resource type="PackedScene" uid="uid://cdx3h81o7hqb4" path="res://Objects/Room_objects/objCameraDynamic.tscn" id="7_ildvd"]
 [ext_resource type="Texture2D" uid="uid://3rm23075l70q" path="res://Graphics/Sprites/My Stuff/boss/boss1-hit.png" id="7_juk3v"]
-[ext_resource type="PackedScene" uid="uid://bhxlpdr78sap" path="res://Objects/My_Stuff/Speed/objSpeedMultiplier.tscn" id="8_i554i"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Idle.gd" id="9_gpypx"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame2.gd" id="9_tag34"]
-[ext_resource type="PackedScene" uid="uid://6nhia7wgwbde" path="res://Objects/My_Stuff/Speed/objSpeedDamage.tscn" id="9_v3p7b"]
 [ext_resource type="Texture2D" uid="uid://bkicopnns40p7" path="res://Graphics/Sprites/My Stuff/boss/boss1-predash.png" id="10_6k2o4"]
-[ext_resource type="PackedScene" uid="uid://ddnger8hwak5h" path="res://Objects/My_Stuff/Speed/objSpeedSetter.tscn" id="10_gmpeg"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Chorus1.gd" id="11_0jdnv"]
 [ext_resource type="PackedScene" uid="uid://ydfe5ajko4un" path="res://Objects/My_Stuff/Speed/objSpeedAdder.tscn" id="11_acjg2"]
 [ext_resource type="Texture2D" uid="uid://ojbu8bp84pfc" path="res://Graphics/Sprites/My Stuff/boss/boss1-prejump.png" id="11_odthm"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/End.gd" id="11_trd68"]
 [ext_resource type="Texture2D" uid="uid://cpglhm0n1u6fl" path="res://Graphics/Backgrounds/mayudj2.png" id="11_vikrh"]
-[ext_resource type="PackedScene" uid="uid://desnunju1h5wd" path="res://Objects/My_Stuff/Speed/objSpeedLock.tscn" id="12_erl4f"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/PostChorus1.gd" id="12_mlexc"]
 [ext_resource type="Texture2D" uid="uid://byjy5fm4x5mf4" path="res://Graphics/Backgrounds/mayudj.png" id="12_vp8at"]
 [ext_resource type="PackedScene" uid="uid://w6w4iv17qcbs" path="res://Objects/My_Stuff/Boss/falling_spike.tscn" id="13_6jr5t"]
-[ext_resource type="PackedScene" uid="uid://bm4m2hvattucr" path="res://Objects/My_Stuff/Speed/objFallingSpeed.tscn" id="13_ig2yi"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Transition2.gd" id="14_tanqx"]
 [ext_resource type="Texture2D" uid="uid://r7n2bsmaqilg" path="res://Graphics/Sprites/My Stuff/boss/warning.png" id="15_5vlt8"]
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/Minigame3.gd" id="15_xo8nr"]
@@ -853,6 +848,7 @@ metadata/_edit_lock_ = true
 z_index = -2
 texture = ExtResource("4_pp6rn")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Intro-Intro" parent="Phases" instance=ExtResource("2_5ss1g")]
 visible = false
@@ -1280,6 +1276,7 @@ script = ExtResource("4_7agvo")
 position = Vector2(96, 304)
 
 [node name="objCameraDynamic" parent="Phases/Minigame1" node_paths=PackedStringArray("target_node") instance=ExtResource("7_ildvd")]
+position = Vector2(400, 304)
 target_node = NodePath("../../../Room_related/objPlayer")
 camera_zoom = Vector2(1, 1)
 stop_left_at = 0
@@ -3326,25 +3323,6 @@ warp_to = "res://Rooms/My_rooms/Other/r_end.tscn"
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
-
-[node name="objSpeedMultiplier" parent="Gimmicks" instance=ExtResource("8_i554i")]
-position = Vector2(-96, 176)
-
-[node name="SpeedDamageBlock" parent="Gimmicks" instance=ExtResource("9_v3p7b")]
-position = Vector2(-144, 224)
-
-[node name="objSpeedSetter" parent="Gimmicks" instance=ExtResource("10_gmpeg")]
-position = Vector2(-48, 176)
-scale = Vector2(1, 0.997231)
-
-[node name="objSpeedAdder" parent="Gimmicks" instance=ExtResource("11_acjg2")]
-position = Vector2(-144, 176)
-
-[node name="objSpeedLock" parent="Gimmicks" instance=ExtResource("12_erl4f")]
-position = Vector2(-96, 224)
-
-[node name="objFallingSpeed" parent="Gimmicks" instance=ExtResource("13_ig2yi")]
-position = Vector2(-48, 224)
 
 [node name="Hazards" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
