@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cv4iskfcou505"]
+[gd_scene load_steps=23 format=3 uid="uid://cv4iskfcou505"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_m6x8x"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_x4cih"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://drinfn7ig3ce0" path="res://Graphics/Backgrounds/calm.png" id="16_tra3o"]
 [ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="17_5syef"]
 [ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="18_y7vox"]
+[ext_resource type="PackedScene" uid="uid://217w6xn3mimm" path="res://Objects/My_Stuff/Rhythm/objRhythmSlider.tscn" id="19_cp1r6"]
+[ext_resource type="PackedScene" uid="uid://ct15bqbbs3hsg" path="res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn" id="20_2br6p"]
 
 [sub_resource type="GDScript" id="GDScript_i6uh3"]
 resource_name = "AvoidanceManager"
@@ -135,5 +137,13 @@ visible = false
 position = Vector2(163, -39)
 
 [node name="Autosave" parent="." instance=ExtResource("18_y7vox")]
+
+[node name="objRhythmSlider" parent="." instance=ExtResource("19_cp1r6")]
+position = Vector2(344, 103)
+scale = Vector2(0.01, 0.01)
+
+[node name="Note" parent="." instance=ExtResource("20_2br6p")]
+position = Vector2(389, 96)
+scale = Vector2(0.01, 0.01)
 
 [connection signal="body_entered" from="Trigger_related/avoidanceBegin" to="AvoidanceManager" method="_on_avoidance_begin_body_entered"]
