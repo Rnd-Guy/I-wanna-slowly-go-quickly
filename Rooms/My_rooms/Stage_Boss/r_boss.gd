@@ -21,6 +21,8 @@ var beat_offset = -1
 
 var stop_processing = false
 
+var current_phase_index = 0
+
 @onready var phases = [
 	# beat start, phase node, active (first is false, rest should be true)
 	[-10, $"Phases/BeforeIntro", false],
@@ -57,6 +59,7 @@ func set_phase():
 				phase.set_visible(true)
 				if phase.has_method("setup"):
 					phase.setup()
+				current_phase_index = i
 		else:
 			#if phase.visible == true: # attempts to be efficient but makes it hard to create new phases in editor
 			if phases[i][2] == true:
@@ -91,6 +94,7 @@ func _physics_process(_delta):
 	$Debug/CanvasLayer/ms.set_text(str(music_time))
 	$Debug/CanvasLayer/beat.set_text(str(beat))
 	$Debug/CanvasLayer/shotbeat.set_text(str(GLOBAL_GAME.shot_beat))
+	handle_phase_timer()
 	if !stop_processing:
 		# resync beat values every x frames
 		if frames_before_resync > 0:
@@ -208,3 +212,19 @@ func show_debug_labels():
 		$Debug/CanvasLayer/ms.set_visible(false)
 		$Debug/CanvasLayer/beat.set_visible(false)
 		$Debug/CanvasLayer/shotbeat.set_visible(false)
+
+func handle_phase_timer():
+	if stop_processing:
+		return
+	var next_phase = phases[current_phase_index+1]
+	var time_left = next_phase[0] - ceili(beat)
+	if current_phase_index == 17: # after final
+		time_left = 0
+	$Debug/CanvasLayer/phaseTimer/remainingTime.set_text(str(time_left))
+	
+	if is_instance_valid(%objPlayer):
+		if %objPlayer.position[0] > 650 && %objPlayer.position[0] < 800 && \
+			%objPlayer.position[1] > 0 && %objPlayer.position[1] < 100:
+				$Debug/CanvasLayer/phaseTimer.modulate.a = 0.2
+		else:
+			$Debug/CanvasLayer/phaseTimer.modulate.a = 1

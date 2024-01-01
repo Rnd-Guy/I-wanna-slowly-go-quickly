@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://rbfpjc1ipqyr"]
+[gd_scene load_steps=117 format=3 uid="uid://rbfpjc1ipqyr"]
 
 [ext_resource type="Script" path="res://Rooms/My_rooms/Stage_Boss/r_boss.gd" id="1_4nee7"]
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_b2h4h"]
@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://dpdihse2e6rby" path="res://Graphics/Backgrounds/postchorus2.png" id="43_s15sc"]
 [ext_resource type="Texture2D" uid="uid://dfepr1bsd6gb2" path="res://Graphics/Backgrounds/final.png" id="45_3qti8"]
 [ext_resource type="PackedScene" uid="uid://bo3vrmvp7ayf8" path="res://Objects/Room_objects/objWarp.tscn" id="53_rnubl"]
+[ext_resource type="Texture2D" uid="uid://br0loowgao6b5" path="res://Graphics/Sprites/My Stuff/boss/timer.png" id="55_1timd"]
 [ext_resource type="AudioStream" uid="uid://b5m7meshk27eg" path="res://Audio/Music/boss-normalized.ogg" id="59_h1fm7"]
 [ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="65_khew7"]
 
@@ -815,6 +816,13 @@ func react_to_hit(attack_type, attack_damage):
 	$\"../../Boss3e\".react_to_hit(attack_type, attack_damage)
 "
 
+[sub_resource type="LabelSettings" id="LabelSettings_krlba"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_07k8h"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Gradient" id="Gradient_m4yvc"]
 offsets = PackedFloat32Array(0.977401, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -887,7 +895,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP3" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 position = Vector2(144, 568)
@@ -914,7 +922,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP5" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 position = Vector2(272, 568)
@@ -927,7 +935,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP6" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 visible = false
@@ -941,7 +949,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP7" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 position = Vector2(400, 568)
@@ -954,7 +962,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP8" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 visible = false
@@ -968,7 +976,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP9" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 position = Vector2(528, 568)
@@ -981,7 +989,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP10" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 visible = false
@@ -995,7 +1003,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP11" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 position = Vector2(656, 568)
@@ -1008,7 +1016,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP12" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 visible = false
@@ -1022,7 +1030,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP13" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 position = Vector2(784, 568)
@@ -1035,7 +1043,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="Red" type="Node2D" parent="Phases/Beep-boop-1/Floor"]
 
@@ -1051,7 +1059,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP2" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 position = Vector2(80, 568)
@@ -1064,7 +1072,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP3" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 visible = false
@@ -1078,7 +1086,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP4" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 position = Vector2(208, 568)
@@ -1091,7 +1099,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP5" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 visible = false
@@ -1105,7 +1113,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP6" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 position = Vector2(336, 568)
@@ -1118,7 +1126,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP7" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 visible = false
@@ -1132,7 +1140,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP8" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 position = Vector2(464, 568)
@@ -1145,7 +1153,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP9" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 visible = false
@@ -1159,7 +1167,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP10" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 position = Vector2(592, 568)
@@ -1172,7 +1180,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP11" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 visible = false
@@ -1186,7 +1194,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP12" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 position = Vector2(720, 568)
@@ -1199,7 +1207,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="RFP13" type="Area2D" parent="Phases/Beep-boop-1/Floor/Red"]
 visible = false
@@ -1213,7 +1221,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.811765, 0.235294, 0.235294, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="tiles" parent="Phases/Beep-boop-1" instance=ExtResource("1_b2h4h")]
 layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 12, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1, 65536, 0, 1179649, 0, 0, 2, 65536, 0, 1179650, 0, 0, 3, 65536, 0, 1179651, 0, 0, 4, 65536, 0, 1179652, 0, 0, 5, 65536, 0, 1179653, 0, 0, 6, 65536, 0, 1179654, 0, 0, 7, 65536, 0, 1179655, 0, 0, 8, 65536, 0, 1179656, 0, 0, 9, 65536, 0, 1179657, 0, 0, 10, 65536, 0, 1179658, 0, 0, 11, 65536, 0, 1179659, 0, 0, 1179660, 0, 0, 13, 65536, 0, 1179661, 0, 0, 14, 65536, 0, 1179662, 0, 0, 15, 65536, 0, 1179663, 0, 0, 16, 65536, 0, 1179664, 0, 0, 17, 65536, 0, 1179665, 0, 0, 18, 65536, 0, 1179666, 0, 0, 19, 65536, 0, 1179667, 0, 0, 20, 65536, 0, 1179668, 0, 0, 21, 65536, 0, 1179669, 0, 0, 22, 65536, 0, 1179670, 0, 0, 23, 65536, 0, 1179671, 0, 0, 24, 65536, 0, 65560, 65536, 0, 131096, 65536, 0, 196632, 65536, 0, 262168, 65536, 0, 327704, 65536, 0, 393240, 65536, 0, 458776, 65536, 0, 524312, 65536, 0, 589848, 65536, 0, 655384, 65536, 0, 720920, 65536, 0, 786456, 65536, 0, 851992, 65536, 0, 917528, 65536, 0, 983064, 65536, 0, 1048600, 65536, 0, 1114136, 65536, 0, 1179672, 65536, 0)
@@ -2580,7 +2588,6 @@ texture = ExtResource("31_4b8ne")
 centered = false
 
 [node name="Minigame4" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("17_ecwox")
 
 [node name="objOneWay" parent="Phases/Minigame4" instance=ExtResource("23_gsy0w")]
@@ -2674,7 +2681,6 @@ position = Vector2(-1424, 336)
 [node name="instances" type="Node2D" parent="Phases/Minigame4/Obstacles/t1"]
 
 [node name="b1" type="Node2D" parent="Phases/Minigame4/Obstacles"]
-visible = false
 
 [node name="spike" parent="Phases/Minigame4/Obstacles/b1" instance=ExtResource("7_i72w6")]
 layer_0/tile_data = PackedInt32Array(851934, 0, 1, 851933, 0, 1, 851932, 0, 1, 851931, 0, 1, 786396, 0, 1, 917468, 0, 1, 1114080, 0, 1, 1179616, 0, 1, 1048544, 0, 1, 1114081, 0, 1, 1114082, 0, 1, 1114079, 0, 1)
@@ -2682,7 +2688,7 @@ metadata/_edit_lock_ = true
 
 [node name="tiles" parent="Phases/Minigame4/Obstacles/b1" instance=ExtResource("1_b2h4h")]
 position = Vector2(-1600, 0)
-layer_0/tile_data = PackedInt32Array(1048587, 65537, 0, 917513, 65537, 0, 786439, 65537, 0, 1114124, 65537, 0, 720902, 65537, 0, 720901, 65536, 3, 655364, 65536, 3, 1114123, 65536, 3, 983049, 65536, 3, 1048585, 65536, 3, 1114121, 65536, 3, 851975, 65536, 3, 917511, 65536, 3, 983047, 65536, 3, 1048583, 65536, 3, 1114119, 65536, 3, 1114118, 65536, 3, 1048582, 65536, 3, 983046, 65536, 3, 917510, 65536, 3, 851974, 65536, 3, 786438, 65536, 3, 786437, 65536, 3, 851973, 65536, 3, 917509, 65536, 3, 983045, 65536, 3, 1048581, 65536, 3, 1114117, 65536, 3, 1114116, 65536, 3, 1048580, 65536, 3, 983044, 65536, 3, 917508, 65536, 3, 851972, 65536, 3, 786436, 65536, 3, 720900, 65536, 3)
+layer_0/tile_data = PackedInt32Array(1048587, 65537, 0, 917513, 65537, 0, 1114124, 65537, 0, 720901, 65537, 0, 655364, 65536, 3, 1114123, 65536, 3, 983049, 65536, 3, 1048585, 65536, 3, 1114121, 65536, 3, 851975, 65537, 0, 917511, 65536, 3, 983047, 65536, 3, 1048583, 65536, 3, 1114119, 65536, 3, 1114118, 65536, 3, 1048582, 65536, 3, 983046, 65536, 3, 917510, 65536, 3, 851974, 65536, 3, 786438, 65537, 0, 786437, 65536, 3, 851973, 65536, 3, 917509, 65536, 3, 983045, 65536, 3, 1048581, 65536, 3, 1114117, 65536, 3, 1114116, 65536, 3, 1048580, 65536, 3, 983044, 65536, 3, 917508, 65536, 3, 851972, 65536, 3, 786436, 65536, 3, 720900, 65536, 3)
 
 [node name="speedBuffLocation" type="Node2D" parent="Phases/Minigame4/Obstacles/b1"]
 position = Vector2(-1424, 272)
@@ -3266,6 +3272,28 @@ offset_top = 192.0
 offset_right = 88.0
 offset_bottom = 232.0
 metadata/_edit_lock_ = true
+
+[node name="phaseTimer" type="Sprite2D" parent="Debug/CanvasLayer"]
+position = Vector2(736, 64)
+texture = ExtResource("55_1timd")
+
+[node name="remainingTime" type="Label" parent="Debug/CanvasLayer/phaseTimer"]
+offset_left = -20.0
+offset_top = -11.0
+offset_right = 20.0
+offset_bottom = 12.0
+text = "0"
+label_settings = SubResource("LabelSettings_krlba")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="Debug/CanvasLayer/phaseTimer"]
+offset_left = -28.0
+offset_top = 5.0
+offset_right = 30.0
+offset_bottom = 28.0
+text = "phase timer"
+label_settings = SubResource("LabelSettings_07k8h")
 
 [node name="bossHp" type="TextureProgressBar" parent="Debug/CanvasLayer"]
 unique_name_in_owner = true
