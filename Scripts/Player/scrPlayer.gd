@@ -144,12 +144,14 @@ func _physics_process(delta):
 		$CanvasLayer/uiParent/bossBonus.set_visible(false)
 	
 	if show_instant_speed:
+		$CanvasLayer/uiParent/Polygon2D.set_visible(false)
 		$CanvasLayer/uiParent/Polygon2D2.set_visible(true)
 		if instant_speed_ammo == -1:
 			$CanvasLayer/uiParent/currentInstaSpeed.set_text("Instant Speed: ∞")
 		else:
 			$CanvasLayer/uiParent/currentInstaSpeed.set_text("Instant Speed: " + str(instant_speed_ammo) + " [" + str(default_instant_speed_ammo) + "]")
 	else:
+		$CanvasLayer/uiParent/Polygon2D.set_visible(true)
 		$CanvasLayer/uiParent/Polygon2D2.set_visible(false)
 	
 	if Input.is_action_just_pressed("button_debug_command"):

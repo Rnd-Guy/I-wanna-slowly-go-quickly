@@ -42,9 +42,8 @@ rendering_quadrant_size = 32
 metadata/_edit_lock_ = true
 
 [node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("3_8wqfg")]
-position = Vector2(16, 16)
+position = Vector2(400, 304)
 anchor_mode = 1
-metadata/_edit_lock_ = true
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("4_8cs7p")]
 position = Vector2(128, 559)

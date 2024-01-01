@@ -31,7 +31,7 @@ loop_end = 273.0
 [node name="Room_related" type="Node2D" parent="."]
 
 [node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("3_3phcy")]
-position = Vector2(163, 153)
+position = Vector2(400, 304)
 anchor_mode = 1
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("4_h6uq2")]

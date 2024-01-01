@@ -131,14 +131,13 @@ loop_end = 347.2
 metadata/_edit_lock_ = true
 
 [node name="objCameraDynamic" parent="Room_related" node_paths=PackedStringArray("target_node") instance=ExtResource("3_us5v4")]
-position = Vector2(400, 48)
+position = Vector2(400, 304)
 target_node = NodePath("../objPlayer")
 camera_zoom = Vector2(1, 1)
 stop_left_at = 0
 stop_up_at = 0
 stop_right_at = 800
 stop_down_at = 4544
-metadata/_edit_lock_ = true
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("4_g8xex")]
 position = Vector2(384, 4488)

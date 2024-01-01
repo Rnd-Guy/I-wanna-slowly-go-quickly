@@ -35,9 +35,8 @@ layer_0/tile_data = PackedInt32Array(1441800, 65536, 0, 1441802, 65536, 0, 14418
 metadata/_edit_lock_ = true
 
 [node name="objCameraFixedNoSmoothing" parent="Room_related" instance=ExtResource("4_6g2j3")]
-position = Vector2(16, 16)
+position = Vector2(400, 304)
 anchor_mode = 1
-metadata/_edit_lock_ = true
 
 [node name="objWarp" parent="Room_related" instance=ExtResource("5_2cdal")]
 position = Vector2(648, 336)
