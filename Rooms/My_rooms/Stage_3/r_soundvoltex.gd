@@ -182,8 +182,10 @@ func on_music_end():
 	$Room_related/objPlayer.h_speed = 3
 	$Room_related/objPlayer.slide = true
 	song_finished = true
-	$Instances.queue_free()
-	$Environment/tempTiles.queue_free()
+	if is_instance_valid($Instances):
+		$Instances.queue_free()
+	if is_instance_valid($Environment/tempTiles):
+		$Environment/tempTiles.queue_free()
 
 
 func _physics_process(_delta):

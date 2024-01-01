@@ -838,6 +838,7 @@ metadata/_edit_lock_ = true
 [node name="Phases" type="Node2D" parent="."]
 
 [node name="BeforeIntro" type="Node2D" parent="Phases"]
+visible = false
 script = ExtResource("2_p4ai6")
 
 [node name="tiles" parent="Phases/BeforeIntro" instance=ExtResource("1_b2h4h")]
@@ -855,7 +856,6 @@ visible = false
 metadata/_edit_lock_ = true
 
 [node name="Beep-boop-1" type="Node2D" parent="Phases"]
-visible = false
 script = ExtResource("3_lr0jd")
 
 [node name="Floor" type="Node2D" parent="Phases/Beep-boop-1"]
@@ -873,7 +873,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP2" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 visible = false
@@ -900,7 +900,7 @@ shape = SubResource("RectangleShape2D_syc1c")
 z_index = 1
 position = Vector2(-256, 440)
 color = Color(0.423529, 0.811765, 0.34902, 1)
-polygon = PackedVector2Array(224, -432, 288, -432, 288, -424, 224, -424)
+polygon = PackedVector2Array(224, -432, 288, -432, 288, -400, 224, -400)
 
 [node name="GFP4" type="Area2D" parent="Phases/Beep-boop-1/Floor/Green"]
 visible = false

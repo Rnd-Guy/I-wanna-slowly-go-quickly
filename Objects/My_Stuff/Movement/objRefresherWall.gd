@@ -21,9 +21,9 @@ func _ready():
 
 func _physics_process(_delta):
 	if used_left:
-		$StaticCollision/LeftRefresher/Poly.modulate.r = 0
+		$StaticCollision/LeftRefresher/Poly.modulate = "ff6a59"
 	if used_right:
-		$StaticCollision/RightRefresher/Poly.modulate.r = 0
+		$StaticCollision/RightRefresher/Poly.modulate = "ff6a59"
 
 func handle_collision(player, collision):
 	if player.just_dashed && right && !used_right && collision.get_normal().x > 0:

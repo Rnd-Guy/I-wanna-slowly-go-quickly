@@ -149,7 +149,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="objSign" parent="." instance=ExtResource("18_bihbt")]
-position = Vector2(528, 112)
+position = Vector2(-56, 96)
 custom_text = "Hold right!"
 
 [node name="Autosave" parent="." instance=ExtResource("18_ndgwp")]

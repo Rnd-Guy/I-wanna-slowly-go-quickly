@@ -38,7 +38,7 @@ anchor_mode = 1
 position = Vector2(50, 173)
 
 [node name="objPlayer" parent="Room_related" instance=ExtResource("5_41pjg")]
-position = Vector2(128, 559)
+position = Vector2(112, 560)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 
@@ -48,7 +48,6 @@ position = Vector2(128, 559)
 layer_0/tile_data = PackedInt32Array(655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 720916, 65536, 0, 720917, 65536, 0, 720918, 65536, 0)
 
 [node name="tilSpikes16" parent="Hazards" instance=ExtResource("9_i8wo3")]
-layer_0/tile_data = PackedInt32Array(1310766, 1, 0, 1310767, 1, 0)
 
 [node name="Trigger_related" type="Node2D" parent="."]
 
@@ -62,12 +61,15 @@ position = Vector2(-144, 224)
 position = Vector2(-48, 176)
 
 [node name="objSpeedAdder" parent="." instance=ExtResource("11_0wtdb")]
-position = Vector2(184, 520)
+position = Vector2(48, 528)
 speed = 1000.0
 one_use = true
 
 [node name="objSpeedLock" parent="." instance=ExtResource("12_ybqxu")]
-position = Vector2(-96, 224)
+position = Vector2(144, 544)
+scale = Vector2(1, 2)
+below = true
+equal = false
 
 [node name="bg" type="Sprite2D" parent="."]
 z_index = -2

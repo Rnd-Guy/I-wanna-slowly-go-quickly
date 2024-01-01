@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://c1pfai2urg7m1"]
+[gd_scene load_steps=27 format=3 uid="uid://c1pfai2urg7m1"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_neo8c"]
+[ext_resource type="Script" path="res://Rooms/My_rooms/Stage_1/r1-6_pachinko.gd" id="1_vghxb"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_fpkt1"]
 [ext_resource type="AudioStream" uid="uid://b8k0524ex6amw" path="res://Audio/Music/balanceValley-normalized.ogg" id="3_1tvee"]
 [ext_resource type="PackedScene" uid="uid://cdx3h81o7hqb4" path="res://Objects/Room_objects/objCameraDynamic.tscn" id="3_us5v4"]
@@ -111,7 +112,14 @@ func _physics_process(_delta):
 		flip_h = false
 "
 
+[sub_resource type="LabelSettings" id="LabelSettings_4k2b5"]
+font_color = Color(0.929412, 0.266667, 0.278431, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oo4v2"]
+radius = 16.0
+
 [node name="rTemplate" type="Node2D"]
+script = ExtResource("1_vghxb")
 metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node2D" parent="."]
@@ -337,3 +345,21 @@ sprite_frames = SubResource("SpriteFrames_ul04y")
 script = SubResource("GDScript_4ti5w")
 
 [node name="Autosave" parent="." instance=ExtResource("20_7tafl")]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = -1
+offset_left = 584.0
+offset_top = 248.0
+offset_right = 659.0
+offset_bottom = 271.0
+text = "<- Danger"
+label_settings = SubResource("LabelSettings_4k2b5")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(563, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_oo4v2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
