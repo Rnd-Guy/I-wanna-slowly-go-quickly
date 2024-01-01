@@ -100,8 +100,8 @@ func _physics_process(_delta):
 			frames_before_resync = 7
 
 		set_phase()
-		
-	update_boss()
+		update_boss()
+	
 	show_debug_labels()
 
 func resync_rhythm_position():
@@ -161,11 +161,13 @@ func music_time_to_beat(mt):
 	return b
 
 func setup_boss():
-	%bossHp.max_value = boss_hp
-	%bossHp.value = boss_hp
+	if is_instance_valid(%bossHp):
+		%bossHp.max_value = boss_hp
+		%bossHp.value = boss_hp
 func update_boss():
-	%bossHp.value = boss_hp
-	%bossHpLabel.set_text("Hp: " + str(snappedf(boss_hp, 0.1)))
+	if is_instance_valid(%bossHp):
+		%bossHp.value = boss_hp
+		%bossHpLabel.set_text("Hp: " + str(snappedf(boss_hp, 0.1)))
 func take_damage(attack_type, damage):
 	if attack_type == GlobalClass.weapon_type.BULLET:
 		boss_hp -= damage
@@ -190,6 +192,7 @@ func defeat_boss():
 			node.phase_defeated()
 
 	set_stop_processing()
+	$Debug/CanvasLayer/bossHp.queue_free()
 	pass
 
 func set_stop_processing():

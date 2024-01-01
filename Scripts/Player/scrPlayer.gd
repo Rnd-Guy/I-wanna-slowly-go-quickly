@@ -663,7 +663,7 @@ func turn_back_on_killers():
 	$extraCollisions/Killers.set_process_mode(PROCESS_MODE_INHERIT)
 
 func handle_speed_ui_over_player():
-	if position[0] < 200 && position[1] < 100:
+	if position[0] < 200 && position[1] < 100 && position[1] > 0 && position[0] > 0:
 		#$CanvasLayer.set_layer(0)
 		$CanvasLayer/uiParent.modulate.a = 0.2
 	else:
