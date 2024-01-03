@@ -138,11 +138,11 @@ position = Vector2(163, -39)
 [node name="Autosave" parent="." instance=ExtResource("18_y7vox")]
 
 [node name="objRhythmSlider" parent="." instance=ExtResource("19_cp1r6")]
-position = Vector2(344, 103)
-scale = Vector2(0.01, 0.01)
+modulate = Color(1, 1, 1, 0.00392157)
+position = Vector2(336, 120)
 
 [node name="Note" parent="." instance=ExtResource("20_2br6p")]
+modulate = Color(1, 1, 1, 0.00392157)
 position = Vector2(389, 96)
-scale = Vector2(0.01, 0.01)
 
 [connection signal="body_entered" from="Trigger_related/avoidanceBegin" to="AvoidanceManager" method="_on_avoidance_begin_body_entered"]
