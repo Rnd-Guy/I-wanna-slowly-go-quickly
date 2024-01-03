@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.803922, 0.207843, 0.258824, 0.694118)]
+"values": [Color(1, 1, 1, 0.666667)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.803922, 0.207843, 0.258824, 0.694118)]
+"values": [Color(0.882353, 0.258824, 0.301961, 1), Color(1, 1, 1, 0.403922)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -95,7 +95,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.803922, 0.207843, 0.258824, 0.694118)]
+"values": [Color(0.803922, 0.207843, 0.258824, 1), Color(1, 1, 1, 0.666667)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -159,7 +159,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(0.882353, 0.258824, 0.301961, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhkrq"]
@@ -184,7 +184,7 @@ position = Vector2(0, 384)
 shape = SubResource("RectangleShape2D_2hdwc")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.803922, 0.207843, 0.258824, 0.694118)
+color = Color(1, 1, 1, 0.666667)
 polygon = PackedVector2Array(-4, 0, -4, 0, 4, 0, 4, 1768, -4, 1768)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

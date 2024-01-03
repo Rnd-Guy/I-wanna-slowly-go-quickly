@@ -102,7 +102,8 @@ func _process(delta):
 func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("button_debug"):
-		toggle_debug_mode()
+		#toggle_debug_mode()
+		pass
 	
 	if Input.is_action_just_pressed("button_music"):
 		pause_music()
@@ -118,6 +119,9 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("button_quitgame"):
 		game_quit()
+	
+	if Input.is_action_just_pressed("button_warp_to_end"):
+		warp_to_end()
 	
 	if debug_mode:
 		if Input.is_action_just_pressed("button_debug_next_room"):
@@ -364,3 +368,6 @@ func switch_to_previous_room():
 func switch_to_room(room_name):
 		get_tree().change_scene_to_file(room_name)
 
+func warp_to_end():
+	if is_valid_room() && GLOBAL_SAVELOAD.variableGameData.final_time > 0:
+		get_tree().change_scene_to_file("res://Rooms/My_rooms/Other/r_end.tscn")
