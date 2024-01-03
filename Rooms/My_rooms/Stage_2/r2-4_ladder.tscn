@@ -128,40 +128,34 @@ metadata/_edit_lock_ = true
 position = Vector2(96, 448)
 
 [node name="objJumpRefresher2" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(704, 416)
+position = Vector2(704, 408)
 
 [node name="objJumpRefresher13" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(704, 480)
+position = Vector2(704, 488)
 
 [node name="objJumpRefresher3" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(96, 384)
+position = Vector2(96, 368)
 
 [node name="objJumpRefresher4" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(704, 352)
+position = Vector2(704, 328)
 
 [node name="objJumpRefresher5" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(96, 320)
+position = Vector2(96, 288)
 
 [node name="objJumpRefresher7" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(96, 256)
-
-[node name="objJumpRefresher9" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(96, 192)
+position = Vector2(96, 208)
 
 [node name="objJumpRefresher12" parent="." instance=ExtResource("17_daclx")]
 position = Vector2(96, 128)
 
 [node name="objJumpRefresher6" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(704, 288)
+position = Vector2(704, 248)
 
 [node name="objJumpRefresher8" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(704, 224)
+position = Vector2(704, 168)
 
 [node name="objJumpRefresher10" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(704, 160)
-
-[node name="objJumpRefresher11" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(704, 96)
+position = Vector2(704, 88)
 
 [node name="bg" type="Sprite2D" parent="."]
 z_index = -2
