@@ -18,12 +18,14 @@ func _ready():
 		$StaticCollision/RightRefresher.set_visible(true)
 	else:
 		$StaticCollision/RightRefresher.set_visible(false)
+	
+	GLOBAL_INSTANCES.player_landed.connect(reset_when_player_lands)
 
 func _physics_process(_delta):
 	if used_left:
-		$StaticCollision/LeftRefresher/Poly.modulate = "ff6a59"
+		$StaticCollision/LeftRefresher/Poly.modulate = "3d4a0c"
 	if used_right:
-		$StaticCollision/RightRefresher/Poly.modulate = "ff6a59"
+		$StaticCollision/RightRefresher/Poly.modulate = "3d4a0c"
 
 func handle_collision(player, collision):
 	if player.just_dashed && right && !used_right && collision.get_normal().x > 0:
@@ -38,3 +40,9 @@ func handle_collision(player, collision):
 		player.d_jump = true
 		if limited:
 			used_left = true
+
+func reset_when_player_lands():
+	used_left = false
+	used_right = false
+	$StaticCollision/LeftRefresher/Poly.modulate = "ffffff"
+	$StaticCollision/RightRefresher/Poly.modulate = "ffffff"

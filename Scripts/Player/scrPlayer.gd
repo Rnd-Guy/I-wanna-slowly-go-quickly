@@ -579,6 +579,7 @@ func handle_collision(collision):
 		collision.get_collider().on_player_collision(self, collision)
 
 func handle_actual_movement(delta):
+	var wasOnFloor = is_on_floor();
 	if slide:
 		var collided: bool = move_and_slide()
 		if collided:
@@ -587,6 +588,11 @@ func handle_actual_movement(delta):
 		var collision = move_and_collide(velocity * delta)
 		if collision != null:
 			handle_collision(collision)
+	
+	# check if we have just landed
+	if !wasOnFloor && is_on_floor():
+		GLOBAL_INSTANCES.player_landed.emit();	
+	
 
 """
 BOSS RELATED

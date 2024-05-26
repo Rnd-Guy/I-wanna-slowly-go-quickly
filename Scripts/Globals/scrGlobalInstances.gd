@@ -9,3 +9,4 @@ extends Node
 var objPlayerID: Node = null
 
 signal player_speed_changed(newSpeed)
+signal player_landed()
