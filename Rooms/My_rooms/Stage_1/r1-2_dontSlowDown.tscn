@@ -28,7 +28,6 @@ loop_start = 169.0
 loop_end = 347.2
 
 [node name="tiles16" parent="Environment" instance=ExtResource("4_rb7wv")]
-rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(983066, 65536, 0)
 
 [node name="Room_related" type="Node2D" parent="."]

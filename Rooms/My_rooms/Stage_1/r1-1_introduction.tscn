@@ -25,7 +25,6 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_3f8wl")]
-rendering_quadrant_size = 32
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_7pkrg")]
 
@@ -123,10 +122,6 @@ one_use = true
 
 [node name="objSpeedAdder16" parent="." instance=ExtResource("10_tpssm")]
 position = Vector2(656, 544)
-one_use = true
-
-[node name="objSpeedAdder17" parent="." instance=ExtResource("10_tpssm")]
-position = Vector2(688, 544)
 one_use = true
 
 [node name="objSpeedLock" parent="." instance=ExtResource("11_pryba")]

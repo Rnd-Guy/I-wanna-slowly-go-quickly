@@ -1,5 +1,7 @@
 extends Node2D
 
+const permaLockSound = preload("res://Audio/My Stuff/sndPermaLocked.wav")
+
 ## speed used for condition
 @export var speed: float = 3
 
@@ -76,6 +78,7 @@ func on_player_speed_change(newSpeed):
 		$StaticBody2D.set_collision_layer_value(2, closed)
 		if perma_lock && closed:
 			is_locked = true
+			GLOBAL_SOUNDS.play_sound(permaLockSound)
 #		if new_value:
 #			modulate.a = 1
 #		else:

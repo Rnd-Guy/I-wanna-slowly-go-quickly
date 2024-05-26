@@ -162,5 +162,5 @@ sources/1 = SubResource("TileSetAtlasSource_1ky4m")
 
 [node name="tiles16" type="TileMap" groups=["Walls"]]
 tile_set = SubResource("TileSet_m27eo")
-cell_quadrant_size = 32
+rendering_quadrant_size = 32
 format = 2

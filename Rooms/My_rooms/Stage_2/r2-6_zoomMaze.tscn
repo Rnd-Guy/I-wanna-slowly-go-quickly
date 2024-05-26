@@ -25,7 +25,6 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_08gl0")]
-rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(2097180, 65536, 0, 1966101, 65536, 0, 1966126, 65536, 0, 1572896, 65536, 0, 1572872, 65536, 0, 1572866, 65536, 0, 1769478, 65536, 0, 1179656, 65536, 0, 983046, 65536, 0, 786440, 65536, 0, 1376275, 65536, 0, 393255, 65536, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_7raww")]

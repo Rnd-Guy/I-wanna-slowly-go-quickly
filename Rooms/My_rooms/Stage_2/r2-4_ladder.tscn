@@ -30,7 +30,6 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_3ux4u")]
-rendering_quadrant_size = 32
 
 [node name="objMovingPlatform" parent="Environment/tiles16" instance=ExtResource("2_c3ec8")]
 position = Vector2(96, 104)
@@ -129,9 +128,6 @@ position = Vector2(96, 448)
 
 [node name="objJumpRefresher2" parent="." instance=ExtResource("17_daclx")]
 position = Vector2(704, 408)
-
-[node name="objJumpRefresher13" parent="." instance=ExtResource("17_daclx")]
-position = Vector2(704, 488)
 
 [node name="objJumpRefresher3" parent="." instance=ExtResource("17_daclx")]
 position = Vector2(96, 368)
