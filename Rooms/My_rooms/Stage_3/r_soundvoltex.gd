@@ -1,12 +1,13 @@
 extends Node2D
 
 var note = preload("res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn")
+var sound = preload("res://Audio/My Stuff/sndRhythm2.wav")
 var bpm = 240
 var speed = 300
 var song_finished = false
 
 var x_positions = [208, 280, 352, 416, 488, 560]
-var y_target = 490
+var y_target = 496 - 10 - 8 + 2 # 496 is the pos of player, 10 is half player height, 8 is half note height, +2 is a little leeway for note to go inside player in order to collide
 
 var score = 0
 var target_score = 114 # max possible without z is 11600, max is 12400
@@ -207,6 +208,7 @@ func score_points():
 		#score += 50
 	#elif event == "sliderBody":
 		#score += 1
+	GLOBAL_SOUNDS.play_sound(sound)
 	score += points_per_bar
 	if $miku && score >= target_score:
 		$miku.queue_free()

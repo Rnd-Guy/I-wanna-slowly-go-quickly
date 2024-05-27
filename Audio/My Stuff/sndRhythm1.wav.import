@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1lslu7wsrb2b"
+path="res://.godot/imported/sndRhythm1Candidate.wav-2384aed88dc3b1e8722cd4151eb8c3e1.sample"
+
+[deps]
+
+source_file="res://Audio/My Stuff/sndRhythm1Candidate.wav"
+dest_files=["res://.godot/imported/sndRhythm1Candidate.wav-2384aed88dc3b1e8722cd4151eb8c3e1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

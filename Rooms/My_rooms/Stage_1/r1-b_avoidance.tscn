@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cv4iskfcou505"]
+[gd_scene load_steps=21 format=3 uid="uid://cv4iskfcou505"]
 
 [ext_resource type="PackedScene" uid="uid://bm40t36a6m8sc" path="res://Objects/Tiles/til32x32.tscn" id="1_m6x8x"]
 [ext_resource type="PackedScene" uid="uid://byy0nyaw6gtki" path="res://Objects/Room_objects/objMusicPlayer.tscn" id="2_x4cih"]
@@ -18,9 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://drinfn7ig3ce0" path="res://Graphics/Backgrounds/calm.png" id="16_tra3o"]
 [ext_resource type="PackedScene" uid="uid://b7jmm47ywcun3" path="res://Objects/Hazards/objCherry.tscn" id="17_5syef"]
 [ext_resource type="PackedScene" uid="uid://dnpoyfcjrfmug" path="res://Objects/My_Stuff/autosave.tscn" id="18_y7vox"]
-[ext_resource type="Material" uid="uid://buampn6w1fimd" path="res://Objects/My_Stuff/Rhythm/objRhythmSlider.tres" id="19_gbf61"]
-[ext_resource type="Material" uid="uid://coq2wsy6hrinb" path="res://Objects/My_Stuff/Rhythm/objRhythmSliderFlipped.tres" id="20_d1kao"]
-[ext_resource type="Shader" path="res://Rooms/My_rooms/Stage_3/r_soundvoltex.gdshader" id="21_r2pc4"]
 
 [sub_resource type="GDScript" id="GDScript_i6uh3"]
 resource_name = "AvoidanceManager"
@@ -44,10 +41,6 @@ func _on_avoidance_begin_body_entered(body):
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kh76"]
 size = Vector2(0.649647, 23.2903)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vm3uy"]
-shader = ExtResource("21_r2pc4")
-shader_parameter/screen_position = null
 
 [node name="rTemplate" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -141,22 +134,5 @@ visible = false
 position = Vector2(163, -39)
 
 [node name="Autosave" parent="." instance=ExtResource("18_y7vox")]
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-material = ExtResource("19_gbf61")
-color = Color(1, 1, 1, 0.0627451)
-polygon = PackedVector2Array(32, 32, 32, 48, 48, 48, 48, 32)
-
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-material = ExtResource("20_d1kao")
-position = Vector2(72, 0)
-color = Color(1, 1, 1, 0.0627451)
-polygon = PackedVector2Array(32, 32, 32, 48, 48, 48, 48, 40, 48, 32)
-
-[node name="Polygon2D3" type="Polygon2D" parent="."]
-material = SubResource("ShaderMaterial_vm3uy")
-position = Vector2(32, -16)
-color = Color(1, 1, 1, 0.0627451)
-polygon = PackedVector2Array(32, 32, 32, 48, 48, 48, 48, 32)
 
 [connection signal="body_entered" from="Trigger_related/avoidanceBegin" to="AvoidanceManager" method="_on_avoidance_begin_body_entered"]

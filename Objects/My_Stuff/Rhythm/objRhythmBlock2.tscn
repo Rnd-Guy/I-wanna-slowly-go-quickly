@@ -7,6 +7,8 @@ script/source = "extends Node2D
 
 signal collided
 
+var sound = preload(\"res://Audio/My Stuff/sndRhythm1.wav\")
+
 var speed = 300
 var bpm = 98
 var beat = 1# which beat this note should reach the middle
@@ -89,6 +91,7 @@ func on_player_collision(player, collision):
 	if (collision.get_normal().x > 0 && !flip) || (collision.get_normal().x < 0 && flip):
 		$Sprite2D.set_region_rect(Rect2(32,0,32,size*32))
 		collided.emit(\"note\")
+		GLOBAL_SOUNDS.play_sound(sound)
 
 func delete_when_finished():
 #	if direction  == \"up\" && position.y < -100:

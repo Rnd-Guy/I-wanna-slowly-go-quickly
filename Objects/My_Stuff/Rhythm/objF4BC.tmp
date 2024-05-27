@@ -41,7 +41,6 @@ var time_to_reach_middle
 var music_time
 
 var is_currently_colliding = false
-var is_playing_sound = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -205,16 +204,11 @@ func handle_shape():
 	$SliderBottom.translate(Vector2(-x_offset, y_offset))
 	
 func handle_sound():
-	if is_currently_colliding && !is_playing_sound:
-		print_debug(\"starting to play\")
+	if is_currently_colliding:
+		print_debug(is_currently_colliding)
 		GLOBAL_SOUNDS.play_looping_sound(sound)
-		is_playing_sound = true
-
-	if !is_currently_colliding && is_playing_sound:
-		print_debug(\"stopping\")
+	else:
 		GLOBAL_SOUNDS.stop_looping_sound(sound)
-		is_playing_sound = false
-	
 	is_currently_colliding = false;
 
 "

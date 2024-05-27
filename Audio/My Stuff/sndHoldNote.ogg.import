@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwthkophnopwr"
+path="res://.godot/imported/sndHoldNote.ogg-d6ed4851d8f431c2253dbbbeccad06bf.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/My Stuff/sndHoldNote.ogg"
+dest_files=["res://.godot/imported/sndHoldNote.ogg-d6ed4851d8f431c2253dbbbeccad06bf.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

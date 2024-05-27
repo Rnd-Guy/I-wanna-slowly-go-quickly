@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bg3uu0dustm76"]
+[gd_scene load_steps=14 format=3 uid="uid://bg3uu0dustm76"]
 
 [ext_resource type="Script" path="res://Scripts/UI/scrMainMenu.gd" id="1_yigd4"]
 [ext_resource type="PackedScene" uid="uid://wr3v4lkgftxk" path="res://Objects/Tiles/til16x16.tscn" id="2_8x2wx"]
@@ -9,6 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://bm671n4cnmoon" path="res://Objects/System/objSavefilePreview.tscn" id="6_qtufp"]
 [ext_resource type="FontFile" uid="uid://4m283seugry" path="res://Graphics/Fonts/NFPixels-Regular.otf" id="7_edwfr"]
 [ext_resource type="PackedScene" uid="uid://614aveijpptq" path="res://Objects/UI/objGenericMenuButton.tscn" id="8_qnmu3"]
+[ext_resource type="Material" uid="uid://buampn6w1fimd" path="res://Objects/My_Stuff/Rhythm/objRhythmSlider.tres" id="10_kcldu"]
+[ext_resource type="Material" uid="uid://coq2wsy6hrinb" path="res://Objects/My_Stuff/Rhythm/objRhythmSliderFlipped.tres" id="11_kcvmy"]
+[ext_resource type="Shader" path="res://Rooms/My_rooms/Stage_3/r_soundvoltex.gdshader" id="12_6ljwn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywcf1"]
+shader = ExtResource("12_6ljwn")
+shader_parameter/screen_position = null
 
 [node name="rMainMenu" type="Control"]
 layout_mode = 3
@@ -229,6 +236,25 @@ theme_override_fonts/font = ExtResource("7_edwfr")
 theme_override_font_sizes/font_size = 30
 text = "[Esc] Quit"
 vertical_alignment = 1
+
+[node name="PreloadResources" type="Node2D" parent="."]
+
+[node name="ShaderPreload1" type="Polygon2D" parent="PreloadResources"]
+material = ExtResource("10_kcldu")
+color = Color(1, 1, 1, 0.0627451)
+polygon = PackedVector2Array(32, 32, 32, 48, 48, 48, 48, 32)
+
+[node name="ShaderPreload2" type="Polygon2D" parent="PreloadResources"]
+material = ExtResource("11_kcvmy")
+position = Vector2(72, 0)
+color = Color(1, 1, 1, 0.0627451)
+polygon = PackedVector2Array(32, 32, 32, 48, 48, 48, 48, 40, 48, 32)
+
+[node name="ShaderPreload3" type="Polygon2D" parent="PreloadResources"]
+material = SubResource("ShaderMaterial_ywcf1")
+position = Vector2(32, -16)
+color = Color(1, 1, 1, 0.0627451)
+polygon = PackedVector2Array(32, 32, 32, 48, 48, 48, 48, 32)
 
 [connection signal="pressed" from="ButtonContainer/Files/File1" to="." method="_on_file_1_pressed"]
 [connection signal="pressed" from="ButtonContainer/Files/File2" to="." method="_on_file_2_pressed"]
