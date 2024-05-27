@@ -47,6 +47,7 @@ func _physics_process(_delta):
 
 
 func setup_deferred():
+	%objPlayer.d_jump = false
 	if !player_in_start:
 		%objPlayer.set_global_position($Start.global_position)
 	

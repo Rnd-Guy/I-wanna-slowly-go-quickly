@@ -21,6 +21,7 @@ func _ready():
 
 func buff_effect():
 	if contact_body is Player:
+		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndGravChange)
 		if multiply:
 			contact_body.v_speed *= speed
 		else:

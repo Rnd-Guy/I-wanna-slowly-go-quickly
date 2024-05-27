@@ -1,7 +1,6 @@
 extends Node2D
 
 var note = preload("res://Objects/My_Stuff/Rhythm/objColourfulNote.tscn")
-var sound = preload("res://Audio/My Stuff/sndRhythm2.wav")
 var bpm = 240
 var speed = 300
 var song_finished = false
@@ -209,7 +208,7 @@ func score_points():
 		#score += 50
 	#elif event == "sliderBody":
 		#score += 1
-	GLOBAL_SOUNDS.play_sound(sound)
+	GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndRhythm2)
 	score += points_per_bar
 	if $miku && score >= target_score:
 		$miku.queue_free()

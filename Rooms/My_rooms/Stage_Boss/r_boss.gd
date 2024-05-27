@@ -5,7 +5,7 @@ extends Node2D
 var speed_on_debug = 10
 
 var bpm = 120
-var debug_metronome = preload("res://Audio/Sounds/sndMenuButton.wav")
+#var debug_metronome = preload("res://Audio/Sounds/sndMenuButton.wav")
 
 var music_time = 0
 var seconds_per_beat = 0.5 # 60 / bpm

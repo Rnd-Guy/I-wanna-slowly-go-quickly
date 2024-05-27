@@ -29,6 +29,7 @@ const sndBossRhythmShot = preload("res://Audio/My Stuff/sndBossRhythm.wav")
 
 const sndSpeedChange = preload("res://Audio/My Stuff/sndSpeedChange.wav")
 const sndSpeedChangeC = preload("res://Audio/My Stuff/sndSpeedC.wav")
+const sndGravChange = preload("res://Audio/My Stuff/sndGravChange.wav")
 
 # We get the audioPlayerList node from this variable. A little cleaner
 @onready var audioPlayers: Node = $audioPlayerList
@@ -43,8 +44,9 @@ var volume_offsets = {
 	sndPermaLocked: -15,
 	sndSpeedChangeC: -10,
 	sndGlass: -10,
-	sndZoop: -10,
-	sndJumpRefresher: -5
+	sndZoop: -5,
+	sndJumpRefresher: -5,
+	sndGravChange: -5,
 }
 
 # since we can't compare object to object, we'll need to compare the actual resource names
