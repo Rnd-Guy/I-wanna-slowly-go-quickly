@@ -22,6 +22,8 @@ const sndGlass = preload("res://Audio/Sounds/sndGlass.wav")
 
 const sndHoldNote = preload("res://Audio/My Stuff/sndHoldNote.ogg")
 const sndRhythm1 = preload("res://Audio/My Stuff/sndRhythm1.wav")
+const sndRhythm2 = preload("res://Audio/My Stuff/sndRhythm2.wav")
+const sndBossRhythmShot = preload("res://Audio/My Stuff/sndBossRhythm.wav")
 
 # We get the audioPlayerList node from this variable. A little cleaner
 @onready var audioPlayers: Node = $audioPlayerList
@@ -30,7 +32,9 @@ var looping_sounds = {}
 
 var volume_offsets = {
 	sndHoldNote: -5,
-	sndRhythm1: -5
+	sndRhythm1: -15,
+	sndRhythm2: -10,
+	sndBossRhythmShot: -10
 }
 
 # since we can't compare object to object, we'll need to compare the actual resource names
@@ -40,7 +44,7 @@ var actual_volume_offsets = {}
 func _ready():
 	process_mode = PROCESS_MODE_ALWAYS
 	for key in volume_offsets:
-		actual_volume_offsets[key.resource_name] = volume_offsets[key];
+		actual_volume_offsets[key.resource_path] = volume_offsets[key];
 
 # This function loops through the 8 audioStreamPlayer nodes, gets one that's 
 # not on use, assigns it the sound we want and then plays it
@@ -70,8 +74,9 @@ func stop_looping_sound(sound):
 	
 	
 func get_volume(sound):
-	var volume = actual_volume_offsets[sound.resource_name]
-	if volume != null:
-		return volume
+	var has_volume = actual_volume_offsets.has(sound.resource_path)
+	#print_debug("sound name: " + str(sound.resource_path) + ", volume: " + str(volume))
+	if has_volume:
+		return actual_volume_offsets[sound.resource_path]
 	else:
 		return 0

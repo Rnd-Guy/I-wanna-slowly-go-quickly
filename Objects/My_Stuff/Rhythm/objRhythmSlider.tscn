@@ -206,12 +206,10 @@ func handle_shape():
 	
 func handle_sound():
 	if is_currently_colliding && !is_playing_sound:
-		print_debug(\"starting to play\")
 		GLOBAL_SOUNDS.play_looping_sound(sound)
 		is_playing_sound = true
 
 	if !is_currently_colliding && is_playing_sound:
-		print_debug(\"stopping\")
 		GLOBAL_SOUNDS.stop_looping_sound(sound)
 		is_playing_sound = false
 	

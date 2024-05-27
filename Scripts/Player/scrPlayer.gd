@@ -394,7 +394,7 @@ func handle_shooting():
 		#	-Takes into account the global x
 		#	-The bullet spacing, relative to where we are looking at 
 		create_bullet_id.global_position = Vector2(global_position.x, global_position.y + 5)
-		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndShoot)
+		#GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndShoot)
 		
 		# CUSTOM
 		# if boss mode and is close to beat, change sprite
@@ -407,6 +407,9 @@ func handle_shooting():
 				create_bullet_id.boss_bullet = true
 				create_bullet_id.attack_type = GlobalClass.weapon_type.NOTE
 				h_speed *= 1.005
+				GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndBossRhythmShot)
+			else:
+				GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndShoot)
 			GLOBAL_GAME.shot_beat = GLOBAL_GAME.boss_beat
 			
 			if shmup_mark_2:
@@ -415,7 +418,8 @@ func handle_shooting():
 				create_bullet_id.attack_damage = h_speed
 			
 			#last_shot_beat = GLOBAL_GAME.boss_beat
-			
+		else:
+			GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndShoot)
 		
 		# After everything is set and done, creates the bullet
 		get_parent().add_child(create_bullet_id)

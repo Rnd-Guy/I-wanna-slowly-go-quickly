@@ -104,7 +104,7 @@ func _physics_process(_delta):
 			frames_before_resync = 7
 
 		set_phase()
-		update_boss()
+	update_boss()
 	
 	show_debug_labels()
 

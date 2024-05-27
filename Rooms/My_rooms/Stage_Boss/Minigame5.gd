@@ -10,7 +10,7 @@ var beat_offset
 var speed_per_hit = 0.1
 
 var x_positions = [208, 280, 352, 416, 488, 560]
-var y_target = 490
+var y_target = 496 - 10 - 8 + 2 # 496 is the pos of player, 10 is half player height, 8 is half note height, +2 is a little leeway for note to go inside player in order to collide
 
 var notes = [
 	#[249,4],
@@ -127,6 +127,7 @@ func _physics_process(_delta):
 	#%objPlayer.set_global_position(Vector2(%objPlayer.global_position.x,$Start.global_position.y))
 
 func score_points():
+	GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndRhythm2)
 	%objPlayer.h_speed += speed_per_hit
 
 func get_beat_offset():

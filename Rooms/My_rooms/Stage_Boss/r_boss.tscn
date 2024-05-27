@@ -186,12 +186,12 @@ func enter():
 	
 	enter_beat = floori(GLOBAL_GAME.boss_beat)
 	
-	end_beat = randi_range(enter_beat+2, enter_beat+3)
+	end_beat = randi_range(enter_beat+3, enter_beat+4)
 	current_speed = randi_range(min_speed, max_speed)
 	started = false
 
 func physics(delta):
-	if GLOBAL_GAME.boss_beat < enter_beat + 1:
+	if GLOBAL_GAME.boss_beat < enter_beat + 2:
 		%Boss1/bossSprite.play(\"predash\")
 		return
 	elif !started:
@@ -244,12 +244,12 @@ func enter():
 	var current_beat = floori(GLOBAL_GAME.boss_beat)
 	start_beat = GLOBAL_GAME.boss_beat
 	
-	end_beat = current_beat+3
+	end_beat = current_beat+4
 	current_speed = randi_range(min_speed, max_speed)
 	started = false
 
 func physics(delta):
-	if GLOBAL_GAME.boss_beat < start_beat + 1:
+	if GLOBAL_GAME.boss_beat < start_beat + 2:
 		%Boss1/bossSprite.play(\"prejump\")
 		return
 	elif !started:
@@ -268,7 +268,7 @@ func physics(delta):
 	# beginning of sin = start beat
 	# sin 180 = end beat
 	
-	var weight = inverse_lerp(start_beat+1, end_beat, GLOBAL_GAME.boss_beat)
+	var weight = inverse_lerp(start_beat+2, end_beat, GLOBAL_GAME.boss_beat)
 	var weighted_angle = lerp(0, 180, weight)
 	%Boss1.position.y = boss_y - 100*sin(deg_to_rad(weighted_angle))
 	

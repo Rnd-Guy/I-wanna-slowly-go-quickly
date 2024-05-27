@@ -44,7 +44,6 @@ file_logging/enable_file_logging.pc=false
 
 window/size/viewport_width=800
 window/size/viewport_height=608
-window/size/resizable=false
 window/stretch/mode="viewport"
 
 [file_customization]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpfw8orxfytjc"
+path="res://.godot/imported/sndBossRhythm.wav-be1d708b76ef4e88e4d9dbd950c9dd06.sample"
+
+[deps]
+
+source_file="res://Audio/My Stuff/sndBossRhythm.wav"
+dest_files=["res://.godot/imported/sndBossRhythm.wav-be1d708b76ef4e88e4d9dbd950c9dd06.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
