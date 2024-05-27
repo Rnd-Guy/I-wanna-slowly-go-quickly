@@ -48,5 +48,6 @@ func set_shape_rotation(degrees):
 
 
 func _on_falling_spike_body_entered(body):
-	body.h_speed -= damage
+	body.take_damage(damage, true)
+	#body.h_speed -= damage
 	queue_free()

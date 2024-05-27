@@ -7,7 +7,7 @@ var speed = 300
 var song_finished = false
 
 var x_positions = [208, 280, 352, 416, 488, 560]
-var y_target = 496 - 10 - 8 + 2 # 496 is the pos of player, 10 is half player height, 8 is half note height, +2 is a little leeway for note to go inside player in order to collide
+var target_y = 496 - 10 - 8  # 496 is the pos of player, 10 is half player height, 8 is half note height
 
 var score = 0
 var target_score = 114 # max possible without z is 11600, max is 12400
@@ -198,6 +198,7 @@ func create_note(note_data):
 	note_block.bpm = bpm
 	note_block.beat = note_data[0]
 	note_block.x = x_positions[note_data[1]-1]
+	note_block.target_y = target_y
 	note_block.collided.connect(score_points)
 	$Instances.add_child(note_block)
 	

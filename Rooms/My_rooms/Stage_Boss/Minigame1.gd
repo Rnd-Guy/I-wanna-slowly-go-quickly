@@ -47,3 +47,4 @@ func _on_fall_check_body_entered(_body):
 func gain_speed(speed):
 	%objPlayer.set_global_position($Start.global_position)
 	%objPlayer.h_speed += speed
+	GLOBAL_INSTANCES.player_speed_changed.emit(%objPlayer.h_speed)

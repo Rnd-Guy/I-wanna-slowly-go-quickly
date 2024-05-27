@@ -20,10 +20,15 @@ const sndBlockChange = preload("res://Audio/Sounds/sndBlockChange.wav")
 const sndZoop = preload("res://Audio/Sounds/sndZoop.wav")
 const sndGlass = preload("res://Audio/Sounds/sndGlass.wav")
 
+const sndPermaLocked = preload("res://Audio/My Stuff/sndPermaLocked.wav")
+
 const sndHoldNote = preload("res://Audio/My Stuff/sndHoldNote.ogg")
 const sndRhythm1 = preload("res://Audio/My Stuff/sndRhythm1.wav")
 const sndRhythm2 = preload("res://Audio/My Stuff/sndRhythm2.wav")
 const sndBossRhythmShot = preload("res://Audio/My Stuff/sndBossRhythm.wav")
+
+const sndSpeedChange = preload("res://Audio/My Stuff/sndSpeedChange.wav")
+const sndSpeedChangeC = preload("res://Audio/My Stuff/sndSpeedC.wav")
 
 # We get the audioPlayerList node from this variable. A little cleaner
 @onready var audioPlayers: Node = $audioPlayerList
@@ -34,7 +39,12 @@ var volume_offsets = {
 	sndHoldNote: -5,
 	sndRhythm1: -15,
 	sndRhythm2: -10,
-	sndBossRhythmShot: -10
+	sndBossRhythmShot: -10,
+	sndPermaLocked: -15,
+	sndSpeedChangeC: -10,
+	sndGlass: -10,
+	sndZoop: -10,
+	sndJumpRefresher: -5
 }
 
 # since we can't compare object to object, we'll need to compare the actual resource names
@@ -48,13 +58,13 @@ func _ready():
 
 # This function loops through the 8 audioStreamPlayer nodes, gets one that's 
 # not on use, assigns it the sound we want and then plays it
-func play_sound(sound) -> void:
+func play_sound(sound, pitch=1) -> void:
 	for audioStreamPlayers: AudioStreamPlayer in audioPlayers.get_children():
 		if not audioStreamPlayers.playing:
 			audioStreamPlayers.stream = sound
 			audioStreamPlayers.volume_db = get_volume(sound)
+			audioStreamPlayers.pitch_scale = pitch
 			audioStreamPlayers.play()
-			
 			break
 		
 func play_looping_sound(sound):
@@ -80,3 +90,11 @@ func get_volume(sound):
 		return actual_volume_offsets[sound.resource_path]
 	else:
 		return 0
+
+func play_sound_with_pitch(sound, pitch):
+	for audioStreamPlayers: AudioStreamPlayer in audioPlayers.get_children():
+		if not audioStreamPlayers.playing:
+			audioStreamPlayers.stream = sound
+			audioStreamPlayers.volume_db = get_volume(sound)
+			audioStreamPlayers.play()
+			break

@@ -108,7 +108,8 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("button_music"):
 		pause_music()
 	
-	if Input.is_action_just_pressed("button_pause"):
+	if Input.is_action_just_pressed("button_pause") || Input.is_action_just_pressed("button_pause_2"):
+		# for some reason I can't add P to button_pause so a second action is created for it *shrug*
 		pause_game()
 	
 	if Input.is_action_just_pressed("button_fullscreen"):

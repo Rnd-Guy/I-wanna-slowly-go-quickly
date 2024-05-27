@@ -211,7 +211,7 @@ func ca(phase):
 		dontSpawnAdder = null
 
 func handle_bar_collision(current_phase):
-	%objPlayer.h_speed -= bar_damage
+	%objPlayer.take_damage(bar_damage, true)
 	%objPlayer.global_position = current_phase.get_node("spawnLocation").global_position
 	delete_adder(current_phase)
 	

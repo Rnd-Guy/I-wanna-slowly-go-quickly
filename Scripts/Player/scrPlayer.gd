@@ -73,7 +73,7 @@ func _ready():
 	$CanvasLayer/uiParent/Polygon2D2.position = Vector2(35,40)
 	$CanvasLayer/uiParent/bossBonus.position = Vector2(160,40)
 	
-	
+	GLOBAL_INSTANCES.player_speed_changed.connect(make_sound_on_speed_change)
 
 
 """
@@ -612,10 +612,13 @@ func other_debug_commands():
 		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndSave)
 		GLOBAL_SAVELOAD.save_game()
 
-func take_damage(damage):
+func take_damage(damage, ignore_iframes=false):
 	if current_iframes <= 0:
 		h_speed -= damage
-		current_iframes = max_iframes
+		make_sound_on_speed_change(h_speed)
+		if !ignore_iframes:
+			current_iframes = max_iframes
+		#GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndSpeedChangeDown)
 
 func handle_iframes(delta):
 	if is_boss:
@@ -681,3 +684,9 @@ func handle_speed_ui_over_player():
 	else:
 		$CanvasLayer/uiParent.modulate.a = 1
 		#$CanvasLayer.set_layer(1)
+
+func make_sound_on_speed_change(speed):
+	if speed > 1000: #c speed
+		GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndSpeedChangeC)
+	var pitch = pow(2,(atan((speed-2)/10) + 1)) # trying to make something like an exponential curve, but not overpowering
+	GLOBAL_SOUNDS.play_sound(GLOBAL_SOUNDS.sndSpeedChange, pitch)
