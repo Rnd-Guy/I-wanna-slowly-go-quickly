@@ -26,7 +26,6 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_cars7")]
-rendering_quadrant_size = 32
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_arxcc")]
 

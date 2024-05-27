@@ -91,7 +91,7 @@ func _ready():
 	
 	# Hides the mouse. A visual preference, so feel free to delete this if you
 	# want
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
 	if !game_paused:
