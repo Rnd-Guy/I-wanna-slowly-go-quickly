@@ -102,7 +102,7 @@ func _process(delta):
 func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("button_debug"):
-		#toggle_debug_mode()
+		toggle_debug_mode()
 		pass
 	
 	if Input.is_action_just_pressed("button_music"):
@@ -216,7 +216,8 @@ func full_game_restart() -> void:
 # debug data and show a sprite on the mouse position, indicating that objPlayer
 # can get teleported. Check objPlayer's debug_mouse_teleport() method
 func toggle_debug_mode() -> void:
-	debug_mode = !debug_mode
+	if is_valid_room() && GLOBAL_SAVELOAD.variableGameData.final_time > 0:
+		debug_mode = !debug_mode
 
 
 # Pauses music using a keyboard shortcut

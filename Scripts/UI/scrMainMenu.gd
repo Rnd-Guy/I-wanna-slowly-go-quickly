@@ -42,6 +42,7 @@ func generic_files(file_id):
 	# We set our savefile id (1, 2 or 3), which we then read our data from
 	GLOBAL_SAVELOAD.saveFileID = file_id
 	GLOBAL_SAVELOAD.load_data()
+	GLOBAL_GAME.debug_mode = false; # never load game in debug, to avoid debug mode transferring between files
 	
 	# After reading our data, we check if we've saved at least one time.
 	# If we haven't, it means we're starting a new game, so we go to the

@@ -36,3 +36,4 @@ Project made in Godot v4.2.1, using [ReloadedK's godot fangame engine v1.3](http
 * Fix save softlock
 * Add to github \o/
 * Add to delfruit \o/
+* Add debug mode toggle when beating the game

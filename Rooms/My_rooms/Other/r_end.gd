@@ -29,3 +29,23 @@ func _ready():
 	
 	var final_time_after_reduction = final_time - barrel_reduction - rhythm_score_reduction - miku_score_reduction
 	$finalTime.set_text(GLOBAL_GAME.seconds_to_time_with_microseconds(final_time_after_reduction))
+	
+	hide_debug_text()
+
+
+func _on_area_2d_body_entered(body):
+	show_debug_text()
+
+func _on_area_2d_body_exited(body):
+	hide_debug_text()
+
+func show_debug_text():
+	$DebugLeft.visible = true
+	$DebugRight.visible = true
+
+func hide_debug_text():
+	$DebugLeft.visible = false
+	$DebugRight.visible = false
+
+
+
