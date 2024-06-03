@@ -1,5 +1,7 @@
 # I Wanna Slowly Go Quickly
 
+[Download the latest version here!](https://www.mediafire.com/file/y4wwgz97iqhvqt6/I_wanna_slowly_go_quickly.zip/file)
+
 An aiwanna made for the [I Wanna Twourney](https://iwannatwourney.com/).
 
 Project made in Godot v4.2.1, using [ReloadedK's godot fangame engine v1.3](https://github.com/ReloadedK-git/ReloadedKs-Godot-Fangame-Engine)
