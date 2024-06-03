@@ -1,6 +1,6 @@
 # I Wanna Slowly Go Quickly
 
-[Download the latest version here!](https://www.mediafire.com/file/y4wwgz97iqhvqt6/I_wanna_slowly_go_quickly.zip/file)
+[Download the latest version here!](https://github.com/Rnd-Guy/I-wanna-slowly-go-quickly/releases/latest/)
 
 An aiwanna made for the [I Wanna Twourney](https://iwannatwourney.com/).
 
