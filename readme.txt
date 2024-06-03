@@ -39,7 +39,7 @@ R		Load save point (levels autosave upon entry)
 Escape or P	Pause game
 Backspace	(After beating the game) Warp to end screen
 
-Minor spoilers (music credits / other inspirations / patch notes)
+Minor spoilers (music credits / other inspirations / patch notes / debug controls)
 |
 |
 |
@@ -103,6 +103,27 @@ Barrel
 
 
 
+Debug controls:
+Ctrl+D		Toggle debug mode. This turns on invincibility and shows debug info
+
+During debug mode:
+Right click	Teleport to mouse position
+s		Save at player position
+,		Previous room
+.		Next room
+j		On final boss: go back 5 seconds
+l		On final boss: go forward 5 seconds
+Shift+j		On final boss: go back 1 section
+Shift+l		On final boss: go forward 1 section
+i		On final boss: increase speed
+k		On final boss: decrease speed
+
+Note the final boss wasn't designed with rewinding in mind, but things often work fine when going forwards.
+If you want to go back one section for example, it's usually better to go back two then forward one.
+
+
+
+
 Changelog
 v1.0 - Twourney edition - jan24
 
@@ -123,3 +144,4 @@ Added a slight nerf that I intended on previous release
 Fix save softlock when zooping the very moment a save is touched
 Added to github \o/
 Added to delfruit \o/
+Added debug toggle when clearing
