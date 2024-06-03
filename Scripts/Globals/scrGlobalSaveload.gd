@@ -127,10 +127,14 @@ func take_screenshot() -> void:
 
 # Saves the player's coordinates, sprite state and room name. Also takes a
 # screenshot. This is what you use for saving the game normally
-func save_game(save_position=true) -> void:
+func save_game(save_position=true, prev_position=false) -> void:
 	if is_instance_valid(GLOBAL_INSTANCES.objPlayerID) && save_position:
-		variableGameData.player_x = GLOBAL_INSTANCES.objPlayerID.position.x
-		variableGameData.player_y = GLOBAL_INSTANCES.objPlayerID.position.y
+		if prev_position:
+			variableGameData.player_x = GLOBAL_INSTANCES.objPlayerID.prev_x
+			variableGameData.player_y = GLOBAL_INSTANCES.objPlayerID.prev_y
+		else:
+			variableGameData.player_x = GLOBAL_INSTANCES.objPlayerID.position.x
+			variableGameData.player_y = GLOBAL_INSTANCES.objPlayerID.position.y
 		variableGameData.player_sprite_flipped = GLOBAL_INSTANCES.objPlayerID.xscale
 		variableGameData.room_name = get_tree().get_current_scene().get_scene_file_path()
 		take_screenshot()

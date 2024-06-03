@@ -52,6 +52,8 @@ var max_iframes = 2 # seconds
 var current_iframes = 0
 var last_shot_beat = 0 # to prevent spamming
 
+var prev_x = position.x
+var prev_y = position.y
 
 func _ready():
 	
@@ -80,6 +82,9 @@ func _ready():
 ---------- MAIN LOGIC LOOP ----------
 """
 func _physics_process(delta):
+	prev_x = position.x
+	prev_y = position.y
+	
 	if (GLOBAL_SAVELOAD.variableGameData.first_time_saving == true):
 		set_first_time_saving()
 	

@@ -1,31 +1,38 @@
-# ReloadedK's Godot Fangame Engine (v1.1)
+# I Wanna Slowly Go Quickly
 
-A Godot 4.x fangame engine, created by ReloadedK.
+An aiwanna made for the [I Wanna Twourney](https://iwannatwourney.com/).
 
-Project started with Godot v4.0.2, which can be adquired at https://godotengine.org/
+Project made in Godot v4.2.1, using [ReloadedK's godot fangame engine v1.3](https://github.com/ReloadedK-git/ReloadedKs-Godot-Fangame-Engine)
 
-You can check the [engine's documentation](https://github.com/ReloadedK-git/ReloadedKs-Godot-Fangame-Engine-Docs/blob/main/00_start.md).
+---
+
+![A screenshot of the game](./Graphics/Other/githubPreview.png)
 
 ---
 
 # Change-log
 
-### v1.0 (09-07-23)
+### v1.0 (jan 24)
 
-* Initial release.
+* Initial release for the twourney
 
-### v1.1 (10-07-23)
+### v1.1 (27 may 24)
 
-* Updated to work with Godot 4.1.
-* Changed default renderer to ***Compatibility***.
-* Changed ***objMovingPlatform*** and ***objMovingBlock***.
-* Minor change to ***objHUD***.
+* Finally got round to making an update
+* Kid physics changed to be more accurate to normal aiwannas
+* Added sound effects to almost everything
+* Attempt to avoid lag spike by preloading shaders
+* Minor nerfs/changes overall in an attempt to make things a bit more intuitive
+* Zoop blocks now reset when landing
+* Removed a +1 in room 1 as it was somehow possible to win when collecting them all
+* Fixed mouse cursor not being visible
+* Fixed window not being resizeable
+* Added P for Pause
+* Prevent djump during falling section of final boss
 
-### v1.2 (09-09-23)
+### v1.1.1 (3 june 24)
 
-* Window position is kept when switching from windowed to fullscreen mode.
-
-### v1.3 (30-09-23)
-
-* Changed ***objInvisibleBlock***
-* Slightly reduced volume for ***sndBlockChange***
+* Add one tiny change to a screen that I forgot to do
+* Fix save softlock
+* Add to github \o/
+* Add to delfruit \o/

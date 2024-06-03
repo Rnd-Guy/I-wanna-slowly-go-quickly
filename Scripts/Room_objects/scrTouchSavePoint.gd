@@ -28,7 +28,8 @@ func is_saving_allowed() -> void:
 	if ($Sprite2D.frame == 1):
 		if (can_save == true):
 			# The actual saving is done here
-			GLOBAL_SAVELOAD.save_game()
+			# note collisions are 1 frame late, so for touch saves we need to save the prevx and prevy to avoid softlocking
+			GLOBAL_SAVELOAD.save_game(true, true)
 			if delete_after_save:
 				queue_free()
 		can_save = false

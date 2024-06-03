@@ -30,7 +30,6 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="tiles16" parent="Environment" instance=ExtResource("1_t6ekt")]
-rendering_quadrant_size = 32
 layer_0/tile_data = PackedInt32Array(786458, 65536, 0, 655388, 65536, 0, 655384, 65536, 0, 1835020, 65536, 0, 1966092, 65536, 0, 2097164, 65536, 0, 1638416, 65537, 0, 1638417, 65537, 0, 1638418, 65537, 0, 1638419, 65537, 0, 1638420, 65537, 0, 1638421, 65537, 0, 1638422, 65537, 0, 1638423, 65537, 0, 1638424, 65537, 0, 1638425, 65537, 0, 1638426, 65537, 0, 1638427, 65537, 0, 1638428, 65537, 0, 1638429, 65537, 0, 1638430, 65537, 0, 1638431, 65537, 0, 1638432, 65537, 0, 1638433, 65537, 0, 1638434, 65537, 0, 1638435, 65537, 0, 1638436, 65537, 0)
 
 [node name="tilSpikes16" parent="Environment" instance=ExtResource("2_nom6g")]
@@ -46,13 +45,13 @@ anchor_mode = 1
 [node name="objWarp" parent="Room_related" instance=ExtResource("4_xpl0l")]
 position = Vector2(400, 304)
 
-[node name="objPlayer" parent="Room_related" instance=ExtResource("5_18cor")]
-position = Vector2(432, 176)
-
 [node name="obTouchSavePoint2" parent="Room_related" instance=ExtResource("6_rm26f")]
 position = Vector2(240, 560)
 show = true
 delete_after_save = false
+
+[node name="objPlayer" parent="Room_related" instance=ExtResource("5_18cor")]
+position = Vector2(432, 176)
 
 [node name="Gimmicks" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

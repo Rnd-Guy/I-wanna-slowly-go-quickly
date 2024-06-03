@@ -92,6 +92,16 @@ anchor_mode = 1
 position = Vector2(640, 552)
 warp_to = "res://Rooms/My_rooms/Stage_Final/rf-b_preFinalBoss.tscn"
 
+[node name="obTouchSavePoint" parent="Room_related" instance=ExtResource("9_wd2nw")]
+position = Vector2(272, 560)
+show = true
+delete_after_save = false
+
+[node name="obTouchSavePoint2" parent="Room_related" instance=ExtResource("9_wd2nw")]
+position = Vector2(240, 272)
+show = true
+delete_after_save = false
+
 [node name="objPlayer" parent="Room_related" instance=ExtResource("8_g4dnq")]
 position = Vector2(48, 144)
 
@@ -133,16 +143,6 @@ metadata/_edit_lock_ = true
 
 [node name="tilSpikes" parent="." instance=ExtResource("18_g4no7")]
 metadata/_edit_lock_ = true
-
-[node name="obTouchSavePoint" parent="." instance=ExtResource("9_wd2nw")]
-position = Vector2(272, 560)
-show = true
-delete_after_save = false
-
-[node name="obTouchSavePoint2" parent="." instance=ExtResource("9_wd2nw")]
-position = Vector2(240, 272)
-show = true
-delete_after_save = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
