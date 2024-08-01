@@ -199,23 +199,21 @@ func set_position_on_load():
 # This is done to prevent a common issue that happens when restarting with a 
 # clean save (otherwise it would teleport the player to 0,0 and to an undefined
 # room).
-# A room reload is also required to update the values inside GLOBAL_SAVELOAD
 func set_first_time_saving():
+
 	GLOBAL_SAVELOAD.variableGameData.player_x = position.x
 	GLOBAL_SAVELOAD.variableGameData.player_y = position.y
 	GLOBAL_SAVELOAD.variableGameData.player_sprite_flipped = xscale
 	GLOBAL_SAVELOAD.variableGameData.room_name = get_tree().get_current_scene().get_scene_file_path()
 	GLOBAL_SAVELOAD.variableGameData.first_time_saving = false
+
+	# After changing the variable game data to the proper values, we save them.
 	GLOBAL_SAVELOAD.save_data()
-	
-	# After saving for the fist time in-game, a reload is needed.
+
+	# Then, after saving for the fist time in-game, a reload is needed.
 	# What this does is replacing the old default values with the new ones
 	# we just saved, reading them once through loading.
 	GLOBAL_SAVELOAD.load_data()
-	
-	# Finally, we reload the same room we were in to update GLOBAL_SAVELOAD's
-	# "room_name"
-	get_tree().change_scene_to_file(get_tree().get_current_scene().get_scene_file_path())
 
 func handle_shmup(_delta) -> void:
 	if (shmup):
